@@ -16,7 +16,7 @@ html, body{
 
 #body-wraper {
   overflow: hidden;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   font-size: 14px;
   min-height: 100%;
@@ -133,5 +133,7 @@ html, body{
 }
 
 #footer {
-  background-color: $aidspan-grey;
+  background-image: url("~@/assets/images/common/footerbg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }

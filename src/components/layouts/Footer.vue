@@ -1,7 +1,7 @@
 <template>
 <div id="footer">
     <v-container class="my-5">
-        <v-card flat>
+        <v-card style="border-radius:15px" flat>
             <v-layout row wrap>
                 <v-flex xs12 md4 sm4 lg4 id="twitter-card">
                     <v-card class="mx-auto" max-width="400" flat>
