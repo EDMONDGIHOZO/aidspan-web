@@ -5,6 +5,8 @@ import vuetify from './plugins/vuetify'
 import {store} from './stores/store'
 //import the custom styles
 import './assets/styles/responsive.scss';
+import './assets/styles/animate.scss';
+//import tweet feeds
 
 
 Vue.config.productionTip = false

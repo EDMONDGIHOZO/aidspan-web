@@ -6,7 +6,7 @@
         </v-carousel-item>
     </v-carousel>
     <v-container fluid class="my-1">
-        <v-layout row wrap>
+        <v-layout row wrap transition="scroll-y-reverse-transition">
             <v-flex xs12 md6 id="whatwe">
                 <v-card flat class="inner-card">
                     <v-card-title class="text-center">
@@ -125,8 +125,8 @@ article.comments
     </v-container>
     <v-container fluid>
         <v-layout row wrap id="pubsContainer">
-            <v-flex xs12 md12>
-                <v-card max-width="800" class="mx-auto pa-5" outlined>
+            <v-flex xs12 md8>
+                <v-card class="mx-auto pa-5 ma-1" flat>
                     <v-list>
                         <v-list-title class="title">Publications</v-list-title>
                         <v-list-item v-for="publication in publications" :key="publication.pub_id">
@@ -141,7 +141,21 @@ article.comments
                             </v-list-item-action>
                         </v-list-item>
                     </v-list>
-                    <v-btn class block color="secondary" router to="/publications">View All Publications</v-btn>
+                    <v-btn rounded block color="secondary" router to="/publications">View All Publications</v-btn>
+                </v-card>
+            </v-flex>
+            <v-flex xs12 md4>
+                <v-card class="mx-auto pa-5 ma-1" hover shaped id="apw-card">
+                    <v-card-title>
+                        <v-icon>mdi-settings</v-icon>
+                        AIDSPAN PORTAL WORKBENCH
+                    </v-card-title>
+                    <v-card-text>
+                        Aidspan Portal Workbench™ is a flexible and powerful web-based application which retrieves grant portfolio data from the web services provided by the Global Fund and then makes the data available in a user-friendly way.
+                        <v-btn absolute dark fab bottom right color="secondary" href="https://data.aidspan.org" target="_blank">
+                            <v-icon>mdi-arrow-right</v-icon>
+                        </v-btn>
+                    </v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -149,22 +163,24 @@ article.comments
     <v-container fluid>
         <v-layout row wrap id="subscribe-section">
             <v-flex xs12 md12 class="pa-5 title">
-                <div class="ma-3 white--text">
-                    <div class="heading display-1">SUBSCRIBE FOR NEWSLETTER </div>
-                    <div class="subHeading font-weight-light">for newsletter in English choose GFO or OFM for french</div>
+                <div class="ma-3">
+                    <div class="heading display-1 orange--text">SUBSCRIBE FOR NEWSLETTER</div>
+                    <div class="subHeading font-weight-light">
+                        for newsletter in English choose GFO or OFM for french
+                    </div>
                 </div>
             </v-flex>
             <v-flex class="pa-2 content">
-                    <v-col cols="12" md="12">
-                        <v-form ref="form" v-model="valid" lazy-validation justify-center>
-                            <v-text-field v-model="email" :rules="emailRules" label="E-mail" required outlined rounded background-color="white"></v-text-field>
-                            <v-select v-model="select" :items="newsletters" :rules="[v => !!v || 'Item is required']" label="GFO or OFM ?" required class="white--text"></v-select>
-                            <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="Do you agree?" required rounded></v-checkbox>
-                            <v-btn :disabled="!valid" color="white" class="mr-8" rounded outlined block>
-                                Subscribe
-                            </v-btn>
-                        </v-form>
-                    </v-col>
+                <v-col cols="12" md="12">
+                    <v-form ref="form" v-model="valid" lazy-validation justify-center>
+                        <v-text-field v-model="email" :rules="emailRules" label="E-mail" required outlined rounded color="secondary" background-color="white"></v-text-field>
+                        <v-select v-model="select" :items="newsletters" :rules="[v => !!v || 'Item is required']" label="GFO or OFM ?" required class="white--text"></v-select>
+                        <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="Do you agree?" required rounded></v-checkbox>
+                        <v-btn :disabled="!valid" color="secondary" class="mr-8" rounded outlined block large>
+                            Subscribe
+                        </v-btn>
+                    </v-form>
+                </v-col>
             </v-flex>
         </v-layout>
     </v-container>
@@ -191,19 +207,15 @@ export default {
     },
     data() {
         return {
-            //subscribe form 
-            email: '',
+            //subscribe form
+            email: "",
             emailRules: [
-                v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                v => !!v || "E-mail is required",
+                v => /.+@.+\..+/.test(v) || "E-mail must be valid"
             ],
             valid: false,
             select: null,
-            newsletters: [
-                'OFM',
-                'GFO',
-                'Both',
-            ],
+            newsletters: ["OFM", "GFO", "Both"],
             checkbox: false,
             //end of subscribe form
 

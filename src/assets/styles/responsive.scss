@@ -9,14 +9,17 @@ $light-grey: #E5E5E5;
   margin: 0;
   box-sizing: border-box;
 }
-body{
+html, body{
   background-color: $light-grey;
+  margin: 0;
 }
 
 #body-wraper {
   overflow: hidden;
   max-width: 80%;
   margin: 0 auto;
+  font-size: 14px;
+  min-height: 100%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -98,8 +101,8 @@ body{
 }
 
 #subscribe-section {
- border-top: solid 8px #F46517;
- background-color:$aidspan-blue;
+ border-top: solid 3px rgb(23, 170, 244);
+ padding-bottom:20px ;
 }
 
 #subscribe-section .title {
@@ -115,4 +118,20 @@ body{
   display: flex;
   justify-content: center;
   padding: 10px;
+}
+
+#apw-card {
+  background-image: url("~@/assets/images/common/apwbg.svg");
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 3px 4px 4px rgba(63, 192, 252, 0.29);
+}
+#apw-card:hover {
+  box-shadow: 3px 4px 4px rgba(252, 173, 63, 0.29);
+}
+
+#footer {
+  background-color: $aidspan-grey;
 }

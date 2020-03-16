@@ -11,6 +11,11 @@ export const store = new Vuex.Store({
       { icon: "mdi-linkedin", name: "linkedin" }
     ],
 
+    basicInfo: [
+      { icon: 'mdi-phone', title: '+254 (0)774-135984' },
+      { icon: 'mdi-pin', title: 'P.O. Box 66869 - 00800,Nairobi, Kenya' },
+      { icon: 'mdi-email', title: 'info@aidspan.org' }
+    ],
     menus: [
       {
         title: "Home",
@@ -235,6 +240,13 @@ export const store = new Vuex.Store({
         views: 2340,
         shares: 120
       }
+    ],
+    quicklinks: [
+      { title: 'Board of directors', route: 'aidspan/board-of-directors' },
+      { title: 'Key Documents', route: 'aidspan/key-documents' },
+      { title: 'Galleries', route: 'aidspan/galleries' },
+      { title: 'Careers', route: 'aidspan/careers' },
+      { title: 'Sitemap', route: 'aidspan/sitemap' },
     ]
   }
 });
