@@ -1,6 +1,6 @@
 <template>
   <div class="menubar hidden-xs-only">
-    <v-toolbar color="primary">
+    <v-toolbar flat>
       <v-btn
         text
         v-for="(menu,i) in menus"
@@ -9,16 +9,16 @@
         :to="menu.route"
         depressed
         class="ma-2"
-        color="white"
+        color="primary"
       >
         <v-icon left>{{menu.icon}}</v-icon>
         {{menu.title}}
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn fab icon color="white">
-        <v-icon>mdi-magnify</v-icon>
+      <v-btn icon color="primary">
+        <v-icon small>mdi-magnify</v-icon>
       </v-btn>
-      <v-btn icon color="white">
+      <v-btn icon color="primary">
           en
       </v-btn>
     </v-toolbar>
