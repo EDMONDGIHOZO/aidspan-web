@@ -102,8 +102,6 @@ export const store = new Vuex.Store({
     ],
     appIcon: require("@/assets/images/common/aid_icon.png")
 
-    //current issue number
-
     //current articles must have the relation with the current issue above
   }
 });

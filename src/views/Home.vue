@@ -122,7 +122,7 @@
                   <v-list-item-avatar color="grey darken-3">
                     <v-img
                       class="elevation-6"
-                      src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                      :src="article.art_author.author_img"
                       width="10px"
                     ></v-img>
                   </v-list-item-avatar>
@@ -143,16 +143,20 @@
                   <v-list-item class="grow">
                     <v-row align="left" justify="end">
                       <v-icon small left>mdi-eye</v-icon>
-                      <span class="subheading mr-2">{{article.views}} views</span>
+                      <span class="subheading mr-2"
+                        >{{ article.views }} views</span
+                      >
                       <v-spacer></v-spacer>
                       <v-icon class="ma-1" color="primary" small
                         >mdi-comment</v-icon
                       >
-                      <span class="subheading mr-2">{{article.comments}}</span>
+                      <span class="subheading mr-2">{{
+                        article.comments
+                      }}</span>
                       <v-icon class="ma-1" color="secondary" small
                         >mdi-share-variant</v-icon
                       >
-                      <span class="subheading">{{article.shares}}</span>
+                      <span class="subheading">{{ article.shares }}</span>
                     </v-row>
                   </v-list-item>
                 </v-card-actions>
@@ -208,14 +212,13 @@ export default {
         "orange darken-1"
       ],
       cycle: false,
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
       currentIssue: {
         iss_id: 3431,
         iss_number: 341,
         iss_date: "12 march 2020",
         iss_desc:
           "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: { name: "Michel Ange", author_url: "/Michel" },
+
         lang: "en",
         timestamp: "1580733020"
       },
@@ -228,7 +231,11 @@ export default {
           art_id: "dswe12",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Ida Hakiza", author_url: "/Michel" },
+          art_author: {
+            name: "Ida Hakiza",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 23,
           views: 2340,
           shares: 120
@@ -241,7 +248,11 @@ export default {
           art_id: "dswe1322",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Adele Sulcas", author_url: "/Michel" },
+          art_author: {
+            name: "Adele Sulcas",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 3,
           views: 230,
           shares: 20
@@ -254,7 +265,11 @@ export default {
           art_id: "dswe1322",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Adele Sulcas", author_url: "/Michel" },
+          art_author: {
+            name: "Adele Sulcas",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 25,
           views: 210,
           shares: 320
@@ -267,7 +282,11 @@ export default {
           art_id: "dswe1322",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Adele Sulcas", author_url: "/Michel" },
+          art_author: {
+            name: "Adele Sulcas",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 23,
           views: 2340,
           shares: 120
@@ -280,7 +299,11 @@ export default {
           art_id: "dswe1322",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Adele Sulcas", author_url: "/Michel" },
+          art_author: {
+            name: "Adele Sulcas",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 23,
           views: 2340,
           shares: 120
@@ -293,7 +316,11 @@ export default {
           art_id: "dswe1fg2",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Staff Ange", author_url: "/Michel" },
+          art_author: {
+            name: "Staff Ange",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 23,
           views: 2340,
           shares: 120
@@ -306,7 +333,11 @@ export default {
           art_id: "dswtr12",
           art_abstract:
             "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-          art_author: { name: "Michel Ange", author_url: "/Michel" },
+          art_author: {
+            name: "Michel Ange",
+            author_url: "/Michel",
+            author_img: require("@/assets/images/common/author_default.svg")
+          },
           comments: 23,
           views: 2340,
           shares: 120
