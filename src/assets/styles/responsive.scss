@@ -75,3 +75,11 @@ $aidspan-blue: #00adef;
   font-size: 12px;
   color: $aidspan-blue;
 }
+
+
+#pubsContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 15px;
+}

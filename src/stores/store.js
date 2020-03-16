@@ -100,8 +100,20 @@ export const store = new Vuex.Store({
         title: "Independent observer of the Global fund"
       }
     ],
-    appIcon: require("@/assets/images/common/aid_icon.png")
-
-    //current articles must have the relation with the current issue above
+    appIcon: require("@/assets/images/common/aid_icon.png"),
+    homePublications: [
+      {
+        pub_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        pub_date: "30 Jan 2020",
+        pub_file_url: "/pub"
+      },
+      {
+        pub_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        pub_date: "30 Jan 2020",
+        pub_file_url: "/pub"
+      }
+    ]
   }
 });
