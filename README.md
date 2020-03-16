@@ -1,9 +1,7 @@
 # aidspan-web
 
-## Project setup
-```
-npm install
-```
+## Description
+* in this website i used vuejs + Vuetify for frontend.
 
 ### Compiles and hot-reloads for development
 ```
@@ -19,6 +17,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
