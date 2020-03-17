@@ -8,7 +8,21 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Welcome to Aidspan',
+      metaTags: [
+        {
+          name: 'Description',
+          content: 'aidspan is NGO based in Kenya'
+        },
+        {
+          proporty: 'og:Description',
+          content: 'the global fund independent observer'
+        }
+      ]
+    }
+
   },
   {
     path: '/about',
@@ -25,5 +39,10 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from,next) => {
+  document.title = to.meta.title
+  next()
+});
 
 export default router

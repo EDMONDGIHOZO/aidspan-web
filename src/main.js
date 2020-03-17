@@ -6,13 +6,16 @@ import {store} from './stores/store'
 //import the custom styles
 import './assets/styles/responsive.scss';
 import './assets/styles/animate.scss';
-//import tweet feeds
+//import for animation
+import scrollAnimation from './directives/scrollAnimation'
 
+Vue.directive('scrollAnimation' , scrollAnimation);
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
+  template: '',
   vuetify,
   store: store,
   render: h => h(App)

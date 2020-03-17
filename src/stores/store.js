@@ -5,16 +5,16 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     icons: [
-      { icon: "mdi-facebook", name: "facebook" },
-      { icon: "mdi-gmail", name: "gmail" },
-      { icon: "mdi-twitter", name: "twitter" },
-      { icon: "mdi-linkedin", name: "linkedin" }
+      { icon: "mdi-facebook", name: "facebook" , link: 'https://www.facebook.com/Aidspan1/' },
+      { icon: "mdi-gmail", name: "gmail" ,link: 'mailto:info@gmail.com' },
+      { icon: "mdi-twitter", name: "twitter" , link: 'https://twitter.com/aidspan' },
+      { icon: "mdi-linkedin", name: "linkedin" , link: 'https://www.linkedin.com/company/aidspan'}
     ],
 
     basicInfo: [
-      { icon: 'mdi-phone', title: '+254 (0)774-135984' },
-      { icon: 'mdi-pin', title: 'P.O. Box 66869 - 00800,Nairobi, Kenya' },
-      { icon: 'mdi-email', title: 'info@aidspan.org' }
+      { icon: "mdi-phone", title: "+254 (0)774-135984" },
+      { icon: "mdi-pin", title: "P.O. Box 66869 - 00800,Nairobi, Kenya" },
+      { icon: "mdi-email", title: "info@aidspan.org" }
     ],
     menus: [
       {
@@ -242,17 +242,33 @@ export const store = new Vuex.Store({
       }
     ],
     quicklinks: [
-      { title: 'Board of directors', route: 'aidspan/board-of-directors' },
-      { title: 'Key Documents', route: 'aidspan/key-documents' },
-      { title: 'Galleries', route: 'aidspan/galleries' },
-      { title: 'Careers', route: 'aidspan/careers' },
-      { title: 'Sitemap', route: 'aidspan/sitemap' },
+      { title: "Board of directors", route: "aidspan/board-of-directors" },
+      { title: "Key Documents", route: "aidspan/key-documents" },
+      { title: "Galleries", route: "aidspan/galleries" },
+      { title: "Careers", route: "aidspan/careers" },
+      { title: "Sitemap", route: "aidspan/sitemap" }
     ],
 
     epidemics: [
-      {ep_name: 'Tuberclosis' , ep_icon: require("@/assets/images/common/tuberclosis.png"), ep_id: 'safda3' , class:'T'},
-      {ep_name: 'AIDS' , ep_icon: require("@/assets/images/common/aids.png"), ep_id: 'adfawe' , class: 'A'},
-      {ep_name: 'Malaria' , ep_icon: require("@/assets/images/common/maralia.png"), ep_id: '213fjdsl' , class:'M'},
-    ]
+      {
+        ep_name: "Tuberclosis",
+        ep_icon: require("@/assets/images/common/tuberclosis.png"),
+        ep_id: "safda3",
+        class: "T"
+      },
+      {
+        ep_name: "AIDS",
+        ep_icon: require("@/assets/images/common/aids.png"),
+        ep_id: "adfawe",
+        class: "A"
+      },
+      {
+        ep_name: "Malaria",
+        ep_icon: require("@/assets/images/common/maralia.png"),
+        ep_id: "213fjdsl",
+        class: "M"
+      }
+    ],
+    
   }
 });

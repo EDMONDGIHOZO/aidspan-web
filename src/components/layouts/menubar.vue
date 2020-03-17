@@ -3,7 +3,7 @@
     <v-toolbar flat>
       <v-btn
         text
-        v-for="(menu,i) in menus"
+        v-for="(menu, i) in menus"
         :key="i"
         router
         :to="menu.route"
@@ -11,17 +11,57 @@
         class="ma-2"
         color="primary"
       >
-        <v-icon left>{{menu.icon}}</v-icon>
-        {{menu.title}}
+        <v-icon left>{{ menu.icon }}</v-icon>
+        {{ menu.title }}
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn icon color="primary">
+
+      <v-btn icon color="primary" @click.stop="dialog = true">
         <v-icon small>mdi-magnify</v-icon>
       </v-btn>
+
       <v-btn icon color="primary">
-          en
+        en
       </v-btn>
     </v-toolbar>
+    <!-- start the searchbox overlay -->
+    <v-row justify-center>
+      <v-dialog v-model="dialog" max-width="70%" transition="scale-transition" overlay-color="primary" overlay-opacity="0.4">
+        <v-card id="search-container">
+          <v-card-title>
+            <span class="headline">Search Aidspan </span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field
+                    label="You can search an article, issue , etc .. "
+                    required
+                    outlined
+                    rounded
+                    background-color="white"
+                    prepend-inner-icon="mdi-magnify"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+            <v-divider></v-divider>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red darken-1" text @click="dialog = false"
+              >Close</v-btn
+            >
+            <v-btn color="blue darken-2" text @click="dialog = false"
+              >Search now</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
+
+    <!--end of search -->
   </div>
 </template>
 
@@ -34,6 +74,9 @@ export default {
   },
   data() {
     return {
+      // for search overlay //
+      dialog: false,
+      subscribeDialog :true,
       items: [
         {
           text: "English"
