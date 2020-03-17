@@ -247,6 +247,12 @@ export const store = new Vuex.Store({
       { title: 'Galleries', route: 'aidspan/galleries' },
       { title: 'Careers', route: 'aidspan/careers' },
       { title: 'Sitemap', route: 'aidspan/sitemap' },
+    ],
+
+    epidemics: [
+      {ep_name: 'Tuberclosis' , ep_icon: require("@/assets/images/common/tuberclosis.png"), ep_id: 'safda3' , class:'T'},
+      {ep_name: 'AIDS' , ep_icon: require("@/assets/images/common/aids.png"), ep_id: 'adfawe' , class: 'A'},
+      {ep_name: 'Malaria' , ep_icon: require("@/assets/images/common/maralia.png"), ep_id: '213fjdsl' , class:'M'},
     ]
   }
 });

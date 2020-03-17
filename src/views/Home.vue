@@ -5,52 +5,45 @@
             <div class="caption-card"></div>
         </v-carousel-item>
     </v-carousel>
-    <v-container fluid class="my-1">
-        <v-layout row wrap transition="scroll-y-reverse-transition">
-            <v-flex xs12 md6 id="whatwe">
-                <v-card flat class="inner-card">
-                    <v-card-title class="text-center">
-                        <p class="display-1" id="inner-title">What we are</p>
-                    </v-card-title>
-                    <v-card-text>
-                        <p class="intro-text">
-                            Aidspan is a non-profit organization based in Kenyawhose mission
-                            is to reinforce the effectiveness of the Global Fund to Fight
-                            AIDS, Tuberculosis and Malariaby serving as an independent
-                            watchdog of the Fund and its grant implementers.
-                        </p>
-                    </v-card-text>
-                    <v-flex style="display: flex; justify-content: center; content-align: center; font-weight: bold;">
-                        <v-card-actions>
-                            <v-btn v-for="link in quickhomelinks" :key="link.icon" color="green" depressed text class="d-none d-sm-flex">
-                                {{ link.title }}
-                            </v-btn>
-                            <v-btn v-for="link in quickhomelinks" :key="link.title" color="green" icon class="d-flex d-sm-none">
-                                <v-icon x-large class="mx-5">{{ link.icon }}</v-icon>
-                            </v-btn>
-                            <v-spacer></v-spacer>
-                        </v-card-actions>
-                    </v-flex>
-                </v-card>
+    <!--end of corousel -->
+    <!-- intro section -->
+    <v-container fluid>
+
+        <v-layout row wrap id="web-intro">
+            <v-flex xs12 md4 sm4 lg4 class="aidspan">
+                <div class="header">
+                    <h1 display-2>AIDSPAN</h1>
+                </div>
+                <p>Aidspan is an international non-governmental
+                    organization (NGO) created in 2002 as an
+                    independent observer of the Global Fund to figh
+                    AIDS, TB, and Malaria. Aidspan provides the Global
+                    Fund to Fight AIDS, Tuberculosis and Malaria
+                    (the “Global Fund”) stakeholders information and
+                    analysis to understand and evaluate the Global
+                    Fund progress. Aidspan aims to influence the
+                    transparency and effectiveness of the Global Fund
+                    at the global and country-level</p>
             </v-flex>
-            <v-flex xs12 md6 style="display: flex; align-items: center;justify-content: center">
-                <v-card class="pa-5 wedo">
-                    <div class="title">
-                        <h2>What we do</h2>
-                    </div>
-                    <v-card-text>
-                        <p>
-                            Aidspan is a non-profit organization based in Kenyawhose mission
-                            is to reinforce the effectiveness of the Global Fund to Fight
-                            AIDS, Tuberculosis and Malariaby serving as an independent
-                            watchdog of the Fund and its grant implementers.
-                        </p>
-                    </v-card-text>
-                </v-card>
+            <v-flex xs12 md8 sm6 lg8 class="mission">
+                <div class="mission-header">
+                    <h1>OUR MISSION</h1>
+                    <h3>Our world without Epidemics of :</h3>
+                </div>
+                <div class="mission-content">
+                   <v-card class="ma-5 pa-4" v-for="epidemic in epidemics" :key="epidemic.ep_id">
+                       <v-card-item >
+                            <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
+                           <span style="font-weight: bold; text-align:center ; font-size: 15px">{{epidemic.ep_name}}</span>
+                       </v-card-item>
+                   </v-card>
+                </div>
             </v-flex>
         </v-layout>
-        <!-- start latest issue section -->
+
     </v-container>
+    <!-- end of intro section -->
+    <!-- start latest issue section -->
     <v-container fluid id="current-issue">
         <v-layout row>
             <v-flex md12 ma-2>
@@ -203,6 +196,9 @@ export default {
         },
         publications() {
             return this.$store.state.homePublications;
+        },
+        epidemics(){
+            return this.$store.state.epidemics;
         }
     },
     data() {
