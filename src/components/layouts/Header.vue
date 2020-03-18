@@ -29,7 +29,7 @@
     <!-- subscribe dialog -->
     <v-dialog
       v-model="subscribeDialog"
-      width="80%"
+      width="50%"
       overlay-opacity="0.8"
       overlay-color="secondary"
       transition="scale-transition"

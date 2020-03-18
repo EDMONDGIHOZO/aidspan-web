@@ -11,7 +11,7 @@
         class="ma-2"
         color="primary"
       >
-        <v-icon left>{{ menu.icon }}</v-icon>
+        <v-icon left>{{ menu.action }}</v-icon>
         {{ menu.title }}
       </v-btn>
       <v-spacer></v-spacer>

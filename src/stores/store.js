@@ -5,10 +5,10 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     icons: [
-      { icon: "mdi-facebook", name: "facebook" , link: 'https://www.facebook.com/Aidspan1/' },
-      { icon: "mdi-gmail", name: "gmail" ,link: 'mailto:info@gmail.com' },
-      { icon: "mdi-twitter", name: "twitter" , link: 'https://twitter.com/aidspan' },
-      { icon: "mdi-linkedin", name: "linkedin" , link: 'https://www.linkedin.com/company/aidspan'}
+      { icon: "mdi-facebook", name: "facebook", link: 'https://www.facebook.com/Aidspan1/' },
+      { icon: "mdi-gmail", name: "gmail", link: 'mailto:info@gmail.com' },
+      { icon: "mdi-twitter", name: "twitter", link: 'https://twitter.com/aidspan' },
+      { icon: "mdi-linkedin", name: "linkedin", link: 'https://www.linkedin.com/company/aidspan' }
     ],
 
     basicInfo: [
@@ -16,71 +16,64 @@ export const store = new Vuex.Store({
       { icon: "mdi-pin", title: "P.O. Box 66869 - 00800,Nairobi, Kenya" },
       { icon: "mdi-email", title: "info@aidspan.org" }
     ],
-    menus: [
-      {
-        title: "Home",
-        language: "en",
-        parent: "",
-        subMenu: [
-          {
-            title: "GFO Newsletter",
-            language: "en",
-            parent: "",
-            subMenu: [],
-            id: "adffdhad",
-            route: "/",
-            icon: "mdi-email-newsletter"
-          }
-        ],
-        id: "adfhad",
-        route: "/",
-        icon: "mdi-home"
+    menus: [{
+      action: "mdi-home",
+      title: "Home",
+      route: '/',
+      submenus: []
+    },
+    {
+      action: "mdi-eye",
+      title: "Editorial",
+      route: '/editorial',
+      submenus: [{
+        title: "List Item"
+      }]
+    },
+    {
+      action: "mdi-lightbulb-on",
+      title: "About Aidspan",
+      route: '/about-us',
+      active: true,
+      submenus: [{
+        title: "Key Achievements", route: '/keys'
       },
       {
-        title: "About Us",
-        language: "en",
-        parent: "",
-        subMenu: [],
-        id: "addff",
-        route: "/about-us",
-        icon: "mdi-information"
+        title: "Our History", route: '/history'
       },
       {
-        title: "GFO Newsletter",
-        language: "en",
-        parent: "",
-        subMenu: [],
-        id: "adffdhad",
-        route: "/newsletter",
-        icon: "mdi-email-newsletter"
-      },
-      {
-        title: "Data Analytics",
-        language: "en",
-        parent: "",
-        subMenu: [],
-        id: "adfsahad",
-        route: "/data-analytics",
-        icon: "mdi-google-analytics"
-      },
-      {
-        title: "Publications",
-        language: "en",
-        parent: "",
-        subMenu: [],
-        id: "adfhfdad",
-        route: "/publications",
-        icon: "mdi-newspaper-variant"
-      },
-      {
-        title: "Contact Us",
-        language: "en",
-        parent: "",
-        subMenu: [],
-        id: "adfhadsdsd",
-        route: "/contact",
-        icon: "mdi-phone-check"
+        title: "Our Donors", route: '/donors'
       }
+      ]
+    },
+    {
+      action: "mdi-google-analytics",
+      title: "Data Analytics",
+      submenus: [{
+        title: "Grant Portfolio", route: '/grants-portfolio'
+      },
+      {
+        title: "Global Fund Donors", route: '/gf-donors'
+      }, 
+      {
+        title: "Grant-performance-analysis", route: '/gp-analysis'
+      }
+      ]
+    },
+    {
+      action: "mdi-newspaper-variant",
+      title: "Publications",
+      submenus: [{
+        title: "List Item"
+      }]
+    },
+    {
+      action: "mdi-hand-left",
+      title: "Contact Us",
+      submenus: [{
+        title: "List Item"
+      }]
+    },
     ],
     slides: [
       {
@@ -269,6 +262,6 @@ export const store = new Vuex.Store({
         class: "M"
       }
     ],
-    
+
   }
 });
