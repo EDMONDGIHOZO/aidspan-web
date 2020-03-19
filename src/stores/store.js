@@ -54,7 +54,7 @@ export const store = new Vuex.Store({
       },
       {
         title: "Global Fund Donors", route: '/gf-donors'
-      }, 
+      },
       {
         title: "Grant-performance-analysis", route: '/gp-analysis'
       }
@@ -116,7 +116,7 @@ export const store = new Vuex.Store({
     articles: [
       {
         art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
         art_issue: 321,
         art_date: "12 feb 2020",
         art_id: "dswe12",
@@ -125,114 +125,109 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
-        shares: 120
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
       },
       {
         art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
-        art_issue: 431,
-        art_date: "02 feb 2020",
-        art_id: "dswe1322",
-        art_abstract:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: {
-          name: "Adele Sulcas",
-          author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
-        },
-        comments: 3,
-        views: 230,
-        shares: 20
-      },
-      {
-        art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
-        art_issue: 431,
-        art_date: "02 feb 2020",
-        art_id: "dswe1322",
-        art_abstract:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: {
-          name: "Adele Sulcas",
-          author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
-        },
-        comments: 25,
-        views: 210,
-        shares: 320
-      },
-      {
-        art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
-        art_issue: 431,
-        art_date: "02 feb 2020",
-        art_id: "dswe1322",
-        art_abstract:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: {
-          name: "Adele Sulcas",
-          author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
-        },
-        comments: 23,
-        views: 2340,
-        shares: 120
-      },
-      {
-        art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
-        art_issue: 431,
-        art_date: "02 feb 2020",
-        art_id: "dswe1322",
-        art_abstract:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: {
-          name: "Adele Sulcas",
-          author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
-        },
-        comments: 23,
-        views: 2340,
-        shares: 120
-      },
-      {
-        art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
-        art_issue: 531,
-        art_date: "12 feb 2020",
-        art_id: "dswe1fg2",
-        art_abstract:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-        art_author: {
-          name: "Staff Ange",
-          author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
-        },
-        comments: 23,
-        views: 2340,
-        shares: 120
-      },
-      {
-        art_title:
-          "GLOBAL FUND BOARD APPROVES $135.7M AND €25.7M OF PORTFOLIO-OPTIMIZATION AWARDS FOR 23 COUNTRIES",
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
         art_issue: 321,
         art_date: "12 feb 2020",
-        art_id: "dswtr12",
+        art_id: "dswe12",
         art_abstract:
           "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
         art_author: {
-          name: "Michel Ange",
+          name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
-        shares: 120
-      }
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
+      },
+      {
+        art_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        art_issue: 321,
+        art_date: "12 feb 2020",
+        art_id: "dswe12",
+        art_abstract:
+          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
+        art_author: {
+          name: "Ida Hakiza",
+          author_url: "/Michel",
+          author_img: require("@/assets/images/common/author_default.svg"),
+        },
+        comments: 23,
+        views: 2340,
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
+      },
+      {
+        art_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        art_issue: 321,
+        art_date: "12 feb 2020",
+        art_id: "dswe12",
+        art_abstract:
+          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
+        art_author: {
+          name: "Ida Hakiza",
+          author_url: "/Michel",
+          author_img: require("@/assets/images/common/author_default.svg"),
+        },
+        comments: 23,
+        views: 2340,
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
+      },
+      {
+        art_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        art_issue: 321,
+        art_date: "12 feb 2020",
+        art_id: "dswe12",
+        art_abstract:
+          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
+        art_author: {
+          name: "Ida Hakiza",
+          author_url: "/Michel",
+          author_img: require("@/assets/images/common/author_default.svg"),
+        },
+        comments: 23,
+        views: 2340,
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
+      },
+      {
+        art_title:
+          "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
+        art_issue: 321,
+        art_date: "12 feb 2020",
+        art_id: "dswe12",
+        art_abstract:
+          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
+        art_author: {
+          name: "Ida Hakiza",
+          author_url: "/Michel",
+          author_img: require("@/assets/images/common/author_default.svg"),
+        },
+        comments: 23,
+        views: 2340,
+        shares: 120,
+        art_type: 'pendemics',
+        art_number: 12
+      },
     ],
     quicklinks: [
       { title: "Board of directors", route: "aidspan/board-of-directors" },
