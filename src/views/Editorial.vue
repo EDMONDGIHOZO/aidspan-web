@@ -22,9 +22,25 @@
                     </p>
                 </div>
                 <div class="bottom-toolbar">
-                    <v-btn text color="secondary" v-for="link in gfoLinks" :key="link.title" :href="link.route">
-                        {{ link.title }}
-                    </v-btn>
+                    <v-row justify="center">
+                        <v-dialog v-model="dialog" fullscreen hide-overlay transition="slide-x-transition">
+                            <template v-slot:activator="{ on }">
+                                <v-btn dark v-on="on" text color="primary">All Issues </v-btn>
+                                <v-btn text color="secondary" href="#current-issue-editorial"> Current Issue</v-btn>
+                            </template>
+                            <v-card>
+                                <v-toolbar dark color="primary">
+                                    <v-btn icon dark @click="dialog = false">
+                                        <v-icon>mdi-close</v-icon>
+                                    </v-btn>
+                                    <v-toolbar-title>All Issues</v-toolbar-title>
+                                    <v-spacer></v-spacer>
+                                </v-toolbar>
+                               <!--- view all issues component --> 
+                               <AllIssues> </AllIssues>
+                            </v-card>
+                        </v-dialog>
+                    </v-row>
                 </div>
             </v-flex>
         </v-layout>
@@ -43,7 +59,7 @@
             </v-flex>
             <v-row no-gutters>
                 <v-col v-for="n in 6" :key="n" cols="12" sm="4">
-                    <v-card class="pa-2 ma-3 article" outlined tile hover="">
+                    <v-card class="pa-2 ma-3 article" outlined tile hover>
                         <div class="title">
                             Venezuela first to receive malaria funds
                         </div>
@@ -61,6 +77,9 @@
             </v-row>
         </v-layout>
     </v-container>
+
+    <!--- end of the last live articles -->
+    <!-- start the current isssue view -->
     <v-container id="current-issue-editorial">
         <v-layout row wrap>
             <v-flex xs12 md3 lg3 class="new-issue-side">
@@ -110,10 +129,17 @@
             </v-flex>
         </v-layout>
     </v-container>
+    <!--- end of the current issue articles view  -->
+    <!---  start the list of all issues  -->
+    <v-container id="all-issues">
+    </v-container>
 </div>
 </template>
 
 <script>
+
+import AllIssues from '../components/pages/all-issues.vue';
+
 export default {
     data() {
         return {
@@ -129,13 +155,20 @@ export default {
                     title: "ALL ISSUE ",
                     route: "#all-issues"
                 }
-            ]
+            ],
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
         };
     },
     computed: {
         articles() {
             return this.$store.state.articles;
         }
+    },
+    components: {
+        AllIssues
     }
 };
 </script>
@@ -158,13 +191,11 @@ export default {
         position: relative;
         margin-top: 12%;
     }
-
-    #gfo-intro .bottom-toolbar {
-        display: none;
-    }
-
     #live-articles {
         height: auto;
+    }
+    #gfo-intro .bottom-toolbar{
+       min-width: 100%;
     }
 }
 
@@ -233,7 +264,6 @@ export default {
 }
 
 #current-issue-editorial {
-    min-width: 100%;
     height: auto;
     left: 0px;
     top: 1256px;
