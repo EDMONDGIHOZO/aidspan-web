@@ -10,7 +10,7 @@
       </v-carousel-item>
     </v-carousel>
     <!--end of corousel -->
-    
+
     <!-- intro section -->
     <v-container fluid>
       <v-layout row wrap id="web-intro">
@@ -90,6 +90,7 @@
                 hover
                 raised
                 @click="toggle"
+                href="/article"
               >
                 <v-card-title>
                   <div class="title">{{ article.art_title }}</div>
@@ -257,6 +258,27 @@
           </v-col>
         </v-flex>
       </v-layout>
+      <!-- our awesome donors -->
+      <v-layout row wrap id="donors" >
+        <v-flex md2 xs12>
+          <h2>OUR DONORS</h2>
+        </v-flex>
+        <v-flex md10 xs12>
+          <div class="logos">
+            <v-sheet class="mx-auto">
+              <v-slide-group multiple show-arrows light>
+                <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
+                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
+                    <v-card-image
+                      ><img :src="logo.img" alt="donor logo" height="73px"/></v-card-image>
+                  </v-card>
+                </v-slide-item>
+              </v-slide-group>
+            </v-sheet>
+          </div>
+        </v-flex>
+      </v-layout>
+      <!--- end donors -->
     </v-container>
   </div>
 </template>
@@ -284,6 +306,36 @@ export default {
   },
   data() {
     return {
+      //donors logos //
+      donorsLogos: [
+        {
+          img: require("@/assets/images/common/donors/Ahf.jpg"),
+          web: "https://www.aidshealth.org"
+        },
+        {
+          img: require("@/assets/images/common/donors/governmentNetherland.png"),
+          web: "https://www.giz.de/en/worldwide"
+        },
+        {
+          img: require("@/assets/images/common/donors/initiative5.png"),
+          web: "https://www.initiative5pour100.fr/"
+        },
+        {
+          img: require("@/assets/images/common/donors/irishAid.jpg"),
+          web: "https://www.irishaid.ie/"
+        },
+        {
+          img: require("@/assets/images/common/donors/norad.png"),
+          web: "https://norad.no/en/front/"
+        },
+        {
+          img: require("@/assets/images/common/donors/opensociety.png"),
+          web: "https://www.opensocietyfoundations.org/"
+        }
+      ],
+
+      //end of donors logos
+
       mission: {
         lang: "en",
         content:
@@ -464,5 +516,12 @@ $lightgrey: rgb(69, 69, 70);
 
 .issue-number {
   color: black;
+}
+
+#donors {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: solid 4px #00adef;
 }
 </style>

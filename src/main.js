@@ -6,6 +6,7 @@ import {store} from './stores/store'
 //import the custom styles
 import './assets/styles/responsive.scss';
 import './assets/styles/animate.scss';
+import './assets/styles/mobile.scss';
 //import for animation
 import scrollAnimation from './directives/scrollAnimation'
 

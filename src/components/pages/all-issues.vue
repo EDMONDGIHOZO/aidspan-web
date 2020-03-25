@@ -1,216 +1,82 @@
 <template>
-<v-container fluid>
-    <v-data-iterator :items="items" :items-per-page.sync="itemsPerPage" :page="page" :search="search" :sort-by="sortBy.toLowerCase()" :sort-desc="sortDesc" hide-default-footer>
-        <template v-slot:header>
-            <v-toolbar flat class="mb-1">
-                <v-text-field v-model="search" color="secondary" clearable flat rounded solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Search"></v-text-field>
-                <template v-if="$vuetify.breakpoint.mdAndUp">
-                    <v-spacer></v-spacer>
-                    <v-select v-model="sortBy" flat solo-inverted hide-details :items="keys" label="Sort by"></v-select>
-                    <v-spacer></v-spacer>
-                    <v-btn-toggle v-model="sortDesc" mandatory>
-                        <v-btn small hover color="primary" :value="false">
-                            <v-icon small color="white">mdi-arrow-up</v-icon>
-                        </v-btn>
-                        <v-btn small hover color="secondary" :value="true">
-                            <v-icon small color="white">mdi-arrow-down</v-icon>
-                        </v-btn>
-                    </v-btn-toggle>
-                </template>
-            </v-toolbar>
-        </template>
-        <template v-slot:default="props">
-            <v-row>
-                <v-col v-for="item in props.items" :key="item.name" cols="12" sm="6" md="4" lg="3">
-                    <v-card>
-                        <v-card-title class="subheading font-weight-bold">{{item.name}}</v-card-title>
-                        <v-divider></v-divider>
-                        <v-list dense>
-                            <v-list-item v-for="(key, index) in filteredKeys" :key="index">
-                                <v-list-item-content :class="{ 'blue--text': sortBy === key }">{{ key }}:</v-list-item-content>
-                                <v-list-item-content class="align-end" :class="{ 'blue--text': sortBy === key }">{{ item[key.toLowerCase()] }}</v-list-item-content>
-                            </v-list-item>
-                        </v-list>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </template>
-        <template v-slot:footer>
-            <v-row class="mt-2" align="center" justify="center">
-                <span class="grey--text">Items per page</span>
-                <v-menu offset-y>
-                    <template v-slot:activator="{ on }">
-                        <v-btn text color="primary" class="ml-2" v-on="on">
-                            {{ itemsPerPage }}
-                            <v-icon>mdi-chevron-down</v-icon>
-                        </v-btn>
-                    </template>
-                    <v-list>
-                        <v-list-item v-for="(number, index) in itemsPerPageArray" :key="index" @click="updateItemsPerPage(number)">
-                            <v-list-item-title>{{ number }}</v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-menu>
-
-                <v-spacer></v-spacer>
-                <span class="mr-4
-            grey--text">
-                    Page {{ page }} of {{ numberOfPages }}
-                </span>
-                <v-btn fab dark color="secondary" small class="ma-3" @click="formerPage">
-                    <v-icon>mdi-chevron-left</v-icon>
-                </v-btn>
-                <v-btn fab dark color="primary" small class="ma-3" @click="nextPage">
-                    <v-icon>mdi-chevron-right</v-icon>
-                </v-btn>
-            </v-row>
-        </template>
-    </v-data-iterator>
-</v-container>
+  <v-container fluid>
+    <!--- top bar for search and sorting 0-->
+    <v-row id="topbar">
+      <v-col class="d-flex" md4 sm6 xs6>
+        <v-text-field
+          placeholder="search issue"
+          rounded
+          background-color="white"
+          height="50px"
+        ></v-text-field>
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-col class="d-flex" md3 sm4 xs4>
+        <v-select
+          :items="issueSort"
+          background-color="white"
+          rounded
+          height="50px"
+          width="40px"
+          placeholder="sort"
+        ></v-select>
+      </v-col>
+    </v-row>
+    <!-- end of search and sorting -->
+    <v-layout row wrap class="issue-row">
+      <v-flex md8 sm8 xs12>
+        <SingleIssue></SingleIssue>
+      </v-flex>
+      <v-flex class="pa-5" id="issues" md4>
+        <v-data-table
+          :headers="headers"
+          :items="issues"
+          :items-per-page="5"
+          item-key="number"
+          class="elevation-3"
+          :footer-props="{
+            showFirstLastPage: true,
+            firstIcon: 'mdi-arrow-collapse-left',
+            lastIcon: 'mdi-arrow-collapse-right',
+            prevIcon: 'mdi-minus',
+            nextIcon: 'mdi-plus'
+          }"
+        ></v-data-table>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
+import SingleIssue from "@/components/pages/SingleIssue.vue";
 export default {
-    data() {
-        return {
-            itemsPerPageArray: [4, 8, 12],
-            search: "",
-            filter: {},
-            sortDesc: false,
-            page: 1,
-            itemsPerPage: 4,
-            sortBy: "name",
-            keys: [
-                "Name",
-                "Number",
-                "Fat",
-                "Carbs",
-                "Protein",
-                "Sodium",
-                "Calcium",
-                "Iron"
-            ],
-            items: [{
-                    name: "Issue 1",
-                    number: 159,
-                    fat: 6.0,
-                    carbs: 24,
-                    protein: 4.0,
-                    sodium: 87,
-                    calcium: "14%",
-                    iron: "1%"
-                },
-                {
-                    name: "issue 2",
-                    number: 237,
-                    fat: 9.0,
-                    carbs: 37,
-                    protein: 4.3,
-                    sodium: 129,
-                    calcium: "8%",
-                    iron: "1%"
-                },
-                {
-                    name: "Issue 3",
-                    number: 262,
-                    fat: 16.0,
-                    carbs: 23,
-                    protein: 6.0,
-                    sodium: 337,
-                    calcium: "6%",
-                    iron: "7%"
-                },
-                {
-                    name: "Issue 4",
-                    number: 305,
-                    fat: 3.7,
-                    carbs: 67,
-                    protein: 4.3,
-                    sodium: 413,
-                    calcium: "3%",
-                    iron: "8%"
-                },
-                {
-                    name: "Issue 5",
-                    number: 356,
-                    fat: 16.0,
-                    carbs: 49,
-                    protein: 3.9,
-                    sodium: 327,
-                    calcium: "7%",
-                    iron: "16%"
-                },
-                {
-                    name: "Issue 6",
-                    number: 375,
-                    fat: 0.0,
-                    carbs: 94,
-                    protein: 0.0,
-                    sodium: 50,
-                    calcium: "0%",
-                    iron: "0%"
-                },
-                {
-                    name: "Issue 7",
-                    number: 392,
-                    fat: 0.2,
-                    carbs: 98,
-                    protein: 0,
-                    sodium: 38,
-                    calcium: "0%",
-                    iron: "2%"
-                },
-                {
-                    name: "Issue 8",
-                    number: 408,
-                    fat: 3.2,
-                    carbs: 87,
-                    protein: 6.5,
-                    sodium: 562,
-                    calcium: "0%",
-                    iron: "45%"
-                },
-                {
-                    name: "Issue 9",
-                    number: 452,
-                    fat: 25.0,
-                    carbs: 51,
-                    protein: 4.9,
-                    sodium: 326,
-                    calcium: "2%",
-                    iron: "22%"
-                },
-                {
-                    name: "Issue 10",
-                    number: 518,
-                    fat: 26.0,
-                    carbs: 65,
-                    protein: 7,
-                    sodium: 54,
-                    calcium: "12%",
-                    iron: "6%"
-                }
-            ]
-        };
-    },
-    computed: {
-        numberOfPages() {
-            return Math.ceil(this.items.length / this.itemsPerPage);
+  data() {
+    return {
+      issueSort: [
+        "latest", "older"
+      ],
+      headers: [
+        {
+          text: "issue Number",
+          align: "start",
+          value: "number"
         },
-        filteredKeys() {
-            return this.keys.filter(key => key !== `Name`);
-        }
-    },
-    methods: {
-        nextPage() {
-            if (this.page + 1 <= this.numberOfPages) this.page += 1;
-        },
-        formerPage() {
-            if (this.page - 1 >= 1) this.page -= 1;
-        },
-        updateItemsPerPage(number) {
-            this.itemsPerPage = number;
-        }
-    }
+        { text: "date", value: "date"}
+      ],
+      issues: [
+        { date: "12 jul 2020", number: 125, iss_id: 136 },
+        { date: "12 jan 2020", number: 130, iss_id: 141 },
+         { date: "16 jan 2020", number: 130, iss_id: 145 },
+        { date: "12 jun 2020", number: 126, iss_id: 137 },
+        { date: "12 apr 2020", number: 127, iss_id: 138 },
+        { date: "12 mar 2020", number: 128, iss_id: 139 },
+        { date: "12 feb 2020", number: 129, iss_id: 140 },
+        
+      ]
+    };
+  },
+  components: {
+    SingleIssue
+  }
 };
 </script>

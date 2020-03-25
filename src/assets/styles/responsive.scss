@@ -2,6 +2,7 @@ $aidspan-orange: #f46517;
 $aidspan-blue: #00adef;
 $aidspan-grey: #414346;
 $light-grey: #e5e5e5;
+$lighBlue: #f2fbff;
 
 * {
   padding: 0;
@@ -10,7 +11,7 @@ $light-grey: #e5e5e5;
 }
 html,
 body {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   margin: 0;
 }
 
@@ -20,25 +21,6 @@ body {
   margin: 0 auto;
   font-size: 14px;
   min-height: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  #body-wraper {
-    overflow: hidden;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  .wedo {
-    height: auto;
-    width: auto;
-    margin: 5px;
-  }
-  #current-article {
-    max-width: 340px;
-  }
-
-
 }
 @media only screen and (min-width: 768px) {
   /* For desktop: */
@@ -253,17 +235,143 @@ body {
 }
 
 #search-container .searchForm {
-	background-color: white;
+  background-color: white;
 }
 
 #subscribe-dialog {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	flex-direction: column;
-	border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border-radius: 15px;
 }
 
 #subscribe-dialog .title {
-	align-self: center;	
+  align-self: center;
+}
+
+#topbar {
+  display: flex;
+  flex-direction: row;
+  background-color: $aidspan-blue;
+  align-content: center;
+  justify-content: center;
+  height: 70px;
+  align-items: center;
+  padding-top: 5px;
+}
+
+#article-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+#article-container .title-card {
+  box-shadow: 0px 4px 19px rgba(43, 183, 255, 0.46);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 3;
+  display: flex;
+}
+
+#issues {
+  background-color: $aidspan-blue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 15px;
+}
+.issue-row {
+  background: #f2fbff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.issue-row h1 {
+  color: #ffbb2a;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/** abbout us page */
+#abouttext {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: $aidspan-blue;
+  border-right: solid 5px $aidspan-orange;
+}
+
+#abouttext .appname {
+  color: white;
+}
+
+#aboutus-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  background: #fafdff;
+  border: 1px solid #3dc0fc;
+  box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+}
+
+
+/** core values **/
+
+#corevals {
+  background: rgba(255, 122, 43, 0.9);
+}
+
+#tabcontainer {
+display: flex;
+justify-content: center;
+align-items: center;
+border-right: solid 5px $aidspan-blue;
+flex-wrap: wrap;
+}
+
+#tabcontainer .desc {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: rgb(0, 174, 255);
+
+}
+
+#tabstitle {
+  height:53px;
+}
+
+#missvis .headline {
+  color: $aidspan-orange;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#history {
+  background: #F2FBFF;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0;
+}
+
+#history .title p{
+  text-align: center;
+}
+
+#board {
+  margin-top: 40px;
+  text-align: center;
+  border-top: solid 5px $aidspan-orange;
 }

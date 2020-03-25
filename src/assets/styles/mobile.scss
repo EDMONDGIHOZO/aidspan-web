@@ -1,0 +1,50 @@
+$aidspan-orange: #f46517;
+$aidspan-blue: #00adef;
+$aidspan-grey: #414346;
+$light-grey: #e5e5e5;
+$lighBlue: #f2fbff;
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #body-wraper {
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .wedo {
+    height: auto;
+    width: auto;
+    margin: 5px;
+  }
+  #current-article {
+    max-width: 340px;
+  }
+  #articleSection {
+    margin-top: 30px;
+  }
+  #abouttext .appname {
+    transform: rotate(-90deg);
+    color: $aidspan-orange;
+    -webkit-transform: rotate(-90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+
+    /* IE */
+    -ms-transform: rotate(-90deg);
+
+    /* Opera */
+    -o-transform: rotate(-90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+  #abouttext .caption {
+    color: $aidspan-orange;
+    margin-top: 80%;
+  }
+  #tabcontainer .desc {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

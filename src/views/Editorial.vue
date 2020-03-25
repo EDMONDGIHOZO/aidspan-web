@@ -33,8 +33,9 @@
                                     <v-btn icon dark @click="dialog = false">
                                         <v-icon>mdi-close</v-icon>
                                     </v-btn>
-                                    <v-toolbar-title>All Issues</v-toolbar-title>
+                                    <v-toolbar-title>GFO Newsletter</v-toolbar-title>
                                     <v-spacer></v-spacer>
+                                    <h1> All Issues </h1>
                                 </v-toolbar>
                                <!--- view all issues component --> 
                                <AllIssues> </AllIssues>
