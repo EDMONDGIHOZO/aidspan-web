@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import Axios from "@/axios";
 
 Vue.use(Vuex);
 export const store = new Vuex.Store({
@@ -30,18 +31,13 @@ export const store = new Vuex.Store({
     ],
     menus: [
       {
-        action: "mdi-home",
-        title: "Home",
-        route: "/",
-        submenus: []
-      },
-      {
         action: "mdi-eye",
         title: "Editorial",
         route: "/editorial",
         submenus: [
           {
-            title: "List Item"
+            title: "Live Articles",
+            route: "/editorial/#live-articles"
           }
         ]
       },
@@ -65,13 +61,14 @@ export const store = new Vuex.Store({
           }
         ]
       },
+
       {
         action: "mdi-google-analytics",
         title: "Data Analytics",
         submenus: [
           {
             title: "Grant Portfolio",
-            route: "/grants-portfolio"
+            route: "/data-analytics/grants-portfolio"
           },
           {
             title: "Global Fund Donors",
@@ -83,15 +80,21 @@ export const store = new Vuex.Store({
           }
         ]
       },
+
       {
         action: "mdi-newspaper-variant",
         title: "Publications",
         submenus: [
           {
-            title: "List Item"
+            title: "Reports",
+            route: "/publications/reports"
+          },
+          {
+            title: "Guide",
+            route: "/publications/guide"
           }
         ]
-      },
+      }
     ],
     slides: [
       {
@@ -150,7 +153,7 @@ export const store = new Vuex.Store({
         shares: 120,
         art_type: "pendemics",
         art_number: 1,
-        route: '/article',
+        route: "/article"
       },
       {
         art_title:
@@ -170,7 +173,7 @@ export const store = new Vuex.Store({
         shares: 120,
         art_type: "pendemics",
         art_number: 2,
-        route: '/article',
+        route: "/article"
       },
       {
         art_title:
@@ -190,7 +193,7 @@ export const store = new Vuex.Store({
         shares: 120,
         art_type: "pendemics",
         art_number: 3,
-        route: '/article',
+        route: "/article"
       },
       {
         art_title:
@@ -210,7 +213,7 @@ export const store = new Vuex.Store({
         shares: 120,
         art_type: "pendemics",
         art_number: 5,
-        route: '/article',
+        route: "/article"
       },
       {
         art_title:
@@ -230,7 +233,7 @@ export const store = new Vuex.Store({
         shares: 120,
         art_type: "pendemics",
         art_number: 6,
-        route: '/article',
+        route: "/article"
       },
       {
         art_title:
@@ -249,8 +252,8 @@ export const store = new Vuex.Store({
         views: 2340,
         shares: 120,
         art_type: "pendemics",
-        art_number:7,
-        route: '/article',
+        art_number: 7,
+        route: "/article"
       }
     ],
     quicklinks: [
@@ -294,14 +297,56 @@ export const store = new Vuex.Store({
       date: "18 mar 2020",
       author: "Adele Sulcas",
       number: 1,
-      type: 'news',
+      type: "news",
       tags: [
-        {title: 'corona Virus' , route: 'tags'},
-        {title: 'Pendemic' , route: 'tags'},
-        {title: 'Africa' , route: 'tags'},
+        { title: "corona Virus", route: "tags" },
+        { title: "Pendemic", route: "tags" },
+        { title: "Africa", route: "tags" }
       ],
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus."
+    },
+    Areas: [],
+    Diseases: [],
+  },
+
+  actions: {
+    /// load the countries from API
+    loadGeoAreas() {
+      Axios.get("GeographicAreas")
+        .then(data => {
+          let Areas = data.data.value;
+          ///get the areas
+          this.commit("SET_AREAS", Areas);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    ///end to get the countries
+    ///start to load the diseases (called components)
+    loadDiseases() {
+      Axios.get("Components")
+        .then(data => {
+          let Components = data.data.value;
+          //attach the fetched data to the valiable
+          this.commit("SET_COMPONENTS", Components);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  },
+
+  mutations: {
+    /// attaching the areas
+    SET_AREAS(state, Areas) {
+      state.Areas = Areas;
+    },
+    ///attaching the components
+
+    SET_COMPONENTS(state, Components) {
+      state.Components = Components;
     }
   }
 });

@@ -67,11 +67,11 @@
                 class="white--text"
               ></v-select>
               <div class="text-center">
-                <v-dialog v-model="dialog" width="500">
+                <v-dialog v-model="dialog" max-width="400">
                   <template v-slot:activator="{ on }">
                     <v-chip
                       class="ma-2"
-                      color="teal"
+                      color="secondary"
                       text-color="white"
                       v-on="on"
                     >

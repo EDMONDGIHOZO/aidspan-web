@@ -80,6 +80,39 @@
       </v-col>
     </v-row>
     <!-- end of the visino and mission -->
+    <!-- start policy analysis --->
+    <v-row>
+      <v-col cols="12">
+        <v-card color="primary" flat shaped id="policy">
+          <v-card-title>
+          <p class="title">POLICY ANALYSIS</p>
+          </v-card-title>
+          <v-card-text>
+            <p class="font-weight-black">
+              Aidspan conducts independent and critical analysis and
+              investigation of Global Fund policies, strategies, processes and
+              structures, funding mechanisms, transparency and data quality. We
+              publish its analytical content through reports, case studies,
+              peer-reviewed articles, and reviews. Aidspan also provides
+              guidance to those applying for, implementing or overseeing Global
+              Fund grants by publishing guides on diverse subjects. Aidspan
+              relies on a small team of in-house researchers and external
+              collaborators with expertise in health economics, epidemiology,
+              governance, health systems strengthening, and Global Fund
+              processes among others. We are developing collaborations with
+              research institutions and other policy-focused organizations.
+              Aidspan aims to provide independent analyses on the Global Fund
+              policies that can be used by our stakeholders. They include the
+              Global Fund (Secretariat, Office of the Inspector General (OIG)
+              and Board, including the committees), Global Fund donors,
+              implementers, civil society researchers, and media. All Aidspan
+              publications are open access. We welcome suggestions for articles
+              and research collaborations.
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
     <!-- start the history timeline  -->
     <v-row id="history">
       <v-col cols="12" md="12" lg="12">
@@ -127,7 +160,7 @@
         <p class="display-1 font-weight-black secondary--text">
           BOARD OF DIRECTORS
         </p>
-        <v-sheet class="mx-auto" elevation="8">
+        <v-sheet class="mx-auto">
           <v-slide-group v-model="model" class="pa-4" show-arrows>
             <v-slide-item v-for="director in directors" :key="director.name">
               <v-card class="ma-3" max-width="344">

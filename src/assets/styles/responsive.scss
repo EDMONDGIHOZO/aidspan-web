@@ -341,8 +341,8 @@ flex-wrap: wrap;
 }
 
 #tabcontainer .desc {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 17px;
+  line-height: 25px;
   font-weight: bold;
   text-transform: capitalize;
   color: rgb(0, 174, 255);
@@ -374,4 +374,19 @@ flex-wrap: wrap;
   margin-top: 40px;
   text-align: center;
   border-top: solid 5px $aidspan-orange;
+}
+
+#policy {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  line-height: 40px;
+}
+
+#policy .title {
+  font-weight: bold;
 }

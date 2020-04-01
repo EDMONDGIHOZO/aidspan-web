@@ -41,9 +41,7 @@
                   width="187"
                   class="d-none d-sm-flex"
                 ></v-img>
-                <v-btn text color="red" block style="color:red">{{
-                  epidemic.ep_name
-                }}</v-btn>
+                <p class="epidemics">{{ epidemic.ep_name }}</p>
               </v-card-item>
             </v-card>
           </div>
@@ -259,7 +257,7 @@
         </v-flex>
       </v-layout>
       <!-- our awesome donors -->
-      <v-layout row wrap id="donors" >
+      <v-layout row wrap id="donors">
         <v-flex md2 xs12>
           <h2>OUR DONORS</h2>
         </v-flex>
@@ -268,9 +266,16 @@
             <v-sheet class="mx-auto">
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
-                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
+                  <v-card
+                    flat
+                    class="mx-4"
+                    hover
+                    :href="logo.web"
+                    target="_blank"
+                  >
                     <v-card-image
-                      ><img :src="logo.img" alt="donor logo" height="73px"/></v-card-image>
+                      ><img :src="logo.img" alt="donor logo" height="73px"
+                    /></v-card-image>
                   </v-card>
                 </v-slide-item>
               </v-slide-group>
@@ -523,5 +528,13 @@ $lightgrey: rgb(69, 69, 70);
   align-items: center;
   text-align: center;
   border-top: solid 4px #00adef;
+}
+
+.epidemics {
+  color: #ff7a2b;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 300;
+  font-size: 18px;
 }
 </style>

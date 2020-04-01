@@ -1,35 +1,58 @@
 <template>
   <div class="menubar hidden-xs-only">
     <v-toolbar flat>
-      <v-btn
-        text
+      <!--- menubar list -->
+      <v-btn router to="/" flat color="primary" text depressed class="ma-2"
+        >Home</v-btn
+      >
+      <v-menu
+        open-on-hover
+        bottom
+        transition="scale-transition"
+        offset-y
         v-for="(menu, i) in menus"
         :key="i"
-        router
-        :to="menu.route"
-        depressed
-        class="ma-2"
-        color="primary"
       >
-        <v-icon left>{{ menu.action }}</v-icon>
-        {{ menu.title }}
-      </v-btn>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            text
+            router
+            :to="menu.route"
+            depressed
+            class="ma-2"
+            color="primary"
+            v-on="on"
+          >
+            <v-icon left>{{ menu.action }}</v-icon>
+            {{ menu.title }}
+          </v-btn>
+        </template>
+        <v-list v-if="!menu.submenus.length !== 0">
+          <v-list-item v-for="(submenu, index) in menu.submenus" :key="index">
+            <v-btn text router :to="submenu.route" color="secondary">{{
+              submenu.title
+            }}</v-btn>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-spacer></v-spacer>
-
       <v-btn icon color="primary" @click.stop="dialog = true">
         <v-icon small>mdi-magnify</v-icon>
       </v-btn>
-
-      <v-btn icon color="primary">
-        en
-      </v-btn>
+      <v-btn icon color="primary">en</v-btn>
     </v-toolbar>
     <!-- start the searchbox overlay -->
     <v-row justify-center>
-      <v-dialog v-model="dialog" max-width="70%" transition="scale-transition" overlay-color="primary" overlay-opacity="0.4">
+      <v-dialog
+        v-model="dialog"
+        max-width="70%"
+        transition="scale-transition"
+        overlay-color="primary"
+        overlay-opacity="0.4"
+      >
         <v-card id="search-container">
           <v-card-title>
-            <span class="headline">Search Aidspan </span>
+            <span class="headline">Search Aidspan</span>
           </v-card-title>
           <v-card-text>
             <v-container>
@@ -76,7 +99,7 @@ export default {
     return {
       // for search overlay //
       dialog: false,
-      subscribeDialog :true,
+      subscribeDialog: true,
       items: [
         {
           text: "English"
@@ -85,7 +108,13 @@ export default {
           text: "French"
         }
       ],
-      langs: ["English", "French"]
+      langs: ["English", "French"],
+      submenus: [
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me 2" }
+      ]
     };
   }
 };
@@ -108,7 +137,7 @@ nav {
   margin-right: 10px;
 }
 
-ul li {
-  float: left;
+.emptyList {
+  display: none;
 }
 </style>
