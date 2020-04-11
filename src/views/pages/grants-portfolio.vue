@@ -118,7 +118,9 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" id="mapBoard"> </v-col>
+      <v-col cols="12"> 
+        <countriesMap> </countriesMap>
+      </v-col>
     </v-row>
     <!-- end of the map -->
   </v-container>
@@ -127,10 +129,14 @@
 <script>
 //import GrantsByCountry from "@/components/pages/grantsOverview.vue";
 //import Diseases from "@/components/pages/diseases.vue";
+import GrantsCountry from "@/components/pages/grants-country.vue";
 export default {
   //dummy data
   data() {
     return {
+      //data for charts options//
+
+      ///end of chart
       diseases: [
         {
           dName: "Malaria",
@@ -273,11 +279,14 @@ export default {
         }
       ]
     };
-  }
+  },
 
-  /* components: {
-    GrantsByCountry,
-    Diseases
-  } */
+   components: {
+    "countriesMap": GrantsCountry,
+  } 
 };
 </script>
+
+<style scoped>
+/* chart style , now it workd */
+</style>

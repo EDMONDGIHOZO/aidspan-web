@@ -1,10 +1,8 @@
 <template>
-  <div class="menubar hidden-xs-only">
-    <v-toolbar flat>
+  <div class="menubar hidden-xs-only" id="menubar">
+    <v-toolbar min-width="100%" color="primary">
       <!--- menubar list -->
-      <v-btn router to="/" flat color="primary" text depressed class="ma-2"
-        >Home</v-btn
-      >
+      <v-btn router to="/" flat color="white" text depressed class="ma-2">Home</v-btn>
       <v-menu
         open-on-hover
         bottom
@@ -14,32 +12,26 @@
         :key="i"
       >
         <template v-slot:activator="{ on }">
-          <v-btn
-            text
-            router
-            :to="menu.route"
-            depressed
-            class="ma-2"
-            color="primary"
-            v-on="on"
-          >
+          <v-btn text router :to="menu.route" depressed class="ma-2" color="white" v-on="on">
             <v-icon left>{{ menu.action }}</v-icon>
             {{ menu.title }}
           </v-btn>
         </template>
         <v-list v-if="!menu.submenus.length !== 0">
           <v-list-item v-for="(submenu, index) in menu.submenus" :key="index">
-            <v-btn text router :to="submenu.route" color="secondary">{{
+            <v-btn text router :to="submenu.route" color="secondary">
+              {{
               submenu.title
-            }}</v-btn>
+              }}
+            </v-btn>
           </v-list-item>
         </v-list>
       </v-menu>
       <v-spacer></v-spacer>
-      <v-btn icon color="primary" @click.stop="dialog = true">
+      <v-btn icon color="white" @click.stop="dialog = true">
         <v-icon small>mdi-magnify</v-icon>
       </v-btn>
-      <v-btn icon color="primary">en</v-btn>
+      <v-btn icon color="white">en</v-btn>
     </v-toolbar>
     <!-- start the searchbox overlay -->
     <v-row justify-center>
@@ -73,12 +65,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="red darken-1" text @click="dialog = false"
-              >Close</v-btn
-            >
-            <v-btn color="blue darken-2" text @click="dialog = false"
-              >Search now</v-btn
-            >
+            <v-btn color="red darken-1" text @click="dialog = false">Close</v-btn>
+            <v-btn color="blue darken-2" text @click="dialog = false">Search now</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -124,6 +112,8 @@ export default {
 #menubar {
   margin-right: auto;
   margin-left: auto;
+  width: 100%;
+  background-color: aqua;
 }
 
 nav {

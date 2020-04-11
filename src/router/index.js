@@ -4,8 +4,8 @@ import Home from "../views/Home.vue";
 import Editorial from "../views/Editorial.vue";
 import Article from "../views/Article.vue";
 import About from "../views/About.vue";
-import DataAnalytics from "../views/DataAnalytics.vue";
-import GrantsPortfolio from "../views/pages/grants-portfolio.vue" 
+import GrantsPortfolio from "../views/pages/grants-portfolio.vue";
+import Methodologies from "../views/pages/Methodologies.vue";
 
 Vue.use(VueRouter);
 
@@ -19,14 +19,14 @@ const routes = [
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
   },
   // about aidspan
   {
@@ -38,14 +38,14 @@ const routes = [
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
   },
 
   /// end
@@ -58,14 +58,14 @@ const routes = [
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
   },
   {
     path: "/article",
@@ -76,60 +76,59 @@ const routes = [
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
   },
   {
-    path: "/data-analytics",
+    path: "/methodologies",
     name: "Data Analytics",
-    component: DataAnalytics,
+    component: Methodologies,
     meta: {
       title: "Aidspan Data Analytics from Global Fund Data",
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
   },
   /// data analytics based pages
   {
     path: "/data-analytics/grants-portfolio",
     name: "Grants Portofolio",
-    component:GrantsPortfolio,
+    component: GrantsPortfolio,
     meta: {
       title: "Grants Portfolio",
       metaTags: [
         {
           name: "Description",
-          content: "aidspan is NGO based in Kenya"
+          content: "aidspan is NGO based in Kenya",
         },
         {
           proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
-  }
+          content: "the global fund independent observer",
+        },
+      ],
+    },
+  },
   // end data analytics based pages
-
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 router.beforeEach((to, from, next) => {

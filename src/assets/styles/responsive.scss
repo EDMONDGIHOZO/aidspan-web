@@ -25,9 +25,10 @@ body {
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   #app {
-    width: 98%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding: 30px;
   }
   .wedo {
     position: relative;
@@ -356,9 +357,14 @@ flex-wrap: wrap;
 #missvis .headline {
   color: $aidspan-orange;
   font-weight: bold;
-  font-style: italic;
 }
 
+
+#missvis .body-2 {
+  text-transform: capitalize;
+  border-bottom: solid 2px #f46517;
+  padding: 10px;
+}
 #history {
   background: #F2FBFF;
   overflow: hidden;

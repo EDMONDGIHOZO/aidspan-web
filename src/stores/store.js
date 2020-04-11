@@ -1,33 +1,40 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Axios from "@/axios";
 
 Vue.use(Vuex);
+
 export const store = new Vuex.Store({
   state: {
     icons: [
       {
         icon: "mdi-facebook",
         name: "facebook",
-        link: "https://www.facebook.com/Aidspan1/"
+        link: "https://www.facebook.com/Aidspan1/",
       },
-      { icon: "mdi-gmail", name: "gmail", link: "mailto:info@gmail.com" },
+      {
+        icon: "mdi-gmail",
+        name: "gmail",
+        link: "mailto:info@gmail.com",
+      },
       {
         icon: "mdi-twitter",
         name: "twitter",
-        link: "https://twitter.com/aidspan"
+        link: "https://twitter.com/aidspan",
       },
       {
         icon: "mdi-linkedin",
         name: "linkedin",
-        link: "https://www.linkedin.com/company/aidspan"
-      }
+        link: "https://www.linkedin.com/company/aidspan",
+      },
     ],
 
     basicInfo: [
       { icon: "mdi-phone", title: "+254 (0)774-135984" },
-      { icon: "mdi-pin", title: "P.O. Box 66869 - 00800,Nairobi, Kenya" },
-      { icon: "mdi-email", title: "info@aidspan.org" }
+      {
+        icon: "mdi-pin",
+        title: "P.O. Box 66869 - 00800,Nairobi, Kenya",
+      },
+      { icon: "mdi-email", title: "info@aidspan.org" },
     ],
     menus: [
       {
@@ -37,9 +44,9 @@ export const store = new Vuex.Store({
         submenus: [
           {
             title: "Live Articles",
-            route: "/editorial/#live-articles"
-          }
-        ]
+            route: "/editorial/#live-articles",
+          },
+        ],
       },
       {
         action: "mdi-lightbulb-on",
@@ -49,36 +56,37 @@ export const store = new Vuex.Store({
         submenus: [
           {
             title: "Key Achievements",
-            route: "/keys"
+            route: "/keys",
           },
           {
             title: "Our History",
-            route: "/history"
+            route: "/history",
           },
           {
             title: "Our Donors",
-            route: "/donors"
-          }
-        ]
+            route: "/donors",
+          },
+        ],
       },
 
       {
         action: "mdi-google-analytics",
         title: "Data Analytics",
+        route: "/methodologies",
         submenus: [
           {
             title: "Grant Portfolio",
-            route: "/data-analytics/grants-portfolio"
+            route: "/data-analytics/grants-portfolio",
           },
           {
             title: "Global Fund Donors",
-            route: "/gf-donors"
+            route: "/gf-donors",
           },
           {
             title: "Grant-performance-analysis",
-            route: "/gp-analysis"
-          }
-        ]
+            route: "/gp-analysis",
+          },
+        ],
       },
 
       {
@@ -87,14 +95,14 @@ export const store = new Vuex.Store({
         submenus: [
           {
             title: "Reports",
-            route: "/publications/reports"
+            route: "/publications/reports",
           },
           {
             title: "Guide",
-            route: "/publications/guide"
-          }
-        ]
-      }
+            route: "/publications/guide",
+          },
+        ],
+      },
     ],
     slides: [
       {
@@ -102,22 +110,22 @@ export const store = new Vuex.Store({
           "https://www.theglobalfund.org/media/9405/2020-03-06_women-leading-the-fight-for-better-health.jpg",
         language: "en",
         caption: "Women Leading Fight",
-        id: "adfhad"
+        id: "adfhad",
       },
       {
         imageUrl: "https://aidspan.org/sites/default/files/aids.jpg",
         language: "en",
         caption: "Map for aidspan works",
-        id: "adfhasdd"
-      }
+        id: "adfhasdd",
+      },
     ],
     logo: require("@/assets/images/en/logo_en.png"),
 
     appTitle: [
       {
         lang: "en",
-        title: "Independent observer of the Global fund"
-      }
+        title: "Independent observer of the Global fund",
+      },
     ],
     appIcon: require("@/assets/images/common/aid_icon.png"),
     homePublications: [
@@ -125,14 +133,14 @@ export const store = new Vuex.Store({
         pub_title:
           "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
         pub_date: "30 Jan 2020",
-        pub_file_url: "/pub"
+        pub_file_url: "/pub",
       },
       {
         pub_title:
           "Global Fund programs grapple with challenging monetary environment in Zimbabwe",
         pub_date: "30 Jan 2020",
-        pub_file_url: "/pub"
-      }
+        pub_file_url: "/pub",
+      },
     ],
     articles: [
       {
@@ -146,14 +154,14 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 1,
-        route: "/article"
+        route: "/article",
       },
       {
         art_title:
@@ -166,14 +174,14 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 2,
-        route: "/article"
+        route: "/article",
       },
       {
         art_title:
@@ -186,14 +194,14 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 3,
-        route: "/article"
+        route: "/article",
       },
       {
         art_title:
@@ -206,14 +214,14 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 5,
-        route: "/article"
+        route: "/article",
       },
       {
         art_title:
@@ -226,14 +234,14 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 6,
-        route: "/article"
+        route: "/article",
       },
       {
         art_title:
@@ -246,22 +254,22 @@ export const store = new Vuex.Store({
         art_author: {
           name: "Ida Hakiza",
           author_url: "/Michel",
-          author_img: require("@/assets/images/common/author_default.svg")
+          author_img: require("@/assets/images/common/author_default.svg"),
         },
         comments: 23,
         views: 2340,
         shares: 120,
         art_type: "pendemics",
         art_number: 7,
-        route: "/article"
-      }
+        route: "/article",
+      },
     ],
     quicklinks: [
       { title: "Staff web", route: "aidspan/staff" },
       { title: "Key Documents", route: "aidspan/key-documents" },
       { title: "Galleries", route: "aidspan/galleries" },
       { title: "Careers", route: "aidspan/careers" },
-      { title: "Sitemap", route: "aidspan/sitemap" }
+      { title: "Sitemap", route: "aidspan/sitemap" },
     ],
 
     epidemics: [
@@ -269,24 +277,23 @@ export const store = new Vuex.Store({
         ep_name: "Tuberclosis",
         ep_icon: require("@/assets/images/common/tuberclosis.png"),
         ep_id: "safda3",
-        class: "T"
+        class: "T",
       },
       {
         ep_name: "AIDS",
         ep_icon: require("@/assets/images/common/aids.png"),
         ep_id: "adfawe",
-        class: "A"
+        class: "A",
       },
       {
         ep_name: "Malaria",
         ep_icon: require("@/assets/images/common/maralia.png"),
         ep_id: "213fjdsl",
-        class: "M"
-      }
+        class: "M",
+      },
     ],
 
     /// template article
-
     article: {
       title:
         "Is it possible to contain and treat widespread COVID-19 infection in Africa?",
@@ -301,52 +308,13 @@ export const store = new Vuex.Store({
       tags: [
         { title: "corona Virus", route: "tags" },
         { title: "Pendemic", route: "tags" },
-        { title: "Africa", route: "tags" }
+        { title: "Africa", route: "tags" },
       ],
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus."
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus.",
     },
     Areas: [],
     Diseases: [],
+    Countries: [],
   },
-
-  actions: {
-    /// load the countries from API
-    loadGeoAreas() {
-      Axios.get("GeographicAreas")
-        .then(data => {
-          let Areas = data.data.value;
-          ///get the areas
-          this.commit("SET_AREAS", Areas);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-    ///end to get the countries
-    ///start to load the diseases (called components)
-    loadDiseases() {
-      Axios.get("Components")
-        .then(data => {
-          let Components = data.data.value;
-          //attach the fetched data to the valiable
-          this.commit("SET_COMPONENTS", Components);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
-  },
-
-  mutations: {
-    /// attaching the areas
-    SET_AREAS(state, Areas) {
-      state.Areas = Areas;
-    },
-    ///attaching the components
-
-    SET_COMPONENTS(state, Components) {
-      state.Components = Components;
-    }
-  }
 });

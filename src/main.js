@@ -1,24 +1,28 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify'
-import {store} from './stores/store'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import vuetify from "./plugins/vuetify";
+import { store } from "./stores/store";
 //import the custom styles
-import './assets/styles/responsive.scss';
-import './assets/styles/animate.scss';
-import './assets/styles/mobile.scss';
-import './assets/styles/main.scss';
+import "./assets/styles/responsive.scss";
+import "./assets/styles/animate.scss";
+import "./assets/styles/mobile.scss";
+import "./assets/styles/main.scss";
+
+//talk to Api
+window.axios = require ('axios');
+
 //import for animation
-import scrollAnimation from './directives/scrollAnimation'
+import scrollAnimation from "./directives/scrollAnimation";
 
-Vue.directive('scrollAnimation' , scrollAnimation);
+Vue.directive("scrollAnimation", scrollAnimation);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
-  template: '',
+  template: "",
   vuetify,
   store: store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
