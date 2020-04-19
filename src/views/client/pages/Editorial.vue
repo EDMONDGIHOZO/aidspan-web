@@ -154,7 +154,8 @@
 </template>
 
 <script>
-import AllIssues from "../components/pages/all-issues.vue";
+
+import AllIssues from "@/components/pages/client/all-issues.vue";
 
 export default {
   data() {

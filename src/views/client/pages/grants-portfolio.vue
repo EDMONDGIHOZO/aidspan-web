@@ -118,7 +118,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12"> 
+      <v-col cols="12">
         <countriesMap> </countriesMap>
       </v-col>
     </v-row>
@@ -129,7 +129,7 @@
 <script>
 //import GrantsByCountry from "@/components/pages/grantsOverview.vue";
 //import Diseases from "@/components/pages/diseases.vue";
-import GrantsCountry from "@/components/pages/grants-country.vue";
+import GrantsCountry from "@/components/pages/client/grants-country.vue";
 export default {
   //dummy data
   data() {
@@ -283,7 +283,7 @@ export default {
 
    components: {
     "countriesMap": GrantsCountry,
-  } 
+  }
 };
 </script>
 

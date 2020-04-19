@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import SingleIssue from "@/components/pages/SingleIssue.vue";
+import SingleIssue from "@/components/pages/client/SingleIssue.vue";
 export default {
   data() {
     return {
@@ -71,7 +71,7 @@ export default {
         { date: "12 apr 2020", number: 127, iss_id: 138 },
         { date: "12 mar 2020", number: 128, iss_id: 139 },
         { date: "12 feb 2020", number: 129, iss_id: 140 },
-        
+
       ]
     };
   },

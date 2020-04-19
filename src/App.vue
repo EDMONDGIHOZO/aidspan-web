@@ -1,24 +1,24 @@
 <template>
   <v-app>
     <!-- first header include main aidspan informations -->
-    <MobileMenu> </MobileMenu>
+    <MobileMenu></MobileMenu>
     <Header class="d-none d-sm-flex"></Header>
     <!--end of first header -->
     <!-- second header include all the menu -->
     <Menubar class="d-none d-sm-flex"></Menubar>
     <!--end of first header -->
     <!--all contents from routers -->
-   <v-content>
+    <v-content>
       <router-view></router-view>
-   </v-content>
+    </v-content>
     <Footer></Footer>
   </v-app>
 </template>
 <script>
-import Header from "./components/layouts/Header.vue";
-import Footer from "./components/layouts/Footer.vue";
-import Menubar from "./components/layouts/menubar.vue";
-import MobileMenu from "./components/layouts/mobileMenu.vue";
+import Header from "./components/layouts/client/Header.vue";
+import Footer from "./components/layouts/client/Footer.vue";
+import Menubar from "./components/layouts/client/menubar.vue";
+import MobileMenu from "./components/layouts/client/mobileMenu.vue";
 
 export default {
   name: "App",

@@ -1,11 +1,8 @@
 <template>
-  <div row wrap>
+  <div class="all">
+    <!-- bring the header -->
     <v-carousel hide-delimiters class="home-slides" flat cycle>
-      <v-carousel-item
-        v-for="(slide, i) in homeSlides"
-        :key="i"
-        :src="slide.imageUrl"
-      >
+      <v-carousel-item v-for="(slide, i) in homeSlides" :key="i" :src="slide.imageUrl">
         <div class="caption-card"></div>
       </v-carousel-item>
     </v-carousel>
@@ -18,9 +15,7 @@
           <div class="header">
             <h1 display-2>AIDSPAN</h1>
           </div>
-          <p v-scrollAnimation v-if="mission.lang === 'en'">
-            {{ mission.content }}
-          </p>
+          <p v-scrollAnimation v-if="mission.lang === 'en'">{{ mission.content }}</p>
         </v-flex>
         <v-flex xs12 md7 sm6 lg8 class="mission" v-scrollAnimation>
           <div class="mission-header" transition="scale-transition">
@@ -36,11 +31,7 @@
               shaped
             >
               <v-card-item id="epidemic-card">
-                <v-img
-                  :src="epidemic.ep_icon"
-                  width="187"
-                  class="d-none d-sm-flex"
-                ></v-img>
+                <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
                 <p class="epidemics">{{ epidemic.ep_name }}</p>
               </v-card-item>
             </v-card>
@@ -55,14 +46,11 @@
         <v-flex md12 ma-2>
           <v-card flat>
             <v-card-actions>
-              <v-card-title>
-                GFO Current Issue {{ currentIssue.iss_number }}
-              </v-card-title>
+              <v-card-title>GFO Current Issue {{ currentIssue.iss_number }}</v-card-title>
               <v-spacer></v-spacer>
               <v-btn text>Share</v-btn>
               <v-btn color="purple" text>
-                <v-icon left>mdi-file-download</v-icon>
-                Download
+                <v-icon left>mdi-file-download</v-icon>Download
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -95,20 +83,14 @@
                 </v-card-title>
                 <v-list-item class="grow">
                   <v-list-item-avatar color="grey darken-3">
-                    <v-img
-                      class="elevation-6"
-                      :src="article.art_author.author_img"
-                      width="10px"
-                    ></v-img>
+                    <v-img class="elevation-6" :src="article.art_author.author_img" width="10px"></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content>
                     <div class="author_name">{{ article.art_author.name }}</div>
                   </v-list-item-content>
                   <v-row align="center" justify="end">
                     <v-icon class="mr-1" small>mdi-history</v-icon>
-                    <span class="subheading mr-2 article_date"
-                      >{{ article.art_date }}
-                    </span>
+                    <span class="subheading mr-2 article_date">{{ article.art_date }}</span>
                   </v-row>
                 </v-list-item>
                 <v-card-text>
@@ -118,19 +100,15 @@
                   <v-list-item class="grow">
                     <v-row align="left" justify="end">
                       <v-icon small left>mdi-eye</v-icon>
-                      <span class="subheading mr-2"
-                        >{{ article.views }} views</span
-                      >
+                      <span class="subheading mr-2">{{ article.views }} views</span>
                       <v-spacer></v-spacer>
-                      <v-icon class="ma-1" color="primary" small
-                        >mdi-comment</v-icon
-                      >
-                      <span class="subheading mr-2">{{
+                      <v-icon class="ma-1" color="primary" small>mdi-comment</v-icon>
+                      <span class="subheading mr-2">
+                        {{
                         article.comments
-                      }}</span>
-                      <v-icon class="ma-1" color="secondary" small
-                        >mdi-share-variant</v-icon
-                      >
+                        }}
+                      </span>
+                      <v-icon class="ma-1" color="secondary" small>mdi-share-variant</v-icon>
                       <span class="subheading">{{ article.shares }}</span>
                     </v-row>
                   </v-list-item>
@@ -148,17 +126,10 @@
           <v-card class="mx-auto pa-5 ma-1" flat>
             <v-list>
               <v-list-title class="title">Publications</v-list-title>
-              <v-list-item
-                v-for="publication in publications"
-                :key="publication.pub_id"
-              >
+              <v-list-item v-for="publication in publications" :key="publication.pub_id">
                 <v-list-item-content>
-                  <v-list-item-title
-                    v-text="publication.pub_title"
-                  ></v-list-item-title>
-                  <v-list-item-subtitle
-                    v-text="publication.pub_date"
-                  ></v-list-item-subtitle>
+                  <v-list-item-title v-text="publication.pub_title"></v-list-item-title>
+                  <v-list-item-subtitle v-text="publication.pub_date"></v-list-item-subtitle>
                 </v-list-item-content>
                 <v-list-item-action>
                   <v-btn icon outlined small fab color="primary">
@@ -167,16 +138,13 @@
                 </v-list-item-action>
               </v-list-item>
             </v-list>
-            <v-btn rounded block color="secondary" router to="/publications"
-              >View All Publications</v-btn
-            >
+            <v-btn rounded block color="secondary" router to="/publications">View All Publications</v-btn>
           </v-card>
         </v-flex>
         <v-flex xs12 md4>
           <v-card class="mx-auto pa-5 ma-1" hover shaped id="apw-card">
             <v-card-title>
-              <v-icon>mdi-settings</v-icon>
-              AIDSPAN PORTAL WORKBENCH
+              <v-icon>mdi-settings</v-icon>AIDSPAN PORTAL WORKBENCH
             </v-card-title>
             <v-card-text>
               Aidspan Portal Workbench™ is a flexible and powerful web-based
@@ -205,12 +173,10 @@
       <v-layout row wrap id="subscribe-section" v-scrollAnimation>
         <v-flex xs12 md12 class="pa-5 title">
           <div class="ma-3">
-            <div class="heading display-1 orange--text">
-              SUBSCRIBE FOR NEWSLETTER
-            </div>
-            <div class="subHeading font-weight-light">
-              for newsletter in English choose GFO or OFM for french
-            </div>
+            <div class="heading display-1 orange--text">SUBSCRIBE FOR NEWSLETTER</div>
+            <div
+              class="subHeading font-weight-light"
+            >for newsletter in English choose GFO or OFM for french</div>
           </div>
         </v-flex>
         <v-flex class="pa-2 content">
@@ -249,9 +215,7 @@
                 outlined
                 block
                 large
-              >
-                Subscribe
-              </v-btn>
+              >Subscribe</v-btn>
             </v-form>
           </v-col>
         </v-flex>
@@ -266,16 +230,10 @@
             <v-sheet class="mx-auto">
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
-                  <v-card
-                    flat
-                    class="mx-4"
-                    hover
-                    :href="logo.web"
-                    target="_blank"
-                  >
-                    <v-card-image
-                      ><img :src="logo.img" alt="donor logo" height="73px"
-                    /></v-card-image>
+                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
+                    <v-card-image>
+                      <img :src="logo.img" alt="donor logo" height="73px" />
+                    </v-card-image>
                   </v-card>
                 </v-slide-item>
               </v-slide-group>
@@ -290,6 +248,7 @@
 
 <script>
 // @ is an alias to /src
+//import the header,footer,mobile menu
 
 export default {
   computed: {
@@ -309,6 +268,7 @@ export default {
       return this.$store.state.epidemics;
     }
   },
+
   data() {
     return {
       //donors logos //
@@ -433,7 +393,7 @@ export default {
         timestamp: "1580733020"
       }
     };
-  }
+  },
 };
 </script>
 
