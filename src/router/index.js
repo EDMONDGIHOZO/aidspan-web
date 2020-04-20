@@ -1,140 +1,136 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/client/pages/Home.vue";
-import Article from "../views/client/pages/Article.vue";
-import Editorial from "../views/client/pages/Editorial.vue";
-import About from "../views/client/pages/About.vue";
-import GrantsPortfolio from "../views/client/pages/grants-portfolio.vue";
-import Methodologies from "../views/client/pages/Methodologies.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/aidspan',
+    name: 'holder',
     meta: {
-      title: "Welcome to Aidspan",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
+      title: 'Welcome to Aidspan ',
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "client-app-holder" */ '../views/client/holder/clientholder.vue'
+      ),
+    children: [
+      {
+        path: '/about-us',
+        name: 'about',
+        component: () =>
+          import(
+            /* webpackChunkName: "about-us" */ '../views/client/pages/About.vue'
+          ),
+        meta: {
+          title: 'About aidspan',
         },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
-  },
-  // about aidspan
-  {
-    path: "/about-us",
-    name: "About",
-    component: About,
-    meta: {
-      title: "About Aidspan",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
+      },
+
+      {
+        path: '/editorial',
+        name: 'editoral',
+        component: () =>
+          import(
+            /* webpackChunkName: "editoral" */ '../views/client/pages/Editorial.vue'
+          ),
+        meta: {
+          title: 'GFO NEWSLETTER',
         },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+      },
+      {
+        path: '/home',
+        name: 'homepage',
+        component: () =>
+          import(
+            /* webpackChunkName: "editoral" */ '../views/client/pages/Home.vue'
+          ),
+        meta: {
+          title: 'Welcome to aidspan',
+        },
+      },
+
+      {
+        path: '/article',
+        name: 'article-view-page',
+        component: () =>
+          import(
+            /* webpackChunkName: "editoral" */ '../views/client/pages/Article.vue'
+          ),
+        meta: {
+          title: 'Current Article View',
+        },
+      },
+      {
+        path: '/methodologies',
+        name: 'methodologies',
+        component: () =>
+          import(
+            /* webpackChunkName: "Methodologies" */ '../views/client/pages/Methodologies.vue'
+          ),
+        meta: {
+          title: 'Data Methodolofies',
+        },
+      },
+
+      {
+        path: '/data-analytics/grants-portfolio',
+        name: 'Grants-portfolio',
+        component: () =>
+          import(
+            /* webpackChunkName: "grants-portfolio" */ '../views/client/pages/grants-portfolio.vue'
+          ),
+        meta: {
+          title: 'grants portfolio',
+        },
+      },
+    ],
   },
 
-  /// end
+  ////administration routes
   {
-    path: "/editorial",
-    name: "Editorial",
-    component: Editorial,
-    meta: {
-      title: "Aidspan Editorial",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
+    path: '/admin/auth',
+    name: 'administration',
+    component: () =>
+      import(
+        /* webpackChunkName: "administration" */ '../views/admin/auth/authloader.vue'
+      ),
+    children: [
+      {
+        path: '/admin/auth/:login',
+        name: 'Login',
+        component: () =>
+          import(
+            /* webpackChunkName: "admin-login" */ '../views/admin/auth/login.vue'
+          ),
+        meta: {
+          title: 'Login as staff Member',
         },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
+      },
+      {
+        path: '/admin/auth/:login',
+        name: 'Login',
+        component: () =>
+          import(
+            /* webpackChunkName: "admin-login" */ '../views/admin/auth/login.vue'
+          ),
+        meta: {
+          title: 'Login as staff Member',
+        },
+      },
+    ],
   },
-
-  {
-    path: "/article",
-    name: "Editorial",
-    component: Article,
-    meta: {
-      title: "Article Page",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
-        },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
-  },
-  {
-    path: "/methodologies",
-    name: "Data Analytics",
-    component: Methodologies,
-    meta: {
-      title: "Aidspan Data Analytics from Global Fund Data",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
-        },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
-  },
-  /// data analytics based pages
-  {
-    path: "/data-analytics/grants-portfolio",
-    name: "Grants Portofolio",
-    component: GrantsPortfolio,
-    meta: {
-      title: "Grants Portfolio",
-      metaTags: [
-        {
-          name: "Description",
-          content: "aidspan is NGO based in Kenya"
-        },
-        {
-          proporty: "og:Description",
-          content: "the global fund independent observer"
-        }
-      ]
-    }
-  }
-  // end data analytics based pages
-];
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes
-});
+  routes,
+})
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  next();
-});
+  document.title = to.meta.title
+  next()
+})
 
-export default router;
+export default router

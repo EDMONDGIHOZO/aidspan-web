@@ -1,33 +1,13 @@
 <template>
   <v-app>
-    <!-- first header include main aidspan informations -->
-    <MobileMenu></MobileMenu>
-    <Header class="d-none d-sm-flex"></Header>
-    <!--end of first header -->
-    <!-- second header include all the menu -->
-    <Menubar class="d-none d-sm-flex"></Menubar>
-    <!--end of first header -->
-    <!--all contents from routers -->
     <v-content>
       <router-view></router-view>
     </v-content>
-    <Footer></Footer>
   </v-app>
 </template>
 <script>
-import Header from "./components/layouts/client/Header.vue";
-import Footer from "./components/layouts/client/Footer.vue";
-import Menubar from "./components/layouts/client/menubar.vue";
-import MobileMenu from "./components/layouts/client/mobileMenu.vue";
-
 export default {
-  name: "App",
-  components: {
-    Header,
-    Footer,
-    Menubar,
-    MobileMenu
-  }
+  name: "Aidspan official website"
 };
 </script>
 
