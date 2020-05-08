@@ -123,14 +123,13 @@
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   computed: {
-    icons() {
-      return this.$store.state.icons;
-    },
-    logo() {
-      return this.$store.state.logo;
-    }
+
+      ...mapState ([
+          'icons','logo'
+      ]),
   },
   data() {
     return {

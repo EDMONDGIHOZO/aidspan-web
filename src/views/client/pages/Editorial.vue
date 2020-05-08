@@ -23,17 +23,10 @@
           </div>
           <div class="bottom-toolbar">
             <v-row justify="center">
-              <v-dialog
-                v-model="dialog"
-                fullscreen
-                hide-overlay
-                transition="slide-x-transition"
-              >
+              <v-dialog v-model="dialog" fullscreen hide-overlay transition="slide-x-transition">
                 <template v-slot:activator="{ on }">
-                  <v-btn dark v-on="on" text color="primary">All Issues </v-btn>
-                  <v-btn text color="secondary" href="#current-issue-editorial">
-                    Current Issue</v-btn
-                  >
+                  <v-btn dark v-on="on" text color="primary">All Issues</v-btn>
+                  <v-btn text color="secondary" href="#current-issue-editorial">Current Issue</v-btn>
                 </template>
                 <v-card>
                   <v-toolbar dark color="primary">
@@ -45,7 +38,7 @@
                     <h1>All Issues</h1>
                   </v-toolbar>
                   <!--- view all issues component -->
-                  <AllIssues> </AllIssues>
+                  <AllIssues></AllIssues>
                 </v-card>
               </v-dialog>
             </v-row>
@@ -68,18 +61,14 @@
         <v-row no-gutters>
           <v-col v-for="n in 6" :key="n" cols="12" sm="4">
             <v-card class="pa-2 ma-3 article" outlined tile hover>
-              <div class="title">
-                Venezuela first to receive malaria funds
-              </div>
+              <div class="title">Venezuela first to receive malaria funds</div>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, a
                 officia! Voluptas odit recusandae, a doloremque iste, qui magnam
                 illum adipisci beatae sed eveniet nihil porro reiciendis
                 voluptatibus voluptate. Architecto?
               </p>
-              <v-chip color="green lighten-2" text-color="white">
-                Politics
-              </v-chip>
+              <v-chip color="green lighten-2" text-color="white">Politics</v-chip>
             </v-card>
           </v-col>
         </v-row>
@@ -89,17 +78,16 @@
     <!--- end of the last live articles -->
     <!-- start the current isssue view -->
     <v-container id="current-issue-editorial">
-      <v-layout row wrap>
-        <v-flex xs12 md3 lg3 class="new-issue-side">
+      <v-row>
+        <v-col cols="12" md="3" class="new-issue-side">
+          <p class="font-weight-bold title-2 white--text text-end">CURRENT ISSUE</p>
           <div class="issue-number">
-            <p class="font-weight-black display-3 text-end">340</p>
+            <p class="font-weight-black display-1 text-end">{{currentIssue.title}}</p>
           </div>
-          <p class="font-weight-bold display-1 white--text text-end">
-            CURRENT ISSUE
-          </p>
-          <p class="font-weight-regular white--text text-end headline">
-            12 MARCH 2020
-          </p>
+
+          <p
+            class="font-weight-regular white--text text-end headline"
+          >{{currentIssue.changed | formatDate}}</p>
           <v-card class="pa-5 white--text" color="secondary">
             <v-text>
               Global Fund Observer (GFO) is produced by the Editorial Department
@@ -115,46 +103,47 @@
                 outlined
                 color="white"
                 href="mailto:adele.sulcas@aidspan.org"
-              >
-                send E-mail
-              </v-btn>
+              >send E-mail</v-btn>
             </card-actions>
           </v-card>
-        </v-flex>
-        <v-flex xs12 md9 lg9 sm8>
-          <v-row dense class="pa-5">
+        </v-col>
+        <!--- current issue -->
+        <v-col cols="12" md="9" class="current-issue-articles">
+          <v-row>
             <v-col
-              v-for="article in articles"
+              v-for="article in currentIssue.related_articles"
               :key="article.art_title"
-              cols="6"
+              cols="12"
+              md="6"
             >
-              <v-card shaped>
-                <v-card-title class="title">
-                  <p class="subtitle-1 blue--text">{{ article.art_title }}</p>
-                </v-card-title>
+              <v-card flat class="mb-2 current-cards" hover height="220">
+                <v-card-text class="headline font-weight-bold">
+                  <p class="title-1 primary--text">{{ article.title | str_limit(80) }}</p>
+                </v-card-text>
                 <v-card-actions>
-                  <v-chip color="secondary " text-color="white">
-                    {{ article.art_type }}
+                  <v-chip class="ma-2" color="success" outlined v-for="type in article.article_types" :key="type.id" >
+                    <v-icon left>mdi-note-text-outline</v-icon>{{ type.name }}
                   </v-chip>
                   <v-spacer></v-spacer>
-                  <v-chip color="primary" text-color="white">
-                    {{ article.art_number }}
+                  <v-chip class="ma-2" color="primary" label text-color="white">
+                    <v-icon left>mdi-label</v-icon>
+                    {{ article.article_number.field_article_number_value }}
                   </v-chip>
                 </v-card-actions>
               </v-card>
             </v-col>
           </v-row>
-        </v-flex>
-      </v-layout>
+        </v-col>
+        <!--- end of current issue -->
+      </v-row>
     </v-container>
     <!--- end of the current issue articles view  -->
     <!---  start the list of all issues  -->
-    <v-container id="all-issues"> </v-container>
+    <v-container id="all-issues"></v-container>
   </div>
 </template>
 
 <script>
-
 import AllIssues from "@/components/pages/client/all-issues.vue";
 
 export default {
@@ -180,9 +169,12 @@ export default {
       widgets: false
     };
   },
+  mounted() {
+    this.$store.dispatch("loadCurrentIssue");
+  },
   computed: {
-    articles() {
-      return this.$store.state.articles;
+    currentIssue() {
+      return this.$store.state.currentIssueArticles.data;
     }
   },
   components: {
@@ -283,22 +275,42 @@ export default {
 
 #current-issue-editorial {
   height: auto;
-  left: 0px;
-  top: 1256px;
-  background: #00aeef;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
-  padding: 0;
   display: flex;
   overflow: hidden;
 }
-
+.current-issue-articles {
+  background: #f2fbff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
 #current-issue-editorial .new-issue-side {
   background: #ff7a2b;
   box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  align-content: center;
+}
+#current-issue-editorial .current-cards {
+  box-shadow: 0px 4px 7px rgba(43, 183, 255, 0.31);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  min-height: 150px;
+  flex-grow: 2;
+}
+#current-issue-editorial .current-cards:hover {
+  background: #ffffff;
+  box-shadow: 0px 4px 19px rgba(43, 183, 255, 0.46);
+  transform: scale(1.01);
 }
 
 #current-issue-editorial .new-issue-side .issue-number {

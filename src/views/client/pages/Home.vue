@@ -2,7 +2,7 @@
   <div class="all">
     <!-- bring the header -->
     <v-carousel hide-delimiters class="home-slides" flat cycle>
-      <v-carousel-item v-for="(slide, i) in homeSlides" :key="i" :src="slide.imageUrl">
+      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.imageUrl">
         <div class="caption-card"></div>
       </v-carousel-item>
     </v-carousel>
@@ -46,7 +46,7 @@
         <v-flex md12 ma-2>
           <v-card flat>
             <v-card-actions>
-              <v-card-title>GFO Current Issue {{ currentIssue.iss_number }}</v-card-title>
+              <v-card-title class="current-issue-number">GFO Current Issue {{ currentIssue.iss_number }}</v-card-title>
               <v-spacer></v-spacer>
               <v-btn text>Share</v-btn>
               <v-btn color="purple" text>
@@ -65,7 +65,7 @@
       <v-layout row wrap v-scrollAnimation>
         <v-slide-group v-model="model" class="pa-2" multiple show-arrows>
           <v-slide-item
-            v-for="article in newArticles"
+            v-for="article in articles"
             :key="article.art_id"
             v-slot:default="{ active, toggle }"
           >
@@ -120,13 +120,14 @@
       </v-layout>
       <!-- end of current articles -->
     </v-container>
+    
     <v-container fluid>
       <v-layout row wrap id="pubsContainer">
         <v-flex xs12 md8>
           <v-card class="mx-auto pa-5 ma-1" flat>
             <v-list>
               <v-list-title class="title">Publications</v-list-title>
-              <v-list-item v-for="publication in publications" :key="publication.pub_id">
+              <v-list-item v-for="publication in homePublications" :key="publication.pub_id">
                 <v-list-item-content>
                   <v-list-item-title v-text="publication.pub_title"></v-list-item-title>
                   <v-list-item-subtitle v-text="publication.pub_date"></v-list-item-subtitle>
@@ -249,24 +250,14 @@
 <script>
 // @ is an alias to /src
 //import the header,footer,mobile menu
+import {mapState} from 'vuex'
 
 export default {
   computed: {
-    homeSlides() {
-      return this.$store.state.slides;
-    },
-    companyInfo() {
-      return this.$store.state.info;
-    },
-    newArticles() {
-      return this.$store.state.articles;
-    },
-    publications() {
-      return this.$store.state.homePublications;
-    },
-    epidemics() {
-      return this.$store.state.epidemics;
-    }
+
+      ...mapState([
+          'slides','articles','homePublications', 'epidemics'
+      ]),
   },
 
   data() {
@@ -496,5 +487,15 @@ $lightgrey: rgb(69, 69, 70);
   text-align: center;
   font-weight: 300;
   font-size: 18px;
+}
+
+.current-issue-number{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    overflow: hidden;
 }
 </style>

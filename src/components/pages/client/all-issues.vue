@@ -1,82 +1,89 @@
 <template>
   <v-container fluid>
-    <!--- top bar for search and sorting 0-->
-    <v-row id="topbar">
-      <v-col class="d-flex" md4 sm6 xs6>
-        <v-text-field
-          placeholder="search issue"
-          rounded
-          background-color="white"
-          height="50px"
-        ></v-text-field>
+    <div class="all">
+      <v-col cols="12" class="mb-3">
+        <v-btn small text color="primary" depressed @click="sortBy('title')">
+          <v-icon left small>mdi-folder</v-icon>
+          <span class="caption text-lowercase">By Issue Number</span>
+        </v-btn>
+        <v-btn small flat color="secondary" depressed @click="sortBy('date')" class="mx-2">
+          <v-icon left small>mdi-calendar</v-icon>
+          <span class="caption text-lowercase">By Issue Date</span>
+        </v-btn>
       </v-col>
-      <v-spacer></v-spacer>
-      <v-col class="d-flex" md3 sm4 xs4>
-        <v-select
-          :items="issueSort"
-          background-color="white"
-          rounded
-          height="50px"
-          width="40px"
-          placeholder="sort"
-        ></v-select>
-      </v-col>
-    </v-row>
-    <!-- end of search and sorting -->
-    <v-layout row wrap class="issue-row">
-      <v-flex md8 sm8 xs12>
-        <SingleIssue></SingleIssue>
-      </v-flex>
-      <v-flex class="pa-5" id="issues" md4>
-        <v-data-table
-          :headers="headers"
-          :items="issues"
-          :items-per-page="5"
-          item-key="number"
-          class="elevation-3"
-          :footer-props="{
-            showFirstLastPage: true,
-            firstIcon: 'mdi-arrow-collapse-left',
-            lastIcon: 'mdi-arrow-collapse-right',
-            prevIcon: 'mdi-minus',
-            nextIcon: 'mdi-plus'
-          }"
-        ></v-data-table>
-      </v-flex>
-    </v-layout>
+      <v-row wrap>
+        <v-col cols="12">
+          <v-expansion-panels focusable popout hover>
+            <v-expansion-panel v-for="issue in issues" :key="issue.nid">
+              <v-expansion-panel-header>
+                <span class="title issue-title">
+                  {{issue.title}}
+                  <v-chip class="ma-2" color="primary" label text-color="white">
+                    <v-icon left>mdi-label</v-icon>
+                    {{issue.__meta__.related_articles_count}} Articles
+                  </v-chip>
+                </span>
+                <v-spacer></v-spacer>
+                <span class="text-right">
+                  <v-icon right color="secondary" small>mdi-calendar</v-icon>
+                  {{issue.created | formatDate }}
+                </span>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-row>
+                  <v-col
+                    cols="12"
+                    md="6"
+                    v-for="article in issue.related_articles"
+                    :key="article.nid"
+                  >
+                    <v-card class="ma-1" hover>
+                      <v-card-title class="blue--text">{{article.title}}</v-card-title>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-col>
+      </v-row>
+      <paginate collection="issues" />
+    </div>
   </v-container>
 </template>
 
 <script>
-import SingleIssue from "@/components/pages/client/SingleIssue.vue";
-export default {
-  data() {
-    return {
-      issueSort: [
-        "latest", "older"
-      ],
-      headers: [
-        {
-          text: "issue Number",
-          align: "start",
-          value: "number"
-        },
-        { text: "date", value: "date"}
-      ],
-      issues: [
-        { date: "12 jul 2020", number: 125, iss_id: 136 },
-        { date: "12 jan 2020", number: 130, iss_id: 141 },
-         { date: "16 jan 2020", number: 130, iss_id: 145 },
-        { date: "12 jun 2020", number: 126, iss_id: 137 },
-        { date: "12 apr 2020", number: 127, iss_id: 138 },
-        { date: "12 mar 2020", number: 128, iss_id: 139 },
-        { date: "12 feb 2020", number: 129, iss_id: 140 },
+import paginate from "@/components/helpers/pagination.vue";
 
-      ]
-    };
+export default {
+  mounted() {
+    this.$store.dispatch("loadIssues");
+  },
+
+  computed: {
+    issues() {
+      return this.$store.state.issues.data;
+    }
   },
   components: {
-    SingleIssue
-  }
+    paginate
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.all {
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.issue-title {
+  text-transform: uppercase;
+}
+
+.single-issue-card {
+  border-left: solid #4cd2f3 2px;
+  margin: 12px;
+}
+</style>

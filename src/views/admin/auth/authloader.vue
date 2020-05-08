@@ -8,7 +8,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="6" id="forms-holder">
-          <v-card flat>
+          <v-card flat  width="600">
             <keep-alive>
               <router-view :key="$route.path"></router-view>
             </keep-alive>
@@ -63,7 +63,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: solid 1px coral;
+  border-right: 2px solid #FF7A00;
 }
 
 #forms-holder {

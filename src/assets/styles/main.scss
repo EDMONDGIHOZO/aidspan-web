@@ -1,70 +1,81 @@
 $aidspan-orange: #f46517;
-
-
 .top-intro-text {
-  font-size: medium;
-  width: 80%;
-  line-height: 30px;
-  margin: auto;
-  text-align: center;
-  font-weight: bold;
-  color: #f46517;
+    font-size: medium;
+    width: 80%;
+    line-height: 30px;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    color: #f46517;
 }
 
 .top-intro {
-  background: linear-gradient(
-    180deg,
-    #f2fbff 82.24%,
-    rgba(242, 251, 255, 0) 100%
-  );
-  height: 200px;
-  display: flex;
-  flex-wrap: initial;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+    background: linear-gradient( 180deg, #f2fbff 82.24%, rgba(242, 251, 255, 0) 100%);
+    height: 200px;
+    display: flex;
+    flex-wrap: initial;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 #grants-tables {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #grants-tables .title {
-  line-height: 27px;
-  text-align: right;
-  color: #00aeef;
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
+    line-height: 27px;
+    text-align: right;
+    color: #00aeef;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
 }
+
 
 /** customizing the disease table **/
 
 #disease-table th {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 19px;
-  /* identical to box height */
-  text-align: right;
- 
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: right;
 }
 
 #disease-table table tbody tr:nth-child(even) {
-  vertical-align: left;
+    vertical-align: left;
 }
 
-#disease-table table tbody tr{
-  border: solid white 1px;
-  justify-content: center;
-  justify-items: center;
-  text-align: center;
+#disease-table table tbody tr {
+    border: solid white 1px;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
 }
 
 #disease-table .diseaseFooter {
-  font-weight: bold;
-  text-align: left;
+    font-weight: bold;
+    text-align: left;
+}
+
+#admin-navbar {
+    border-bottom: solid 2px #f46618;
+    background-color: red;
+}
+
+#article-container {
+    max-width: 90%;
+    padding: 40px;
+    box-shadow: 0 0 16px rgba(73, 89, 106, .1);
+}
+
+#comments-box {
+    box-sizing: border-box !important;
+    box-shadow: rgba(109, 117, 101, 0.2) 0px 12px 28px 0px !important;
+    border-radius: 20px;
 }

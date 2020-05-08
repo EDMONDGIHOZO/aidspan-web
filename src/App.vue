@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: "Aidspan official website"
+  name: "Aidspan",
 };
 </script>
 
