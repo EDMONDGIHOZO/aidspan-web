@@ -2,6 +2,9 @@
     <div class="notFound">
         <p class="display-4 notice">It looks like you are lost</p>
         <p>PAGE NOT FOUND </p>
+        <v-btn href="/" large>
+            HOMEPAGE
+        </v-btn>
     </div>
 </template>
 

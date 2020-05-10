@@ -231,7 +231,7 @@
             <v-sheet class="mx-auto">
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
-                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
+                  <v-card flat class="mx-4" :href="logo.web" target="_blank">
                     <v-card-image>
                       <img :src="logo.img" alt="donor logo" height="73px" />
                     </v-card-image>
