@@ -6,6 +6,9 @@ export default {
     issues: [],
     issue_article: {},
     currentIssueArticles: {},
+    article: {},
+    dbArticles: [],
+    article_data: null,
 
     icons: [{
             icon: 'mdi-facebook',
@@ -269,7 +272,7 @@ export default {
     ],
 
     /// template article
-    article: {
+    fake_article: {
         title: 'Is it possible to contain and treat widespread COVID-19 infection in Africa?',
         secondTitle: 'Can African countries attempts to “flatten the curve” work, especially in the presence of large numbers of people living with HIV and TB?',
         abstract: 'On March 16, at the World Health Organization’s most recent COVID-19 press conference in Geneva, WHO Director-General Dr. Tedros Adhanom Ghebreyesus said: “As the virus moves to low-income countries, were deeply concerned about the impact it could have among populations with high HIV prevalence, or among malnourished children.”',

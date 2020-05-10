@@ -6,11 +6,11 @@
   </v-app>
 </template>
 <script>
+
 export default {
   name: "Aidspan",
 };
 </script>
-
 <style lang="scss">
 $color-pack: true;
 @import "~vuetify/src/styles/main.sass";

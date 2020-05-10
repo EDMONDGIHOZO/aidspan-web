@@ -68,14 +68,23 @@ $aidspan-orange: #f46517;
     background-color: red;
 }
 
-#article-container {
-    max-width: 90%;
-    padding: 40px;
-    box-shadow: 0 0 16px rgba(73, 89, 106, .1);
-}
-
 #comments-box {
     box-sizing: border-box !important;
-    box-shadow: rgba(109, 117, 101, 0.2) 0px 12px 28px 0px !important;
-    border-radius: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
+}
+
+#social-icons {
+    padding: 10px;
+}
+
+#social-icons .fa {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #00aeef;
+    cursor: pointer;
+}
+
+#social-icons .fa:hover {
+    color: $aidspan-orange;
 }

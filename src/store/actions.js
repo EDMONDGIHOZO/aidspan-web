@@ -10,4 +10,9 @@ export default {
         const currentIssue = await Api().get('/current-issue');
         commit('SET_CURRENT_ISSUE', currentIssue.data)
     },
+
+    async loadArticles({ commit }, article_id) {
+        const response = await Api().get(`/articles/${article_id}`)
+        commit('SET_ARTICLE', response.data)
+    },
 }

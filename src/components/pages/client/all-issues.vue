@@ -22,6 +22,9 @@
                     <v-icon left>mdi-label</v-icon>
                     {{issue.__meta__.related_articles_count}} Articles
                   </v-chip>
+                  <v-btn text>
+                    <v-icon left>mdi-download</v-icon>Download
+                  </v-btn>
                 </span>
                 <v-spacer></v-spacer>
                 <span class="text-right">
@@ -34,11 +37,25 @@
                   <v-col
                     cols="12"
                     md="6"
-                    v-for="article in issue.related_articles"
+                    v-for="article in orderBy(issue.related_articles, 'article_number.field_article_number_value')"
                     :key="article.nid"
                   >
-                    <v-card class="ma-1" hover>
-                      <v-card-title class="blue--text">{{article.title}}</v-card-title>
+                    <v-card class="ma-1 article-card" hover min-height="200" flat router :to="{name: 'article', params: {article_id: article.nid}}">
+                      <v-list-item>
+                        <v-list-item-avatar color="primary">
+                          <span
+                            class="white--text headline"
+                          >{{article.article_number.field_article_number_value}}</span>
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                          <v-list-item-title class="headline blue--text">{{ article.title }}</v-list-item-title>
+                          <v-list-item-subtitle>By {{article.article_author.field_article_author_value}}</v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-card-text
+                        class="black--text"
+                        v-html="article.article_abstract.field_article_abstract_value"
+                      ></v-card-text>
                     </v-card>
                   </v-col>
                 </v-row>
@@ -54,7 +71,7 @@
 
 <script>
 import paginate from "@/components/helpers/pagination.vue";
-
+import Vue2Filters from "vue2-filters";
 export default {
   mounted() {
     this.$store.dispatch("loadIssues");
@@ -68,12 +85,12 @@ export default {
   components: {
     paginate
   },
+  mixins: [Vue2Filters.mixin]
 };
 </script>
 
 <style lang="scss" scoped>
 .all {
-  max-width: 95%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -85,5 +102,8 @@ export default {
 .single-issue-card {
   border-left: solid #4cd2f3 2px;
   margin: 12px;
+}
+.article-card {
+  border-top: solid #44ccdd 3px;
 }
 </style>

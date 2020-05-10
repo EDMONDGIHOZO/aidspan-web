@@ -11,14 +11,20 @@ import './assets/styles/mobile.scss'
 import './assets/styles/main.scss'
 import Vuelidate from 'vuelidate'
 import moment from 'moment'
+import Vue2Filters from 'vue2-filters'
 Vue.use(Vuelidate)
     //import for animation
 import scrollAnimation from './directives/scrollAnimation'
+import SocialSharing from 'vue-social-sharing'
 
-/** date formatting  */
+/** sharing stuffs */
+Vue.use(SocialSharing)
+    /** for content ordering  */
+Vue.use(Vue2Filters)
+    /** date formatting  */
 Vue.filter('formatDate', function(value) {
     if (value) {
-        return moment.unix(value).format('MMMM Do ,YYYY')
+        return moment.unix(value).format('MMM Do YY')
     }
 })
 Vue.filter('str_limit', function(value, size) {
@@ -30,6 +36,8 @@ Vue.filter('str_limit', function(value, size) {
     }
     return value.substr(0, size) + '...';
 });
+
+
 
 Vue.directive('scrollAnimation', scrollAnimation)
 Vue.config.productionTip = false

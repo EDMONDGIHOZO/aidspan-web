@@ -5,7 +5,7 @@
             <v-layout row wrap>
                 <v-flex xs12 md4 sm4 lg4 id="twitter-card">
                     <v-card class="mx-auto" max-width="400" flat>
-                        <a class="twitter-timeline" data-height="240" href="https://twitter.com/aidspan?ref_src=twsrc%5Etfw">Tweets by aidspan</a>
+                        Tweets
                     </v-card>
                 </v-flex>
                 <v-flex xs12 md4 sm4 lg4 id="quick-links-card">
@@ -71,7 +71,12 @@ export default {
         contacts() {
             return this.$store.state.basicInfo;
         }
-    }
+    },
+    mounted() {
+      let twitterScripts = document.createElement('script')
+      twitterScripts.setAttribute('src', 'https://www.google.com/recaptcha/api.js')
+      document.head.appendChild(twitterScripts)
+    },
 };
 </script>
 

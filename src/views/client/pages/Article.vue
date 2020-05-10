@@ -1,70 +1,114 @@
 <template>
-  <v-container class="my-5" id="article-container">
-    <v-row>
-      <v-col cols="9">
+  <v-container class="my-1" id="article-container">
+    <v-row v-for="article in article_data" :key="article.nid">
+      <v-col cols="12">
         <v-col id="articleSection" v-bind:class="fontAdjust">
           <v-flex md12>
             <p class="article-title">{{ article.title }}</p>
-            <p class="second-article-title">{{ article.secondTitle }}</p>
+            <p
+              class="second-article-title"
+            >{{ article.article_second_title.field_article_secondary_title_value }}</p>
           </v-flex>
           <v-row>
-            <v-flex md12 xs12 class="authoring">
+            <v-col cols="12" md="7">
               <v-chip class="ma-2" color="secondary" text-color="white">
                 <v-avatar left>
-                  <v-img
-                    class="elevation-6"
-                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-                  ></v-img>
+                  <i class="fa fa-edit"></i>
                 </v-avatar>
-                {{ article.author }} | {{ article.date }}
+                By
+                {{ article.article_author.field_article_author_value }}
               </v-chip>
+
               <v-chip class="ma-2" color="primary" text-color="white">
-                <v-avatar left class="primary darken-4">{{ article.number }}</v-avatar>
-                {{ article.type }}
+                <v-avatar
+                  left
+                  class="primary darken-4"
+                >{{ article.article_number.field_article_number_value }}</v-avatar>
+                <span v-for="type in article.article_types" :key="type.id">{{ type.name }}</span>
               </v-chip>
-              <v-spacer></v-spacer>
+              <span class="mx-5 text-lg-right">{{ article.created | formatDate }}</span>
+            </v-col>
+            <v-col cols="5" md="2">
               <v-btn icon class="mr-2" @click="bigger = !bigger">
-                <v-icon>mdi-format-font-size-increase</v-icon>
+                <v-icon color="primary">mdi-format-font-size-increase</v-icon>
               </v-btn>
               <v-btn icon class="mr-2" @click="decreaseFont">
-                <v-icon>mdi-format-font-size-decrease</v-icon>
-              </v-btn>|
-              <div class="social">
-                <v-btn icon color="#1873EC">
-                  <v-icon>mdi-facebook</v-icon>
-                </v-btn>
-                <v-btn icon color="#2571AE">
-                  <v-icon>mdi-linkedin</v-icon>
-                </v-btn>
-                <v-btn icon color="green">
-                  <v-icon>mdi-whatsapp</v-icon>
-                </v-btn>
-                <v-btn icon color="#379DEC">
-                  <v-icon>mdi-twitter</v-icon>
-                </v-btn>
-              </div>
-            </v-flex>
-            <v-card md12 class="abstract" flat>
-              <v-card-title>Abstract</v-card-title>
-              <v-card-text>{{ article.abstract }}</v-card-text>
-            </v-card>
+                <v-icon color="secondary">mdi-format-font-size-decrease</v-icon>
+              </v-btn>
+            </v-col>
+            <!-- start the social sharing icons -->
+            <v-col cols="7" md="3" class="text-right">
+              <social-sharing
+                url="https://aidspan.org/"
+                :title="article.title"
+                :description="article.article_abstract.field_article_abstract_value"
+                :quote="article.article_abstract.field_article_abstract_value"
+                hashtags="aidspan,GFO,OFM, GlobalFund"
+                twitter-user="aidspan"
+                inline-template
+              >
+                <div id="social-icons">
+                  <network network="whatsapp">
+                    <i class="fa fa-whatsapp"></i>
+                  </network>
+                  <network network="twitter">
+                    <i class="fa fa-twitter"></i>
+                  </network>
+                  <network network="email">
+                    <i class="fa fa-envelope"></i>
+                  </network>
+                  <network network="facebook">
+                    <i class="fa fa-facebook"></i>
+                  </network>
 
-            <v-html class="content">{{ article.content }}</v-html>
-            <v-card flat>
-              <v-card-text>
-                <span class="subheading">Tags:</span>
-                <v-chip-group active-class="deep-purple--text text--accent-4" mandatory>
-                  <v-chip v-for="tag in article.tags" :key="tag.title">
-                    {{
-                    tag.title
-                    }}
-                  </v-chip>
-                </v-chip-group>
-              </v-card-text>
-            </v-card>
+                  <network network="linkedin">
+                    <i class="fa fa-linkedin"></i>
+                  </network>
+                </div>
+              </social-sharing>
+            </v-col>
+            <!--- end of the social sharing icons -->
+            <v-col cols="12">
+              <v-card class="abstract" flat>
+                <v-card-title>Abstract</v-card-title>
+                <v-card-text>
+                  <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
+                </v-card-text>
+              </v-card>
+            </v-col>
+
+            <v-col cols="12">
+              <p class="content">
+                <span v-html=" article.article_content.field_article_content_value "></span>
+              </p>
+            </v-col>
+
+            <v-col cols="12">
+              <v-card flat outlined>
+                <v-card-text>
+                  <span class="subheading">Tags:</span>
+                  <v-chip-group active-class="deep-purple--text text--accent-4" mandatory>
+                    <v-chip v-for="tag in article.tags" :key="tag.title">
+                      {{
+                      tag.title
+                      }}
+                    </v-chip>
+                  </v-chip-group>
+                </v-card-text>
+              </v-card>
+            </v-col>
           </v-row>
+
           <v-card class="pa-5" id="comments-box" flat>
-            <P class="font-weight-regular display-1">COMMENT</P>
+            <v-row>
+              <v-col cols="6">
+                <span class="text-left">
+                  <v-chip class="ma-2" color="indigo" text-color="white">
+                    <v-avatar size="36">{{article.comment}}</v-avatar>Comments
+                  </v-chip>
+                </span>
+              </v-col>
+            </v-row>
             <v-snackbar v-model="snackbar" absolute top right color="success">
               <span>Thanks for your comment , highly appreciated</span>
               <v-icon dark>mdi-checkbox-marked-circle</v-icon>
@@ -111,41 +155,86 @@
           </v-card>
         </v-col>
       </v-col>
-      <v-col cols="3">
+      <v-fab-transition>
+        <v-btn
+          v-show="!hidden"
+          color="secondary"
+          dark
+          bottom
+          fixed
+          small
+          right
+          fab
+          @click.stop="issueview = !issueview"
+        >
+          <v-icon small>mdi-chevron-left</v-icon>
+        </v-btn>
+      </v-fab-transition>
+      <v-col cols="12" md="3">
         <v-row>
-          <v-card id="sidebar-article" width="100%" flat>
-            <v-col>
+          <v-card flat v-for="issue in article.article_issue" :key="issue.nid" class="pa-5">
+            <v-navigation-drawer
+              fixed
+              right
+              bottom
+              width="400"
+              v-model="issueview"
+              floating
+              app
+              class="navyside"
+            >
               <v-list dense nav class="py-0" flat>
-                <v-list-item two-line :class="miniVariant && 'px-0'">
+                <v-list-item>
+                  <v-fab-transition>
+                    <v-btn
+                      v-show="!hidden"
+                      color="secondary"
+                      dark
+                      bottom
+                      small
+                      class="visibility-button"
+                      depressed
+                      rounded
+                      @click.stop="issueview = !issueview"
+                    >
+                      Hide Issue
+                      <v-icon>mdi-chevron-right</v-icon>
+                    </v-btn>
+                  </v-fab-transition>
+                </v-list-item>
+                <v-list-item two-line :class="miniVariant && 'px-2'">
                   <v-list-item-content>
-                    Related Articles from:
-                    <v-list-item-title v-text="issue.title" class="issue-title-side"></v-list-item-title>
-                    <v-list-item-subtitle v-text="issue.iss_date"></v-list-item-subtitle>
+                    <v-list-item-title
+                      v-text="issue.title"
+                      class="issue-title-side font-weight-black title-2"
+                    ></v-list-item-title>
+                    <v-list-item-subtitle>{{issue.changed | formatDate}}</v-list-item-subtitle>
                   </v-list-item-content>
                   <v-list-item-action>
                     <v-btn icon>
-                      <v-icon color="indigo lighten-1">mdi-download</v-icon>
+                      <v-icon color="primary lighten-1">mdi-download</v-icon>
                     </v-btn>
                   </v-list-item-action>
                 </v-list-item>
               </v-list>
               <div class="bottom-articles">
                 <v-card
-                  v-for="article in relatedArticles"
-                  :key="article.art_id"
+                  v-for="article in issue.related_articles"
+                  :key="article.nid"
                   class="my-2 article-summary"
+                  flat
                   hover
-                  md6
-                  xs12
-                  sm6
-                  lg3
                 >
                   <v-card-title>
-                    <p class="body-2" style="margin-bottom: -10px">{{ article.art_title }}</p>
+                    <p class="title-2" style="margin-bottom: -10px">{{ article.title }}</p>
                   </v-card-title>
                   <v-card-actions>
-                    <v-btn text>Share</v-btn>
-                    <v-btn color="purple" text href="/article">Read</v-btn>
+                    <v-btn
+                      color="secondary"
+                      text
+                      router
+                      :to="{name: 'article', params: {article_id: article.nid}}"
+                    >Read</v-btn>
                     <v-spacer></v-spacer>
                     <v-btn icon @click="show = !show">
                       <v-icon>
@@ -158,12 +247,14 @@
                   <v-expand-transition>
                     <div v-show="show">
                       <v-divider></v-divider>
-                      <v-card-text>{{ article.art_abstract }}</v-card-text>
+                      <v-card-text>
+                        <span v-html="article.article_abstract.field_article_abstract_value"></span>
+                      </v-card-text>
                     </div>
                   </v-expand-transition>
                 </v-card>
               </div>
-            </v-col>
+            </v-navigation-drawer>
           </v-card>
         </v-row>
       </v-col>
@@ -172,6 +263,7 @@
 </template>
 
 <script>
+import socialSharing from "vue-social-sharing";
 export default {
   data() {
     const defaultForm = Object.freeze({
@@ -180,6 +272,9 @@ export default {
     });
 
     return {
+      //issue navigation
+      issueview: null,
+      hidden: false,
       //font size of the text
       bigger: false,
       normal: false,
@@ -194,22 +289,19 @@ export default {
       },
       defaultForm,
       // id: this.$route.params, this will come from the url
-      show: false,
-      issue: {
-        title: "issue 324",
-        issueNumber: 324,
-        iss_id: "fadfhs",
-        iss_date: "12 mar 2020",
-        link: "/download"
-      }
+      show: false
     };
   },
+
   computed: {
-    article() {
-      return this.$store.state.article;
-    },
     relatedArticles() {
       return this.$store.state.articles;
+    },
+    article_id() {
+      return this.$route.params.article_id;
+    },
+    article_data() {
+      return this.$store.state.article.data;
     },
     formIsValid() {
       return this.form.names;
@@ -221,6 +313,10 @@ export default {
       };
     }
   },
+  mounted() {
+    return this.$store.dispatch("loadArticles", this.$route.params.article_id);
+  },
+
   methods: {
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
@@ -230,25 +326,33 @@ export default {
       this.snackbar = true;
       this.resetForm();
     }
+  },
+  components: {
+    "social-sharing": socialSharing
   }
 };
 </script>
 
 <style lang="scss" scoped>
 #sidebar-article {
-  background: rgb(207, 230, 248);
-  border-radius: 20px;
+  background-color: #00adef;
+  width: 100%;
 }
-#sidebar-article .issue-title-side {
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 33px;
+.navyside {
+  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
 }
-
-#sidebar-article .article-summary {
+.article-summary {
   border-radius: 10px;
+  margin: 10px;
+  border: solid #6cd3fcad 1px;
 }
 
+#articleSection {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
 #articleSection .article-title {
   font-family: Open Sans;
   font-style: normal;
@@ -262,7 +366,7 @@ export default {
 #articleSection .second-article-title {
   font-family: Open Sans;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 19px;
   /* identical to box height */
 
@@ -285,15 +389,29 @@ export default {
 #articleSection .abstract {
   text-align: left;
   text-transform: capitalize;
-  background: rgba(63, 192, 252, 0.096);
+  background: #42aeef;
+  color: rgb(255, 255, 255);
   font-style: italic;
-  color: #000000;
+}
+
+#articleSection .abstract .text {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 
 #articleSection .content {
   margin-top: 20px;
   color: #000000;
-  padding: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
+  border-radius: 16px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .bigger {

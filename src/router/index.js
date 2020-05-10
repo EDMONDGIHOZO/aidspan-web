@@ -63,15 +63,16 @@ const routes = [
             },
 
             {
-                path: '/article',
-                name: 'article-view-page',
+                path: '/article/:article_id',
+                name: 'article',
+                params: true,
                 component: () =>
                     import (
                         /* webpackChunkName: "editoral" */
                         '../views/client/pages/Article.vue'
                     ),
                 meta: {
-                    title: 'Current Article View',
+                    title: 'Gfo Newsletter'
                 },
             },
             {

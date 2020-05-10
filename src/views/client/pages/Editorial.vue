@@ -111,22 +111,37 @@
         <v-col cols="12" md="9" class="current-issue-articles">
           <v-row>
             <v-col
-              v-for="article in currentIssue.related_articles"
+              v-for="article in orderBy(currentIssue.related_articles, 'article_number.field_article_number_value')"
               :key="article.art_title"
               cols="12"
               md="6"
             >
-              <v-card flat class="mb-2 current-cards" hover height="220">
+              <v-card
+                flat
+                class="mb-2 current-cards"
+                hover
+                height="220"
+                router
+                :to="{name: 'article', params: {article_id: article.nid}}"
+              >
                 <v-card-text class="headline font-weight-bold">
                   <p class="title-1 primary--text">{{ article.title | str_limit(80) }}</p>
                 </v-card-text>
                 <v-card-actions>
-                  <v-chip class="ma-2" color="success" outlined v-for="type in article.article_types" :key="type.id" >
-                    <v-icon left>mdi-note-text-outline</v-icon>{{ type.name }}
+                  <v-chip
+                    class="ma-2"
+                    color="success"
+                    outlined
+                    v-for="type in article.article_types"
+                    :key="type.id"
+                  >
+                    <v-icon left>mdi-note-text-outline</v-icon>
+                    {{ type.name }}
                   </v-chip>
                   <v-spacer></v-spacer>
                   <v-chip class="ma-2" color="primary" label text-color="white">
                     <v-icon left>mdi-label</v-icon>
+                    Number
                     {{ article.article_number.field_article_number_value }}
                   </v-chip>
                 </v-card-actions>
@@ -145,6 +160,7 @@
 
 <script>
 import AllIssues from "@/components/pages/client/all-issues.vue";
+import Vue2Filters from "vue2-filters";
 
 export default {
   data() {
@@ -179,7 +195,8 @@ export default {
   },
   components: {
     AllIssues
-  }
+  },
+  mixins: [Vue2Filters.mixin]
 };
 </script>
 
