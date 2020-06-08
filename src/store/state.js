@@ -1,14 +1,37 @@
 //import axios from 'axios'
 
 export default {
-
-    /** get issues  */
-    issues: [],
+    /** get dynamic data from server  */
+    //issues: [],
     issue_article: {},
     currentIssueArticles: {},
     article: {},
-    dbArticles: [],
     article_data: null,
+    publications: {},
+    publications_types: {},
+    subs: {},
+    users: {},
+    subscriber: {},
+    currentUser: {},
+    adminMenus: [
+        { id: 1, title: 'Dashboard', icon: 'mdi-home', lang: 'en', route: '/admin' },
+        { id: 2, title: 'GFO Newsletter', icon: 'mdi-email-newsletter', lang: 'en', route: '/admin/gfos' },
+        { id: 3, title: 'Publications', icon: 'mdi-receipt', lang: 'en', route: '/admin/publications' },
+        { id: 4, title: 'Documents', icon: 'mdi-file-document', lang: 'en', route: '/admin/documents' },
+        { id: 5, title: 'Careers', icon: 'mdi-briefcase', lang: 'en', route: '/admin/careers ' },
+        { id: 6, title: 'Donors', icon: 'mdi-seed', lang: 'en', route: '/admin/donors ' },
+    ],
+
+    actionMenus: [
+        { id: 1, title: 'new issue', lang: 'en', route: '/admin/new-issue' },
+        { id: 2, title: 'new article', lang: 'en', route: '/admin/new-article' },
+        { id: 3, title: 'new publication', lang: 'en', route: '/admin/new-publication' },
+    ],
+    settingsMenu: [
+        { id: 1, title: 'Users', icon: 'mdi-account-group', lang: 'en', route: '/admin/new-issues' },
+        { id: 2, title: 'Basic Site Info', icon: 'mdi-alert-circle-check', lang: 'en', route: '/admin/new-article' },
+    ],
+    /** end of dyanamic data from server */
 
     icons: [{
             icon: 'mdi-facebook',
@@ -42,12 +65,17 @@ export default {
     ],
     menus: [{
             action: 'mdi-eye',
-            title: 'Editorial',
+            title: 'GFO',
             route: '/editorial',
             submenus: [{
-                title: 'Live Articles',
-                route: '/editorial/#live-articles',
-            }, ],
+                    title: 'Live Articles',
+                    route: '/editorial/#live-articles',
+                },
+                {
+                    title: 'current issue',
+                    route: '/editorial/#current-issue-editorial',
+                },
+            ],
         },
         {
             action: 'mdi-lightbulb-on',
@@ -55,18 +83,9 @@ export default {
             route: '/about-us',
             active: true,
             submenus: [{
-                    title: 'Key Achievements',
-                    route: '/keys',
-                },
-                {
-                    title: 'Our History',
-                    route: '/history',
-                },
-                {
-                    title: 'Our Donors',
-                    route: '/donors',
-                },
-            ],
+                title: 'Our History',
+                route: '/about-us/#history',
+            }, ],
         },
 
         {
@@ -91,9 +110,10 @@ export default {
         {
             action: 'mdi-newspaper-variant',
             title: 'Publications',
+            route: '/publications',
             submenus: [{
                     title: 'Reports',
-                    route: '/publications/reports',
+                    route: '/publications/#reports',
                 },
                 {
                     title: 'Guide',
@@ -103,13 +123,13 @@ export default {
         },
     ],
     slides: [{
-            imageUrl: 'https://www.theglobalfund.org/media/9405/2020-03-06_women-leading-the-fight-for-better-health.jpg',
+            imageUrl: 'https://www.theglobalfund.org/media/9602/media-hero-2020-04-30.jpg',
             language: 'en',
             caption: 'Women Leading Fight',
             id: 'adfhad',
         },
         {
-            imageUrl: 'https://aidspan.org/sites/default/files/aids.jpg',
+            imageUrl: 'https://www.theglobalfund.org/media/7311/where-programs-are_en.png',
             language: 'en',
             caption: 'Map for aidspan works',
             id: 'adfhasdd',
@@ -123,128 +143,9 @@ export default {
         title: 'Independent observer of the Global fund',
     }, ],
     appIcon: require('@/assets/images/common/aid_icon.png'),
-    homePublications: [{
-            pub_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            pub_date: '30 Jan 2020',
-            pub_file_url: '/pub',
-        },
-        {
-            pub_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            pub_date: '30 Jan 2020',
-            pub_file_url: '/pub',
-        },
-    ],
-    articles: [{
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 321,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 1,
-            route: '/article',
-        },
-        {
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 321,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 2,
-            route: '/article',
-        },
-        {
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 321,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 3,
-            route: '/article',
-        },
-        {
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 4,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 5,
-            route: '/article',
-        },
-        {
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 321,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 6,
-            route: '/article',
-        },
-        {
-            art_title: 'Global Fund programs grapple with challenging monetary environment in Zimbabwe',
-            art_issue: 321,
-            art_date: '12 feb 2020',
-            art_id: 'dswe12',
-            art_abstract: 'This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.',
-            art_author: {
-                name: 'Ida Hakiza',
-                author_url: '/Michel',
-                author_img: require('@/assets/images/common/author_default.svg'),
-            },
-            comments: 23,
-            views: 2340,
-            shares: 120,
-            art_type: 'pendemics',
-            art_number: 7,
-            route: '/article',
-        },
-    ],
+
     quicklinks: [
-        { title: 'Staff web', route: 'aidspan/staff' },
+        { title: 'Staff web', route: '/admin/auth/login' },
         { title: 'Key Documents', route: 'aidspan/key-documents' },
         { title: 'Galleries', route: 'aidspan/galleries' },
         { title: 'Careers', route: 'aidspan/careers' },

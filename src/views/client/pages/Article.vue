@@ -1,19 +1,26 @@
 <template>
   <v-container class="my-1" id="article-container">
+    <v-progress-linear
+      :active="loading"
+      :indeterminate="loading"
+      absolute
+      color="deep-purple accent-4"
+    ></v-progress-linear>
     <v-row v-for="article in article_data" :key="article.nid">
       <v-col cols="12">
-        <v-col id="articleSection" v-bind:class="fontAdjust">
+        <v-col id="articleSection">
           <v-flex md12>
             <p class="article-title">{{ article.title }}</p>
             <p
               class="second-article-title"
+              v-if="article.article_second_title.field_article_secondary_title_value !== null"
             >{{ article.article_second_title.field_article_secondary_title_value }}</p>
           </v-flex>
           <v-row>
             <v-col cols="12" md="7">
               <v-chip class="ma-2" color="secondary" text-color="white">
                 <v-avatar left>
-                  <i class="fa fa-edit"></i>
+                  <v-icon>mdi-feather</v-icon>
                 </v-avatar>
                 By
                 {{ article.article_author.field_article_author_value }}
@@ -29,10 +36,10 @@
               <span class="mx-5 text-lg-right">{{ article.created | formatDate }}</span>
             </v-col>
             <v-col cols="5" md="2">
-              <v-btn icon class="mr-2" @click="bigger = !bigger">
+              <v-btn class="mr-2" icon @click="fonter" outlined color="primary">
                 <v-icon color="primary">mdi-format-font-size-increase</v-icon>
               </v-btn>
-              <v-btn icon class="mr-2" @click="decreaseFont">
+              <v-btn class="mr-2" icon @click="fontSize--" outlined color="secondary">
                 <v-icon color="secondary">mdi-format-font-size-decrease</v-icon>
               </v-btn>
             </v-col>
@@ -58,7 +65,7 @@
                     <i class="fa fa-envelope"></i>
                   </network>
                   <network network="facebook">
-                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-facebook fa-5x"></i>
                   </network>
 
                   <network network="linkedin">
@@ -78,7 +85,7 @@
             </v-col>
 
             <v-col cols="12">
-              <p class="content">
+              <p class="content" v-bind:style="{fontSize: fontSize +'px'}">
                 <span v-html=" article.article_content.field_article_content_value "></span>
               </p>
             </v-col>
@@ -211,7 +218,7 @@
                     <v-list-item-subtitle>{{issue.changed | formatDate}}</v-list-item-subtitle>
                   </v-list-item-content>
                   <v-list-item-action>
-                    <v-btn icon>
+                    <v-btn icon @click="downloadIssue(issue.title)">
                       <v-icon color="primary lighten-1">mdi-download</v-icon>
                     </v-btn>
                   </v-list-item-action>
@@ -232,6 +239,7 @@
                     <v-btn
                       color="secondary"
                       text
+                      @click="loading = true"
                       router
                       :to="{name: 'article', params: {article_id: article.nid}}"
                     >Read</v-btn>
@@ -264,6 +272,9 @@
 
 <script>
 import socialSharing from "vue-social-sharing";
+import "font-awesome/css/font-awesome.min.css";
+import DownloadIssue from "@/mixins/downloadIssue";
+
 export default {
   data() {
     const defaultForm = Object.freeze({
@@ -275,9 +286,9 @@ export default {
       //issue navigation
       issueview: null,
       hidden: false,
+      loading: false,
       //font size of the text
-      bigger: false,
-      normal: false,
+      fontSize: 16,
       // end
       form: Object.assign({}, defaultForm),
       snackbar: false,
@@ -292,11 +303,16 @@ export default {
       show: false
     };
   },
+  watch: {
+    loading(article_data) {
+      if (!article_data) return;
 
+      setTimeout(() => (this.loading = false), 3000);
+    }
+  },
+  mixins: [DownloadIssue],
+  //props: ['article_id'],
   computed: {
-    relatedArticles() {
-      return this.$store.state.articles;
-    },
     article_id() {
       return this.$route.params.article_id;
     },
@@ -325,6 +341,13 @@ export default {
     submit() {
       this.snackbar = true;
       this.resetForm();
+    },
+    fonter() {
+      if (this.fontSize < 80) {
+        this.fontSize++;
+      } else {
+        this.fontSize = 15;
+      }
     }
   },
   components: {
@@ -404,7 +427,6 @@ export default {
   margin-top: 20px;
   color: #000000;
   font-weight: 400;
-  font-size: 16px;
   box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
   border-radius: 16px;
   max-width: 100%;
@@ -412,14 +434,6 @@ export default {
   margin-right: auto;
   padding: 20px;
   overflow: hidden;
-}
-
-.bigger {
-  font-size: 30px;
-}
-
-.normal {
-  font-size: 14px;
 }
 
 .bottom-articles {

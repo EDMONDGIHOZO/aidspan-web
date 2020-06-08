@@ -46,7 +46,8 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-container>
+    <!-- 
+        <v-container>
       <v-layout row wrap id="live-articles">
         <v-flex md12>
           <div class="head pa-5">
@@ -74,6 +75,7 @@
         </v-row>
       </v-layout>
     </v-container>
+    -->
 
     <!--- end of the last live articles -->
     <!-- start the current isssue view -->
@@ -89,14 +91,16 @@
             class="font-weight-regular white--text text-end headline"
           >{{currentIssue.changed | formatDate}}</p>
           <v-card class="pa-5 white--text" color="secondary">
-            <v-text>
+            <p>
               Global Fund Observer (GFO) is produced by the Editorial Department
               of Aidspan. Aidspan welcomes comments from readers on the articles
               in GFO. Aidspan also welcomes offers to write articles and
               suggestions for topics we could cover in GFO.
-            </v-text>
-            <card-actions>
-              <p>CONTACT EDITORIAL DEPARTMENT ON</p>
+            </p>
+            <hr />
+
+            <p class="py-5">CONTACT EDITORIAL DEPARTMENT ON</p>
+            <v-card-actions>
               <v-btn
                 text
                 block
@@ -104,7 +108,7 @@
                 color="white"
                 href="mailto:adele.sulcas@aidspan.org"
               >send E-mail</v-btn>
-            </card-actions>
+            </v-card-actions>
           </v-card>
         </v-col>
         <!--- current issue -->
@@ -112,7 +116,7 @@
           <v-row>
             <v-col
               v-for="article in orderBy(currentIssue.related_articles, 'article_number.field_article_number_value')"
-              :key="article.art_title"
+              :key="article.nid"
               cols="12"
               md="6"
             >
@@ -120,12 +124,11 @@
                 flat
                 class="mb-2 current-cards"
                 hover
-                height="220"
                 router
                 :to="{name: 'article', params: {article_id: article.nid}}"
               >
-                <v-card-text class="headline font-weight-bold">
-                  <p class="title-1 primary--text">{{ article.title | str_limit(80) }}</p>
+                <v-card-text class="font-weight-bold">
+                  <p class>{{ article.title | str_limit(320) }}</p>
                 </v-card-text>
                 <v-card-actions>
                   <v-chip
@@ -163,6 +166,7 @@ import AllIssues from "@/components/pages/client/all-issues.vue";
 import Vue2Filters from "vue2-filters";
 
 export default {
+  name: "editorial",
   data() {
     return {
       gfoLinks: [
@@ -207,9 +211,9 @@ export default {
   align-items: center;
   background: #f2fbff;
   box-shadow: inset 1px 15px 27px rgba(0, 0, 0, 0.1);
-  min-width: 100%;
   height: 322px;
   margin-bottom: 40px;
+  border-radius: 20px;
 }
 
 @media only screen and (max-width: 768px) {

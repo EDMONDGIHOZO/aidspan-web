@@ -45,9 +45,11 @@
             :key="value.id"
             id="tabstitle"
             tab-reverse-transition
+            
           >
-            {{ value.title }}
+            <p class="text-left">{{ value.title }}</p>
           </v-tab>
+
           <v-tab-item v-for="value in coreValues" :key="value.id">
             <v-card flat id="tabcontainer" height="265px">
               <v-card-title>
@@ -164,7 +166,7 @@
           <v-slide-group v-model="model" class="pa-4" show-arrows>
             <v-slide-item v-for="director in directors" :key="director.name">
               <v-card class="ma-3" max-width="344">
-                <v-img :src="director.img" height="320px"></v-img>
+                <v-img :src="director.img" height="320px" width="344"></v-img>
                 <v-card-title>
                   <p class="title">
                     {{ director.names }}
@@ -315,24 +317,19 @@ export default {
           img: require("@/assets/images/common/board/ida.jpg")
         },
         {
-          names: "ISAAC AWUONDO",
+          names: "Alan Whiteside",
           position: "BOARD CHAIR",
-          img: require("@/assets/images/common/board/ida.jpg")
+          img: 'https://docs.aidspan.org/wl/?id=YhTbOclCgKCrLQfdKECJ12M6fA900Gle'
         },
         {
           names: "ISAAC AWUONDO",
           position: "BOARD CHAIR",
-          img: require("@/assets/images/common/board/ida.jpg")
+          img: 'https://docs.aidspan.org/wl/?id=aazZXluCOo8zJh8nqPEeLauoSifzTAGb'
         },
         {
-          names: "ISAAC AWUONDO",
+          names: "Djalo",
           position: "BOARD CHAIR",
-          img: require("@/assets/images/common/board/ida.jpg")
-        },
-        {
-          names: "ISAAC AWUONDO",
-          position: "BOARD CHAIR",
-          img: require("@/assets/images/common/board/ida.jpg")
+          img: 'https://docs.aidspan.org/wl/?id=cGkX28dT7hAocIbRky6ZrxMW5gBxD6ZJ'
         }
       ]
     };
@@ -347,5 +344,11 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  border-radius: 5px;
+
+}
+
+#tabstitle{
+    text-align: left;
 }
 </style>

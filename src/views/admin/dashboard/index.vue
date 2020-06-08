@@ -1,17 +1,33 @@
 <template>
   <div class="dashboard-container">
-    <adminheader></adminheader>
-    <v-content>
-      <h1>Welcome to dashboard</h1>
-    </v-content>
+    <!--- dashboard top bar -->
+    <admin-menu></admin-menu>
+    <!--- dashboard sidebar -->
+    <div class="dashboard-container">
+      <v-fade-transition mode="out-in">
+        <router-view />
+      </v-fade-transition>
+    </div>
   </div>
 </template>
 
 <script>
-import adminheader from "@/components/layouts/admin/Admin-header.vue";
+import adminmenu from "@/components/layouts/admin/dashboardMenu.vue";
 export default {
+  name: "dashboard",
   components: {
-    adminheader
+    "admin-menu": adminmenu
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.dashboard-container {
+  background-color: rgba(240, 240, 240, 0.644);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+</style>

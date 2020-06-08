@@ -7,147 +7,74 @@
       </v-carousel-item>
     </v-carousel>
     <!--end of corousel -->
-
     <!-- intro section -->
     <v-container fluid>
-      <v-layout row wrap id="web-intro">
-        <v-flex xs12 md5 sm4 lg4 class="aidspan">
+      <v-row row wrap id="web-intro">
+        <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
           <div class="header">
             <h1 display-2>AIDSPAN</h1>
           </div>
           <p v-scrollAnimation v-if="mission.lang === 'en'">{{ mission.content }}</p>
-        </v-flex>
-        <v-flex xs12 md7 sm6 lg8 class="mission" v-scrollAnimation>
+        </v-col>
+        <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
           <div class="mission-header" transition="scale-transition">
             <h1>OUR MISSION</h1>
             <h3>Our world without Epidemics of :</h3>
           </div>
           <div class="mission-content">
             <v-card
-              class="ma-2 pa-4"
+              flat
+              class="ma-2 pa-4 epidemic-card"
               v-for="epidemic in epidemics"
               :key="epidemic.ep_id"
-              hover
-              shaped
             >
-              <v-card-item id="epidemic-card">
+              <v-card-item>
                 <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
                 <p class="epidemics">{{ epidemic.ep_name }}</p>
               </v-card-item>
             </v-card>
           </div>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
     <!-- end of intro section -->
     <!-- start latest issue section -->
-    <v-container fluid id="current-issue">
-      <v-layout row>
-        <v-flex md12 ma-2>
-          <v-card flat>
-            <v-card-actions>
-              <v-card-title class="current-issue-number">GFO Current Issue {{ currentIssue.iss_number }}</v-card-title>
-              <v-spacer></v-spacer>
-              <v-btn text>Share</v-btn>
-              <v-btn color="purple" text>
-                <v-icon left>mdi-file-download</v-icon>Download
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-      <v-row no-gutters wrap>
-        <v-spacer></v-spacer>
-        <v-col class="xs12 md6 issue-date-container">
-          <div class="issue-date"></div>
-        </v-col>
-      </v-row>
-      <v-layout row wrap v-scrollAnimation>
-        <v-slide-group v-model="model" class="pa-2" multiple show-arrows>
-          <v-slide-item
-            v-for="article in articles"
-            :key="article.art_id"
-            v-slot:default="{ active, toggle }"
-          >
-            <v-flex xs12 sm4 md4 lg3>
-              <v-card
-                class="text-xs-center ma-2"
-                id="current-article"
-                hover
-                raised
-                @click="toggle"
-                href="/article"
-              >
-                <v-card-title>
-                  <div class="title">{{ article.art_title }}</div>
-                </v-card-title>
-                <v-list-item class="grow">
-                  <v-list-item-avatar color="grey darken-3">
-                    <v-img class="elevation-6" :src="article.art_author.author_img" width="10px"></v-img>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <div class="author_name">{{ article.art_author.name }}</div>
-                  </v-list-item-content>
-                  <v-row align="center" justify="end">
-                    <v-icon class="mr-1" small>mdi-history</v-icon>
-                    <span class="subheading mr-2 article_date">{{ article.art_date }}</span>
-                  </v-row>
-                </v-list-item>
-                <v-card-text>
-                  <div class="text">{{ article.art_abstract }}</div>
-                </v-card-text>
-                <v-card-actions>
-                  <v-list-item class="grow">
-                    <v-row align="left" justify="end">
-                      <v-icon small left>mdi-eye</v-icon>
-                      <span class="subheading mr-2">{{ article.views }} views</span>
-                      <v-spacer></v-spacer>
-                      <v-icon class="ma-1" color="primary" small>mdi-comment</v-icon>
-                      <span class="subheading mr-2">
-                        {{
-                        article.comments
-                        }}
-                      </span>
-                      <v-icon class="ma-1" color="secondary" small>mdi-share-variant</v-icon>
-                      <span class="subheading">{{ article.shares }}</span>
-                    </v-row>
-                  </v-list-item>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
-          </v-slide-item>
-        </v-slide-group>
-      </v-layout>
-      <!-- end of current articles -->
-    </v-container>
-    
+    <current-issue></current-issue>
     <v-container fluid>
       <v-layout row wrap id="pubsContainer">
         <v-flex xs12 md8>
-          <v-card class="mx-auto pa-5 ma-1" flat>
-            <v-list>
-              <v-list-title class="title">Publications</v-list-title>
-              <v-list-item v-for="publication in homePublications" :key="publication.pub_id">
-                <v-list-item-content>
-                  <v-list-item-title v-text="publication.pub_title"></v-list-item-title>
-                  <v-list-item-subtitle v-text="publication.pub_date"></v-list-item-subtitle>
-                </v-list-item-content>
-                <v-list-item-action>
-                  <v-btn icon outlined small fab color="primary">
-                    <v-icon color="lighten-1">mdi-download</v-icon>
-                  </v-btn>
-                </v-list-item-action>
-              </v-list-item>
-            </v-list>
-            <v-btn rounded block color="secondary" router to="/publications">View All Publications</v-btn>
+          <v-card class="px-3 ma-2" hover id="publications-intro" flat>
+            <v-card-title class="title">AIDSPAN PUBLICATIONS</v-card-title>
+            <v-row>
+              <v-col cols="6" class="guides">
+                <span class="sub-title">GUIDES</span>
+                <p>
+                  Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical
+                  advice to those applying for, overseeing or implementing Global Fund grants.
+                  Guides exist on subjects from how to apply for a Global Fund
+                  grant to how to set up a Country Coordinating Mechanism.
+                </p>
+              </v-col>
+              <v-col cols="6" class="reports">
+                <span class="sub-title">REPORTS</span>
+                <p>
+                  Aidspan research publications aim to provide readers with accurate unbiased 
+                  results that can be utilized by governments, NGOs, researchers, and donors.
+                   All Aidspan publications are open access. We welcome suggestions for articles and research collaborations. 
+                  Please direct all enquiries to the Executive Director at info@aidspan.org 
+                </p>
+              </v-col>
+              <v-btn block text color="primary" router to="/publications">View All</v-btn>
+            </v-row>
           </v-card>
         </v-flex>
+
         <v-flex xs12 md4>
-          <v-card class="mx-auto pa-5 ma-1" hover shaped id="apw-card">
+          <v-card class="pa-5 ma-2" hover id="apw-card" flat height="290">
             <v-card-title>
-              <v-icon>mdi-settings</v-icon>AIDSPAN PORTAL WORKBENCH
+              <v-icon left>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
             </v-card-title>
-            <v-card-text>
+            <v-card-text class="pa-4 font-weight-bold">
               Aidspan Portal Workbench™ is a flexible and powerful web-based
               application which retrieves grant portfolio data from the web
               services provided by the Global Fund and then makes the data
@@ -171,56 +98,6 @@
       </v-layout>
     </v-container>
     <v-container fluid>
-      <v-layout row wrap id="subscribe-section" v-scrollAnimation>
-        <v-flex xs12 md12 class="pa-5 title">
-          <div class="ma-3">
-            <div class="heading display-1 orange--text">SUBSCRIBE FOR NEWSLETTER</div>
-            <div
-              class="subHeading font-weight-light"
-            >for newsletter in English choose GFO or OFM for french</div>
-          </div>
-        </v-flex>
-        <v-flex class="pa-2 content">
-          <v-col cols="12" md="12">
-            <v-form ref="form" v-model="valid" lazy-validation justify-center>
-              <v-text-field
-                v-model="email"
-                :rules="emailRules"
-                label="E-mail"
-                required
-                outlined
-                rounded
-                color="secondary"
-                background-color="white"
-              ></v-text-field>
-              <v-select
-                v-model="select"
-                :items="newsletters"
-                :rules="[v => !!v || 'Item is required']"
-                label="GFO or OFM ?"
-                required
-                class="white--text"
-              ></v-select>
-              <v-checkbox
-                v-model="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                label="Do you agree?"
-                required
-                rounded
-              ></v-checkbox>
-              <v-btn
-                :disabled="!valid"
-                color="secondary"
-                class="mr-8"
-                rounded
-                outlined
-                block
-                large
-              >Subscribe</v-btn>
-            </v-form>
-          </v-col>
-        </v-flex>
-      </v-layout>
       <!-- our awesome donors -->
       <v-layout row wrap id="donors">
         <v-flex md2 xs12>
@@ -231,7 +108,7 @@
             <v-sheet class="mx-auto">
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
-                  <v-card flat class="mx-4" :href="logo.web" target="_blank">
+                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
                     <v-card-image>
                       <img :src="logo.img" alt="donor logo" height="73px" />
                     </v-card-image>
@@ -250,14 +127,15 @@
 <script>
 // @ is an alias to /src
 //import the header,footer,mobile menu
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
+import currentIssue from "@/components/helpers/currentIssue.vue";
 
 export default {
   computed: {
-
-      ...mapState([
-          'slides','articles','homePublications', 'epidemics'
-      ]),
+    ...mapState(["slides", "articles", "publications", "epidemics"])
+  },
+  components: {
+    "current-issue": currentIssue
   },
 
   data() {
@@ -372,19 +250,9 @@ export default {
         "red lighten-2",
         "orange darken-1"
       ],
-      cycle: false,
-      currentIssue: {
-        iss_id: 3431,
-        iss_number: 341,
-        iss_date: "12 march 2020",
-        iss_desc:
-          "This edition’s ‘Of Interest’ focuses on value-for-money resources for applicants to the Global Fund, the Global Fund and Friends of the Global Fund/Japan’s participation in the torch relay for the Tokyo Olympics, and the plenary lineup for AIDS 2020, announced by the International AIDS Society.",
-
-        lang: "en",
-        timestamp: "1580733020"
-      }
+      cycle: false
     };
-  },
+  }
 };
 </script>
 
@@ -450,20 +318,6 @@ $lightgrey: rgb(69, 69, 70);
 #quicklinks-bottom .button {
   margin-right: 4px;
 }
-
-#current-issue {
-  background-color: $lighblue;
-}
-
-#current-issue .title {
-  color: $lightgrey;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 25px;
-  text-transform: uppercase;
-}
-
 .issue-date-container {
   text-align: right;
   display: flex;
@@ -489,13 +343,13 @@ $lightgrey: rgb(69, 69, 70);
   font-size: 18px;
 }
 
-.current-issue-number{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    overflow: hidden;
+.current-issue-number {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  overflow: hidden;
 }
 </style>

@@ -1,43 +1,115 @@
 <template>
   <div>
-    <!--- current issue -->
-    <v-col cols="12" md="9" class="current-issue-articles">
-        <h1>Current Issue </h1>
-      <v-row>
-        <v-col v-for="article in currentIssue.related_articles" :key="article.nid" cols="12" md="6">
-          <v-card flat class="mb-2 current-cards" hover>
-            <v-card-text class="headline font-weight-bold">
-              <p class="title blue--text">{{ article.title }}</p>
-            </v-card-text>
-            <v-card-actions>
-              <v-row class="px-5">
-                <v-col cols="6">
-                  <div class="caption grey--text">Type</div>
-                  <div class="orange--text">{{ article.type }}</div>
-                </v-col>
-                <v-col cols="6">
-                  <div class="caption grey--text text-right">Number</div>
-                  <div class="text-right orange--text">{{ article.created }}</div>
-                </v-col>
-              </v-row>
-            </v-card-actions>
-          </v-card>
+    <!-- start latest issue section -->
+    <v-container fluid id="current-issue">
+      <v-row class="title-row">
+        <v-col cols="12">
+          <div flat class="number-card">
+            <span
+              class="current-issue-number text-center title font-weight-black white--text"
+            >GFO Current Issue {{ currentIssue.title }}</span>
+            <v-btn text rounded dark @click.prevent="downloadIssue(currentIssue.title)">
+              <v-icon left>mdi-download</v-icon>download
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
-    </v-col>
-    <!--- end of current issue -->
+      <v-row no-gutters wrap>
+        <v-spacer></v-spacer>
+        <v-col class="xs12 md6 issue-date-container">
+          <div class="issue-date"></div>
+        </v-col>
+      </v-row>
+      <v-layout row wrap v-scrollAnimation>
+        <v-slide-group v-model="model" class="pa-2" multiple show-arrows>
+          <v-slide-item
+            v-for="article in currentIssue.related_articles"
+            :key="article.nid"
+            v-slot:default="{ active, toggle }"
+          >
+            <v-flex xs12 sm4 md4 lg3>
+              <v-card
+                class="text-xs-center ma-3"
+                id="current-article"
+                hover
+                flat
+                height="400"
+                width="400"
+                outlined
+                @click="toggle; goTo(article.nid)"
+              >
+                <v-card-title>
+                  <div class="title">{{ article.title | str_limit(70) }}</div>
+                </v-card-title>
+                <v-list-item class="grow">
+                  <v-list-item-avatar>
+                    <v-icon>mdi-feather</v-icon>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
+                  </v-list-item-content>
+                  <v-row align="center" justify="end">
+                    <v-icon class="mr-1" small>mdi-history</v-icon>
+                    <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
+                  </v-row>
+                </v-list-item>
+                <v-card-text>
+                  <p
+                    v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
+                    class="abstract-text"
+                  ></p>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-slide-item>
+        </v-slide-group>
+      </v-layout>
+      <!-- end of current articles -->
+    </v-container>
   </div>
 </template>
 
 <script>
+import Vue2Filters from "vue2-filters";
+import DownloadIssue from "@/mixins/downloadIssue";
+
 export default {
   mounted() {
     this.$store.dispatch("loadCurrentIssue");
   },
-  computed: {
-    currentIssue(){
-        return this.$store.state.currentIssueArticles.data;
+
+  methods: {
+    goTo(goToLink){
+        return this.$router.push({name: 'article', params: {article_id: goToLink}})
     }
   },
+
+  data() {
+    return {
+      downloader: ""
+    };
+  },
+  computed: {
+    currentIssue() {
+      return this.$store.state.currentIssueArticles.data;
+    }
+  },
+  mixins: [Vue2Filters.mixin, DownloadIssue],
+  filters: {
+    capitalize: function(value) {
+      if (!value) return "";
+      value = value.toString();
+      return (
+        value.charAt(0).toUpperCase() + value.slice(1).substr(0, 320) + "..."
+      );
+    }
+  }
 };
 </script>
+
+
+<style lang="scss" scoped>
+.abstract-text {
+  overflow: hidden;
+}
+</style>

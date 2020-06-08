@@ -2,7 +2,7 @@
   <div class="menubar hidden-xs-only" id="menubar">
     <v-toolbar min-width="100%" color="primary">
       <!--- menubar list -->
-      <v-btn router to="/" flat color="white" text depressed class="ma-2">Home</v-btn>
+      <v-btn router to="/" text color="white" depressed class="ma-2">Home</v-btn>
       <v-menu
         open-on-hover
         bottom
@@ -28,55 +28,14 @@
         </v-list>
       </v-menu>
       <v-spacer></v-spacer>
-      <v-btn icon color="white" @click.stop="dialog = true">
-        <v-icon small>mdi-magnify</v-icon>
-      </v-btn>
+      <Search />
       <v-btn icon color="white">en</v-btn>
     </v-toolbar>
-    <!-- start the searchbox overlay -->
-    <v-row justify-center>
-      <v-dialog
-        v-model="dialog"
-        max-width="70%"
-        transition="scale-transition"
-        overlay-color="primary"
-        overlay-opacity="0.4"
-      >
-        <v-card id="search-container">
-          <v-card-title>
-            <span class="headline">Search Aidspan</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col cols="12">
-                  <v-text-field
-                    label="You can search an article, issue , etc .. "
-                    required
-                    outlined
-                    rounded
-                    background-color="white"
-                    prepend-inner-icon="mdi-magnify"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-            <v-divider></v-divider>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="red darken-1" text @click="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-2" text @click="dialog = false">Search now</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-row>
-
-    <!--end of search -->
   </div>
 </template>
 
 <script>
+import Search from "@/components/helpers/search.vue";
 export default {
   computed: {
     menus() {
@@ -86,7 +45,6 @@ export default {
   data() {
     return {
       // for search overlay //
-      dialog: false,
       subscribeDialog: true,
       items: [
         {
@@ -104,6 +62,9 @@ export default {
         { title: "Click Me 2" }
       ]
     };
+  },
+  components: {
+    Search
   }
 };
 </script>
@@ -113,7 +74,6 @@ export default {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-  background-color: aqua;
 }
 
 nav {

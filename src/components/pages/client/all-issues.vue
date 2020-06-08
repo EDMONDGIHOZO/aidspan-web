@@ -22,9 +22,6 @@
                     <v-icon left>mdi-label</v-icon>
                     {{issue.__meta__.related_articles_count}} Articles
                   </v-chip>
-                  <v-btn text>
-                    <v-icon left>mdi-download</v-icon>Download
-                  </v-btn>
                 </span>
                 <v-spacer></v-spacer>
                 <span class="text-right">
@@ -34,13 +31,25 @@
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-row>
+                  <v-col cols="12">
+                    <v-btn text @click="downloadIssue(issue.title)">
+                      <v-icon left>mdi-download</v-icon>Download
+                    </v-btn>
+                  </v-col>
                   <v-col
                     cols="12"
                     md="6"
                     v-for="article in orderBy(issue.related_articles, 'article_number.field_article_number_value')"
                     :key="article.nid"
                   >
-                    <v-card class="ma-1 article-card" hover min-height="200" flat router :to="{name: 'article', params: {article_id: article.nid}}">
+                    <v-card
+                      class="ma-1 article-card"
+                      hover
+                      min-height="200"
+                      flat
+                      router
+                      :to="{name: 'article', params: {article_id: article.nid}}"
+                    >
                       <v-list-item>
                         <v-list-item-avatar color="primary">
                           <span
@@ -72,6 +81,8 @@
 <script>
 import paginate from "@/components/helpers/pagination.vue";
 import Vue2Filters from "vue2-filters";
+import DownloadIssue from "@/mixins/downloadIssue";
+
 export default {
   mounted() {
     this.$store.dispatch("loadIssues");
@@ -85,7 +96,7 @@ export default {
   components: {
     paginate
   },
-  mixins: [Vue2Filters.mixin]
+  mixins: [Vue2Filters.mixin, DownloadIssue]
 };
 </script>
 

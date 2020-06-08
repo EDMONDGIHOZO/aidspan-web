@@ -14,7 +14,7 @@
     <v-row id="grants-tables" width="100%">
       <v-col cols="12" md="6">
         <v-simple-table
-          height="auto"
+          height="450"
           fixed-header
           id="disease-table"
           dark
@@ -60,7 +60,7 @@
         </v-simple-table>
       </v-col>
       <v-col cols="12" md="6">
-        <v-simple-table height="auto" class="elevation-15" light>
+        <v-simple-table height="450" class="elevation-15" light>
           <template v-slot:default>
             <thead>
               <tr>
