@@ -10,8 +10,8 @@
 export default {
   name: "Aidspan",
   methods: {
-      afterLeave () {
-      this.$root.$emit('triggerScroll')
+    afterLeave() {
+      this.$root.$emit("triggerScroll");
     }
   }
 };

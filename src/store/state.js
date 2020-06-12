@@ -2,10 +2,11 @@
 
 export default {
     /** get dynamic data from server  */
-    //issues: [],
+    issues: [],
     issue_article: {},
     currentIssueArticles: {},
     article: {},
+    articletypes: {},
     article_data: null,
     publications: {},
     publications_types: {},
@@ -13,23 +14,85 @@ export default {
     users: {},
     subscriber: {},
     currentUser: {},
-    adminMenus: [
-        { id: 1, title: 'Dashboard', icon: 'mdi-home', lang: 'en', route: '/admin' },
-        { id: 2, title: 'GFO Newsletter', icon: 'mdi-email-newsletter', lang: 'en', route: '/admin/gfos' },
-        { id: 3, title: 'Publications', icon: 'mdi-receipt', lang: 'en', route: '/admin/publications' },
-        { id: 4, title: 'Documents', icon: 'mdi-file-document', lang: 'en', route: '/admin/documents' },
-        { id: 5, title: 'Careers', icon: 'mdi-briefcase', lang: 'en', route: '/admin/careers ' },
-        { id: 6, title: 'Donors', icon: 'mdi-seed', lang: 'en', route: '/admin/donors ' },
+    allTags: {},
+    singleTag: [],
+    adminMenus: [{
+            id: 1,
+            title: 'Dashboard',
+            icon: 'mdi-home',
+            lang: 'en',
+            route: '/admin'
+        },
+        {
+            id: 2,
+            title: 'GFO Newsletter',
+            icon: 'mdi-email-newsletter',
+            lang: 'en',
+            route: '/admin/gfos'
+        },
+        {
+            id: 3,
+            title: 'Publications',
+            icon: 'mdi-receipt',
+            lang: 'en',
+            route: '/admin/publications'
+        },
+        {
+            id: 4,
+            title: 'Documents',
+            icon: 'mdi-file-document',
+            lang: 'en',
+            route: '/admin/documents'
+        },
+        {
+            id: 5,
+            title: 'Careers',
+            icon: 'mdi-briefcase',
+            lang: 'en',
+            route: '/admin/careers '
+        },
+        {
+            id: 6,
+            title: 'Donors',
+            icon: 'mdi-seed',
+            lang: 'en',
+            route: '/admin/donors '
+        },
     ],
 
-    actionMenus: [
-        { id: 1, title: 'new issue', lang: 'en', route: '/admin/new-issue' },
-        { id: 2, title: 'new article', lang: 'en', route: '/admin/new-article' },
-        { id: 3, title: 'new publication', lang: 'en', route: '/admin/new-publication' },
+    actionMenus: [{
+            id: 1,
+            title: 'new issue',
+            lang: 'en',
+            route: '/admin/new-issue'
+        },
+        {
+            id: 2,
+            title: 'new article',
+            lang: 'en',
+            route: '/admin/new-article'
+        },
+        {
+            id: 3,
+            title: 'new publication',
+            lang: 'en',
+            route: '/admin/new-publication'
+        },
     ],
-    settingsMenu: [
-        { id: 1, title: 'Users', icon: 'mdi-account-group', lang: 'en', route: '/admin/new-issues' },
-        { id: 2, title: 'Basic Site Info', icon: 'mdi-alert-circle-check', lang: 'en', route: '/admin/new-article' },
+    settingsMenu: [{
+            id: 1,
+            title: 'Users',
+            icon: 'mdi-account-group',
+            lang: 'en',
+            route: '/admin/new-issues'
+        },
+        {
+            id: 2,
+            title: 'Basic Site Info',
+            icon: 'mdi-alert-circle-check',
+            lang: 'en',
+            route: '/admin/new-article'
+        },
     ],
     /** end of dyanamic data from server */
 
@@ -55,27 +118,27 @@ export default {
         },
     ],
 
-    basicInfo: [
-        { icon: 'mdi-phone', title: '+254 (0)774-135984' },
+    basicInfo: [{
+            icon: 'mdi-phone',
+            title: '+254 (0)774-135984'
+        },
         {
             icon: 'mdi-pin',
             title: 'P.O. Box 66869 - 00800,Nairobi, Kenya',
         },
-        { icon: 'mdi-email', title: 'info@aidspan.org' },
+        {
+            icon: 'mdi-email',
+            title: 'info@aidspan.org'
+        },
     ],
     menus: [{
             action: 'mdi-eye',
             title: 'GFO',
             route: '/editorial',
             submenus: [{
-                    title: 'Live Articles',
-                    route: '/editorial/#live-articles',
-                },
-                {
-                    title: 'current issue',
-                    route: '/editorial/#current-issue-editorial',
-                },
-            ],
+                title: 'current issue',
+                route: '/editorial/#current-issue-editorial',
+            }, ],
         },
         {
             action: 'mdi-lightbulb-on',
@@ -144,12 +207,26 @@ export default {
     }, ],
     appIcon: require('@/assets/images/common/aid_icon.png'),
 
-    quicklinks: [
-        { title: 'Staff web', route: '/admin/auth/login' },
-        { title: 'Key Documents', route: 'aidspan/key-documents' },
-        { title: 'Galleries', route: 'aidspan/galleries' },
-        { title: 'Careers', route: 'aidspan/careers' },
-        { title: 'Sitemap', route: 'aidspan/sitemap' },
+    quicklinks: [{
+            title: 'Staff web',
+            route: '/dashboard'
+        },
+        {
+            title: 'Key Documents',
+            route: 'aidspan/key-documents'
+        },
+        {
+            title: 'Galleries',
+            route: 'aidspan/galleries'
+        },
+        {
+            title: 'Careers',
+            route: 'aidspan/careers'
+        },
+        {
+            title: 'Sitemap',
+            route: 'aidspan/sitemap'
+        },
     ],
 
     epidemics: [{
@@ -181,10 +258,18 @@ export default {
         author: 'Adele Sulcas',
         number: 1,
         type: 'news',
-        tags: [
-            { title: 'corona Virus', route: 'tags' },
-            { title: 'Pendemic', route: 'tags' },
-            { title: 'Africa', route: 'tags' },
+        tags: [{
+                title: 'corona Virus',
+                route: 'tags'
+            },
+            {
+                title: 'Pendemic',
+                route: 'tags'
+            },
+            {
+                title: 'Africa',
+                route: 'tags'
+            },
         ],
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus.',
     },

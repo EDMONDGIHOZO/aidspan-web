@@ -1,15 +1,11 @@
 <template>
-
   <div class="main-footer">
     <v-row id="sub-footer">
       <v-col cols="12" md="4" class="twitter-card">
         <v-card height="300">
-          <Timeline id="aidspan"
-                    sourceType="profile"
-                    :options="{ tweetLimit: '5' }"
-                    widget-class="mt-3 tweetbox" />
-          <Timeline id="aidspan" sourceType="likes" :options="{ theme: 'dark' }" />
-          <Timeline id="aidspan" sourceType="list" />
+          <Timeline id="twitterdev" sourceType="profile" :options="{ tweetLimit: '3' }" />
+          <Timeline id="twitterdev" sourceType="likes" :options="{ theme: 'dark' }" />
+          <Timeline id="twitterdev" sourceType="list" />
         </v-card>
       </v-col>
       <v-col cols="4" md="3">
@@ -60,79 +56,74 @@
       </v-card>
     </v-footer>
   </div>
-
 </template>
 
 <script>
-
-  import { Timeline } from 'vue-tweet-embed'
-  export default {
-    computed: {
-      icons() {
-        return this.$store.state.icons
-      },
-      quicklinks() {
-        return this.$store.state.quicklinks
-      },
-      contacts() {
-        return this.$store.state.basicInfo
-      }
+import { Timeline } from "vue-tweet-embed";
+export default {
+  computed: {
+    icons() {
+      return this.$store.state.icons;
     },
-    methods: {
-      goto(routeLink) {
-        return this.$router.push({path: routeLink})
-      }
+    quicklinks() {
+      return this.$store.state.quicklinks;
     },
-    components: {
-      Timeline
+    contacts() {
+      return this.$store.state.basicInfo;
     }
+  },
+  methods: {
+    goto(routeLink) {
+      return this.$router.push({ path: routeLink });
+    }
+  },
+  components: {
+    Timeline
   }
-
+};
 </script>
 
 <style lang="scss">
+#quick-links-card {
+  border-left: solid 4px #f46517;
+}
 
-  #quick-links-card {
-    border-left: solid 4px #f46517;
-  }
+#quick-links-card .title {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
 
-  #quick-links-card .title {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 27px;
-    color: #000000;
-  }
+#contacts-card .title {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
 
-  #contacts-card .title {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 27px;
-    color: #000000;
-  }
+#contacts-card {
+  border-left: solid 4px #3dc0fc;
+}
 
-  #contacts-card {
-    border-left: solid 4px #3dc0fc;
-  }
+#sub-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0px 0 10px rgba(182, 228, 255, 0.8);
+}
+#sub-footer .twitter-card {
+  overflow-y: scroll;
+}
+.main-footer {
+  border-top: solid #d6ebf5 2px;
+}
 
-  #sub-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    box-shadow: 0px 0 10px rgba(182, 228, 255, 0.8);
-  }
-  #sub-footer .twitter-card {
-    overflow-y: scroll;
-  }
-  .main-footer {
-    border-top: solid #d6ebf5 2px;
-  }
-
-  .last-footer {
-    background-color: #f46517;
-  }
-
+.last-footer {
+  background-color: #f46517;
+}
 </style>

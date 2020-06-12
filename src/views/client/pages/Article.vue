@@ -1,11 +1,8 @@
 <template>
   <v-container class="my-1" id="article-container">
-    <v-progress-linear
-      :active="loading"
-      :indeterminate="loading"
-      absolute
-      color="deep-purple accent-4"
-    ></v-progress-linear>
+    <v-col cols="12" v-if="!article_data">
+      <v-progress-linear color="deep-orange accent-4" indeterminate rounded height="10"></v-progress-linear>
+    </v-col>
     <v-row v-for="article in article_data" :key="article.nid">
       <v-col cols="12">
         <v-col id="articleSection">
@@ -89,76 +86,102 @@
                 <span v-html=" article.article_content.field_article_content_value "></span>
               </p>
             </v-col>
+          </v-row>
 
-            <v-col cols="12">
-              <v-card flat outlined>
+          <v-card class="pa-5" id="comments-box" flat>
+
+            <v-row>
+                <v-col cols="12">
+              <v-card flat outlined class="mb-3">
                 <v-card-text>
                   <span class="subheading">Tags:</span>
-                  <v-chip-group active-class="deep-purple--text text--accent-4" mandatory>
-                    <v-chip v-for="tag in article.tags" :key="tag.title">
+                  <v-chip-group mandatory v-if="article.Tags !== 0">
+                    <v-chip v-for="tag in article.Tags" :key="tag.tid" color="primary" router :to="'/article-tags/' + tag.tid">
                       {{
-                      tag.title
+                      tag.name
                       }}
                     </v-chip>
                   </v-chip-group>
                 </v-card-text>
               </v-card>
             </v-col>
-          </v-row>
+              <v-col cols="12 comments">
+                <div v-if="article.comments.length > 0">
+                  <v-badge
+                    color="blue"
+                    class="title mb-5 mt-5"
+                    :content="article.__meta__.comments_count"
+                  >
+                    COMMENTS
+                    <v-icon right color="primary">mdi-comment</v-icon>
+                  </v-badge>
+                  <v-card v-for="comment in article.comments" :key="comment.id" class="mb-5" flat>
+                    <v-card-title>{{comment.user.name }}</v-card-title>
+                    <v-card-text>{{comment.comment}}
+                    </v-card-text>
+                    <v-card-actions>
+                        <span class="px-3">{{comment.created_at | formatDateWords }}</span>
+                    </v-card-actions>
+                  </v-card>
+                </div>
+                <h3 v-else>No comments Yet, you can add one.</h3>
 
-          <v-card class="pa-5" id="comments-box" flat>
-            <v-row>
-              <v-col cols="6">
-                <span class="text-left">
-                  <v-chip class="ma-2" color="indigo" text-color="white">
-                    <v-avatar size="36">{{article.comment}}</v-avatar>Comments
-                  </v-chip>
-                </span>
+                <v-form ref="form" @submit.prevent="submit">
+                  <v-container fluid>
+                    <v-row>
+                        <v-col cols="12">
+                            <p class="font-weight-black">Add Comment</p>
+                        </v-col>
+                      <v-col cols="12" sm="6">
+                        <v-text-field
+                          v-model="form.first"
+                          :rules="rules.name"
+                          color="purple darken-2"
+                          label="Names"
+                          required
+                          solo
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6">
+                        <v-text-field
+                          v-model="form.names"
+                          :rules="rules.email"
+                          color="blue darken-2"
+                          label="email"
+                          required
+                          solo
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-textarea v-model="form.comment" solo color="teal">
+                          <template v-slot:label>
+                            <div>
+                              comment
+                              <small>(recommended)</small>
+                            </div>
+                          </template>
+                        </v-textarea>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                  <v-card-actions>
+                    <v-btn text @click="resetForm" outlined>Cancel</v-btn>
+                    <v-btn
+                      :disabled="!formIsValid"
+                      outlined
+                      text
+                      color="primary"
+                      type="submit"
+                    >Submit</v-btn>
+                  </v-card-actions>
+                </v-form>
               </v-col>
             </v-row>
+
             <v-snackbar v-model="snackbar" absolute top right color="success">
               <span>Thanks for your comment , highly appreciated</span>
               <v-icon dark>mdi-checkbox-marked-circle</v-icon>
             </v-snackbar>
-            <v-form ref="form" @submit.prevent="submit">
-              <v-container fluid>
-                <v-row>
-                  <v-col cols="12" sm="6">
-                    <v-text-field
-                      v-model="form.first"
-                      :rules="rules.name"
-                      color="purple darken-2"
-                      label="Names"
-                      required
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-text-field
-                      v-model="form.names"
-                      :rules="rules.email"
-                      color="blue darken-2"
-                      label="email"
-                      required
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-textarea v-model="form.comment" color="teal" outlined>
-                      <template v-slot:label>
-                        <div>
-                          comment
-                          <small>(recommended)</small>
-                        </div>
-                      </template>
-                    </v-textarea>
-                  </v-col>
-                </v-row>
-              </v-container>
-              <v-card-actions>
-                <v-btn text @click="resetForm">Cancel</v-btn>
-                <v-spacer></v-spacer>
-                <v-btn :disabled="!formIsValid" text color="primary" type="submit">Submit</v-btn>
-              </v-card-actions>
-            </v-form>
           </v-card>
         </v-col>
       </v-col>
@@ -303,13 +326,7 @@ export default {
       show: false
     };
   },
-  watch: {
-    loading(article_data) {
-      if (!article_data) return;
 
-      setTimeout(() => (this.loading = false), 3000);
-    }
-  },
   mixins: [DownloadIssue],
   //props: ['article_id'],
   computed: {
@@ -348,7 +365,7 @@ export default {
       } else {
         this.fontSize = 15;
       }
-    }
+    },
   },
   components: {
     "social-sharing": socialSharing
@@ -441,5 +458,22 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.comments {
+  border-left: solid 4px rgb(40, 189, 248);
+  border-radius: 10px;
+  background-color: rgba(215, 213, 216, 0.178);
+  height: 400px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+.comments .title {
+  color: #64b5f6;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.comments .number {
+  font-weight: bold;
 }
 </style>

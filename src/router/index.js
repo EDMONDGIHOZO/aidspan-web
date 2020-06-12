@@ -60,6 +60,19 @@ const routes = [{
                 }
             },
             {
+                path: "/article-tags/:tid",
+                name: "articletags",
+                props: true,
+                component: () =>
+                    import (
+                        /* webpackChunkName: "editoral" */
+                        "../views/client/pages/articletags.vue"
+                    ),
+                meta: {
+                    title: "GFO TAGS"
+                }
+            },
+            {
                 path: "/home",
                 name: "homepage",
                 component: () =>
@@ -75,6 +88,7 @@ const routes = [{
             {
                 path: "/article/:article_id",
                 name: "article",
+                props: true,
                 params: true,
 
                 component: () =>
@@ -190,6 +204,7 @@ const routes = [{
     {
         path: "/dashboard",
         name: "dashboard",
+        redirect: "/admin",
         meta: {
             title: "Admin Dashboard"
         },

@@ -1,20 +1,10 @@
 <template>
   <v-container fluid>
     <div class="all">
-      <v-col cols="12" class="mb-3">
-        <v-btn small text color="primary" depressed @click="sortBy('title')">
-          <v-icon left small>mdi-folder</v-icon>
-          <span class="caption text-lowercase">By Issue Number</span>
-        </v-btn>
-        <v-btn small flat color="secondary" depressed @click="sortBy('date')" class="mx-2">
-          <v-icon left small>mdi-calendar</v-icon>
-          <span class="caption text-lowercase">By Issue Date</span>
-        </v-btn>
-      </v-col>
       <v-row wrap>
         <v-col cols="12">
           <v-expansion-panels focusable popout hover>
-            <v-expansion-panel v-for="issue in issues" :key="issue.nid">
+            <v-expansion-panel v-for="issue in loadedIssues" :key="issue.nid">
               <v-expansion-panel-header>
                 <span class="title issue-title">
                   {{issue.title}}
@@ -32,7 +22,7 @@
               <v-expansion-panel-content>
                 <v-row>
                   <v-col cols="12">
-                    <v-btn text @click="downloadIssue(issue.title)">
+                    <v-btn text @click="downloadIssue(issue.title)" outlined color="primary">
                       <v-icon left>mdi-download</v-icon>Download
                     </v-btn>
                   </v-col>
@@ -82,17 +72,16 @@
 import paginate from "@/components/helpers/pagination.vue";
 import Vue2Filters from "vue2-filters";
 import DownloadIssue from "@/mixins/downloadIssue";
+import { mapGetters } from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters(["loadedIssues"])
+  },
   mounted() {
     this.$store.dispatch("loadIssues");
   },
 
-  computed: {
-    issues() {
-      return this.$store.state.issues.data;
-    }
-  },
   components: {
     paginate
   },

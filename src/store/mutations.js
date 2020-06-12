@@ -6,6 +6,13 @@ export default {
     SET_ISSUES(state, issues) {
         state.issues = issues;
     },
+    SET_ARTICLE_TAGS(state, allTags) {
+        state.allTags = allTags;
+    },
+
+    SET_ARTICLE_TAG(state, singleTag) {
+        state.singleTag = singleTag
+    },
     SET_CURRENT_ISSUE(state, payload) {
         state.currentIssueArticles = payload;
     },
@@ -34,5 +41,8 @@ export default {
     },
     LOGOUT_USER(state) {
         state.currentUser = []
+    },
+    SET_ARTICLE_TYPES(state, articletypes) {
+        state.articletypes = articletypes
     }
 };

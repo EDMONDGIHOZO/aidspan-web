@@ -29,10 +29,18 @@ Vue.use(SocialSharing)
 Vue.use(Vue2Filters)
     /** date formatting  */
 Vue.filter('formatDate', function(value) {
+        if (value) {
+            return moment.unix(value).format('MMM Do YYYY')
+        }
+    })
+    /** dates with words */
+Vue.filter('formatDateWords', function(value) {
     if (value) {
-        return moment.unix(value).format('MMM Do YYYY')
+        return moment(value).startOf('day').fromNow()
     }
 })
+
+
 Vue.use(InstantSearch)
 Vue.filter('str_limit', function(value, size) {
     if (!value) return ''
