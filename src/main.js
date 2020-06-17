@@ -17,6 +17,7 @@ Vue.use(Vuelidate)
     //import for animation
 import scrollAnimation from './directives/scrollAnimation'
 import SocialSharing from 'vue-social-sharing'
+import i18n from './i18n'
 
 ///add the google analytics here
 Vue.use(VueGtag, {
@@ -60,5 +61,6 @@ new Vue({
     template: 'dark',
     vuetify,
     store,
-    render: (h) => h(App),
+    i18n,
+    render: (h) => h(App)
 }).$mount('#app')

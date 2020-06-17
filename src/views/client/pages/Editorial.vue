@@ -4,29 +4,19 @@
       <v-layout row wrap>
         <v-flex xs12 md12 lg12>
           <div class="title">
-            <p class="font-weight-black display-1">GLOBAL FUND OBSERVER</p>
+            <p class="font-weight-black display-1">{{$t('gfo_intro.title')}}</p>
           </div>
           <div class="content" v-scrollAnimation>
             <p class="ma-10">
-              The Global Fund Observer is the leading independent voice
-              providing insight, analysis and opinion about the Global Fund.
-              Subscribe to our free, twice-monthly newsletter for authoritative
-              and credible explanations about the policies, practices and
-              procedures at the Secretariat, insider information about Global
-              Fund Board meetings, analysis on reports from the Office of the
-              Inspector General, and real stories capturing the impact and role
-              of the Global Fund at the country level, Please add
-              gfo-newsletter@aidspan.org to your list of approved email senders
-              to avoid your email system treating incoming issues of the Global
-              Fund Observer as spam.
+              {{$t('gfo_intro.description')}}
             </p>
           </div>
           <div class="bottom-toolbar">
             <v-row justify="center">
               <v-dialog v-model="dialog" fullscreen hide-overlay transition="slide-x-transition">
                 <template v-slot:activator="{ on }">
-                  <v-btn dark v-on="on" text color="primary">All Issues</v-btn>
-                  <v-btn text color="secondary" href="#current-issue-editorial">Current Issue</v-btn>
+                  <v-btn dark v-on="on" text color="primary">{{$t('allissues')}}</v-btn>
+                  <v-btn text color="secondary" href="#current-issue-editorial">{{$t('currentissue')}}</v-btn>
                 </template>
                 <v-card>
                   <v-toolbar dark color="primary">
@@ -82,7 +72,6 @@
     <v-container id="current-issue-editorial">
       <v-row>
         <v-col cols="12" md="3" class="new-issue-side">
-          <p class="font-weight-bold title-2 white--text text-end">CURRENT ISSUE</p>
           <div class="issue-number">
             <p class="font-weight-black display-1 text-end">{{currentIssue.title}}</p>
           </div>
@@ -92,14 +81,11 @@
           >{{currentIssue.changed | formatDate}}</p>
           <v-card class="pa-5 white--text" color="secondary">
             <p>
-              Global Fund Observer (GFO) is produced by the Editorial Department
-              of Aidspan. Aidspan welcomes comments from readers on the articles
-              in GFO. Aidspan also welcomes offers to write articles and
-              suggestions for topics we could cover in GFO.
+              {{$t('gfonote')}}
             </p>
             <hr />
 
-            <p class="py-5">CONTACT EDITORIAL DEPARTMENT ON</p>
+            <p class="py-5">{{$t('contactgfo')}}</p>
             <v-card-actions>
               <v-btn
                 text
@@ -107,7 +93,7 @@
                 outlined
                 color="white"
                 href="mailto:adele.sulcas@aidspan.org"
-              >send E-mail</v-btn>
+              >{{$t('sendemail')}}</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -190,11 +176,15 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("loadCurrentIssue");
+    const lang = localStorage.getItem('lang')
+    this.$store.dispatch("loadCurrentIssue", lang);
   },
   computed: {
     currentIssue() {
       return this.$store.state.currentIssueArticles.data;
+    },
+    language(){
+        return this.$store.state.current_lang;
     }
   },
   components: {

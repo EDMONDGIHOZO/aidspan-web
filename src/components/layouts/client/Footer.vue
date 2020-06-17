@@ -11,7 +11,7 @@
       <v-col cols="4" md="3">
         <v-card class="mx-auto" tile flat>
           <v-list shaped dense>
-            <v-subheader class="title">QUICK LINKS</v-subheader>
+            <v-subheader class="title">{{$t('quicklinks')}}</v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(link, i) in quicklinks" :key="i">
                 <v-list-item-content>
@@ -43,7 +43,7 @@
     <v-footer padless dark>
       <v-card class="flex" flat tile hover>
         <v-card-title class="primary">
-          <strong class="subheading">Get connected with us on social networks!</strong>
+          <strong class="subheading">{{$t('getconnected')}}</strong>
           <v-spacer></v-spacer>
           <v-btn v-for="icon in icons" :key="icon.icon" class="mx-4" icon>
             <v-icon size="24px">{{ icon.icon }}</v-icon>

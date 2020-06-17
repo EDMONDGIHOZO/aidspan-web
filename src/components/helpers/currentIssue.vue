@@ -21,7 +21,7 @@
         </v-col>
       </v-row>
       <v-layout row wrap v-scrollAnimation>
-        <v-slide-group v-model="model" class="pa-2" multiple show-arrows>
+        <v-slide-group class="pa-2" multiple show-arrows>
           <v-slide-item
             v-for="article in currentIssue.related_articles"
             :key="article.nid"
@@ -75,12 +75,16 @@ import DownloadIssue from "@/mixins/downloadIssue";
 
 export default {
   mounted() {
-    this.$store.dispatch("loadCurrentIssue");
+      const language = localStorage.getItem('lang');
+    this.$store.dispatch("loadCurrentIssue", language);
   },
 
   methods: {
-    goTo(goToLink){
-        return this.$router.push({name: 'article', params: {article_id: goToLink}})
+    goTo(goToLink) {
+      return this.$router.push({
+        name: "article",
+        params: { article_id: goToLink }
+      });
     }
   },
 
@@ -89,9 +93,10 @@ export default {
       downloader: ""
     };
   },
+
   computed: {
     currentIssue() {
-      return this.$store.state.currentIssueArticles.data;
+      return this.$store.state.currentIssueArticles.data || {};
     }
   },
   mixins: [Vue2Filters.mixin, DownloadIssue],

@@ -14,12 +14,12 @@
           <div class="header">
             <h1 display-2>AIDSPAN</h1>
           </div>
-          <p v-scrollAnimation v-if="mission.lang === 'en'">{{ mission.content }}</p>
+          <p v-scrollAnimation>{{ $t('mission.content') }}</p>
         </v-col>
         <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
           <div class="mission-header" transition="scale-transition">
-            <h1>OUR MISSION</h1>
-            <h3>Our world without Epidemics of :</h3>
+            <h1>{{$t('mission.title')}}</h1>
+            <h3>{{$t('mission.subtitle')}}</h3>
           </div>
           <div class="mission-content">
             <v-card
@@ -28,10 +28,10 @@
               v-for="epidemic in epidemics"
               :key="epidemic.ep_id"
             >
-              <v-card-item>
+              <v-card-text>
                 <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
                 <p class="epidemics">{{ epidemic.ep_name }}</p>
-              </v-card-item>
+              </v-card-text>
             </v-card>
           </div>
         </v-col>
@@ -44,27 +44,21 @@
       <v-layout row wrap id="pubsContainer">
         <v-flex xs12 md8>
           <v-card class="px-3 ma-2" hover id="publications-intro" flat>
-            <v-card-title class="title">AIDSPAN PUBLICATIONS</v-card-title>
+            <v-card-title class="title font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
             <v-row>
               <v-col cols="6" class="guides">
                 <span class="sub-title">GUIDES</span>
                 <p>
-                  Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical
-                  advice to those applying for, overseeing or implementing Global Fund grants.
-                  Guides exist on subjects from how to apply for a Global Fund
-                  grant to how to set up a Country Coordinating Mechanism.
+                  {{$t('define_guides')}}
                 </p>
               </v-col>
               <v-col cols="6" class="reports">
-                <span class="sub-title">REPORTS</span>
+                <span class="sub-title">{{$t('report_title')}}</span>
                 <p>
-                  Aidspan research publications aim to provide readers with accurate unbiased 
-                  results that can be utilized by governments, NGOs, researchers, and donors.
-                   All Aidspan publications are open access. We welcome suggestions for articles and research collaborations. 
-                  Please direct all enquiries to the Executive Director at info@aidspan.org 
+                  {{$t('report_intro')}}
                 </p>
               </v-col>
-              <v-btn block text color="primary" router to="/publications">View All</v-btn>
+              <v-btn block text color="primary" router to="/publications">{{$t('viewall')}}</v-btn>
             </v-row>
           </v-card>
         </v-flex>
@@ -75,10 +69,7 @@
               <v-icon left>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
             </v-card-title>
             <v-card-text class="pa-4 font-weight-bold">
-              Aidspan Portal Workbench™ is a flexible and powerful web-based
-              application which retrieves grant portfolio data from the web
-              services provided by the Global Fund and then makes the data
-              available in a user-friendly way.
+              {{$t('apwintro')}}
               <v-btn
                 v-scrollAnimation
                 absolute
@@ -109,9 +100,7 @@
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
                   <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
-                    <v-card-image>
                       <img :src="logo.img" alt="donor logo" height="73px" />
-                    </v-card-image>
                   </v-card>
                 </v-slide-item>
               </v-slide-group>
@@ -169,12 +158,6 @@ export default {
       ],
 
       //end of donors logos
-
-      mission: {
-        lang: "en",
-        content:
-          "Aidspan Is An International Non-Governmental Organization (NGO) Created In 2002 As An Independent Observer Of The Global Fund To Figh AIDS, TB, And Malaria. Aidspan Provides The Global Fund To Fight AIDS, Tuberculosis And Malaria (The “Global Fund”) Stakeholders Information And Analysis To Understand And Evaluate The Global Fund Progress. Aidspan Aims To Influence The Transparency And Effectiveness Of The Global Fund At The Global And Country-Level"
-      },
       //subscribe form
       email: "",
       emailRules: [

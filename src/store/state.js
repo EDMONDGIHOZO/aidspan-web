@@ -11,11 +11,13 @@ export default {
     publications: {},
     publications_types: {},
     subs: {},
+    menus: [],
     users: {},
     subscriber: {},
     currentUser: {},
     allTags: {},
     singleTag: [],
+    current_lang: 'en',
     adminMenus: [{
             id: 1,
             title: 'Dashboard',
@@ -131,60 +133,6 @@ export default {
             title: 'info@aidspan.org'
         },
     ],
-    menus: [{
-            action: 'mdi-eye',
-            title: 'GFO',
-            route: '/editorial',
-            submenus: [{
-                title: 'current issue',
-                route: '/editorial/#current-issue-editorial',
-            }, ],
-        },
-        {
-            action: 'mdi-lightbulb-on',
-            title: 'About Aidspan',
-            route: '/about-us',
-            active: true,
-            submenus: [{
-                title: 'Our History',
-                route: '/about-us/#history',
-            }, ],
-        },
-
-        {
-            action: 'mdi-google-analytics',
-            title: 'Data Analytics',
-            route: '/methodologies',
-            submenus: [{
-                    title: 'Grant Portfolio',
-                    route: '/data-analytics/grants-portfolio',
-                },
-                {
-                    title: 'Global Fund Donors',
-                    route: '/gf-donors',
-                },
-                {
-                    title: 'Grant-performance-analysis',
-                    route: '/gp-analysis',
-                },
-            ],
-        },
-
-        {
-            action: 'mdi-newspaper-variant',
-            title: 'Publications',
-            route: '/publications',
-            submenus: [{
-                    title: 'Reports',
-                    route: '/publications/#reports',
-                },
-                {
-                    title: 'Guide',
-                    route: '/publications/guide',
-                },
-            ],
-        },
-    ],
     slides: [{
             imageUrl: 'https://www.theglobalfund.org/media/9602/media-hero-2020-04-30.jpg',
             language: 'en',
@@ -199,6 +147,7 @@ export default {
         },
     ],
     logo: require('@/assets/images/en/logo_en.png'),
+    logo_fr: require('@/assets/images/common/logo_fr.png'),
     adminlogo: require('@/assets/images/en/admin-logo.png'),
 
     appTitle: [{

@@ -4,37 +4,41 @@ export default {
         state.adminDraw = value
     },
     SET_ISSUES(state, issues) {
-        state.issues = issues;
+        state.issues = issues
     },
     SET_ARTICLE_TAGS(state, allTags) {
-        state.allTags = allTags;
+        state.allTags = allTags
+    },
+
+    SET_MENUS(state, menus) {
+        state.menus = menus
     },
 
     SET_ARTICLE_TAG(state, singleTag) {
         state.singleTag = singleTag
     },
     SET_CURRENT_ISSUE(state, payload) {
-        state.currentIssueArticles = payload;
+        state.currentIssueArticles = payload
     },
     setPage(state, payload) {
-        state.issues.page = payload;
+        state.issues.page = payload
     },
 
     SET_ARTICLE(state, payload) {
-        state.article = payload;
+        state.article = payload
     },
 
     SET_PUBLICATIONS(state, data) {
-        state.publications = data;
+        state.publications = data
     },
     SET_PUBLICATIONS_TYPES(state, data) {
-        state.publications_types = data;
+        state.publications_types = data
     },
     GET_SUBSCRIBERS(state, subs) {
-        state.subs = subs;
+        state.subs = subs
     },
     GET_USERS(state, users) {
-        state.users = users;
+        state.users = users
     },
     SET_CURRENT_USER(state, user) {
         state.currentUser = user
@@ -44,5 +48,5 @@ export default {
     },
     SET_ARTICLE_TYPES(state, articletypes) {
         state.articletypes = articletypes
-    }
-};
+    },
+}

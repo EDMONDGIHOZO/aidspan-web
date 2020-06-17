@@ -1,0 +1,76 @@
+{
+    "message": "hello i18n !!",
+    "mission": {
+        "content": "Aidspan est une organisation internationale non gouvernementale (ONG) créée en 2002 en tant qu'observateur indépendant du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme. Aidspan fournit au Fonds mondial de lutte contre le sida, la tuberculose et le paludisme (le «Fonds mondial») des informations et analyses des parties prenantes pour comprendre et évaluer les progrès du Fonds mondial. Aidspan vise à influencer la transparence et l'efficacité du Fonds mondial aux niveaux mondial et national",
+        "title": "NOTRE MISSION",
+        "subtitle": "Le monde sans épidémies de:",
+        "short": "Pour être un chien de garde efficace mettant en évidence, analysant et la transparence et l'efficacité du Fonds mondial de lutte contre le sida, Tuberculose et paludisme aux niveaux mondial et national"
+    },
+    "vision": {
+        "title": "VISION",
+        "content": "Un monde sans épidémies de sida, de tuberculose et de Malaria"
+    },
+    "home": {
+        "title": "Accueil",
+        "action": "mdi-home",
+        "route": "/en"
+    },
+    "about": {
+        "title": "à propos de nous",
+        "action": "mdi-lightbulb-on",
+        "route": "en/about-us"
+    },
+    "analytics": {
+        "title": "Analyse des données",
+        "action": "mdi-google-analytics",
+        "route": "en/methodologies"
+    },
+    "publications": {
+        "title": "publications",
+        "intro_title": "publications d'Aidspan",
+        "action": "mdi-folder-star",
+        "route": "en/publications",
+        "submenus": [{
+                "title": "Rapports",
+                "route": "reports"
+            },
+            {
+                "title": "Guides",
+                "route": "guides"
+            }
+        ]
+    },
+    "gfo": {
+        "title": "OFM",
+        "action": "mdi-eye",
+        "route": "en/publications"
+    },
+    "newsletterbtn": "s'abonner aux newsletters",
+    "newsletterbtn_desc": "pour la newsletter en anglais choisissez GFO ou OFM pour le français",
+    "subscribe": "souscrire",
+    "define_guides": "Les guides Aidspan sont des publications téléchargeables gratuites de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets tels que la procédure de demande de subvention du Fonds mondial et la mise en place d'un mécanisme de coordination par pays.",
+    "report_intro": "Les publications de recherche d'Aidspan visent à fournir aux lecteurs des informations précises et impartiales des résultats qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en accès libre. Nous apprécions les suggestions d'articles et de collaborations de recherche. Veuillez adresser toutes vos demandes au directeur exécutif à info@aidspan.org",
+    "report_title": "RAPPORTS",
+    "viewall": "Voir tout",
+    "quicklinks": "LIENS RAPIDES",
+    "getconnected": "Connectez-vous avec nous sur les réseaux sociaux!",
+    "apwintro": "Aidspan Portal Workbench ™ est une application Web flexible et puissante qui récupère les données du portefeuille de subventions à partir des services Web fournis par le Fonds mondial, puis rend les données disponibles de manière conviviale.",
+    "gfo_intro": {
+        "title": "OBSERVATEUR DU FONDS MONDIAL",
+        "description": "L'Observateur du Fonds mondial est la principale voix indépendante fournissant des informations, des analyses et des opinions sur le Fonds mondial. Abonnez-vous à notre newsletter gratuite deux fois par mois pour obtenir des explications fiables et faisant autorité sur les politiques, pratiques et procédures du Secrétariat, des informations privilégiées sur les réunions du Conseil du Fonds mondial, une analyse des rapports du Bureau de l'Inspecteur général et des histoires réelles qui captent l'impact et le rôle du Fonds mondial au niveau des pays, veuillez ajouter gfo-newsletter@aidspan.org à votre liste d'expéditeurs de courrier électronique approuvés pour éviter que votre système de messagerie ne traite les problèmes entrants de l'observateur du Fonds mondial comme du spam."
+    },
+    "allissues": "TOUT NUMÉROS",
+    "currentissue": "ÉDITION ACTUELLE",
+    "gfonote": "OBSERVATEUR DU FONDS MONDIAL (OFM) est produit par le Département éditorial d'Aidspan. Aidspan apprécie les commentaires des lecteurs sur les articles de GFO. Aidspan se réjouit également des offres d'écrire des articles et des suggestions de sujets que nous pourrions couvrir dans GFO.",
+    "contactgfo": "CONTACTER LE SERVICE ÉDITORIAL SUR",
+    "sendemail": "envoyer un e-mail",
+    "whatwedo": {
+        "title": "Ce que nous faisons",
+        "content": "Aidspan est une organisation à but non lucratif basée au Kenya dont la mission est de renforcer l'efficacité du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme en servant de chien de garde indépendant du Fonds et de ses exécutants."
+    },
+    "whatweare": {
+        "title": "Ce que nous sommes",
+        "content": "Aidspan a bâti sa réputation de rapports, commentaires et analyses responsables sur tous les aspects de l'écologie du Fonds mondial depuis 2002. Nous avons construit un vaste réseau mondial de liens. Nous essayons de toujours commenter de manière constructive dans quelle mesure le Conseil d'administration, le Secrétariat et les exécutants des subventions du Fonds mondial sont efficaces et respectent les principes fondateurs du Fonds. Nous le faisons en publiant des informations opportunes et pertinentes et une analyse réfléchie et incisive et; en facilitant le débat critique; et promouvoir une plus grande transparence, responsabilité, efficacité et impact. L'un de nos principaux canaux à ce jour a été l'observateur du Fonds mondial."
+    },
+    "slogan": "L'observateur indépendant du Fonds mondial"
+}

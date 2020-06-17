@@ -6,30 +6,20 @@
       <v-col cols="3" id="abouttext">
         <p class="font-weight-black display-2 appname">AIDSPAN</p>
         <v-caption class="white--text caption"
-          >The Independent Global Fund Observer
+          >{{$t('slogan')}}
         </v-caption>
       </v-col>
 
       <v-col cols="9" id="aboutus-container">
         <v-card flat>
-          <v-card-title class="title">What we do!</v-card-title>
-          <v-card-text>{{ whatWedo }}</v-card-text>
+          <v-card-title class="title">{{$t('whatwedo.title')}}</v-card-title>
+          <v-card-text>{{$t('whatwedo.content')}}</v-card-text>
         </v-card>
         <v-card class="my-5" flat>
-          <v-card-title class="title">What we are!</v-card-title>
+          <v-card-title class="title">{{$t('whatweare.title')}}</v-card-title>
           <v-card-text
             ><p class="body-2">
-              Aidspan has been building its reputation for responsible
-              reporting, commentary and analysis on all aspects of the Global
-              Fund ecology since 2002. We have built an extensive global network
-              of links. We try to always constructively comment on the extent to
-              which the Global Fund's Board, Secretariat and grant implementers
-              are being effective and are living up to the Fund's founding
-              principles. We do this by publishing timely and relevant
-              information and thoughtful, incisive analysis and; through
-              facilitating critical debate; and promoting greater transparency,
-              accountability, effectiveness and impact. One of our main channels
-              to date has been the Global Fund Observer.
+              {{$t('whatweare.content')}}
             </p></v-card-text
           >
         </v-card>
@@ -39,24 +29,18 @@
     <!--- starting the tabs of core values and mission and vision section -->
     <v-row style="margin-top:50px;">
       <v-col cols="12" md="8">
-        <v-tabs vertical>
+        <v-tabs horizontal>
           <v-tab
             v-for="value in coreValues"
             :key="value.id"
             id="tabstitle"
             tab-reverse-transition
-            
           >
-            <p class="text-left">{{ value.title }}</p>
+            <p>{{ value.title }}</p>
           </v-tab>
 
           <v-tab-item v-for="value in coreValues" :key="value.id">
             <v-card flat id="tabcontainer" height="265px">
-              <v-card-title>
-                <p class="title float-right font-weight-black primary--text">
-                  CORE VALUES
-                </p></v-card-title
-              >
               <v-card-text>
                 <p class="desc">
                   {{ value.desc }}
@@ -68,17 +52,23 @@
       </v-col>
       <!-- end of core values-->
       <!-- start of the mission and vision -->
-      <v-col cols="12" md="4" id="missvis">
-        <p class="headline">MISSION</p>
-        <p class="body-2">
-          To be an effective watchdog highlighting, analyzing and in uencing the
-          transparency and effectiveness of the Global Fund to Fight AIDS,
-          Tuberculosis and Malaria at the global and country level
-        </p>
-        <p class="headline">VISION</p>
-        <p class="body-2">
-          A world without epidemics of AIDS ,Tuberculosis and Malaria
-        </p>
+      <v-col cols="12" md="4" class="mission-vision">
+        <v-card flat >
+            <v-card-title class="white-text">
+                {{$t('mission.title')}}
+            </v-card-title>
+            <v-card-text>
+                 {{$t('mission.short')}}
+            </v-card-text>
+        </v-card>
+        <v-card flat>
+            <v-card-title class="white-text">
+                {{$t('vision.title')}}
+            </v-card-title>
+            <v-card-text>
+                 {{$t('vision.content')}}
+            </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
     <!-- end of the visino and mission -->
@@ -307,9 +297,6 @@ export default {
         }
       ],
       //core values
-
-      whatWedo:
-        "Aidspan is a non-profit organization based in Kenya whose mission is to reinforce the effectiveness of the Global Fund to Fight AIDS, Tuberculosis and Malaria by serving as an independent watchdog of the Fund and its grant implementers.",
       directors: [
         {
           names: "Ida Hakizinka",
@@ -347,8 +334,10 @@ export default {
   border-radius: 5px;
 
 }
-
-#tabstitle{
-    text-align: left;
+.mission-vision{
+    border: solid #1ba4e4 1px;
+    color: 'white';
+    border-radius: 20px;
 }
+
 </style>
