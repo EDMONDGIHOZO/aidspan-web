@@ -3,8 +3,8 @@ export default {
     showSideBar(state, value) {
         state.adminDraw = value
     },
-    SET_ISSUES(state, issues) {
-        state.issues = issues
+    SET_ISSUES(state, payload) {
+        state.issues = payload
     },
     SET_ARTICLE_TAGS(state, allTags) {
         state.allTags = allTags

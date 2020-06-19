@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
     <div class="all">
-      <v-row wrap>
+      <v-row wrap v-if="allIssues">
         <v-col cols="12">
           <v-expansion-panels focusable popout hover>
-            <v-expansion-panel v-for="issue in loadedIssues" :key="issue.nid">
+            <v-expansion-panel v-for="issue in allIssues" :key="issue.nid">
               <v-expansion-panel-header>
                 <span class="title issue-title">
                   {{issue.title}}
@@ -63,28 +63,27 @@
           </v-expansion-panels>
         </v-col>
       </v-row>
-      <paginate collection="issues" />
+      <div v-else class="loader">
+        <v-progress-circular :size="70" :width="7" color="purple" indeterminate></v-progress-circular>
+      </div>
     </div>
   </v-container>
 </template>
 
 <script>
-import paginate from "@/components/helpers/pagination.vue";
 import Vue2Filters from "vue2-filters";
 import DownloadIssue from "@/mixins/downloadIssue";
-import { mapGetters } from "vuex";
 
 export default {
-  computed: {
-    ...mapGetters(["loadedIssues"])
-  },
   mounted() {
-    this.$store.dispatch("loadIssues");
+    return this.$store.dispatch("fetchIssues");
+  },
+  computed: {
+    allIssues() {
+      return this.$store.state.issues.data;
+    }
   },
 
-  components: {
-    paginate
-  },
   mixins: [Vue2Filters.mixin, DownloadIssue]
 };
 </script>
@@ -93,6 +92,12 @@ export default {
 .all {
   margin-left: auto;
   margin-right: auto;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .issue-title {

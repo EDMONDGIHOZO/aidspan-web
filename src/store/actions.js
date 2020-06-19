@@ -12,14 +12,13 @@ export default {
                 console.log(error)
             })
     },
-
-    async loadIssues({ commit }, pageNumber) {
+    async fetchIssues({ commit }) {
         Api()
-            .get('/all-issues/?page=' + pageNumber)
-            .then((response) => {
+            .get(`/all-issues?page=1`)
+            .then(function(response) {
                 commit('SET_ISSUES', response.data)
             })
-            .catch((error) => {
+            .catch(function(error) {
                 console.log(error)
             })
     },

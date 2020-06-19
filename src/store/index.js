@@ -4,15 +4,17 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import modules from './modules'
 import state from './state'
+/** import modules */
+
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+    /** modules */
+    /** end modules */
     actions,
     getters,
-    modules,
     mutations,
     state,
 })

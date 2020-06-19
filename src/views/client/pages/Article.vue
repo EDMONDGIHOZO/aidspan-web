@@ -14,8 +14,8 @@
             >{{ article.article_second_title.field_article_secondary_title_value }}</p>
           </v-flex>
           <v-row>
-            <v-col cols="12" md="7">
-              <v-chip class="ma-2" color="secondary" text-color="white">
+            <v-col cols="12" md="8">
+              <v-chip class="ma-2" small color="secondary" text-color="white">
                 <v-avatar left>
                   <v-icon>mdi-feather</v-icon>
                 </v-avatar>
@@ -23,7 +23,7 @@
                 {{ article.article_author.field_article_author_value }}
               </v-chip>
 
-              <v-chip class="ma-2" color="primary" text-color="white">
+              <v-chip class="ma-2"  small color="primary" text-color="white">
                 <v-avatar
                   left
                   class="primary darken-4"
@@ -32,12 +32,12 @@
               </v-chip>
               <span class="mx-5 text-lg-right">{{ article.created | formatDate }}</span>
             </v-col>
-            <v-col cols="5" md="2">
-              <v-btn class="mr-2" icon @click="fonter" outlined color="primary">
-                <v-icon color="primary">mdi-format-font-size-increase</v-icon>
+            <v-col cols="5" md="1">
+              <v-btn class="mr-2" icon @click="fonter" small outlined color="primary">
+                <v-icon color="primary" small>mdi-format-font-size-increase</v-icon>
               </v-btn>
-              <v-btn class="mr-2" icon @click="fontSize--" outlined color="secondary">
-                <v-icon color="secondary">mdi-format-font-size-decrease</v-icon>
+              <v-btn class="mr-2" icon small @click="fontSize--" outlined color="secondary">
+                <v-icon color="secondary" small>mdi-format-font-size-decrease</v-icon>
               </v-btn>
             </v-col>
             <!-- start the social sharing icons -->
