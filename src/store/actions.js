@@ -12,11 +12,31 @@ export default {
                 console.log(error)
             })
     },
-    async fetchIssues({ commit }) {
+    async fetchIssues({ commit }, pageNumber) {
         Api()
-            .get(`/all-issues?page=1`)
+            .get(`/gfo?page=${pageNumber}`)
             .then(function(response) {
                 commit('SET_ISSUES', response.data)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    },
+    async fetchofms({ commit }, pageNumber) {
+        Api()
+            .get(`/ofm?page=${pageNumber}`)
+            .then(function(response) {
+                commit('SET_OFM', response.data)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    },
+    async fetchedition({ commit }, nid) {
+        Api()
+            .get(`/all-issues/${nid}`)
+            .then(function(response) {
+                commit('SET_EDITION', response.data)
             })
             .catch(function(error) {
                 console.log(error)
@@ -100,5 +120,12 @@ export default {
     async fetchtypes({ commit }) {
         const articleTypes = await Api().get('articletypes')
         commit('SET_ARTICLE_TYPES', articleTypes.data)
+    },
+
+    /** change language */
+
+    changelanguage({ commit }) {
+        const lang = localStorage.getItem('lang')
+        commit('SET_LANG', lang)
     },
 }

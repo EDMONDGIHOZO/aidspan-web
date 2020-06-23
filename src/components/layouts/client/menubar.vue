@@ -2,25 +2,25 @@
   <div class="menubar hidden-xs-only" id="menubar">
     <v-toolbar min-width="100%" color="primary" class="menucontainer">
       <!--- menubar list -->
-      <v-btn rounded class="mx-4" depressed color="primary" @click="gohome">
+      <v-btn rounded class="mx-1" depressed color="primary" @click="gohome">
         <v-icon left small>{{$t('home.action')}}</v-icon>
         {{$t('home.title')}}
       </v-btn>
-      <v-btn rounded class="mx-4" depressed color="primary" @click="gogfo">
+      <v-btn rounded class="mx-1" depressed color="primary" @click="gogfo">
         <v-icon left small>{{$t('gfo.action')}}</v-icon>
         {{$t('gfo.title')}}
       </v-btn>
-      <v-btn rounded class="mx-4" depressed color="primary" @click="goabout">
+      <v-btn rounded class="mx-1" depressed color="primary" @click="goabout">
         <v-icon left small>{{$t('about.action')}}</v-icon>
         {{$t('about.title')}}
       </v-btn>
-      <v-btn rounded class="mx-4" depressed color="primary" @click="goanalytics">
+      <v-btn rounded class="mx-1" depressed color="primary" @click="goanalytics">
         <v-icon left small>{{$t('analytics.action')}}</v-icon>
         {{$t('analytics.title')}}
       </v-btn>
       <v-menu open-on-hover bottom offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn rounded class="mx-4" depressed color="primary" v-on="on" v-bind="attrs" @click="gopubs">
+          <v-btn rounded class="mx-1" depressed color="primary" v-on="on" v-bind="attrs" @click="gopubs">
             <v-icon left small>{{$t('publications.action')}}</v-icon>
             {{$t('publications.title')}}
           </v-btn>
@@ -39,7 +39,7 @@
 
       <!---menu end -->
       <v-spacer></v-spacer>
-      <Search />
+      <Search :dialog="false" />
       <locale-switch></locale-switch>
     </v-toolbar>
   </div>
@@ -70,10 +70,6 @@ export default {
     gopubs(){
          return this.$router.push({ name: "Publications" });
     }
-  },
-  mounted() {
-    const lang = "en";
-    return this.$store.dispatch("loadMenu", lang);
   },
   components: {
     Search,

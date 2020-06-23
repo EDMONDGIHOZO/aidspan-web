@@ -1,7 +1,7 @@
 <template>
   <v-container class="my-1" id="article-container">
-    <v-col cols="12" v-if="!article_data">
-      <v-progress-linear color="deep-orange accent-4" indeterminate rounded height="10"></v-progress-linear>
+    <v-col cols="12" v-if="loading">
+      <v-progress-linear color="orange accent-4" indeterminate rounded height="10"></v-progress-linear>
     </v-col>
     <v-row v-for="article in article_data" :key="article.nid">
       <v-col cols="12">
@@ -23,7 +23,7 @@
                 {{ article.article_author.field_article_author_value }}
               </v-chip>
 
-              <v-chip class="ma-2"  small color="primary" text-color="white">
+              <v-chip class="ma-2" small color="primary" text-color="white">
                 <v-avatar
                   left
                   class="primary darken-4"
@@ -89,22 +89,27 @@
           </v-row>
 
           <v-card class="pa-5" id="comments-box" flat>
-
             <v-row>
-                <v-col cols="12">
-              <v-card flat outlined class="mb-3">
-                <v-card-text>
-                  <span class="subheading">Tags:</span>
-                  <v-chip-group mandatory v-if="article.Tags !== 0">
-                    <v-chip v-for="tag in article.Tags" :key="tag.tid" color="primary" router :to="'/article-tags/' + tag.tid">
-                      {{
-                      tag.name
-                      }}
-                    </v-chip>
-                  </v-chip-group>
-                </v-card-text>
-              </v-card>
-            </v-col>
+              <v-col cols="12">
+                <v-card flat outlined class="mb-3">
+                  <v-card-text>
+                    <span class="subheading">Tags:</span>
+                    <v-chip-group mandatory v-if="article.Tags !== 0">
+                      <v-chip
+                        v-for="tag in article.Tags"
+                        :key="tag.tid"
+                        color="primary"
+                        @click="viewtag(tag.tid)"
+                      >
+                        {{
+                        tag.name
+                        }}
+                      </v-chip>
+                    </v-chip-group>
+                    {{language}}
+                  </v-card-text>
+                </v-card>
+              </v-col>
               <v-col cols="12 comments">
                 <div v-if="article.comments.length > 0">
                   <v-badge
@@ -117,10 +122,9 @@
                   </v-badge>
                   <v-card v-for="comment in article.comments" :key="comment.id" class="mb-5" flat>
                     <v-card-title>{{comment.user.name }}</v-card-title>
-                    <v-card-text>{{comment.comment}}
-                    </v-card-text>
+                    <v-card-text>{{comment.comment}}</v-card-text>
                     <v-card-actions>
-                        <span class="px-3">{{comment.created_at | formatDateWords }}</span>
+                      <span class="px-3">{{comment.created_at | formatDateWords }}</span>
                     </v-card-actions>
                   </v-card>
                 </div>
@@ -129,9 +133,9 @@
                 <v-form ref="form" @submit.prevent="submit">
                   <v-container fluid>
                     <v-row>
-                        <v-col cols="12">
-                            <p class="font-weight-black">Add Comment</p>
-                        </v-col>
+                      <v-col cols="12">
+                        <p class="font-weight-black">Add Comment</p>
+                      </v-col>
                       <v-col cols="12" sm="6">
                         <v-text-field
                           v-model="form.first"
@@ -302,14 +306,15 @@ export default {
   data() {
     const defaultForm = Object.freeze({
       names: "",
-      comment: ""
+      comment: "",
+      
     });
 
     return {
       //issue navigation
       issueview: null,
       hidden: false,
-      loading: false,
+      loading: true,
       //font size of the text
       fontSize: 16,
       // end
@@ -333,6 +338,9 @@ export default {
     article_id() {
       return this.$route.params.article_id;
     },
+    language() {
+      return this.$store.state.activelang;
+    },
     article_data() {
       return this.$store.state.article.data;
     },
@@ -347,13 +355,17 @@ export default {
     }
   },
   mounted() {
-    return this.$store.dispatch("loadArticles", this.$route.params.article_id);
+    this.$store.dispatch("loadArticles", this.$route.params.article_id);
+    this.loading = false
   },
 
   methods: {
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
       this.$refs.form.reset();
+    },
+    viewtag(tagid) {
+      return this.$router.push({ name: "articletags", params: { tid: tagid } });
     },
     submit() {
       this.snackbar = true;
@@ -365,7 +377,7 @@ export default {
       } else {
         this.fontSize = 15;
       }
-    },
+    }
   },
   components: {
     "social-sharing": socialSharing

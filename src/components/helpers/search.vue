@@ -67,9 +67,9 @@
 import algoliasearch from "algoliasearch";
 import "instantsearch.css/themes/reset.css";
 export default {
+    props: ['dialog'],
   data() {
     return {
-      dialog: false,
       searchQuery: "",
       searchClient: algoliasearch(
         "60L5IRZWVM",

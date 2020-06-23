@@ -1,10 +1,20 @@
 export default {
+    /** langs */
+    SET_LANG(state, lang) {
+        state.activelang = lang
+    },
     /** dashboard confs */
     showSideBar(state, value) {
         state.adminDraw = value
     },
     SET_ISSUES(state, payload) {
         state.issues = payload
+    },
+    SET_OFM(state, payload) {
+        state.ofmissues = payload
+    },
+    SET_EDITION(state, payload) {
+        state.edition = payload
     },
     SET_ARTICLE_TAGS(state, allTags) {
         state.allTags = allTags
@@ -49,4 +59,10 @@ export default {
     SET_ARTICLE_TYPES(state, articletypes) {
         state.articletypes = articletypes
     },
+    SET_CURRENT_PAGE(state, data) {
+        state.issues.page = data
+    },
+    SET_CURRENT_PAGE_OFM(state, data) {
+        state.ofmissues.page = data
+    }
 }

@@ -31,7 +31,7 @@
                       type="password"></v-text-field>
         <v-btn class="mr-4" block rounded color="primary" type="submit" @click="loginUser">login</v-btn>
       </form>
-      <router-link to="/forgot">
+      <router-link to="forgot">
         <p class="text-center ma-5 forgot-pwd">Forgot Password</p>
       </router-link>
     </v-card-text>
@@ -64,7 +64,7 @@
     }),
     beforeRouteEnter(to, from, next) {
       const token = localStorage.getItem('staff-token')
-      return token ? next('/dashboard') : next()
+      return token ? next('dashboard') : next()
     },
     methods: {
       login: function() {
@@ -73,7 +73,7 @@
       },
       beforeRouteEnter(to, from, next) {
         const token = localStorage.getItem('staff-token')
-        return token ? next('/dashboard') : next()
+        return token ? next('dashboard') : next()
       },
       loginUser() {
         const userdata = {
@@ -87,7 +87,7 @@
             localStorage.setItem('staff-token', response.data.data.token)
             console.log(response.data)
             // redirect to user home
-            this.$router.push('/dashboard')
+            this.$router.push({name: 'dashboard'})
           })
           .catch(error => {
             // clear form inputs

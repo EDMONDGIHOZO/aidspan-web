@@ -13,7 +13,7 @@ export default {
     afterLeave() {
       this.$root.$emit("triggerScroll");
     }
-  }
+  },
 };
 </script>
 <style lang="scss">

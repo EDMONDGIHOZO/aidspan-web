@@ -66,6 +66,7 @@
       <div v-else class="loader">
         <v-progress-circular :size="70" :width="7" color="purple" indeterminate></v-progress-circular>
       </div>
+      <pagination />
     </div>
   </v-container>
 </template>
@@ -73,10 +74,17 @@
 <script>
 import Vue2Filters from "vue2-filters";
 import DownloadIssue from "@/mixins/downloadIssue";
-
+import pagination from "@/components/helpers/pagination.vue";
 export default {
+  name: "allIssues",
+  components: {
+    pagination,
+  },
   mounted() {
     return this.$store.dispatch("fetchIssues");
+  },
+  created() {
+    this.$store.dispatch("fetchIssues", 1);
   },
   computed: {
     allIssues() {
@@ -95,9 +103,9 @@ export default {
 }
 
 .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .issue-title {

@@ -17,7 +17,9 @@ export default {
     currentUser: {},
     allTags: {},
     singleTag: [],
-    current_lang: 'en',
+    activelang: '',
+    ofmissues: [],
+    edition: {},
     adminMenus: [{
             id: 1,
             title: 'Dashboard',
@@ -66,19 +68,25 @@ export default {
             id: 1,
             title: 'new issue',
             lang: 'en',
-            route: '/admin/new-issue'
+            route: 'new-issue'
         },
         {
             id: 2,
             title: 'new article',
             lang: 'en',
-            route: '/admin/new-article'
+            route: 'new-article'
         },
         {
             id: 3,
             title: 'new publication',
             lang: 'en',
-            route: '/admin/new-publication'
+            route: 'new-publication'
+        },
+        {
+            id: 4,
+            title: 'Image Upload',
+            lang: 'en',
+            route: 'new-image'
         },
     ],
     settingsMenu: [{
@@ -86,14 +94,14 @@ export default {
             title: 'Users',
             icon: 'mdi-account-group',
             lang: 'en',
-            route: '/admin/new-issues'
+            route: 'new-issues'
         },
         {
             id: 2,
             title: 'Basic Site Info',
             icon: 'mdi-alert-circle-check',
             lang: 'en',
-            route: '/admin/new-article'
+            route: 'new-article'
         },
     ],
     /** end of dyanamic data from server */
@@ -165,8 +173,8 @@ export default {
             route: 'aidspan/key-documents'
         },
         {
-            title: 'Galleries',
-            route: 'aidspan/galleries'
+            title: 'Gallery',
+            route: 'gallery'
         },
         {
             title: 'Careers',

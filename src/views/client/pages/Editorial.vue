@@ -7,16 +7,19 @@
             <p class="font-weight-black display-1">{{$t('gfo_intro.title')}}</p>
           </div>
           <div class="content" v-scrollAnimation>
-            <p class="ma-10">
-              {{$t('gfo_intro.description')}}
-            </p>
+            <p class="ma-10">{{$t('gfo_intro.description')}}</p>
           </div>
           <div class="bottom-toolbar">
             <v-row justify="center">
               <v-dialog v-model="dialog" fullscreen hide-overlay transition="slide-x-transition">
                 <template v-slot:activator="{ on }">
-                  <v-btn dark v-on="on" text color="primary">{{$t('allissues')}}</v-btn>
-                  <v-btn text color="secondary" href="#current-issue-editorial">{{$t('currentissue')}}</v-btn>
+                  <v-btn color="success" v-if="language === 'fr'" text @click="ofm">TOUS LES NUMÉROS</v-btn>
+                  <v-btn dark v-on="on" text color="primary" v-else>ALL GFO ISSUES</v-btn>
+                  <v-btn
+                    text
+                    color="secondary"
+                    href="#current-issue-editorial"
+                  >{{$t('currentissue')}}</v-btn>
                 </template>
                 <v-card>
                   <v-toolbar dark color="primary">
@@ -80,9 +83,7 @@
             class="font-weight-regular white--text text-end headline"
           >{{currentIssue.changed | formatDate}}</p>
           <v-card class="pa-5 white--text" color="secondary">
-            <p>
-              {{$t('gfonote')}}
-            </p>
+            <p>{{$t('gfonote')}}</p>
             <hr />
 
             <p class="py-5">{{$t('contactgfo')}}</p>
@@ -176,15 +177,20 @@ export default {
     };
   },
   mounted() {
-    const lang = localStorage.getItem('lang')
+    const lang = localStorage.getItem("lang");
     this.$store.dispatch("loadCurrentIssue", lang);
   },
   computed: {
     currentIssue() {
       return this.$store.state.currentIssueArticles.data;
     },
-    language(){
-        return this.$store.state.current_lang;
+    language() {
+      return localStorage.getItem("lang");
+    }
+  },
+  methods: {
+    ofm() {
+      this.$router.push({ name: "ofm" });
     }
   },
   components: {
