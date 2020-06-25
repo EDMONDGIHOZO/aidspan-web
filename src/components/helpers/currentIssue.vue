@@ -1,13 +1,12 @@
 <template>
+
   <div>
     <!-- start latest issue section -->
     <v-container fluid id="current-issue">
       <v-row class="title-row">
         <v-col cols="12">
           <div flat class="number-card">
-            <span
-              class="current-issue-number text-center title font-weight-black white--text"
-            >GFO Current Issue {{ currentIssue.title }}</span>
+            <span class="current-issue-number text-center title font-weight-black white--text">GFO Current Issue {{ currentIssue.title }}</span>
             <v-btn text rounded dark @click.prevent="downloadIssue(currentIssue.title)">
               <v-icon left>mdi-download</v-icon>download
             </v-btn>
@@ -22,22 +21,18 @@
       </v-row>
       <v-layout row wrap v-scrollAnimation>
         <v-slide-group class="pa-2" multiple show-arrows>
-          <v-slide-item
-            v-for="article in currentIssue.related_articles"
-            :key="article.nid"
-            v-slot:default="{ active, toggle }"
-          >
+          <v-slide-item v-for="article in currentIssue.related_articles"
+                        :key="article.nid"
+                        v-slot:default="{ active, toggle }">
             <v-flex xs12 sm4 md4 lg3>
-              <v-card
-                class="text-xs-center ma-3"
-                id="current-article"
-                hover
-                flat
-                height="400"
-                width="400"
-                outlined
-                @click="toggle; goTo(article.nid)"
-              >
+              <v-card class="text-xs-center ma-3"
+                      id="current-article"
+                      hover
+                      flat
+                      height="400"
+                      width="400"
+                      outlined
+                      @click="toggle; goTo(article.nid)">
                 <v-card-title>
                   <div class="title">{{ article.title | str_limit(70) }}</div>
                 </v-card-title>
@@ -54,10 +49,8 @@
                   </v-row>
                 </v-list-item>
                 <v-card-text>
-                  <p
-                    v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
-                    class="abstract-text"
-                  ></p>
+                  <p v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
+                     class="abstract-text"></p>
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -67,54 +60,59 @@
       <!-- end of current articles -->
     </v-container>
   </div>
+
 </template>
 
 <script>
-import Vue2Filters from "vue2-filters";
-import DownloadIssue from "@/mixins/downloadIssue";
 
-export default {
-  mounted() {
-      const language = localStorage.getItem('lang');
-    this.$store.dispatch("loadCurrentIssue", language);
-  },
+  import Vue2Filters from 'vue2-filters'
+  import DownloadIssue from '@/mixins/downloadIssue'
 
-  methods: {
-    goTo(goToLink) {
-      return this.$router.push({
-        name: "article",
-        params: { article_id: goToLink }
-      });
-    }
-  },
+  export default {
+    mounted() {
+      if (localStorage.getItem('lang') === null) {
+        localStorage.setItem('lang', this.$i18n.locale)
+      }
+      this.$store.dispatch('loadCurrentIssue', this.$i18n.locale)
+    },
 
-  data() {
-    return {
-      downloader: ""
-    };
-  },
+    methods: {
+      goTo(goToLink) {
+        return this.$router.push({
+          name: 'article',
+          params: { article_id: goToLink }
+        })
+      }
+    },
 
-  computed: {
-    currentIssue() {
-      return this.$store.state.currentIssueArticles.data || {};
-    }
-  },
-  mixins: [Vue2Filters.mixin, DownloadIssue],
-  filters: {
-    capitalize: function(value) {
-      if (!value) return "";
-      value = value.toString();
-      return (
-        value.charAt(0).toUpperCase() + value.slice(1).substr(0, 320) + "..."
-      );
+    data() {
+      return {
+        downloader: ''
+      }
+    },
+
+    computed: {
+      currentIssue() {
+        return this.$store.state.currentIssueArticles.data || {}
+      }
+    },
+    mixins: [Vue2Filters.mixin, DownloadIssue],
+    filters: {
+      capitalize: function(value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1).substr(0, 320) + '...'
+      }
     }
   }
-};
+
 </script>
 
 
 <style lang="scss" scoped>
-.abstract-text {
-  overflow: hidden;
-}
+
+  .abstract-text {
+    overflow: hidden;
+  }
+
 </style>
