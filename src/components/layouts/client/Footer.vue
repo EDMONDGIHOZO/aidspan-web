@@ -3,9 +3,9 @@
     <v-row id="sub-footer">
       <v-col cols="12" md="4" class="twitter-card">
         <v-card height="300">
-          <Timeline id="twitterdev" sourceType="profile" :options="{ tweetLimit: '3' }" />
-          <Timeline id="twitterdev" sourceType="likes" :options="{ theme: 'dark' }" />
-          <Timeline id="twitterdev" sourceType="list" />
+          <Timeline id="aidspan" sourceType="profile" :options="{ tweetLimit: '4' }" />
+          <Timeline id="aidspan" sourceType="likes" :options="{ theme: 'dark' }" />
+          <Timeline id="aidspan" sourceType="list" />
         </v-card>
       </v-col>
       <v-col cols="4" md="3">
