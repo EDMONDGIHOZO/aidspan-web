@@ -1,6 +1,9 @@
 .DS_Store
 node_modules
 /dist
+/services
+
+http-common.js
 
 # local env files
 .env.local

@@ -39,7 +39,7 @@ export default {
   },
 
   mounted() {
-    return this.$store.dispatch("loadTag", this.$route.params.tid);
+    return this.$store.dispatch("loadTag", this.tid);
   },
   methods: {
     viewarticle(artnid) {
