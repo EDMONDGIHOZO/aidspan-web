@@ -26,8 +26,6 @@
               flat
               class="epidemic-card white--text"
               v-for="epidemic in epidemics"
-              color= "secondary"
-
               :key="epidemic.ep_id"
             >
               <v-card-text>
