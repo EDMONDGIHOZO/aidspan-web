@@ -24,13 +24,13 @@
           <div class="mission-content">
             <v-card
               flat
-              class="epidemic-card white--text"
+              class="epidemic-card white--text ma-3"
               v-for="epidemic in epidemics"
               :key="epidemic.ep_id"
             >
               <v-card-text>
                 <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
-                <p class="epidemics">{{ epidemic.ep_name }}</p>
+                <p class="text-center">{{ epidemic.ep_name }}</p>
               </v-card-text>
             </v-card>
           </div>

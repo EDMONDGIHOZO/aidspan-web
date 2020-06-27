@@ -26,7 +26,6 @@
       height: 150px;
     }
   .epidemic-card {
-      width: 100px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -34,13 +33,12 @@
       padding: 0;
       margin: 5px;
       border-radius: 60px;
+      border-radius: 50px;
     }
 
-    .epidemics {
-      font-size: 12px;
+    .epidemic-card p {
       font-weight: bold;
-      text-align: center;
-      margin-top: 30%;
+      margin-top: 20px;
     }
     #current-issue {
       width: 100%;
