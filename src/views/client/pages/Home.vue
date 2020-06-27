@@ -41,52 +41,32 @@
     <!-- start latest issue section -->
     <current-issue></current-issue>
     <v-container fluid>
-      <v-layout row wrap id="pubsContainer">
-        <v-flex xs12 md8>
-          <v-card class="px-3 ma-2" hover id="publications-intro" flat>
+      <v-row>
+        <v-col cols="12" md="8">
+          <v-card class="px-3" hover id="publications-intro" flat>
             <v-card-title class="title font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
             <v-row>
-              <v-col cols="6" class="guides">
+              <v-col cols="12" md="6" class="guides">
                 <span class="sub-title">GUIDES</span>
-                <p>
-                  {{$t('define_guides')}}
-                </p>
+                <p>{{$t('define_guides')}}</p>
               </v-col>
-              <v-col cols="6" class="reports">
+              <v-col cols="12" md="6" class="reports">
                 <span class="sub-title">{{$t('report_title')}}</span>
-                <p>
-                  {{$t('report_intro')}}
-                </p>
+                <p>{{$t('report_intro')}}</p>
               </v-col>
-              <v-btn block text color="primary" router to="/publications">{{$t('viewall')}}</v-btn>
+              <v-btn block text color="primary" router to="c/publications">{{$t('viewall')}}</v-btn>
             </v-row>
           </v-card>
-        </v-flex>
-
-        <v-flex xs12 md4>
-          <v-card class="pa-5 ma-2" hover id="apw-card" flat height="290">
+        </v-col>
+        <v-col cols="12" md="4" class="apw-home-intro">
+          <v-card class="pa-1" hover id="apw-card" flat href="https://data.aidspan.org">
             <v-card-title>
-              <v-icon left>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
+              <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
             </v-card-title>
-            <v-card-text class="pa-4 font-weight-bold">
-              {{$t('apwintro')}}
-              <v-btn
-                v-scrollAnimation
-                absolute
-                dark
-                fab
-                bottom
-                right
-                color="secondary"
-                href="https://data.aidspan.org"
-                target="_blank"
-              >
-                <v-icon>mdi-arrow-right</v-icon>
-              </v-btn>
-            </v-card-text>
+            <v-card-text class="pa-4 font-weight-bold">{{$t('apwintro')}}</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
     <v-container fluid>
       <!-- our awesome donors -->
@@ -100,7 +80,7 @@
               <v-slide-group multiple show-arrows light>
                 <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
                   <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
-                      <img :src="logo.img" alt="donor logo" height="73px" />
+                    <img :src="logo.img" alt="donor logo" height="73px" />
                   </v-card>
                 </v-slide-item>
               </v-slide-group>
@@ -317,7 +297,6 @@ $lightgrey: rgb(69, 69, 70);
   text-align: center;
   border-top: solid 4px #00adef;
 }
-
 
 .current-issue-number {
   display: flex;
