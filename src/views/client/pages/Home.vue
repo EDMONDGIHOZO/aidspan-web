@@ -12,7 +12,7 @@
       <v-row row wrap id="web-intro">
         <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
           <div class="header">
-            <h1 display-2>AIDSPAN</h1>
+            <p class="display-2">AIDSPAN</p>
           </div>
           <p v-scrollAnimation>{{ $t('mission.content') }}</p>
         </v-col>
@@ -24,7 +24,7 @@
           <div class="mission-content">
             <v-card
               flat
-              class="ma-2 pa-4 epidemic-card"
+              class="epidemic-card"
               v-for="epidemic in epidemics"
               :key="epidemic.ep_id"
             >

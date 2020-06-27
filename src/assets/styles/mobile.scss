@@ -3,13 +3,8 @@ $aidspan-blue: #00adef;
 $aidspan-grey: #414346;
 $light-grey: #e5e5e5;
 $lighBlue: #f2fbff;
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 600px) {
     /* For mobile phones: */
-    #body-wraper {
-        overflow: hidden;
-        max-width: 98%;
-        margin: 0 auto;
-    }
     .wedo {
         height: auto;
         width: auto;

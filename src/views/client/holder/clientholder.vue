@@ -5,7 +5,7 @@
       <Menubar></Menubar>
     </div>
     <MobileMenu></MobileMenu>
-    <keep-alive>
+    <keep-alive class="client-contents">
       <router-view :key="$route.path"></router-view>
     </keep-alive>
     <Footer></Footer>
@@ -31,9 +31,8 @@ export default {
 <style lang="scss" scoped>
 .tops  {
     padding: 10px;
-    max-width: 98%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 </style>
-

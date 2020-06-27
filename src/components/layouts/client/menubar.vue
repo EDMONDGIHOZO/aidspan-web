@@ -79,16 +79,6 @@ export default {
 </script>
 
 <style lang="scss">
-#menubar {
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-}
-
-.menucontainer {
-  border-radius: 40px;
-}
-
 nav {
   -webkit-box-shadow: -1px 4px 5px 0px rgba(64, 186, 247, 0.53);
   -moz-box-shadow: -1px 4px 5px 0px rgba(64, 186, 247, 0.53);
