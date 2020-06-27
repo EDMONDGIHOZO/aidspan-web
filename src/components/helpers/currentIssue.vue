@@ -2,11 +2,20 @@
   <div>
     <!-- start latest issue section -->
     <v-row class="current-issue-home">
-      <v-col cols="6">
-        <p class="title">Current issue {{ currentIssue.title }}</p>
+      <v-col cols="12" md="4">
+        <p class="title">{{ currentIssue.title }}</p>
       </v-col>
-      <v-col cols="6" class="text-right">
-        <v-btn text small color="primary" outlined @click.prevent="downloadIssue(currentIssue.title)">
+      <v-col cols="6" md="4">
+        <p class="title">{{ currentIssue.title }}</p>
+      </v-col>
+      <v-col cols="6" md="4" class="text-right">
+        <v-btn
+          text
+          small
+          color="primary"
+          outlined
+          @click.prevent="downloadIssue(currentIssue.title)"
+        >
           <v-icon left>mdi-download</v-icon>download
         </v-btn>
       </v-col>
