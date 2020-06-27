@@ -24,7 +24,7 @@
           <div class="mission-content">
             <v-card
               flat
-              class="epidemic-card white--text ma-3"
+              class="epidemic-card"
               v-for="epidemic in epidemics"
               :key="epidemic.ep_id"
             >

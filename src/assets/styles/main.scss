@@ -9,6 +9,14 @@ $aidspan-orange: #f46517;
     color: #f46517;
 }
 
+.current-issue-home {
+    padding: 20px;
+}
+
+.current-issue-home .title {
+    text-transform: uppercase;
+}
+
 .top-intro {
     background: linear-gradient( 180deg, #f2fbff 82.24%, rgba(242, 251, 255, 0) 100%);
     height: 200px;
@@ -96,13 +104,6 @@ $aidspan-orange: #f46517;
 .fa-chevron-down {
     font-size: 10px;
     color: blue($color: #000000);
-}
-
-#current-issue .title-row {
-    max-width: 96%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
 }
 
 #current-issue {
