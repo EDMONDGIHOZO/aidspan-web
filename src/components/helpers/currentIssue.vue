@@ -6,8 +6,8 @@
       <v-row class="title-row">
         <v-col cols="12">
           <div flat class="number-card">
-            <span class="current-issue-number text-center title font-weight-black white--text">GFO Current Issue {{ currentIssue.title }}</span>
-            <v-btn text rounded dark @click.prevent="downloadIssue(currentIssue.title)">
+            <span class="current-issue-title">current issue {{ currentIssue.title }}</span>
+            <v-btn text small rounded dark @click.prevent="downloadIssue(currentIssue.title)">
               <v-icon left>mdi-download</v-icon>download
             </v-btn>
           </div>

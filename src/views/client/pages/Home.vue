@@ -18,14 +18,16 @@
         </v-col>
         <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
           <div class="mission-header" transition="scale-transition">
-            <h1>{{$t('mission.title')}}</h1>
-            <h3>{{$t('mission.subtitle')}}</h3>
+            <p class="display-1">{{$t('mission.title')}}</p>
+            <p>{{$t('mission.subtitle')}}</p>
           </div>
           <div class="mission-content">
             <v-card
               flat
-              class="epidemic-card"
+              class="epidemic-card white--text"
               v-for="epidemic in epidemics"
+              color= "secondary"
+
               :key="epidemic.ep_id"
             >
               <v-card-text>
@@ -318,13 +320,6 @@ $lightgrey: rgb(69, 69, 70);
   border-top: solid 4px #00adef;
 }
 
-.epidemics {
-  color: #ff7a2b;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 300;
-  font-size: 18px;
-}
 
 .current-issue-number {
   display: flex;
