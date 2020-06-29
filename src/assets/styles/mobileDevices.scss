@@ -11,7 +11,7 @@
         width: 330px;
     }
     #web-intro .aidspan p {
-        font-size: 12px;
+        font-size: 13px;
     }
     #web-intro .aidspan {
         border-radius: 2px;
@@ -23,6 +23,9 @@
         border-radius: 0px;
         max-width: 100%;
         height: 150px;
+    }
+    .all {
+        width: 100%;
     }
     .epidemic-card {
         display: flex;
@@ -51,5 +54,10 @@
     .guides {
         font-size: 12px;
         text-transform: capitalize;
+    }
+    .landing-info .intro {
+        max-width: 100%;
+        padding-left: 10px;
+        width: 100%;
     }
 }

@@ -2,16 +2,16 @@
   <div class="main-footer">
     <v-row id="sub-footer">
       <v-col cols="12" md="4" class="twitter-card">
-        <v-card height="300">
+        <v-card height="300" color="primary">
           <Timeline id="aidspan" sourceType="profile" :options="{ tweetLimit: '4' }" />
           <Timeline id="aidspan" sourceType="likes" :options="{ theme: 'dark' }" />
           <Timeline id="aidspan" sourceType="list" />
         </v-card>
       </v-col>
-      <v-col cols="4" md="3">
+      <v-col cols="3" md="3">
         <v-card class="mx-auto" tile flat>
-          <v-list shaped dense>
-            <v-subheader class="title">{{$t('quicklinks')}}</v-subheader>
+          <v-list shaped dense color="secondary">
+            <v-subheader class="title white--text">{{$t('quicklinks')}}</v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(link, i) in quicklinks" :key="i">
                 <v-list-item-content>
@@ -22,10 +22,10 @@
           </v-list>
         </v-card>
       </v-col>
-      <v-col cols="6" md="4">
+      <v-col cols="7" md="4">
         <v-card class="mx-auto" tile flat>
-          <v-list shaped dense>
-            <v-subheader class="title">CONTACT</v-subheader>
+          <v-list shaped dense color="secondary">
+            <v-subheader class="title white--text">CONTACT</v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(info, i) in contacts" :key="i">
                 <v-list-item-icon>
@@ -118,9 +118,6 @@ export default {
 }
 #sub-footer .twitter-card {
   overflow-y: scroll;
-}
-.main-footer {
-  border-top: solid #d6ebf5 2px;
 }
 
 .last-footer {

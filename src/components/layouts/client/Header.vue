@@ -158,16 +158,9 @@ export default {
       newsletters: ["OFM", "GFO"],
       checkbox: false,
       //end of subscribe form
-      subscribeDialog: null,
+      subscribeDialog: false,
       image: require("@/assets/images/en/logo_en.png")
     };
-  },
-  mounted() {
-    if (localStorage.subscribed) {
-      this.subscribed = localStorage.subscribed;
-    } else {
-      this.subscribeDialog = true;
-    }
   },
   methods: {
     saveSubscriber() {

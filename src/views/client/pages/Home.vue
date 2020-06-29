@@ -1,42 +1,32 @@
 <template>
   <div class="all">
     <!-- bring the header -->
-    <v-carousel hide-delimiters class="home-slides" flat cycle>
-      <v-carousel-item v-for="(slide, i) in slides" :key="i" :src="slide.imageUrl">
-        <div class="caption-card"></div>
-      </v-carousel-item>
-    </v-carousel>
+    <landing-image />
     <!--end of corousel -->
     <!-- intro section -->
-    <v-container fluid>
-      <v-row row wrap id="web-intro">
-        <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
-          <div class="header">
-            <p class="display-2">AIDSPAN</p>
-          </div>
-          <p v-scrollAnimation>{{ $t('mission.content') }}</p>
-        </v-col>
-        <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
-          <div class="mission-header" transition="scale-transition">
-            <p class="display-1">{{$t('mission.title')}}</p>
-            <p>{{$t('mission.subtitle')}}</p>
-          </div>
-          <div class="mission-content">
-            <v-card
-              flat
-              class="epidemic-card"
-              v-for="epidemic in epidemics"
-              :key="epidemic.ep_id"
-            >
-              <v-card-text>
-                <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
-                <p class="text-center">{{ epidemic.ep_name }}</p>
-              </v-card-text>
-            </v-card>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row row wrap id="web-intro">
+      <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
+        <div class="header">
+          <p class="display-1">WHAT WE ARE </p>
+        </div>
+        <p v-scrollAnimation>{{ $t('mission.content') }}</p>
+      </v-col>
+      <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
+        <div class="mission-header" transition="scale-transition">
+          <p class="display-1">{{$t('mission.title')}}</p>
+          <p>{{$t('mission.subtitle')}}</p>
+        </div>
+        <div class="mission-content">
+          <v-card flat class="epidemic-card" v-for="epidemic in epidemics" :key="epidemic.ep_id">
+            <v-card-text>
+              <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
+              <p class="text-center">{{ epidemic.ep_name }}</p>
+            </v-card-text>
+          </v-card>
+        </div>
+      </v-col>
+    </v-row>
+
     <!-- end of intro section -->
     <!-- start latest issue section -->
     <current-issue></current-issue>
@@ -98,13 +88,15 @@
 //import the header,footer,mobile menu
 import { mapState } from "vuex";
 import currentIssue from "@/components/helpers/currentIssue.vue";
+import Landing from "@/components/tools/landingimage.vue";
 
 export default {
   computed: {
     ...mapState(["slides", "articles", "publications", "epidemics"])
   },
   components: {
-    "current-issue": currentIssue
+    "current-issue": currentIssue,
+    "landing-image": Landing
   },
 
   data() {
