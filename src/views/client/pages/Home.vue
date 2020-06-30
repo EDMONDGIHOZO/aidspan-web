@@ -7,7 +7,7 @@
     <v-row row wrap id="web-intro">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
         <div class="header">
-          <p class="display-1">WHAT WE ARE </p>
+          <p class="display-1">WHAT WE ARE</p>
         </div>
         <p v-scrollAnimation>{{ $t('mission.content') }}</p>
       </v-col>
@@ -298,5 +298,18 @@ $lightgrey: rgb(69, 69, 70);
   align-items: center;
   font-size: 16px;
   overflow: hidden;
+}
+
+@media screen and (max-width: 520px) {
+  .all {
+    padding: 0;
+  }
+  #web-intro {
+    border-radius: 0;
+  }
+  #web-intro .aidspan {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+  }
 }
 </style>
