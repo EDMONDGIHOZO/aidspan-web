@@ -21,40 +21,35 @@
           <v-icon left small>mdi-download</v-icon>download
         </v-btn>
       </v-col>
-      <v-col cols="12">
-        <v-sheet class="mx-auto current-issue-articles-home">
-          <v-slide-group v-model="model" multiple show-arrows>
-            <v-slide-item
-              v-for="article in currentIssue.related_articles"
-              :key="article.nid"
-              v-slot:default="{ active, toggle }"
-            >
-              <v-card class="current-article-home" shaped @click="toggle; goTo(article.nid)">
-                <v-card-title>
-                  <h4>{{ article.title | str_limit(70) }}</h4>
-                </v-card-title>
-                <v-list-item class="grow">
-                  <v-list-item-avatar>
-                    <v-icon>mdi-feather</v-icon>
-                  </v-list-item-avatar>
-                  <v-list-item-content>
-                    <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
-                  </v-list-item-content>
-                  <v-row align="center" justify="end">
-                    <v-icon class="mr-1" small>mdi-history</v-icon>
-                    <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
-                  </v-row>
-                </v-list-item>
-                <v-card-text>
-                  <p
-                    v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
-                    class="abstract-text"
-                  ></p>
-                </v-card-text>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
-        </v-sheet>
+      <v-col cols="12" class="articles-container">
+        <v-card
+          class="current-article-home mx-3"
+          v-for="article in currentIssue.related_articles"
+          :key="article.nid"
+          @click="goTo(article.nid)"
+        >
+          <v-card-title>
+            <h4>{{ article.title | str_limit(70) }}</h4>
+          </v-card-title>
+          <v-list-item class="grow">
+            <v-list-item-avatar>
+              <v-icon>mdi-feather</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
+            </v-list-item-content>
+            <v-row align="center" justify="end">
+              <v-icon class="mr-1" small>mdi-history</v-icon>
+              <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
+            </v-row>
+          </v-list-item>
+          <v-card-text>
+            <p
+              v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
+              class="abstract-text"
+            ></p>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </div>
@@ -156,9 +151,21 @@ export default {
 }
 
 .current-article-home {
-  max-width: 400px;
-  margin: 10px;
-  border-radius: 10px;
+  display: inline-block;
+  color: white;
+  width: 400px;
+  height: 380px;
+  vertical-align: top;
+  border: #f46517 1px dotted;
+}
+
+.articles-container {
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  margin: auto;
+  scroll-behavior: smooth;
+  justify-content: start;
 }
 
 .current-article-home:hover {
@@ -175,7 +182,7 @@ export default {
   }
   .current-article-home {
     padding: 0;
-    width: 320px;
+    width: 340px;
     margin: 0;
   }
 

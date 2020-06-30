@@ -7,7 +7,7 @@
     <v-row row wrap id="web-intro">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
         <div class="header">
-          <h3>WHAT WE ARE</h3>
+          <h3>{{$t('whatweare.title')}}</h3>
         </div>
         <p v-scrollAnimation>{{ $t('mission.content') }}</p>
       </v-col>
