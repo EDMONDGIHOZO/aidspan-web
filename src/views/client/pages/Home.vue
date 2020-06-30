@@ -306,10 +306,16 @@ $lightgrey: rgb(69, 69, 70);
   }
   #web-intro {
     border-radius: 0;
+    border: none;
   }
   #web-intro .aidspan {
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
+    background-image: url('~@/assets/images/common/whatweare-03.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 460px;
+    border: none;
   }
   #web-intro .mission .mission-content .epidemic-card {
     width: 100px;
