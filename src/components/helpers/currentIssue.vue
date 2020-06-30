@@ -152,7 +152,6 @@ export default {
 
 .current-article-home {
   display: inline-block;
-  color: white;
   width: 400px;
   height: 380px;
   vertical-align: top;
