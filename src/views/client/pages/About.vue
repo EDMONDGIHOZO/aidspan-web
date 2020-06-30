@@ -4,24 +4,20 @@
     <!-- Start aidspan about us test -->
     <v-row class="my-5">
       <v-col cols="3" id="abouttext">
-        <p class="font-weight-black display-2 appname">AIDSPAN</p>
-        <v-caption class="white--text caption"
-          >{{$t('slogan')}}
-        </v-caption>
+        <h1 class="appname">AIDSPAN</h1>
+        <p class="web-slogan">{{$t('slogan')}}</p>
       </v-col>
 
       <v-col cols="9" id="aboutus-container">
         <v-card flat>
-          <v-card-title class="title">{{$t('whatwedo.title')}}</v-card-title>
+          <v-card-title>{{$t('whatwedo.title')}}</v-card-title>
           <v-card-text>{{$t('whatwedo.content')}}</v-card-text>
         </v-card>
         <v-card class="my-5" flat>
-          <v-card-title class="title">{{$t('whatweare.title')}}</v-card-title>
-          <v-card-text
-            ><p class="body-2">
-              {{$t('whatweare.content')}}
-            </p></v-card-text
-          >
+          <v-card-title>{{$t('whatweare.title')}}</v-card-title>
+          <v-card-text>
+            <p>{{$t('whatweare.content')}}</p>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -30,21 +26,14 @@
     <v-row style="margin-top:50px;">
       <v-col cols="12" md="8">
         <v-tabs horizontal>
-          <v-tab
-            v-for="value in coreValues"
-            :key="value.id"
-            id="tabstitle"
-            tab-reverse-transition
-          >
+          <v-tab v-for="value in coreValues" :key="value.id" id="tabstitle" tab-reverse-transition>
             <p>{{ value.title }}</p>
           </v-tab>
 
           <v-tab-item v-for="value in coreValues" :key="value.id">
             <v-card flat id="tabcontainer" height="265px">
               <v-card-text>
-                <p class="desc">
-                  {{ value.desc }}
-                </p>
+                <p class="desc">{{ value.desc }}</p>
               </v-card-text>
             </v-card>
           </v-tab-item>
@@ -53,21 +42,13 @@
       <!-- end of core values-->
       <!-- start of the mission and vision -->
       <v-col cols="12" md="4" class="mission-vision">
-        <v-card flat >
-            <v-card-title class="white-text">
-                {{$t('mission.title')}}
-            </v-card-title>
-            <v-card-text>
-                 {{$t('mission.short')}}
-            </v-card-text>
+        <v-card flat>
+          <v-card-title class="white-text">{{$t('mission.title')}}</v-card-title>
+          <v-card-text>{{$t('mission.short')}}</v-card-text>
         </v-card>
         <v-card flat>
-            <v-card-title class="white-text">
-                {{$t('vision.title')}}
-            </v-card-title>
-            <v-card-text>
-                 {{$t('vision.content')}}
-            </v-card-text>
+          <v-card-title class="white-text">{{$t('vision.title')}}</v-card-title>
+          <v-card-text>{{$t('vision.content')}}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -77,10 +58,10 @@
       <v-col cols="12">
         <v-card color="primary" flat shaped id="policy">
           <v-card-title>
-          <p class="title">POLICY ANALYSIS</p>
+            <h4>POLICY ANALYSIS</h4>
           </v-card-title>
           <v-card-text>
-            <p class="font-weight-black">
+            <p class="white--text">
               Aidspan conducts independent and critical analysis and
               investigation of Global Fund policies, strategies, processes and
               structures, funding mechanisms, transparency and data quality. We
@@ -108,12 +89,12 @@
     <!-- start the history timeline  -->
     <v-row id="history">
       <v-col cols="12" md="12" lg="12">
-        <v-card class="elevation-15">
-          <v-card-title class="title">
-            <p class="display-1">OUR HISTORY</p>
+        <v-card class="elevation-10">
+          <v-card-title>
+            <h3>OUR HISTORY</h3>
           </v-card-title>
           <v-card-text>
-            <p class="title">
+            <p>
               Aidspan is currently focused exclusively on the Global Fund and
               its implementing countries. Since its founding in 2002, Aidspan
               has contributed extensively to improving knowledge and insight
@@ -123,22 +104,12 @@
           </v-card-text>
         </v-card>
         <v-timeline>
-          <v-timeline-item
-            v-for="year in achieves"
-            :key="year.year"
-            :color="year.color"
-            small
-          >
+          <v-timeline-item v-for="year in achieves" :key="year.year" :color="year.color" small>
             <template v-slot:opposite>
-              <span
-                :class="`headline font-weight-bold ${year.color}--text`"
-                v-text="year.year"
-              ></span>
+              <span :class="`font-weight-bold ${year.color}--text`" v-text="year.year"></span>
             </template>
             <v-card class="elevation-14">
-              <v-card-text>
-                {{ year.describe }}
-              </v-card-text>
+              <v-card-text>{{ year.describe }}</v-card-text>
             </v-card>
           </v-timeline-item>
         </v-timeline>
@@ -149,24 +120,20 @@
     <!-- start showing the board of directorys  -->
     <v-row>
       <v-col cols="12" id="board">
-        <p class="display-1 font-weight-black secondary--text">
-          BOARD OF DIRECTORS
-        </p>
+        <h3>BOARD OF DIRECTORS</h3>
         <v-sheet class="mx-auto">
           <v-slide-group v-model="model" class="pa-4" show-arrows>
             <v-slide-item v-for="director in directors" :key="director.name">
               <v-card class="ma-3" max-width="344">
                 <v-img :src="director.img" height="320px" width="344"></v-img>
                 <v-card-title>
-                  <p class="title">
-                    {{ director.names }}
-                  </p>
+                  <p>{{ director.names }}</p>
                 </v-card-title>
                 <v-card-actions>
                   <v-list-item>
                     <v-row align="center" justify="end">
                       {{ director.position }}
-                      <v-spacer> </v-spacer>
+                      <v-spacer></v-spacer>
                       <v-icon class="mr-1">mdi-twitter</v-icon>
                       <v-icon class="mr-1">mdi-email</v-icon>
                       <v-icon class="mr-1">mdi-linkedin</v-icon>
@@ -306,17 +273,20 @@ export default {
         {
           names: "Alan Whiteside",
           position: "BOARD CHAIR",
-          img: 'https://docs.aidspan.org/wl/?id=YhTbOclCgKCrLQfdKECJ12M6fA900Gle'
+          img:
+            "https://docs.aidspan.org/wl/?id=YhTbOclCgKCrLQfdKECJ12M6fA900Gle"
         },
         {
           names: "ISAAC AWUONDO",
           position: "BOARD CHAIR",
-          img: 'https://docs.aidspan.org/wl/?id=aazZXluCOo8zJh8nqPEeLauoSifzTAGb'
+          img:
+            "https://docs.aidspan.org/wl/?id=aazZXluCOo8zJh8nqPEeLauoSifzTAGb"
         },
         {
           names: "Djalo",
           position: "BOARD CHAIR",
-          img: 'https://docs.aidspan.org/wl/?id=cGkX28dT7hAocIbRky6ZrxMW5gBxD6ZJ'
+          img:
+            "https://docs.aidspan.org/wl/?id=cGkX28dT7hAocIbRky6ZrxMW5gBxD6ZJ"
         }
       ]
     };
@@ -332,12 +302,18 @@ export default {
   background-repeat: no-repeat;
   display: flex;
   border-radius: 5px;
-
 }
-.mission-vision{
-    border: solid #1ba4e4 1px;
-    color: 'white';
-    border-radius: 20px;
+.mission-vision {
+  border: solid #1ba4e4 1px;
+  color: "white";
+  border-radius: 20px;
 }
 
+.aidspan-name {
+  font-weight: 200;
+}
+.web-slogan {
+  font-weight: bold;
+  color: white;
+}
 </style>

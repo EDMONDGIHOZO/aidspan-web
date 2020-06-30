@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <v-flex xs12 md12 lg12>
           <div class="title">
-            <p class="font-weight-black display-1">{{$t('gfo_intro.title')}}</p>
+            <p class="font-weight-black">{{$t('gfo_intro.title')}}</p>
           </div>
           <div class="content" v-scrollAnimation>
             <p class="ma-10">{{$t('gfo_intro.description')}}</p>
@@ -76,7 +76,7 @@
       <v-row>
         <v-col cols="12" md="3" class="new-issue-side">
           <div class="issue-number">
-            <p class="font-weight-black display-1 text-end">{{currentIssue.title}}</p>
+            <p class="font-weight-black text-end">{{currentIssue.title}}</p>
           </div>
 
           <p

@@ -6,7 +6,7 @@
       <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#39ADEF" stroke-width="2" stroke-linecap="round" fill="#F46516"/>
       <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"/>
     </svg>
-    <p class="display-1">Reset Link is sent to your email</p>
+    <p>Reset Link is sent to your email</p>
     <v-btn router to="/admin/auth/login" outlined color="success" class="block">Login</v-btn>
 
   </div>

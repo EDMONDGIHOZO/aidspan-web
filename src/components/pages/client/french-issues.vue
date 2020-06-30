@@ -2,7 +2,7 @@
   <div class="allissues">
     <v-row class="titlebar">
       <v-col cols="12" sm="6">
-        <p class="display-1 font-weight-bold">TOUT EDITIONS - OFM</p>
+        <p class="font-weight-bold">TOUT EDITIONS - OFM</p>
       </v-col>
       <v-col cols="12" sm="6">
         <v-text-field

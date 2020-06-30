@@ -16,18 +16,6 @@ $lighBlue: #f2fbff;
     #articleSection {
         margin-top: 30px;
     }
-    #abouttext .appname {
-        transform: rotate(-90deg);
-        color: $aidspan-orange;
-        -webkit-transform: rotate(-90deg);
-        /* Firefox */
-        -moz-transform: rotate(-90deg);
-        /* IE */
-        -ms-transform: rotate(-90deg);
-        /* Opera */
-        -o-transform: rotate(-90deg);
-        /* Internet Explorer */
-    }
     #abouttext .caption {
         color: $aidspan-orange;
         margin-top: 80%;

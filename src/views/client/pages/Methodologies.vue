@@ -65,7 +65,7 @@
 
         <v-col cols="12" md="7" id="data-analytics-glossary">
           <div class="cardsContainer">
-            <div class="text-center display-1 ma-5">{{ dataAnalyticsGlossaryTitle.title }}</div>
+            <div class="text-center ma-5">{{ dataAnalyticsGlossaryTitle.title }}</div>
             <v-row>
               <v-col
                 cols="5"

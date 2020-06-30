@@ -19,9 +19,8 @@ export default {
 <style lang="scss">
 $color-pack: true;
 @import "~vuetify/src/styles/main.sass";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 #app {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
   transition-property: transform, visibility;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);

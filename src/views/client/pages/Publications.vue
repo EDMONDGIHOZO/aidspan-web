@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="display-1 text-center my-2">PUBLICATIONS</p>
+    <p class="text-center my-2">PUBLICATIONS</p>
     <v-row>
       <v-col cols="12" class="typeslist">
         <v-btn

@@ -3,7 +3,7 @@
     <v-container grid-list-md text-xs-center fill-height>
       <v-row align-center>
         <v-col cols="12">
-          <p class="font-weight-black display-1 text-center">Upload Image</p>
+          <p class="font-weight-black text-center">Upload Image</p>
         </v-col>
         <v-col cols="12">
           <v-file-input

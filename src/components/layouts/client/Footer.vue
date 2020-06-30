@@ -89,8 +89,6 @@ export default {
 }
 
 #quick-links-card .title {
-  font-family: Open Sans;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 27px;
@@ -98,8 +96,6 @@ export default {
 }
 
 #contacts-card .title {
-  font-family: Open Sans;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 27px;

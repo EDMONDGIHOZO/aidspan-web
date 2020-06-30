@@ -11,7 +11,7 @@
           </v-btn>
         </v-col>
         <v-col cols="6">
-          <p class="display-1 text-right text-uppercase">{{details.title}}</p>
+          <p class="text-right text-uppercase">{{details.title}}</p>
         </v-col>
       </v-row>
 

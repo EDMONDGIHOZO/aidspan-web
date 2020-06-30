@@ -187,7 +187,7 @@ export default {
     ],
 
     epidemics: [{
-            ep_name: 'Tuberclosis',
+            ep_name: 'TUBERCLOSIS',
             ep_icon: require('@/assets/images/common/tuberclosis.png'),
             ep_id: 'safda3',
             class: 'T',
@@ -199,7 +199,7 @@ export default {
             class: 'A',
         },
         {
-            ep_name: 'Malaria',
+            ep_name: 'MALARIA',
             ep_icon: require('@/assets/images/common/maralia.png'),
             ep_id: '213fjdsl',
             class: 'M',

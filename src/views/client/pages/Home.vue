@@ -7,20 +7,20 @@
     <v-row row wrap id="web-intro">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
         <div class="header">
-          <p class="display-1">WHAT WE ARE</p>
+          <h3>WHAT WE ARE</h3>
         </div>
         <p v-scrollAnimation>{{ $t('mission.content') }}</p>
       </v-col>
       <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
         <div class="mission-header" transition="scale-transition">
-          <p class="display-1">{{$t('mission.title')}}</p>
+          <h3>{{$t('mission.title')}}</h3>
           <p>{{$t('mission.subtitle')}}</p>
         </div>
         <div class="mission-content">
-          <v-card flat class="epidemic-card" v-for="epidemic in epidemics" :key="epidemic.ep_id">
+          <v-card hover class="epidemic-card" v-for="epidemic in epidemics" :key="epidemic.ep_id">
             <v-card-text>
-              <v-img :src="epidemic.ep_icon" width="187" class="d-none d-sm-flex"></v-img>
-              <p class="text-center">{{ epidemic.ep_name }}</p>
+              <v-img :src="epidemic.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
+              <p class="text-center font-weight-bold orange--text lighten-1">{{ epidemic.ep_name }}</p>
             </v-card-text>
           </v-card>
         </div>
@@ -34,7 +34,7 @@
       <v-row>
         <v-col cols="12" md="8">
           <v-card class="px-3" hover id="publications-intro" flat>
-            <v-card-title class="title font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
+            <v-card-title class="font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
             <v-row>
               <v-col cols="12" md="6" class="guides">
                 <span class="sub-title">GUIDES</span>
@@ -311,5 +311,14 @@ $lightgrey: rgb(69, 69, 70);
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
   }
+   #web-intro .mission .mission-content .epidemic-card{
+       width: 100px;
+       height: 100px;
+   }
+
+   .disease-img {
+       width: 100px;
+       border-radius: 50%;
+   }
 }
 </style>

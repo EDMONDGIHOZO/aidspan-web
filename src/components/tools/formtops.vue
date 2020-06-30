@@ -2,7 +2,7 @@
   <div class="form-top">
     <v-row>
       <v-col cols="8">
-        <p class="display-1 title">{{titleValue}}</p>
+        <p class="title">{{titleValue}}</p>
       </v-col>
       <v-col cols="4" class="previewbtns">
           <v-btn color="secondary" depressed class="mx-4"> Preview </v-btn>

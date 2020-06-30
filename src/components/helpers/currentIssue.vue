@@ -2,73 +2,65 @@
   <div>
     <!-- start latest issue section -->
     <v-row class="current-issue-home">
-      <v-col cols="12" md="4">
-        <p class="title font-weight-black">{{$t('currentissue')}}</p>
+      <v-col cols="12" class="introduction-ofm-gfo">
+        <h1>GFO & OFM</h1>
+        <p>Aidspan Release Issues with articles every month, in French and English</p>
       </v-col>
-      <v-col cols="6" md="4">
-        <p class="title">{{ currentIssue.title }}</p>
+      <v-col cols="12" md="4" class="current-issue-home-title">
+        <h3>{{$t('currentissue')}}</h3>
       </v-col>
-      <v-col cols="6" md="4" class="text-right">
+      <v-col cols="12" md="8" class="titlebar">
+        <h3>{{ currentIssue.title }}</h3>
         <v-btn
-          text
+          depressed
           small
-          color="primary"
-          outlined
+          rounded
+          color="white"
           @click.prevent="downloadIssue(currentIssue.title)"
         >
-          <v-icon left>mdi-download</v-icon>download
+          <v-icon left small>mdi-download</v-icon>download
         </v-btn>
       </v-col>
-    </v-row>
-    <v-row no-gutters wrap>
-      <v-col class="xs12 md6 issue-date-container">
-        <div class="issue-date"></div>
+      <v-col cols="12">
+        <v-sheet class="mx-auto current-issue-articles-home">
+          <v-slide-group v-model="model" multiple show-arrows>
+            <v-slide-item
+              v-for="article in currentIssue.related_articles"
+              :key="article.nid"
+              v-slot:default="{ active, toggle }"
+            >
+              <v-card
+                class="current-article-home"
+                shaped
+                @click="toggle; goTo(article.nid)"
+              >
+                <v-card-title>
+                  <div class="title">{{ article.title | str_limit(70) }}</div>
+                </v-card-title>
+                <v-list-item class="grow">
+                  <v-list-item-avatar>
+                    <v-icon>mdi-feather</v-icon>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
+                  </v-list-item-content>
+                  <v-row align="center" justify="end">
+                    <v-icon class="mr-1" small>mdi-history</v-icon>
+                    <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
+                  </v-row>
+                </v-list-item>
+                <v-card-text>
+                  <p
+                    v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
+                    class="abstract-text"
+                  ></p>
+                </v-card-text>
+              </v-card>
+            </v-slide-item>
+          </v-slide-group>
+        </v-sheet>
       </v-col>
     </v-row>
-    <v-layout row wrap v-scrollAnimation>
-      <v-slide-group class="pa-2" multiple show-arrows>
-        <v-slide-item
-          v-for="article in currentIssue.related_articles"
-          :key="article.nid"
-          v-slot:default="{ active, toggle }"
-        >
-          <v-flex xs12 sm4 md4 lg3>
-            <v-card
-              class="text-xs-center ma-3"
-              id="current-article"
-              hover
-              flat
-              height="400"
-              width="400"
-              outlined
-              @click="toggle; goTo(article.nid)"
-            >
-              <v-card-title>
-                <div class="title">{{ article.title | str_limit(70) }}</div>
-              </v-card-title>
-              <v-list-item class="grow">
-                <v-list-item-avatar>
-                  <v-icon>mdi-feather</v-icon>
-                </v-list-item-avatar>
-                <v-list-item-content>
-                  <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
-                </v-list-item-content>
-                <v-row align="center" justify="end">
-                  <v-icon class="mr-1" small>mdi-history</v-icon>
-                  <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
-                </v-row>
-              </v-list-item>
-              <v-card-text>
-                <p
-                  v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
-                  class="abstract-text"
-                ></p>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-slide-item>
-      </v-slide-group>
-    </v-layout>
   </div>
 </template>
 
@@ -95,7 +87,8 @@ export default {
 
   data() {
     return {
-      downloader: ""
+      downloader: "",
+      model: []
     };
   },
 
@@ -121,5 +114,82 @@ export default {
 <style lang="scss" scoped>
 .abstract-text {
   overflow: hidden;
+}
+
+.current-issue-home {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.current-issue-home h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.current-issue-home-title {
+  background-color: white;
+  border: solid 1px #3dc0fc;
+  border-radius: 50px 0px 0px 50px;
+}
+
+.introduction-ofm-gfo {
+  padding: 30px;
+  color: #f46517;
+}
+
+.titlebar {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: #3dc0fc;
+  color: white;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.current-issue-articles-home {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #f46517;
+}
+
+
+.current-article-home {
+  max-width: 400px;
+  margin: 10px;
+  border-radius:10px;
+}
+
+.current-article-home:hover{
+    box-shadow: 9px 11px 19px rgba(21, 171, 226, 0.181);
+    background-color: #3dc0fc;
+    color: white;
+}
+
+@media screen and (max-width: 520px) {
+  .current-issue-home-title {
+    border-radius: 0px;
+    margin-bottom: 10px;
+  }
+  .current-article-home{
+      padding: 0;
+      width: 320px;
+      margin:0;
+  }
+
+  .current-issue-articles-home{
+      padding: 0;
+  }
+
+  .titlebar {
+    border-radius: 0px;
+  }
 }
 </style>

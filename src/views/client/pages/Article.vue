@@ -405,8 +405,6 @@ export default {
   flex-direction: column;
 }
 #articleSection .article-title {
-  font-family: Open Sans;
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 33px;
@@ -415,7 +413,6 @@ export default {
 }
 
 #articleSection .second-article-title {
-  font-family: Open Sans;
   font-weight: bold;
   font-size: 18px;
   line-height: 19px;
