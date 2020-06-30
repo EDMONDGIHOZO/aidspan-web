@@ -29,13 +29,9 @@
               :key="article.nid"
               v-slot:default="{ active, toggle }"
             >
-              <v-card
-                class="current-article-home"
-                shaped
-                @click="toggle; goTo(article.nid)"
-              >
+              <v-card class="current-article-home" shaped @click="toggle; goTo(article.nid)">
                 <v-card-title>
-                  <div class="title">{{ article.title | str_limit(70) }}</div>
+                  <h4>{{ article.title | str_limit(70) }}</h4>
                 </v-card-title>
                 <v-list-item class="grow">
                   <v-list-item-avatar>
@@ -157,20 +153,19 @@ export default {
   -ms-box-orient: horizontal;
   padding: 10px;
   border-radius: 20px;
-  background-color: #f46517;
 }
-
 
 .current-article-home {
   max-width: 400px;
   margin: 10px;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
-.current-article-home:hover{
-    box-shadow: 9px 11px 19px rgba(21, 171, 226, 0.181);
-    background-color: #3dc0fc;
-    color: white;
+.current-article-home:hover {
+  box-shadow: 0px 20px 100px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  background-color: #3dc0fc;
+  color: white;
 }
 
 @media screen and (max-width: 520px) {
@@ -178,14 +173,14 @@ export default {
     border-radius: 0px;
     margin-bottom: 10px;
   }
-  .current-article-home{
-      padding: 0;
-      width: 320px;
-      margin:0;
+  .current-article-home {
+    padding: 0;
+    width: 320px;
+    margin: 0;
   }
 
-  .current-issue-articles-home{
-      padding: 0;
+  .current-issue-articles-home {
+    padding: 0;
   }
 
   .titlebar {

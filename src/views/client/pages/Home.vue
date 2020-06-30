@@ -30,35 +30,35 @@
     <!-- end of intro section -->
     <!-- start latest issue section -->
     <current-issue></current-issue>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12" md="8">
-          <v-card class="px-3" hover id="publications-intro" flat>
-            <v-card-title class="font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
-            <v-row>
-              <v-col cols="12" md="6" class="guides">
-                <span class="sub-title">GUIDES</span>
-                <p>{{$t('define_guides')}}</p>
-              </v-col>
-              <v-col cols="12" md="6" class="reports">
-                <span class="sub-title">{{$t('report_title')}}</span>
-                <p>{{$t('report_intro')}}</p>
-              </v-col>
-              <v-btn block text color="primary" router to="c/publications">{{$t('viewall')}}</v-btn>
-            </v-row>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="4" class="apw-home-intro">
-          <v-card class="pa-1" hover id="apw-card" flat href="https://data.aidspan.org">
-            <v-card-title>
-              <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
-            </v-card-title>
-            <v-card-text class="pa-4 font-weight-bold">{{$t('apwintro')}}</v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-container fluid>
+
+    <v-row class="publication-row">
+      <v-col cols="12" md="8">
+        <v-card class="px-3" id="publications-intro" flat> 
+          <v-card-title class="font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
+          <v-row>
+            <v-col cols="12" md="6" class="guides">
+              <span class="sub-title">GUIDES</span>
+              <p>{{$t('define_guides')}}</p>
+            </v-col>
+            <v-col cols="12" md="6" class="reports">
+              <span class="sub-title">{{$t('report_title')}}</span>
+              <p>{{$t('report_intro')}}</p>
+            </v-col>
+            <v-btn block text color="primary" router to="c/publications">{{$t('viewall')}}</v-btn>
+          </v-row>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="4" class="apw-home-intro">
+        <v-card class="pa-1" hover id="apw-card" flat href="https://data.aidspan.org">
+          <v-card-title>
+            <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
+          </v-card-title>
+          <v-card-text class="pa-4 font-weight-bold">{{$t('apwintro')}}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    
       <!-- our awesome donors -->
       <v-layout row wrap id="donors">
         <v-flex md2 xs12>
@@ -79,7 +79,7 @@
         </v-flex>
       </v-layout>
       <!--- end donors -->
-    </v-container>
+    
   </div>
 </template>
 
@@ -311,14 +311,20 @@ $lightgrey: rgb(69, 69, 70);
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
   }
-   #web-intro .mission .mission-content .epidemic-card{
-       width: 100px;
-       height: 100px;
-   }
+  #web-intro .mission .mission-content .epidemic-card {
+    width: 100px;
+    height: 100px;
+  }
 
-   .disease-img {
-       width: 100px;
-       border-radius: 50%;
-   }
+  .disease-img {
+    width: 100px;
+    border-radius: 50%;
+  }
+}
+
+.publication-row {
+    background-color: #F8F8FB;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 </style>
