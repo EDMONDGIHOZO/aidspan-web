@@ -1,34 +1,4 @@
 $aidspan-orange: #f46517;
-#landing-image {
-    background-image: url('~@/assets/images/common/corners-01.svg');
-    height: 470px;
-    background-position: center;
-    background-size: cover;
-    margin: auto;
-    background-repeat: no-repeat;
-    padding: 5px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.landing-infos {
-    color: #00aeef;
-    margin: auto;
-    padding-left: 180px;
-    animation-name: slideIn;
-    animation-duration: 500ms;
-}
-
-.intro {
-    color: #00aeef;
-    width: 50%;
-}
-
-.webname {
-    font-weight: bold;
-    font-weight: 20px;
-}
-
 .top-intro-text {
     font-size: medium;
     width: 80%;
