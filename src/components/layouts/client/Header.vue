@@ -2,10 +2,10 @@
   <div class="header">
     <v-app-bar height="84px" flat class="white">
       <div v-if="frenchlogo">
-        <img :src="logo_fr" alt="aidspan-logo" />
+        <img :src="logo_fr" alt="aidspan-logo" class="d-none d-sm-flex d-md-none" />
       </div>
       <div v-else>
-        <img :src="logo" alt="aidspan-logo" />
+        <img :src="logo" alt="aidspan-logo"  class="d-none d-sm-flex d-md-none"/>
       </div>
       <!-- buttons field -->
       <v-spacer></v-spacer>
@@ -18,6 +18,7 @@
       >{{$t("newsletterbtn")}}</v-btn>
       <!--social media -->
       <v-btn
+        class="d-none d-sm-flex"
         icon
         v-for="social in icons"
         :key="social.icon"
