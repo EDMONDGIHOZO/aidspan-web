@@ -11,7 +11,7 @@
       <v-col cols="12" md="3">
         <v-card class="mx-auto" tile flat>
           <v-list shaped color="secondary">
-            <v-subheader class="title white--text">{{$t('quicklinks')}}</v-subheader>
+            <v-subheader class="white--text"><h3> {{$t('quicklinks')}}</h3></v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(link, i) in quicklinks" :key="i">
                 <v-list-item-content>
@@ -25,7 +25,7 @@
       <v-col cols="12" md="4">
         <v-card class="mx-auto" tile flat>
           <v-list shaped color="secondary">
-            <v-subheader class="title white--text">CONTACT</v-subheader>
+            <v-subheader class="white--text"><h3>CONTACT</h3></v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(info, i) in contacts" :key="i">
                 <v-list-item-icon>

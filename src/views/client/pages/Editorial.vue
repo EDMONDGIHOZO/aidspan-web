@@ -1,8 +1,8 @@
 <template>
   <div id="editorial">
     <v-container id="gfo-intro">
-      <v-layout row wrap>
-        <v-flex xs12 md12 lg12>
+      <v-row>
+        <v-col cols="12">
           <div class="text-center gfotitle">
             <h3 class="font-weight-black">{{$t('gfo_intro.title')}}</h3>
           </div>
@@ -36,10 +36,10 @@
               </v-dialog>
             </v-row>
           </div>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-    <!-- 
+    <!--
         <v-container>
       <v-layout row wrap id="live-articles">
         <v-flex md12>
@@ -145,12 +145,14 @@
     <!--- end of the current issue articles view  -->
     <!---  start the list of all issues  -->
     <v-container id="all-issues"></v-container>
+    <features />
   </div>
 </template>
 
 <script>
 import AllIssues from "@/components/pages/client/all-issues.vue";
 import Vue2Filters from "vue2-filters";
+import features from '@/components/helpers/features.vue';
 
 export default {
   name: "editorial",
@@ -194,7 +196,8 @@ export default {
     }
   },
   components: {
-    AllIssues
+    AllIssues,
+    features
   },
   mixins: [Vue2Filters.mixin]
 };
@@ -316,7 +319,7 @@ export default {
   align-content: center;
 }
 #current-issue-editorial .current-cards {
-  box-shadow: 0px 4px 7px rgba(43, 183, 255, 0.31);
+ box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.144);
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;

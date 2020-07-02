@@ -6,5 +6,6 @@ export default {
     //loadedArticle: (state) => state.article_data.data,
     loadedTags: (state) => state.allTags.data,
     loadedTag: (state) => state.singleTag.data,
+    articletypes: (state) => state.articletypes.data,
 
 }

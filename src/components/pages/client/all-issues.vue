@@ -78,7 +78,7 @@ import pagination from "@/components/helpers/pagination.vue";
 export default {
   name: "allIssues",
   components: {
-    pagination,
+    pagination
   },
   mounted() {
     return this.$store.dispatch("fetchIssues");

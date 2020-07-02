@@ -166,7 +166,7 @@ export default {
 
     quicklinks: [{
             title: 'Staff web',
-            route: '/dashboard'
+            route: 'dashboard'
         },
         {
             title: 'Key Documents',

@@ -38,10 +38,10 @@ export default {
 }
 .authholder {
   background-color: #f5f5f5;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 240px;
 }
 
 .authentication-box {
