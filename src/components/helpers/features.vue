@@ -79,7 +79,6 @@
 
   #features-container {
     padding: 10px;
-    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,7 +86,7 @@
     flex-wrap: wrap;
     margin-bottom: 70px;
     margin-top: 70px;
-    //box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.075);
+    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.075);
   }
 
   .boxi-1 {
@@ -138,7 +137,7 @@
   }
 
    .author-avatar:nth-child(2) {
-      background: #fcf958;
+      background-color: #fcf958;
   }
 
   @media screen and (max-width: 520px) {
