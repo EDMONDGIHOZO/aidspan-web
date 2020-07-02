@@ -3,7 +3,7 @@
     <v-container id="introRow">
       <v-row class="mb-2" no-gutters>
         <v-col cols="12">
-          <p class="font-weight-black title blue--text lighten-2">{{ intro.title }}</p>
+          <h3 class="font-weight-black text-center my-5 blue--text lighten-2">{{ intro.title }}</h3>
           <p class="intro">{{ intro.description }}</p>
         </v-col>
       </v-row>
@@ -12,7 +12,7 @@
     <v-container>
       <v-row class="grant-portfolio">
         <v-col cols="12">
-          <p class="text-center font-weight-black title orange--text">{{ grantPortfolio.title }}</p>
+          <h3 class="text-center font-weight-black my-5 orange--text">{{ grantPortfolio.title }}</h3>
           <p>{{ grantPortfolio.description }}</p>
         </v-col>
 
@@ -51,21 +51,29 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" md="5" class="donorsIntro elevation-10">
-          <h1 class="white--text">{{ donorsIntrosTitle.title }}</h1>
-          <v-card class="ma-2 donorIntroCards" v-for="don in donorsIntros" :key="don.title">
-            <v-card-title>
-              <p>{{ don.title }}</p>
-            </v-card-title>
-            <v-card-text>
-              <p>{{ don.description }}</p>
-            </v-card-text>
-          </v-card>
+        <v-col cols="12" class="donorsIntro elevation-1">
+          <h3 class="donors-title">{{ donorsIntrosTitle.title }}</h3>
+          <div class="cards-container-meth">
+            <v-card
+              class="ma-2 donorIntroCards"
+              width="400"
+              flat
+              v-for="don in donorsIntros"
+              :key="don.title"
+            >
+              <v-card-title>
+                <p>{{ don.title }}</p>
+              </v-card-title>
+              <v-card-text>
+                <p>{{ don.description }}</p>
+              </v-card-text>
+            </v-card>
+          </div>
         </v-col>
 
-        <v-col cols="12" md="7" id="data-analytics-glossary">
+        <v-col cols="12" id="data-analytics-glossary">
           <div class="cardsContainer">
-            <div class="text-center ma-5">{{ dataAnalyticsGlossaryTitle.title }}</div>
+            <h3 class="text-right mx-5">{{ dataAnalyticsGlossaryTitle.title }}</h3>
             <v-row>
               <v-col
                 cols="5"
@@ -329,19 +337,22 @@ export default {
 }
 
 .donorIntroCards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
-  align-self: center;
+  border-right: solid #dcf4ff 1px;
+  text-align: left;
+  font-weight: 300;
 }
 
 .donorsIntro {
   margin-top: 50px;
-  background-color: #ff7a2b;
   border-radius: 20px;
   text-align: center;
+}
+
+.donors-title {
+    font-weight: bold;
+    text-align: right;
+    color: #ff7a2b;
+    margin: 40px;
 }
 
 #data-analytics-glossary {
@@ -349,9 +360,14 @@ export default {
   margin-top: 50px;
   border-radius: 20px;
   display: flex;
-  
-  
-  
+}
+
+.cards-container-meth {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #data-analytics-glossary .gloscard {

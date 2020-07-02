@@ -2,10 +2,10 @@
   <div class="header">
     <v-app-bar height="84px" flat class="white">
       <div v-if="frenchlogo">
-        <img :src="logo_fr" alt="aidspan-logo" class="d-none d-sm-flex d-md-none" />
+        <img :src="logo_fr" alt="aidspan-logo" class="d-none d-sm-flex" />
       </div>
       <div v-else>
-        <img :src="logo" alt="aidspan-logo"  class="d-none d-sm-flex d-md-none"/>
+        <img :src="logo" alt="aidspan-logo"  class="d-none d-sm-flex"/>
       </div>
       <!-- buttons field -->
       <v-spacer></v-spacer>

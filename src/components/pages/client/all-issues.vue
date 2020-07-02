@@ -6,7 +6,7 @@
           <v-expansion-panels focusable popout hover>
             <v-expansion-panel v-for="issue in allIssues" :key="issue.nid">
               <v-expansion-panel-header>
-                <span class="title issue-title">
+                <span class="issue-title">
                   {{issue.title}}
                   <v-chip class="ma-2" color="primary" label text-color="white">
                     <v-icon left>mdi-label</v-icon>
@@ -47,7 +47,7 @@
                           >{{article.article_number.field_article_number_value}}</span>
                         </v-list-item-avatar>
                         <v-list-item-content>
-                          <v-list-item-title class="headline blue--text">{{ article.title }}</v-list-item-title>
+                          <v-list-item-title class="blue--text font-weight-bold">{{ article.title }}</v-list-item-title>
                           <v-list-item-subtitle>By {{article.article_author.field_article_author_value}}</v-list-item-subtitle>
                         </v-list-item-content>
                       </v-list-item>

@@ -3,8 +3,8 @@
     <v-container id="gfo-intro">
       <v-layout row wrap>
         <v-flex xs12 md12 lg12>
-          <div class="title">
-            <p class="font-weight-black">{{$t('gfo_intro.title')}}</p>
+          <div class="text-center gfotitle">
+            <h3 class="font-weight-black">{{$t('gfo_intro.title')}}</h3>
           </div>
           <div class="content" v-scrollAnimation>
             <p class="ma-10">{{$t('gfo_intro.description')}}</p>
@@ -76,11 +76,11 @@
       <v-row>
         <v-col cols="12" md="3" class="new-issue-side">
           <div class="issue-number">
-            <p class="font-weight-black text-end">{{currentIssue.title}}</p>
+            <h3 class="font-weight-black text-uppercase text-end">{{currentIssue.title}}</h3>
           </div>
 
           <p
-            class="font-weight-regular white--text text-end headline"
+            class="font-weight-regular white--text text-end"
           >{{currentIssue.changed | formatDate}}</p>
           <v-card class="pa-5 white--text" color="secondary">
             <p>{{$t('gfonote')}}</p>
@@ -284,7 +284,7 @@ export default {
   border-radius: 14px;
 }
 
-#live-articles .article .title {
+#live-articles .article .gfotitle {
   font-size: 12px;
   font-weight: bold;
   color: #00adef;
