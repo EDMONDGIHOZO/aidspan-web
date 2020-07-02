@@ -143,14 +143,6 @@ export default {
   padding: 10px;
 }
 
-.sticks {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: rgb(255, 255, 255);
-  z-index: 1;
-}
-
 #menu .submenu {
   cursor: pointer;
   background-color: orange;

@@ -2,8 +2,10 @@
 
   <v-container id="features-container">
     <div class="boxi-1">
-      <h4 class="text-center my-4">ARTICLE TYPES </h4>
-      <v-divider light class="my-5"></v-divider>
+      <div class="sticks">
+        <h4 class="text-center my-4">ARTICLE TYPES </h4>
+        <v-divider light class="my-5"></v-divider>
+      </div>
       <v-list dense>
 
         <v-list-item-group color="secondary" rounded>
@@ -17,8 +19,10 @@
       </v-list>
     </div>
     <div class="boxi-1">
-      <h4>GFO & OFM AUTHORS </h4>
-      <v-divider light class="my-5"></v-divider>
+      <div class="sticks">
+        <h4 class="text-center my-4">GFO & OFM AUTHORS </h4>
+        <v-divider light class="my-5"></v-divider>
+      </div>
       <v-list>
         <v-list-item v-for="artype in articleTypes" :key="artype.id">
           <v-list-item-content>
@@ -32,8 +36,10 @@
       </v-list>
     </div>
     <div class="boxi-2">
-      <h3 class="text-center">FEATURED ARTICLES </h3>
+    <div class="sticks">
+      <h4 class="text-center my-4">LATEST ARTICLES </h4>
       <v-divider light class="my-5"></v-divider>
+    </div>
       <v-list dense>
         <v-list-item v-for="artype in articleTypes" :key="artype.id">
           <v-list-item-content>
@@ -87,7 +93,7 @@
 
   #features-container {
     background-color: #f8f8fb;
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -95,7 +101,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.075);
   }
 
   .boxi-1 {
@@ -106,9 +112,9 @@
     height: 569px;
     overflow: hidden;
     overflow-y: scroll;
-    margin: 10px;
+    margin: 3px;
     padding: 10px;
-    width: 20%;
+    width: 23%;
   }
 
   .boxi-1::-webkit-scrollbar {

@@ -18,6 +18,15 @@ $aidspan-orange: #f46517;
     text-align: center;
 }
 
+.sticks {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+  margin-top: -10px;
+}
+
 .current-issue-home .title {
     text-transform: uppercase;
 }
