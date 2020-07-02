@@ -41,7 +41,7 @@
         <v-row>
             <!--- current issue -->
             <v-col cols="12">
-                <h1 class="text-center text-uppercase blue--text">{{$t('currentissue')}}</h1>
+                <h1 class="text-center text-uppercase" color="primary">{{$t('currentissue')}}</h1>
                 <h3 class="ma-5"> <span class="orange--text">{{currentIssue.title}}</span> | {{currentIssue.changed | formatDate }}</h3>
                 <v-row>
                     <v-col cols="12" md="6" v-for="article in orderBy(currentIssue.related_articles, 'article_number.field_article_number_value')" :key="article.nid">
@@ -57,7 +57,7 @@
                                 <v-spacer></v-spacer>
                                 <v-chip class="ma-2" color="primary" label text-color="white">
                                     <v-icon left>mdi-label</v-icon>
-                                    Number
+                                    Article
                                     {{ article.article_number.field_article_number_value }}
                                 </v-chip>
                             </v-card-actions>

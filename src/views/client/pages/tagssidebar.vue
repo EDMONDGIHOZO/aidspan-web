@@ -37,7 +37,6 @@ export default {
         name: "articletags",
         params: { tid: tid }
       });
-      window.location.reload();
     }
   }
 };
