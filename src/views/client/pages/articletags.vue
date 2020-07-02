@@ -1,23 +1,36 @@
 <template>
   <div class="tags">
     <v-row>
-      <side-bar></side-bar>
+      <v-col cols="12" md="3" class="sidebar-tags">
+       <v-card outlined flat>
+            <h3>FEATURED TAGS</h3>
+        <side-bar></side-bar>
+       </v-card>
+      </v-col>
       <v-col cols="9" v-if="loadedTag">
         <v-card flat outlined v-for="tag in loadedTag" :key="tag.tid" class="pa-5">
-          <v-card-title>{{tag.name}}</v-card-title>
-          <v-row class="articles-container">
-            <v-col cols="6" v-for="article in tag.articles" :key="article.nid">
-              <v-card flat class="mb-5" shaped hover @click="viewarticle(article.nid)">
-                <v-card-title>{{article.title}}</v-card-title>
-                <v-card-text>
-                  <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
-                </v-card-text>
-                <v-card-actions>
-                  <span class="px-4">{{article.created | formatDate }}</span>
-                </v-card-actions>
-              </v-card>
-            </v-col>
-          </v-row>
+          <v-card-title>
+            <h3>{{tag.name}}</h3>
+          </v-card-title>
+          <div class="articles-container">
+            <v-card
+              flat
+              class="mb-5"
+              shaped
+              hover
+              @click="viewarticle(article.nid)"
+              v-for="article in tag.articles"
+              :key="article.nid"
+            >
+              <v-card-title>{{article.title}}</v-card-title>
+              <v-card-text>
+                <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
+              </v-card-text>
+              <v-card-actions>
+                <span class="px-4">{{article.created | formatDate }}</span>
+              </v-card-actions>
+            </v-card>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -59,13 +72,8 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
-
-.articles-container {
-  background-color: rgba(205, 207, 207, 0.267);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 10px;
-  padding: 10px;
+.sidebar-tags {
+  height: 400px;
+  overflow-y: scroll;
 }
 </style>

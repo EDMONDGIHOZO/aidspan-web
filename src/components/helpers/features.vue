@@ -4,7 +4,6 @@
     <div class="boxi-1">
       <div class="sticks">
         <h4 class="text-center my-4">ARTICLE TYPES </h4>
-        <v-divider light class="my-5"></v-divider>
       </div>
       <v-list dense>
 
@@ -21,32 +20,26 @@
     <div class="boxi-1">
       <div class="sticks">
         <h4 class="text-center my-4">GFO & OFM AUTHORS </h4>
-        <v-divider light class="my-5"></v-divider>
       </div>
-      <v-list>
-        <v-list-item v-for="artype in articleTypes" :key="artype.id">
+      <v-list dense>
+       <v-list-item-group color="primary">
+            <v-list-item v-for="artype in articleTypes" :key="artype.id">
           <v-list-item-content>
             <v-list-item-title v-text="artype.title"></v-list-item-title>
           </v-list-item-content>
           <v-spacer></v-spacer>
-          <v-list-item-avatar color="primary" size="40">
+          <v-list-item-avatar class="author-avatar" size="40">
             <span class="font-weight-bold white--text typename">{{artype.title}}</span>
           </v-list-item-avatar>
         </v-list-item>
+       </v-list-item-group>
       </v-list>
     </div>
     <div class="boxi-2">
     <div class="sticks">
-      <h4 class="text-center my-4">LATEST ARTICLES </h4>
-      <v-divider light class="my-5"></v-divider>
+      <h4 class="text-center my-4">FEATURED TAGS </h4>
     </div>
-      <v-list dense>
-        <v-list-item v-for="artype in articleTypes" :key="artype.id">
-          <v-list-item-content>
-            <v-list-item-title v-text="artype.title"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+     <tags />
     </div>
   </v-container>
 
@@ -55,27 +48,20 @@
 <script>
 
   import { mapGetters } from 'vuex'
+  import tags from '@/views/client/pages/tagssidebar.vue'
   export default {
     name: 'features',
+    components: {
+        tags
+    },
     data() {
       return {
         articleTypes: [
-          { title: 'Politics', id: '1' },
-          { title: 'Health', id: '3' },
-          { title: 'Life', id: '4' },
-          { title: 'Africans', id: '5' },
-          { title: 'Who', id: '6' },
-          { title: 'Health', id: '7' },
-          { title: 'Health', id: '8' },
-          { title: 'Health', id: '9' },
-          { title: 'Politics', id: '10' },
-          { title: 'Health', id: '30' },
-          { title: 'Life', id: '40' },
-          { title: 'Africans', id: '50' },
-          { title: 'Who', id: '60' },
-          { title: 'Health', id: '70' },
-          { title: 'Health', id: '80' },
-          { title: 'Health', id: '90' }
+          { title: 'Adele Sulcas', id: '1' },
+          { title: 'David Garmaise', id: '3' },
+          { title: 'IDA HAKIZINKA', id: '4' },
+          { title: 'AIDSPAN STAFF', id: '5' },
+          { title: 'BERNARD', id: '6' },
         ]
       }
     },
@@ -92,7 +78,6 @@
 <style lang="scss" scoped>
 
   #features-container {
-    background-color: #f8f8fb;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -100,8 +85,9 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 30px;
-    box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.075);
+    margin-bottom: 70px;
+    margin-top: 70px;
+    //box-shadow: 4px 1px 10px rgba(0, 0, 0, 0.075);
   }
 
   .boxi-1 {
@@ -114,6 +100,7 @@
     overflow-y: scroll;
     margin: 3px;
     padding: 10px;
+    padding-top: 0;
     width: 23%;
   }
 
@@ -134,6 +121,7 @@
     overflow-y: scroll;
     margin: 10px;
     padding: 10px;
+    padding-top: 0;
     width: 50%;
   }
   .typename {
@@ -142,6 +130,15 @@
 
   .typename::first-letter {
     font-size: 12px;
+    font-weight: bold;
+  }
+
+  .author-avatar {
+      background-color: #58c8fc;
+  }
+
+   .author-avatar:nth-child(2) {
+      background: #fcf958;
   }
 
   @media screen and (max-width: 520px) {
