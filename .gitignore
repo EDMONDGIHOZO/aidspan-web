@@ -2,9 +2,9 @@
 node_modules
 /dist
 /services
-/public/dist/
+/public/dist/sites
 
-http-common.js
+
 
 # local env files
 .env.local
