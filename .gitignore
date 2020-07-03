@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
 /dist
-/services
-/public/dist/sites
+
+public/sites
+
+ http-common.js
 
 
 
