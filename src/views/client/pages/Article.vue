@@ -303,13 +303,11 @@ import "font-awesome/css/font-awesome.min.css";
 import DownloadIssue from "@/mixins/downloadIssue";
 
 export default {
-
-  props: ['article_id'],
+  props: ["article_id"],
   data() {
     const defaultForm = Object.freeze({
       names: "",
-      comment: "",
-
+      comment: ""
     });
 
     return {
@@ -355,7 +353,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadArticles", this.article_id);
-    this.loading = false
+    this.loading = false;
   },
 
   methods: {
@@ -380,6 +378,9 @@ export default {
   },
   components: {
     "social-sharing": socialSharing
+  },
+  beforeDestroy() {
+    this.issueview = false;
   }
 };
 </script>

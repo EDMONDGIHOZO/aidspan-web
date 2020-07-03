@@ -21,28 +21,31 @@
               <v-col cols="12">
                 <ais-instant-search :search-client="searchClient" index-name="dev_articles">
                   <ais-configure :hits-per-page.camel="5" :query="searchQuery" />
-                    <v-text-field
-                        label="You can search an article, issue , etc .. "
-                        required
-                        outlined
-                        rounded
-                        height="30"
-                        background-color="white"
-                        prepend-inner-icon="mdi-magnify"
-                        v-model="searchQuery"
-                      ></v-text-field>
+                  <v-text-field
+                    label="You can search an article, issue , etc .. "
+                    required
+                    outlined
+                    rounded
+                    height="30"
+                    background-color="white"
+                    prepend-inner-icon="mdi-magnify"
+                    v-model="searchQuery"
+                  ></v-text-field>
                   <v-list three-line>
                     <ais-hits>
                       <template slot="item" slot-scope="{ item }">
-                        <v-card outlined class="ma-4 result-card" router :to="'/article/' + item.nid" hover @click="dialog = false">
-                            <v-list-item class="hits">
-                          <v-list-item-content>
-                            <v-list-item-title v-text="item.title" class="title font-weight-black"></v-list-item-title>
-                            <v-list-item-subtitle
-                              class="text--primary"
-                            >Published on {{item.changed |formatDate}}</v-list-item-subtitle>
-                          </v-list-item-content>
-                        </v-list-item>
+                        <v-card outlined class="ma-4 result-card" hover @click="goTo(item.nid)">
+                          <v-list-item class="hits">
+                            <v-list-item-content>
+                              <v-list-item-title
+                                v-text="item.title"
+                                class="title font-weight-black"
+                              ></v-list-item-title>
+                              <v-list-item-subtitle
+                                class="text--primary"
+                              >Published on {{item.changed |formatDate}}</v-list-item-subtitle>
+                            </v-list-item-content>
+                          </v-list-item>
                         </v-card>
                       </template>
                     </ais-hits>
@@ -67,7 +70,7 @@
 import algoliasearch from "algoliasearch";
 import "instantsearch.css/themes/reset.css";
 export default {
-    props: ['dialog'],
+  props: ["dialog"],
   data() {
     return {
       searchQuery: "",
@@ -76,6 +79,14 @@ export default {
         "f79c7704105112a8735d1d2dc871b99b"
       )
     };
+  },
+  methods: {
+    goTo(goToLink) {
+      return this.$router.push({
+        name: "article",
+        params: { article_id: goToLink }
+      });
+    }
   }
 };
 </script>
@@ -89,12 +100,12 @@ export default {
   background-color: cornflowerblue !important;
 }
 
-.hits{
-    margin: 0;
+.hits {
+  margin: 0;
 }
 
-.result-card{
-    margin-left: auto;
-    margin-right: auto;
+.result-card {
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
