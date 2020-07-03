@@ -2,6 +2,7 @@
 node_modules
 /dist
 /services
+/public/dist
 
 http-common.js
 
