@@ -124,51 +124,53 @@ import Vue2Filters from "vue2-filters";
 import features from "@/components/helpers/features.vue";
 
 export default {
-    name: "editorial",
-    data() {
-        return {
-            gfoLinks: [{
-                    title: "GFO LIVE",
-                    route: "#live-articles"
-                },
-                {
-                    title: "CURRENT ISSUE",
-                    route: "#current-issue-editorial"
-                },
-                {
-                    title: "ALL ISSUE ",
-                    route: "#all-issues"
-                }
-            ],
-            dialog: false,
-            notifications: false,
-            sound: true,
-            widgets: false
-        };
-    },
-    mounted() {
-        const lang = localStorage.getItem("lang");
-        this.$store.dispatch("loadCurrentIssue", lang);
-    },
-    computed: {
-        currentIssue() {
-            return this.$store.state.currentIssueArticles.data;
+  name: "editorial",
+  data() {
+    return {
+      gfoLinks: [
+        {
+          title: "GFO LIVE",
+          route: "#live-articles"
         },
-        language() {
-            return this.$i18n.locale
-    },
-    methods: {
-        ofm() {
-            this.$router.push({
-                name: "ofm"
-            });
+        {
+          title: "CURRENT ISSUE",
+          route: "#current-issue-editorial"
+        },
+        {
+          title: "ALL ISSUE ",
+          route: "#all-issues"
         }
+      ],
+      dialog: false,
+      notifications: false,
+      sound: true,
+      widgets: false
+    };
+  },
+  mounted() {
+    const lang = localStorage.getItem("lang");
+    this.$store.dispatch("loadCurrentIssue", lang);
+  },
+  computed: {
+    currentIssue() {
+      return this.$store.state.currentIssueArticles.data;
     },
-    components: {
-        AllIssues,
-        features
-    },
-    mixins: [Vue2Filters.mixin]
+    language() {
+      return this.$i18n.locale;
+    }
+  },
+  methods: {
+    ofm() {
+      this.$router.push({
+        name: "ofm"
+      });
+    }
+  },
+  components: {
+    AllIssues,
+    features
+  },
+  mixins: [Vue2Filters.mixin]
 };
 </script>
 
