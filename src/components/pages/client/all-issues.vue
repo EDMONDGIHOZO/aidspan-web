@@ -22,7 +22,12 @@
               <v-expansion-panel-content>
                 <v-row>
                   <v-col cols="12">
-                    <v-btn text @click="downloadIssue(issue.title)" outlined color="primary">
+                    <v-btn
+                      text
+                      @click="downloadIssue(issue.title, issue.language)"
+                      outlined
+                      color="primary"
+                    >
                       <v-icon left>mdi-download</v-icon>Download
                     </v-btn>
                   </v-col>
