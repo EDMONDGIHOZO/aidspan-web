@@ -16,7 +16,7 @@
           small
           rounded
           color="white"
-          @click.prevent="downloadIssue(currentIssue.title)"
+          @click.prevent="downloadIssue(currentIssue.title, currentIssue.language)"
         >
           <v-icon left small>mdi-download</v-icon>download
         </v-btn>

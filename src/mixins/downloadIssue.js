@@ -1,30 +1,20 @@
 import axios from 'axios'
 export default {
     methods: {
-        downloadIssue: function(title) {
+        downloadIssue: function(title, language) {
             var str = title
-            let languagedir = ''
-            let defaultname = ''
+            let islanguage = language
             let base_url = window.location.origin
+            let link = ''
             str = str.replace('GFO Issue ', '')
 
-            if (str.includes('GFO')) {
-                //  block of code to be executed if condition1 is true
-                str = str.replace('GFO Issue ', '')
-                languagedir = 'English'
-                defaultname = 'GFO-Issue'
-            } else if (str.includes('OFM')) {
-                //  block of code to be executed if the condition1 is false and condition2 is true
-                str = str.replace('OFM Edition ', '')
-                languagedir = 'French'
-                defaultname = 'OFM-Edition'
+            if (islanguage === 'en') {
+                link = `/sites/default/files/gfo/${str}/English/GFO-Issue-${str}.pdf`
             } else {
-                //  block of code to be executed if the condition1 is false and condition2 is false
-                alert('something is wrong on our side, we are fixing the issue soon')
+                link = `/sites/default/files/gfo/${str}/French/OFM-Edition-${str}.pdf`
             }
-
             axios({
-                url: `${base_url}/sites/default/files/gfo/${str}/${languagedir}/${defaultname}-${str}.pdf`,
+                url: `${base_url}${link}`,
                 method: 'GET',
                 responseType: 'blob', // important
             }).then((response) => {
