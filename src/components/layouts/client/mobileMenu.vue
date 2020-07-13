@@ -72,7 +72,7 @@ import localeSwitcher from "@/components/helpers/localeswitch.vue";
 import Header from "@/components/layouts/client/Header.vue";
 
 export default {
-  name: "Menu bar",
+  name: "Menubar",
   components: {
     "locale-switch": localeSwitcher,
     Header

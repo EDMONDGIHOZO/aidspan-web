@@ -1,8 +1,11 @@
 <template>
   <div class="tags">
     <v-list dense>
+      <v-list-item>
+        <v-text-field label="Search Article Tag" single-line dense v-model="search"></v-text-field>
+      </v-list-item>
       <v-list-item-group mandatory color="primary">
-        <v-list-item v-for="tag in loadedTags" :key="tag.tid" @click="gototag(tag.tid)">
+        <v-list-item v-for="tag in filteredtags" :key="tag.tid" @click="gototag(tag.tid)">
           <v-list-item-icon>
             <v-icon>mdi-tag-text-outline</v-icon>
           </v-list-item-icon>
@@ -17,20 +20,23 @@
 
 
 <script>
-import { mapGetters } from "vuex";
+import Api from "@/services/Api";
 export default {
   data() {
     return {
-      sidetitle: "Featured Tags"
+      search: "",
+      tags: []
     };
   },
   computed: {
-    ...mapGetters(["loadedTags"])
+    filteredtags() {
+      return this.tags.filter(tag => {
+        return tag.name
+          .toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    }
   },
-  mounted() {
-    this.$store.dispatch("loadArticleTags");
-  },
-
   methods: {
     gototag(tid) {
       this.$router.push({
@@ -38,6 +44,12 @@ export default {
         params: { tid: tid }
       });
     }
+  },
+  created() {
+    Api()
+      .get("/article-tags")
+      .then(response => (this.tags = response.data.data))
+      .catch(error => console.log(error));
   }
 };
 </script>

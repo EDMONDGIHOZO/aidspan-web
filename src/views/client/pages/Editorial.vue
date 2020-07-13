@@ -42,8 +42,9 @@
     <!--- end of the last live articles -->
     <!-- start the current isssue view -->
     <v-container id="current-issue-editorial">
-      <v-row>
+      <v-row v-if="currentIssue">
         <!--- current issue -->
+
         <v-col cols="12">
           <h1 class="text-center text-uppercase" color="primary">{{$t('currentissue')}}</h1>
           <h3 class="ma-5">
@@ -91,6 +92,7 @@
             </v-col>
           </v-row>
         </v-col>
+
         <!--- end of current issue -->
         <v-col cols="12">
           <p class="font-weight-regular white--text text-end">{{currentIssue.changed | formatDate}}</p>
@@ -110,6 +112,9 @@
           </v-card>
         </v-col>
       </v-row>
+      <div v-else>
+        <h1>lOADING</h1>
+      </div>
     </v-container>
     <!--- end of the current issue articles view  -->
     <!---  start the list of all issues  -->

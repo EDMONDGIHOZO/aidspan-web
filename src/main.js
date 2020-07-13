@@ -22,7 +22,9 @@ import i18n from './i18n'
 
 ///add the google analytics here
 Vue.use(VueGtag, {
-    config: { id: 'UA-167593216-1' },
+    config: {
+        id: 'UA-167593216-1',
+    },
 })
 
 /** sharing stuffs */
@@ -41,7 +43,6 @@ Vue.filter('formatDateWords', function(value) {
         return moment(value).startOf('day').fromNow()
     }
 })
-
 
 Vue.use(InstantSearch)
 Vue.filter('str_limit', function(value, size) {
@@ -63,5 +64,5 @@ new Vue({
     vuetify,
     store,
     i18n,
-    render: (h) => h(App)
+    render: (h) => h(App),
 }).$mount('#app')

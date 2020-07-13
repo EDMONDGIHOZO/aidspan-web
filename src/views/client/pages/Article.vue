@@ -43,7 +43,7 @@
             <!-- start the social sharing icons -->
             <v-col cols="7" md="3" class="text-right">
               <social-sharing
-                url="https://aidspan.org/"
+                :url="currentlink"
                 :title="article.title"
                 :description="article.article_abstract.field_article_abstract_value"
                 :quote="article.article_abstract.field_article_abstract_value"
@@ -328,7 +328,8 @@ export default {
       },
       defaultForm,
       // id: this.$route.params, this will come from the url
-      show: false
+      show: false,
+      currentlink: ""
     };
   },
 
@@ -354,6 +355,7 @@ export default {
   mounted() {
     this.$store.dispatch("loadArticles", this.article_id);
     this.loading = false;
+    this.currentlink = window.location.href;
   },
 
   methods: {

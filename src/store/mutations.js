@@ -56,13 +56,11 @@ export default {
     LOGOUT_USER(state) {
         state.currentUser = []
     },
-    SET_ARTICLE_TYPES(state, articletypes) {
-        state.articletypes = articletypes
-    },
     SET_CURRENT_PAGE(state, data) {
         state.issues.page = data
     },
     SET_CURRENT_PAGE_OFM(state, data) {
         state.ofmissues.page = data
-    }
+    },
+
 }

@@ -6,6 +6,7 @@ import getters from './getters'
 import mutations from './mutations'
 import state from './state'
 /** import modules */
+import uimods from './modules/ui'
 
 
 Vue.use(Vuex)
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
     getters,
     mutations,
     state,
+    modules: {
+        ui: uimods,
+    },
 })
 
 export default store

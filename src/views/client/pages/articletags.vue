@@ -3,8 +3,10 @@
     <v-row>
       <v-col cols="12" md="3" class="sidebar-tags">
        <v-card outlined flat>
-            <h3>FEATURED TAGS</h3>
-        <side-bar></side-bar>
+           <v-card-title>
+               Article Tags
+           </v-card-title>
+        <side-bar/>
        </v-card>
       </v-col>
       <v-col cols="9" v-if="loadedTag">

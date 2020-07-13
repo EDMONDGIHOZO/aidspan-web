@@ -6,7 +6,6 @@ export default {
     issue_article: {},
     currentIssueArticles: {},
     article: {},
-    articletypes: {},
     article_data: null,
     publications: {},
     publications_types: {},

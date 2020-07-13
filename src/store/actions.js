@@ -115,13 +115,6 @@ export default {
                 console.log(err)
             })
     },
-    /** article types */
-
-    async fetchtypes({ commit }) {
-        const articleTypes = await Api().get('articletypes')
-        commit('SET_ARTICLE_TYPES', articleTypes.data)
-    },
-
     /** change language */
 
     changelanguage({ commit }) {
