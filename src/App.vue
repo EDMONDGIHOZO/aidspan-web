@@ -12,15 +12,15 @@ export default {
   methods: {
     afterLeave() {
       this.$root.$emit("triggerScroll");
-    }
-  },
+    },
+  }
 };
 </script>
 <style lang="scss">
 $color-pack: true;
 @import "~vuetify/src/styles/main.sass";
 #app {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   transition-property: transform, visibility;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);

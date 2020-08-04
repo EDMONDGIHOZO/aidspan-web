@@ -60,6 +60,7 @@
         </v-col>
         <v-col cols="12">
           <article-tag v-model="tags"></article-tag>
+          <file-upload />
         </v-col>
       </v-row>
       <v-row>
@@ -71,6 +72,7 @@
   </div>
 </template>
 <script>
+import FileUpload from "@/components/tools/Upload.vue";
 import formtop from "@/components/tools/formtops.vue";
 import articleTag from "@/components/tools/articletags.vue";
 import issueNumber from "@/components/tools/issuenumber.vue";
@@ -82,7 +84,8 @@ export default {
     "form-top": formtop,
     "article-tag": articleTag,
     //"article-type": articleType,
-    "issue-number": issueNumber
+    "issue-number": issueNumber,
+    "file-upload": FileUpload,
   },
   data: () => {
     return {
@@ -96,16 +99,16 @@ export default {
       issue: {},
       type: {},
       language: "",
-      published: false
+      published: false,
     };
   },
   computed: {
-    ...mapGetters(["loadedArticleTypes"])
+    ...mapGetters(["loadedArticleTypes"]),
   },
   mounted() {
     return this.$store.dispatch("fetchtypes");
   },
-  methods: { 
+  methods: {
     saveArticle() {
       const articleData = {
         title: this.art_title,
@@ -116,12 +119,12 @@ export default {
         abstract: this.abstract,
         language: this.language,
         number: this.number,
-        published: this.published
+        published: this.published,
       };
 
       console.log(articleData);
-    }
-  }
+    },
+  },
 };
 </script>
 

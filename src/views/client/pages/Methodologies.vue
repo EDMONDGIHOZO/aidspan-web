@@ -12,7 +12,7 @@
     <v-container>
       <v-row class="grant-portfolio">
         <v-col cols="12">
-          <h3 class="text-center font-weight-black my-5 orange--text">{{ grantPortfolio.title }}</h3>
+          <h3 class="text-center font-weight-black my-5 orange--text text-uppercase">{{ grantPortfolio.title }}</h3>
           <p>{{ grantPortfolio.description }}</p>
         </v-col>
 
@@ -25,7 +25,7 @@
           min-width="320"
         >
           <v-card-title>
-            <p class="text-center font-weight-black">{{ grant.title }}</p>
+            <p class="text-center font-weight-black text-uppercase">{{ grant.title }}</p>
           </v-card-title>
           <v-card-text>
             <p class="white--text">{{ grant.description }}</p>
@@ -52,7 +52,7 @@
       </v-row>
       <v-row>
         <v-col cols="12" class="donorsIntro elevation-1">
-          <h3 class="donors-title">{{ donorsIntrosTitle.title }}</h3>
+          <h3 class="donors-title text-uppercase" >{{ donorsIntrosTitle.title }}</h3>
           <div class="cards-container-meth">
             <v-card
               class="ma-2 donorIntroCards"
@@ -73,7 +73,7 @@
 
         <v-col cols="12" id="data-analytics-glossary">
           <div class="cardsContainer">
-            <h3 class="text-right mx-5">{{ dataAnalyticsGlossaryTitle.title }}</h3>
+            <h3 class="text-right mx-5 text-uppercase">{{ dataAnalyticsGlossaryTitle.title }}</h3>
             <v-row>
               <v-col
                 cols="5"

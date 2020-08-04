@@ -72,5 +72,25 @@
         "title": "WHAT WE ARE",
         "content": "Aidspan has been building its reputation for responsible reporting, commentary and analysis on all aspects of the Global Fund ecology since 2002. We have built an extensive global network of links. We try to always constructively comment on the extent to which the Global Fund's Board, Secretariat and grant implementers are being effective and are living up to the Fund's founding principles. We do this by publishing timely and relevant information and thoughtful, incisive analysis and; through facilitating critical debate; and promoting greater transparency, accountability, effectiveness and impact. One of our main channels to date has been the Global Fund Observer."
     },
-    "slogan": "The Independent Global Fund Observer"
+    "slogan": "The Independent Global Fund Observer",
+    "reports": {
+        "title": "Reports",
+        "description": "Aidspan publications are working papers, peer reviewed articles, reviews, reports and analyses of the processes, effectiveness and impact of the Global Fund and its activities. Aidspan research publications aim to provide readers with accurate unbiased results that can be utilized by governments, NGOs, researchers, and donors.All Aidspan publications are open access. We welcome suggestions for articles and research collaborations.Please direct all enquiries to the Executive Director at info@aidspan.org"
+    },
+    "guides": {
+        "title": "Guides",
+        "description": "Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical advice to those applying for, overseeing or implementing Global Fund grants. Guides exist on subjects from how to apply for a Global Fundgrant to how to set up a Country Coordinating Mechanism."
+    },
+    "readmore": "Read More",
+    "visitapw": "visit APW",
+    "all-issue": "All Issues",
+    "desc-gfo": "Aidspan Release Issues with articles every month, in French and English",
+    "views": "Views",
+    "donors": "Our Donors",
+    "quicks": {
+        "key-docs": "Key Documents",
+        "staffweb": "GFO Editor",
+        "gallery": "Gallery",
+        "careers": "Career and Opportunities"
+    }
 }

@@ -7,12 +7,14 @@
         ref="search"
         single-line
         hide-details
+        background-color="white"
+        prepend-inner-icon="mdi-magnify"
         dense
         v-model.trim="search"
       ></v-text-field>
     </v-list-item>
     <v-list-item-group color="secondary" rounded>
-      <v-list-item v-for="artype in filteredtypes" :key="artype.id">
+      <v-list-item v-for="artype in filteredtypes" :key="artype.id" @click="viewtype(artype.id)">
         <v-list-item-content>
           <v-list-item-title v-text="artype.name"></v-list-item-title>
         </v-list-item-content>
@@ -28,21 +30,30 @@ export default {
   data() {
     return {
       search: "",
-      articletypes: []
+      types: []
     };
   },
   computed: {
     filteredtypes() {
-      return this.articletypes.filter(type => {
-        return type.name
-          .toLowerCase()
-          .includes(this.search.toLowerCase());
+      return this.types.filter(type => {
+        return type.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    }
+  },
+  methods: {
+    viewtype(typeId) {
+      return this.$router.push({
+        name: "articletype",
+        params: { type_id: typeId }
       });
     }
   },
   created() {
-    Api().get("/articletypes")
-      .then(response => (this.articletypes = response.data.data))
+    Api()
+      .get("/article-types")
+      .then(response => {
+        this.types = response.data.data;
+      })
       .catch(error => console.log(error));
   }
 };

@@ -3,15 +3,16 @@
     <v-col cols="12" v-if="loading">
       <v-progress-linear color="orange accent-4" indeterminate rounded height="10"></v-progress-linear>
     </v-col>
-    <v-row v-for="article in article_data" :key="article.nid">
+    <v-row>
       <v-col cols="12">
         <v-col id="articleSection">
           <v-flex md12>
             <p class="article-title">{{ article.title }}</p>
             <p
               class="second-article-title"
-              v-if="article.article_second_title.field_article_secondary_title_value !== null"
+              v-if="article.article_second_title !== null"
             >{{ article.article_second_title.field_article_secondary_title_value }}</p>
+            <p v-else>-</p>
           </v-flex>
           <v-row>
             <v-col cols="12" md="8">
@@ -30,18 +31,16 @@
                 >{{ article.article_number.field_article_number_value }}</v-avatar>
                 <span v-for="type in article.article_types" :key="type.id">{{ type.name }}</span>
               </v-chip>
-              <span class="mx-5 text-lg-right">{{ article.created | formatDate }}</span>
-            </v-col>
-            <v-col cols="5" md="1">
-              <v-btn class="mr-2" icon @click="fonter" small outlined color="primary">
-                <v-icon color="primary" small>mdi-format-font-size-increase</v-icon>
-              </v-btn>
-              <v-btn class="mr-2" icon small @click="fontSize--" outlined color="secondary">
-                <v-icon color="secondary" small>mdi-format-font-size-decrease</v-icon>
-              </v-btn>
+              <span class="mx-5 text-lg-right">
+                <small class="font-weight-bold">{{ article.created | formatDate }}</small>
+              </span>
+              <span class="mx-5 text-lg-right">
+                <v-icon small left color="info">mdi-eye</v-icon>
+                <small class="font-weight-bold">{{views}} {{$t('views')}}</small>
+              </span>
             </v-col>
             <!-- start the social sharing icons -->
-            <v-col cols="7" md="3" class="text-right">
+            <v-col cols="7" md="4" class="text-right">
               <social-sharing
                 :url="currentlink"
                 :title="article.title"
@@ -81,10 +80,46 @@
               </v-card>
             </v-col>
 
-            <v-col cols="12">
-              <p class="content" v-bind:style="{fontSize: fontSize +'px'}">
+            <v-col cols="12" class="content">
+              <v-row wrap>
+                <v-col cols="12" class="adjuster">
+                  <v-btn class="mr-2" @click="fonter" small color="primary" icon>
+                    <v-icon color="primary" small>mdi-format-font-size-increase</v-icon>
+                  </v-btn>
+                  <v-btn class="mr-2" small @click="fontSize--" color="secondary" icon>
+                    <v-icon color="secondary" small>mdi-format-font-size-decrease</v-icon>
+                  </v-btn>
+                </v-col>
+              </v-row>
+              <p v-bind:style="{fontSize: fontSize +'px'}">
                 <span v-html=" article.article_content.field_article_content_value "></span>
               </p>
+            </v-col>
+          </v-row>
+
+          <v-row wrap class>
+            <v-col cols="12">
+              <v-card flat class="feedback">
+                <v-card-text>
+                  <p>Feedback</p>
+                  <v-btn
+                    icon
+                    @click="like"
+                    class="mr-2 ml-3"
+                    small
+                    color="primary"
+                    v-if="!hidebutton"
+                  >
+                    <v-icon color="primary">mdi-thumb-up-outline</v-icon>
+                  </v-btn>
+                  <small class="font-weight-bold orange--text lighten-3">{{likes}} Likes</small>
+
+                  <v-btn icon @click="dislike" class="mr-2 ml-5" small color="info">
+                    <v-icon color="warning">mdi-thumb-down-outline</v-icon>
+                  </v-btn>
+                  <small class="font-weight-bold red--text lighten-3">{{dislikes}} Dslikes</small>
+                </v-card-text>
+              </v-card>
             </v-col>
           </v-row>
 
@@ -213,7 +248,6 @@
               bottom
               width="400"
               v-model="issueview"
-              floating
               app
               class="navyside"
             >
@@ -236,7 +270,7 @@
                     </v-btn>
                   </v-fab-transition>
                 </v-list-item>
-                <v-list-item two-line :class="miniVariant && 'px-2'">
+                <v-list-item two-line>
                   <v-list-item-content>
                     <v-list-item-title
                       v-text="issue.title"
@@ -271,13 +305,25 @@
                       :to="{name: 'article', params: {article_id: article.nid}}"
                     >Read</v-btn>
                     <v-spacer></v-spacer>
-                    <v-btn icon @click="show = !show">
-                      <v-icon>
-                        {{
-                        show ? "mdi-chevron-up" : "mdi-chevron-down"
-                        }}
-                      </v-icon>
-                    </v-btn>
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          color="primary"
+                          dark
+                          v-bind="attrs"
+                          v-on="on"
+                          @click="show = !show"
+                          icon
+                        >
+                          <v-icon>
+                            {{
+                            show ? "mdi-chevron-up" : "mdi-chevron-down"
+                            }}
+                          </v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Show Related Issue</span>
+                    </v-tooltip>
                   </v-card-actions>
                   <v-expand-transition>
                     <div v-show="show">
@@ -301,20 +347,27 @@
 import socialSharing from "vue-social-sharing";
 import "font-awesome/css/font-awesome.min.css";
 import DownloadIssue from "@/mixins/downloadIssue";
+import Api from "@/services/Api";
+import Axios from "axios";
 
 export default {
   props: ["article_id"],
   data() {
     const defaultForm = Object.freeze({
       names: "",
-      comment: ""
+      comment: "",
     });
 
     return {
       //issue navigation
-      issueview: null,
+      issueview: false,
       hidden: false,
       loading: true,
+      article: [],
+      hidebutton: false,
+      likes: 0,
+      dislikes: 0,
+      errors: [],
       //font size of the text
       fontSize: 16,
       // end
@@ -322,14 +375,16 @@ export default {
       snackbar: false,
       rules: {
         email: [
-          v => !!v || "E-mail is required",
-          v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-        ]
+          (v) => !!v || "E-mail is required",
+          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+        ],
       },
       defaultForm,
       // id: this.$route.params, this will come from the url
       show: false,
-      currentlink: ""
+      currentlink: "",
+      user_inf: {},
+      views: 0,
     };
   },
 
@@ -339,23 +394,53 @@ export default {
     language() {
       return this.$store.state.activelang;
     },
-    article_data() {
-      return this.$store.state.article.data;
-    },
     formIsValid() {
       return this.form.names;
     },
-    fontAdjust: function() {
+    fontAdjust: function () {
       return {
         increase: this.bigger,
-        decrease: this.normal
+        decrease: this.normal,
       };
-    }
+    },
+  },
+  created() {
+    Api()
+      .get(`Articles/${this.article_id}`)
+      .then((response) => {
+        this.article = response.data.article;
+        if(response.data.views[0].v !== null){
+            this.views = response.data.views[0].v;
+        }else {
+            this.views = 0
+        }
+        this.loading = false;
+        this.currentlink = window.location.href;
+        if (response.data.likes !== null) {
+          this.likes = response.data.article.likes.likes;
+        }
+      })
+      .catch((e) => {
+        this.errors.push(e);
+      });
   },
   mounted() {
-    this.$store.dispatch("loadArticles", this.article_id);
-    this.loading = false;
-    this.currentlink = window.location.href;
+    Axios.get(
+      "https://api.ipdata.co?api-key=c2b88d6921fb67aa71a1b172ee472b85b6abea9f04e088876a4c677b"
+    ).then((response) => {
+      const formdata = {
+        article_nid: this.article_id,
+        viewer_ip: response.data.ip,
+        country: response.data.country_name,
+        continent: response.data.continent_name,
+        city: response.data.city,
+        longitude: response.data.longitude,
+        latitude: response.data.latitude,
+        is_eu: response.data.is_eu,
+        last_view: response.data.time_zone.current_time,
+      };
+      Api().post("/article-view", formdata);
+    });
   },
 
   methods: {
@@ -376,14 +461,31 @@ export default {
       } else {
         this.fontSize = 15;
       }
-    }
+    },
+    like() {
+      const formdata = {
+        article_nid: this.article_id,
+      };
+      this.hidebutton = true;
+      this.likes += 1;
+      Api().post("article-like", formdata);
+      localStorage.setItem("liked", true);
+    },
+    dislike() {
+      const formdata = {
+        article_nid: this.article_id,
+      };
+      this.hidebutton = true;
+      this.dislikes += 1;
+      Api().post("article-dislike", formdata);
+    },
   },
   components: {
-    "social-sharing": socialSharing
+    "social-sharing": socialSharing,
   },
   beforeDestroy() {
     this.issueview = false;
-  }
+  },
 };
 </script>
 
@@ -409,8 +511,8 @@ export default {
 }
 #articleSection .article-title {
   font-weight: bold;
-  font-size: 24px;
-  line-height: 33px;
+  font-size: 20px;
+  line-height: 30px;
   color: #00adef;
   text-transform: uppercase;
 }
@@ -486,5 +588,18 @@ export default {
 }
 .comments .number {
   font-weight: bold;
+}
+
+.adjuster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedback {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
 }
 </style>

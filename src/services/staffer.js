@@ -19,11 +19,7 @@ class staffer {
     create(data) {
             return http.post('/subscribers', data)
         }
-        /** image upload */
-
-    imageupload(data) {
-        return http.post(`/images`, data)
-    }
+        /** uploading */
 }
 
 export default new staffer()

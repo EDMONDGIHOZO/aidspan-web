@@ -1,11 +1,11 @@
 <template>
   <div class="header">
     <v-app-bar height="84px" flat class="white">
-      <div v-if="frenchlogo">
+      <div v-if="current_language === 'fr'">
         <img :src="logo_fr" alt="aidspan-logo" class="d-none d-sm-flex" />
       </div>
       <div v-else>
-        <img :src="logo" alt="aidspan-logo"  class="d-none d-sm-flex"/>
+        <img :src="logo" alt="aidspan-logo" class="d-none d-sm-flex" />
       </div>
       <!-- buttons field -->
       <v-spacer></v-spacer>
@@ -13,6 +13,7 @@
         v-if="!subscribed"
         class="ma-12 subscribeBtn"
         rounded
+        small
         color="secondary"
         @click.stop="subscribeDialog = true"
       >{{$t("newsletterbtn")}}</v-btn>
@@ -56,9 +57,7 @@
             <div
               class="heading title text-center ma-4 font-weight-bold orange--text"
             >{{$t('newsletterbtn')}}</div>
-            <div
-              class="subHeading font-weight-light"
-            >{{$t('newsletterbtn_desc')}}</div>
+            <div class="subHeading font-weight-light">{{$t('newsletterbtn_desc')}}</div>
           </div>
           <v-col cols="12" md="12">
             <v-form ref="form" v-model="valid" lazy-validation justify-center>
@@ -132,18 +131,16 @@ export default {
   computed: {
     ...mapState(["icons", "logo", "logo_fr"]),
   },
-  created(){
-      if (localStorage.lang === 'fr'){
-          return this.frenchlogo = true
-      }
+  mounted() {
+    return (this.current_language = this.$i18n.locale);
   },
   data() {
     return {
       //subscribe form
       dialog: false,
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
       valid: false,
       status: "",
@@ -152,40 +149,42 @@ export default {
       timeout: 2000,
       subscribed: false,
       frenchlogo: false,
+      current_language: "",
       subscriber: {
         email: "",
-        select: null
+        select: null,
       },
       newsletters: ["OFM", "GFO"],
       checkbox: false,
       //end of subscribe form
       subscribeDialog: false,
-      image: require("@/assets/images/en/logo_en.png")
+      image: require("@/assets/images/en/logo_en.png"),
     };
   },
   methods: {
     saveSubscriber() {
       const data = {
         email: this.subscriber.email,
-        chosen: this.subscriber.select
+        chosen: this.subscriber.select,
       };
       this.loading = true;
       ///then use the services to talk to the API
       staffer
         .create(data)
 
-        .then(response => {
+        .then((response) => {
           this.status = response.data.message;
           this.subscribeDialog = false;
-          this.subscribed = false;
+          this.subscribed = true;
           localStorage.subscribed = this.subscribed;
           this.loading = false;
         })
-        .catch(err => {
-          alert(err);
+        .catch((err) => {
+          console.log(err)
+          this.subscribeDialog= false;
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,0 +1,36 @@
+<VirtualHost *:443>
+
+        ServerAdmin aidspan@aidspan.org
+        ServerName gfo.aidspan.org
+        ServerAlias www.gfo.aidspan.org
+
+        #SSLEngine on
+        #SSLCertificateKeyFile /etc/ssl/private/aidspan.key
+        #SSLCertificateFile /etc/ssl/certs/aidspan_org.crt
+        #SSLCertificateChainFile /etc/ssl/certs/aidspan_org.ca-bundle
+
+        SSLEngine on
+        SSLCertificateKeyFile /etc/ssl/private/aidspan.key
+        SSLCertificateFile /etc/ssl/certs/STAR_aidspan_org.crt
+        SSLCertificateChainFile /etc/ssl/certs/PositiveSSL_aidspan_org.ca-bundle
+
+	#RewriteEngine On
+    	#RewriteCond %{HTTPS} off
+	#RewriteCond %{HTTPS} !=on 
+    	#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+	DocumentRoot /var/www/html/apw
+        <Directory />
+            Options FollowSymLinks
+            AllowOverride All
+        </Directory>
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        # Logfiles
+        ErrorLog  /var/www/html/apw/logs/error.log
+        CustomLog /var/www/html/apw/logs/access.log combined
+	
+</VirtualHost>

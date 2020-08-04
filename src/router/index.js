@@ -1,335 +1,400 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import i18n from "../i18n";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import i18n from '../i18n'
 
 // import components
-import Home from "@/views/client/pages/Home.vue";
-import AppHolder from "@/components/layouts/appholder.vue";
+import Home from '@/views/client/pages/Home.vue'
+import AppHolder from '@/components/layouts/appholder.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [{
-        path: "/",
-        redirect: "/en/c"
+        path: '/',
+        redirect: '/en/c',
     },
     {
-        path: "/:lang",
+        path: '/:lang',
         component: AppHolder,
         beforeEnter(to, from, next) {
-            const lang = to.params.lang;
-            if (!["en", "fr"].includes(lang)) return next("en" + "/c");
-            if (i18n.locale === lang) return next();
-            import (`@/locales/${lang}.json`).then(msgs => {
-                i18n.setLocaleMessage(lang, msgs.default || msgs);
-                i18n.locale = lang;
-                document.title = to.meta.title;
-                return next();
-            });
+            const lang = to.params.lang
+            if (!['en', 'fr'].includes(lang)) return next('en' + '/c')
+            if (i18n.locale === lang) return next()
+            import (`@/locales/${lang}.json`).then((msgs) => {
+                i18n.setLocaleMessage(lang, msgs.default || msgs)
+                i18n.locale = lang
+                document.title = to.meta.title
+                return next()
+            })
         },
         children: [
             /** client web path */
             {
-                path: "c",
+                path: 'c',
                 component: () =>
                     import (
                         /* webpackChunkName: "editoral" */
-                        "../views/client/holder/clientholder.vue"
+                        '../views/client/holder/clientholder.vue'
                     ),
                 children: [{
-                        path: "",
-                        name: "Homepage",
+                        path: '',
+                        name: 'Homepage',
                         component: Home,
                         meta: {
-                            title: "Welcome to Aidspan"
-                        }
+                            title: 'Welcome to Aidspan',
+                        },
                     },
                     {
-                        path: "about-us",
-                        name: "about",
+                        path: 'about-us',
+                        name: 'about',
                         component: () =>
                             import (
                                 /* webpackChunkName: "about-us" */
-                                "../views/client/pages/About.vue"
+                                '../views/client/pages/About.vue'
                             ),
                         meta: {
-                            title: "About aidspan"
-                        }
+                            title: 'About aidspan',
+                        },
                     },
                     {
-                        path: "editorial",
-                        name: "Editorial",
+                        path: 'editorial',
+                        name: 'Editorial',
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
-                                "../views/client/pages/Editorial.vue"
+                                '../views/client/pages/Editorial.vue'
                             ),
                         meta: {
-                            title: "GFO NEWSLETTER"
-                        }
+                            title: 'GFO NEWSLETTER',
+                        },
                     },
                     {
-                        path: "french-issues",
-                        name: "ofm",
+                        path: 'key-documents',
+                        name: 'key-documents',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "key_documents" */
+                                '../views/client/pages/key-documents.vue'
+                            ),
+                        meta: {
+                            title: 'Aidsan Key documents',
+                        },
+                    },
+                    {
+                        path: 'french-issues',
+                        name: 'ofm',
                         component: () =>
                             import (
                                 /* webpackChunkName: "ofm" */
-                                "../components/pages/client/french-issues.vue"
+                                '../components/pages/client/french-issues.vue'
                             ),
                         meta: {
-                            title: "OFM"
-                        }
+                            title: 'OFM',
+                        },
                     },
                     {
-                        path: "gallery",
-                        name: "Gallery",
+                        path: 'gfo-issues',
+                        name: 'gfo',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "gfo" */
+                                '../components/pages/client/english-issues.vue'
+                            ),
+                        meta: {
+                            title: 'GFO ISSUES',
+                        },
+                    },
+                    {
+                        path: 'gallery',
+                        name: 'Gallery',
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
-                                "../views/client/pages/gallery.vue"
+                                '../views/client/pages/gallery.vue'
                             ),
                         meta: {
-                            title: "AIDSPAN GALLERY"
-                        }
+                            title: 'AIDSPAN GALLERY',
+                        },
                     },
                     {
-                        path: "current-issue",
-                        name: "current-issie",
+                        path: 'current-issue',
+                        name: 'current-issie',
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
-                                "../components/helpers/currentIssue.vue"
+                                '../components/helpers/currentIssue.vue'
                             ),
                         meta: {
-                            title: "GFO current Issue"
-                        }
+                            title: 'GFO current Issue',
+                        },
                     },
                     {
-                        path: "edition/:nid",
-                        name: "edition",
+                        path: 'edition/:nid',
+                        name: 'edition',
                         component: () =>
                             import (
                                 /* webpackChunkName: "single-edition" */
-                                "../components/pages/client/singleEdition.vue"
+                                '../components/pages/client/singleEdition.vue'
                             ),
                         meta: {
-                            title: "Edition"
-                        }
+                            title: 'Edition',
+                        },
                     },
                     {
-                        path: "article-tags/:tid",
-                        name: "articletags",
+                        path: 'article-tags/:tid',
+                        name: 'articletags',
                         props: true,
                         params: true,
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
-                                "../views/client/pages/articletags.vue"
+                                '../views/client/pages/articletags.vue'
                             ),
                         meta: {
-                            title: "GFO TAGS"
-                        }
+                            title: 'GFO TAGS',
+                        },
                     },
                     {
-                        path: "article/:article_id",
-                        name: "article",
+                        path: 'articletypes/:type_id',
+                        name: 'articletype',
+                        props: true,
+                        params: true,
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "article-type" */
+                                '../views/client/pages/articleTypesView.vue'
+                            ),
+                        meta: {
+                            title: 'GFO Article Types',
+                        },
+                    },
+                    {
+                        path: 'article/:article_id',
+                        name: 'article',
                         props: true,
                         params: true,
 
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
-                                "../views/client/pages/Article.vue"
+                                '../views/client/pages/Article.vue'
                             ),
                         meta: {
-                            title: "Gfo Newsletter"
-                        }
+                            title: 'Gfo Newsletter',
+                        },
                     },
                     {
-                        path: "methodologies",
-                        name: "Analytics",
+                        path: 'publication/:pub_id',
+                        name: 'publication',
+                        props: true,
+                        params: true,
+
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "publication" */
+                                '../views/client/pages/PublicationView.vue'
+                            ),
+                        meta: {
+                            title: 'Single Puplication',
+                        },
+                    },
+                    {
+                        path: 'methodologies',
+                        name: 'Analytics',
                         component: () =>
                             import (
                                 /* webpackChunkName: "Methodologies" */
-                                "../views/client/pages/Methodologies.vue"
+                                '../views/client/pages/Methodologies.vue'
                             ),
                         meta: {
-                            title: "Data Methodolofies"
-                        }
+                            title: 'Data Methodolofies',
+                        },
                     },
                     {
-                        path: "data-analytics/grants-portfolio",
-                        name: "Grants-portfolio",
+                        path: 'data-analytics/grants-portfolio',
+                        name: 'GrantsPortfolio',
                         component: () =>
                             import (
                                 /* webpackChunkName: "grants-portfolio" */
-                                "../views/client/pages/grants-portfolio.vue"
+                                '../views/client/pages/grants-portfolio.vue'
                             ),
                         meta: {
-                            title: "grants portfolio"
-                        }
+                            title: 'grants portfolio',
+                        },
                     },
                     {
-                        path: "publications",
-                        name: "Publications",
+                        path: 'publications',
+                        name: 'Publications',
                         component: () =>
                             import (
                                 /* webpackChunkName: "grants-portfolio" */
-                                "../views/client/pages/Publications.vue"
+                                '../views/client/pages/Publications.vue'
                             ),
                         meta: {
-                            title: "Aidspan Data Bank"
-                        }
-                    }
-                ]
+                            title: 'Aidspan Data Bank',
+                        },
+                    },
+                ],
             },
             /** end of client routes */
             {
-                path: "auth",
-                name: "user-auth",
+                path: 'auth',
+                name: 'user-auth',
                 redirect: {
-                    name: "user-login"
+                    name: 'user-login',
                 },
                 component: () =>
                     import (
                         /* webpackChunkName: "grants-portfolio" */
-                        "../views/admin/auth/authloader.vue"
+                        '../views/admin/auth/authloader.vue'
                     ),
                 children: [{
-                        path: "login",
-                        name: "user-login",
+                        path: 'login',
+                        name: 'user-login',
                         component: () =>
                             import (
                                 /* webpackChunkName: "grants-portfolio" */
-                                "../views/admin/auth/login.vue"
-                            )
+                                '../views/admin/auth/login.vue'
+                            ),
                     },
                     {
-                        path: "forgot",
-                        name: "forgot",
+                        path: 'forgot',
+                        name: 'forgot',
                         component: () =>
                             import (
                                 /* webpackChunkName: "admin-login" */
-                                "../views/admin/auth/forgot.vue"
+                                '../views/admin/auth/forgot.vue'
                             ),
                         meta: {
-                            title: "Request for password reset"
-                        }
+                            title: 'Request for password reset',
+                        },
                     },
                     {
-                        path: "checkyouremail",
-                        name: "mailreset",
+                        path: 'checkyouremail',
+                        name: 'mailreset',
                         component: () =>
                             import (
                                 /* webpackChunkName: "admin-login" */
-                                "../views/admin/auth/resetmailsent.vue"
+                                '../views/admin/auth/resetmailsent.vue'
                             ),
                         meta: {
-                            title: "Request for password reset"
-                        }
+                            title: 'Request for password reset',
+                        },
                     },
                     {
-                        path: "newpassword/:token/:email",
-                        name: "Newpassword",
+                        path: 'newpassword/:token/:email',
+                        name: 'Newpassword',
                         component: () =>
                             import (
                                 /* webpackChunkName: "admin-login" */
-                                "../views/admin/auth/resetpwd.vue"
+                                '../views/admin/auth/resetpwd.vue'
                             ),
                         meta: {
-                            title: "create new password"
-                        }
-                    }
-                ]
+                            title: 'create new password',
+                        },
+                    },
+                ],
             },
             {
-                path: "dashboard",
-                name: "dashboard",
+                path: 'dashboard',
+                name: 'dashboard',
                 redirect: {
-                    name: "Admin-homepage"
+                    name: 'Admin-homepage',
                 },
                 component: () =>
                     import (
                         /* webpackChunkName: "grants-portfolio" */
-                        "../views/admin/dashboard/index.vue"
+                        '../views/admin/dashboard/index.vue'
                     ),
                 children: [{
-                        path: "admin",
-                        name: "Admin-homepage",
+                        path: 'admin',
+                        name: 'Admin-homepage',
                         component: () =>
                             import (
                                 /* webpackChunkName: "admin-login" */
-                                "../views/admin/dashboard/pages/dashboard-home.vue"
+                                '../views/admin/dashboard/pages/dashboard-home.vue'
                             ),
                         meta: {
-                            title: "Aidspan Admin Dashboard"
-                        }
+                            title: 'Aidspan Admin Dashboard',
+                        },
                     },
                     {
-                        path: "new-article",
-                        name: "new-article",
+                        path: 'new-article',
+                        name: 'new-article',
                         component: () =>
                             import (
                                 /* webpackChunkName: "new-article" */
-                                "../views/admin/dashboard/actions/new-article.vue"
+                                '../views/admin/dashboard/actions/new-article.vue'
                             ),
                         meta: {
-                            title: "create new article"
-                        }
+                            title: 'create new article',
+                        },
                     },
                     {
-                        path: "new-issue",
-                        name: "new-issue",
+                        path: 'new-issue',
+                        name: 'new-issue',
                         component: () =>
                             import (
                                 /* webpackChunkName: "new-issue" */
-                                "../views/admin/dashboard/actions/new-issue.vue"
+                                '../views/admin/dashboard/actions/new-issue.vue'
                             ),
                         meta: {
-                            title: "create new issue"
-                        }
+                            title: 'create new issue',
+                        },
                     },
                     {
-                        path: "new-image",
-                        name: "new-image",
+                        path: 'new-key-doc',
+                        name: 'new-key-doc',
                         component: () =>
                             import (
-                                /* webpackChunkName: "image-upload" */
-                                "../components/tools/photoUpload.vue"
+                                /* webpackChunkName: "new-key-document" */
+                                '../views/admin/dashboard/actions/key-document.vue'
                             ),
                         meta: {
-                            title: "PHOTO UPLOAD"
-                        }
-                    }
-                ]
-            }
-        ]
+                            title: 'create new Key Document',
+                        },
+                    },
+                    {
+                        path: 'new-publication',
+                        name: 'new-publication',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "new-publication" */
+                                '../views/admin/dashboard/actions/new-publication.vue'
+                            ),
+                        meta: {
+                            title: 'create new Publication',
+                        },
+                    },
+                ],
+            },
+        ],
     },
     {
-        path: "*",
-        name: "notFound",
+        path: '*',
+        name: 'notFound',
         component: () =>
             import (
                 /* webpackChunkName: "notfound" */
-                "../views/client/holder/404.vue"
+                '../views/client/holder/404.vue'
             ),
         meta: {
-            title: "Page not found "
-        }
-    }
-];
+            title: 'Page not found ',
+        },
+    },
+]
 
 const router = new VueRouter({
-    mode: "history",
+    mode: 'history',
     base: process.env.BASE_URL,
     routes,
 
     scrollBehavior: function(to) {
         if (to.hash) {
             return {
-                selector: to.hash
-            };
+                selector: to.hash,
+            }
         }
-    }
-});
+    },
+})
 
-export default router;
+export default router

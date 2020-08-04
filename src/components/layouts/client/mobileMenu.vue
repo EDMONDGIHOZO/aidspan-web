@@ -6,9 +6,9 @@
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click.stop="mobMenu = !mobMenu" color="#00AEEF"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer height="60%" app v-model="mobMenu" right hide-overlay width="100%">
-      <v-layout row wrap class="pa-4">
-        <v-flex>
+    <v-navigation-drawer app v-model="mobMenu" right width="70%">
+      <v-row>
+        <v-col cols="12" class="pa-3">
           <div class="sticks">
             <div class="menutop">
               <img :src="logo" alt="aidspan-logo" width="80%" />
@@ -16,70 +16,51 @@
             <div class="lang-switch">
               <locale-switch />
             </div>
-            <v-divider class="my-4" dark />
           </div>
-          <v-list id="menu" class="mx-5">
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title @click="gohome">
-                  <v-icon left small>{{$t('home.action')}}</v-icon>
-                  {{$t('home.title')}}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title @click="gogfo">
-                  <v-icon left small>{{$t('gfo.action')}}</v-icon>
-                  {{$t('gfo.title')}}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title @click="goabout">
-                  <v-icon left small>{{$t('about.action')}}</v-icon>
-                  {{$t('about.title')}}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title @click="goanalytics">
-                  <v-icon left small>{{$t('analytics.action')}}</v-icon>
-                  {{$t('analytics.title')}}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title @click="goabout">
-                  <v-icon left small>{{$t('publications.action')}}</v-icon>
-                  {{$t('publications.title')}}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-          <Header />
-        </v-flex>
-      </v-layout>
+        </v-col>
+        <v-col cols="12">
+          <v-card flat class="mobmenu">
+            <v-card-text>
+              <v-btn  block depressed  class="menubtn" @click="gohome">{{$t('home.title')}}</v-btn>
+              <v-btn block depressed  class="menubtn" @click="gogfo">{{$t('gfo.title')}}</v-btn>
+              <v-btn
+                depressed
+                block
+                 class="menubtn"
+                @click="goabout"
+              >{{$t('about.title')}}</v-btn>
+              <v-btn
+                
+                block
+                depressed
+                 class="menubtn"
+                @click="goanalytics"
+              >{{$t('analytics.title')}}</v-btn>
+              <v-btn
+                
+                depressed
+                block
+                class="menubtn"
+                @click="gopubs"
+              >{{$t('publications.title')}}</v-btn>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-navigation-drawer>
   </nav>
 </template>
 
 <script>
 import localeSwitcher from "@/components/helpers/localeswitch.vue";
-import Header from "@/components/layouts/client/Header.vue";
-
 export default {
   name: "Menubar",
   components: {
     "locale-switch": localeSwitcher,
-    Header
   },
   data() {
     return {
-      mobMenu: false
+      mobMenu: false,
     };
   },
   methods: {
@@ -97,7 +78,7 @@ export default {
     },
     gopubs() {
       return this.$router.push({ name: "Publications" });
-    }
+    },
   },
   computed: {
     logo() {
@@ -111,8 +92,8 @@ export default {
     },
     icons() {
       return this.$store.state.icons;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -146,5 +127,17 @@ export default {
 #menu .submenu {
   cursor: pointer;
   background-color: orange;
+}
+
+.mobmenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mobmenu .menubtn{
+    margin-top: 10px;
+    text-align: left !important;
 }
 </style>

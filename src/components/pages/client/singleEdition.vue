@@ -7,7 +7,8 @@
       <v-row class="titlebar">
         <v-col cols="6">
           <v-btn rounded color="primary" depressed @click="back()">
-            <v-icon left>mdi-backburger</v-icon>Tout Editions
+            <v-icon left>mdi-backburger</v-icon>
+            {{$t('all-issue')}}
           </v-btn>
         </v-col>
         <v-col cols="6">
@@ -59,7 +60,7 @@ export default {
   computed: {
     edition() {
       return this.$store.state.edition.data;
-    }
+    },
   },
   methods: {
     back() {
@@ -68,19 +69,19 @@ export default {
     viewArticle(artnid) {
       return this.$router.push({
         name: "article",
-        params: { article_id: artnid }
+        params: { article_id: artnid },
       });
-    }
+    },
   },
   filters: {
-    capitalize: function(value) {
+    capitalize: function (value) {
       if (!value) return "";
       value = value.toString();
       return (
         value.charAt(0).toUpperCase() + value.slice(1).substr(0, 400) + "..."
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

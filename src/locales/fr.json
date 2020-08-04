@@ -60,7 +60,7 @@
         "description": "L'Observateur du Fonds mondial est la principale voix indépendante fournissant des informations, des analyses et des opinions sur le Fonds mondial. Abonnez-vous à notre newsletter gratuite deux fois par mois pour obtenir des explications fiables et faisant autorité sur les politiques, pratiques et procédures du Secrétariat, des informations privilégiées sur les réunions du Conseil du Fonds mondial, une analyse des rapports du Bureau de l'Inspecteur général et des histoires réelles qui captent l'impact et le rôle du Fonds mondial au niveau des pays, veuillez ajouter gfo-newsletter@aidspan.org à votre liste d'expéditeurs de courrier électronique approuvés pour éviter que votre système de messagerie ne traite les problèmes entrants de l'observateur du Fonds mondial comme du spam."
     },
     "allissues": "TOUT NUMÉROS",
-    "currentissue": "ÉDITION ACTUELLE",
+    "currentissue": "ÉDITION COURANTE",
     "gfonote": "OBSERVATEUR DU FONDS MONDIAL (OFM) est produit par le Département éditorial d'Aidspan. Aidspan apprécie les commentaires des lecteurs sur les articles de GFO. Aidspan se réjouit également des offres d'écrire des articles et des suggestions de sujets que nous pourrions couvrir dans GFO.",
     "contactgfo": "CONTACTER LE SERVICE ÉDITORIAL SUR",
     "sendemail": "envoyer un e-mail",
@@ -72,5 +72,25 @@
         "title": "CE QUE NOUS SOMMES",
         "content": "Aidspan a bâti sa réputation de rapports, commentaires et analyses responsables sur tous les aspects de l'écologie du Fonds mondial depuis 2002. Nous avons construit un vaste réseau mondial de liens. Nous essayons de toujours commenter de manière constructive dans quelle mesure le Conseil d'administration, le Secrétariat et les exécutants des subventions du Fonds mondial sont efficaces et respectent les principes fondateurs du Fonds. Nous le faisons en publiant des informations opportunes et pertinentes et une analyse réfléchie et incisive et; en facilitant le débat critique; et promouvoir une plus grande transparence, responsabilité, efficacité et impact. L'un de nos principaux canaux à ce jour a été l'observateur du Fonds mondial."
     },
-    "slogan": "L'observateur indépendant du Fonds mondial"
+    "slogan": "L'observateur indépendant du Fonds mondial",
+    "reports": {
+        "title": "Rapports",
+        "description": "Les publications d'Aidspan sont des documents de travail, des articles évalués par des pairs, des revues, des rapports et des analyses des processus, de l'efficacité et de l'impact du Fonds mondial et de ses activités. Les publications de recherche d'Aidspan visent à fournir aux lecteurs des résultats précis et impartiaux qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche.Veuillez adresser toutes vos demandes de renseignements au directeur exécutif à info@aidspan.org"
+    },
+    "guides": {
+        "title": "Guides",
+        "description": "Les guides Aidspan sont des publications téléchargeables gratuitement de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets allant de la procédure de demande de subvention du Fonds mondial à la mise en place d'un mécanisme de coordination national."
+    },
+    "readmore": "Lire la suite",
+    "visitapw": "visitez APW",
+    "all-issue": "Tout Edition",
+    "desc-gfo": "Edition des articles chaque mois, en français et en anglais",
+    "views": "Vues",
+    "donors": "Nos Bailleurs de fonds",
+    "quicks": {
+        "key-docs": "Documents Officiels",
+        "staffweb": "Editeurs OFM",
+        "gallery": "Gallerie",
+        "careers": "Carrière et opportunités"
+    }
 }

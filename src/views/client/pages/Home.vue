@@ -20,7 +20,7 @@
           <v-card hover class="epidemic-card" v-for="epidemic in epidemics" :key="epidemic.ep_id">
             <v-card-text>
               <v-img :src="epidemic.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
-              <p class="text-center font-weight-bold orange--text lighten-1">{{ epidemic.ep_name }}</p>
+              <p :class="epidemic.color">{{ epidemic.ep_name }}</p>
             </v-card-text>
           </v-card>
         </div>
@@ -33,7 +33,7 @@
 
     <v-row class="publication-row">
       <v-col cols="12" md="8">
-        <v-card class="px-3" id="publications-intro" flat> 
+        <v-card class="px-3" id="publications-intro" flat>
           <v-card-title class="font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
           <v-row>
             <v-col cols="12" md="6" class="guides">
@@ -44,7 +44,7 @@
               <span class="sub-title">{{$t('report_title')}}</span>
               <p>{{$t('report_intro')}}</p>
             </v-col>
-            <v-btn block text color="primary" router to="c/publications">{{$t('viewall')}}</v-btn>
+            <v-btn block text color="primary" router to="publications">{{$t('viewall')}}</v-btn>
           </v-row>
         </v-card>
       </v-col>
@@ -58,28 +58,26 @@
       </v-col>
     </v-row>
 
-    
-      <!-- our awesome donors -->
-      <v-layout row wrap id="donors">
-        <v-flex md2 xs12>
-          <h2>OUR DONORS</h2>
-        </v-flex>
-        <v-flex md10 xs12>
-          <div class="logos">
-            <v-sheet class="mx-auto">
-              <v-slide-group multiple show-arrows light>
-                <v-slide-item v-for="logo in donorsLogos" :key="logo.web">
-                  <v-card flat class="mx-4" hover :href="logo.web" target="_blank">
-                    <img :src="logo.img" alt="donor logo" height="73px" />
-                  </v-card>
-                </v-slide-item>
-              </v-slide-group>
-            </v-sheet>
-          </div>
-        </v-flex>
-      </v-layout>
-      <!--- end donors -->
-    
+    <!-- our awesome donors -->
+    <v-layout row wrap id="donors">
+      <v-flex md2 xs12>
+        <h2 class="blue--text lighten-1">{{$t('donors')}}</h2>
+      </v-flex>
+      <v-flex md10 xs12>
+        <div class="logos">
+          <v-sheet class="mx-auto">
+            <v-slide-group multiple show-arrows light>
+              <v-slide-item v-for="logo in donorsLogos" :key="logo.id">
+                <v-card flat class="ma-2 pa-3" outlined :href="logo.web" target="_blank">
+                  <img :src="logo.img" alt="donor logo" height="73px" />
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+          </v-sheet>
+        </div>
+      </v-flex>
+    </v-layout>
+    <!--- end donors -->
   </div>
 </template>
 
@@ -103,29 +101,42 @@ export default {
     return {
       //donors logos //
       donorsLogos: [
+          
         {
-          img: require("@/assets/images/common/donors/Ahf.jpg"),
-          web: "https://www.aidshealth.org"
-        },
-        {
-          img: require("@/assets/images/common/donors/governmentNetherland.png"),
-          web: "https://www.giz.de/en/worldwide"
-        },
-        {
-          img: require("@/assets/images/common/donors/initiative5.png"),
-          web: "https://www.initiative5pour100.fr/"
-        },
-        {
-          img: require("@/assets/images/common/donors/irishAid.jpg"),
-          web: "https://www.irishaid.ie/"
+          img: require("@/assets/images/common/donors/giz.jpg"),
+          web: "https://www.giz.de/en/",
+          id: 1
         },
         {
           img: require("@/assets/images/common/donors/norad.png"),
-          web: "https://norad.no/en/front/"
+          web: "https://norad.no/en/front/",
+          id: 2
+        },
+        {
+          img: require("@/assets/images/common/donors/Ahf.jpg"),
+          web: "https://www.aidshealth.org",
+          id: 3
+        },
+        {
+          img: require("@/assets/images/common/donors/irishAid.jpg"),
+          web: "https://www.irishaid.ie/",
+          id: 4
+        },
+        {
+          img: require("@/assets/images/common/donors/governmentNetherland.png"),
+          web: "https://www.giz.de/en/worldwide",
+          id: 5
         },
         {
           img: require("@/assets/images/common/donors/opensociety.png"),
-          web: "https://www.opensocietyfoundations.org/"
+          web: "https://www.opensocietyfoundations.org/",
+          id: 6
+        },
+
+        {
+          img: require("@/assets/images/common/donors/initiative5.png"),
+          web: "https://www.initiative5pour100.fr/",
+          id: 7
         }
       ],
 
@@ -177,7 +188,7 @@ export default {
         }
       ],
       //sampled data
-      model: null,
+      model: false,
       quickhomelinks: [
         {
           icon: "mdi-google-analytics",
@@ -311,7 +322,7 @@ $lightgrey: rgb(69, 69, 70);
   #web-intro .aidspan {
     border-top-left-radius: 1px;
     border-bottom-left-radius: 1px;
-    background-image: url('~@/assets/images/common/whatweare-03.png');
+    background-image: url("~@/assets/images/common/whatweare-03.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 460px;
@@ -329,8 +340,8 @@ $lightgrey: rgb(69, 69, 70);
 }
 
 .publication-row {
-    background-color: #F8F8FB;
-    padding-left: 20px;
-    padding-right: 20px;
+  background-color: #f8f8fb;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>

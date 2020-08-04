@@ -9,6 +9,15 @@ $aidspan-orange: #f46517;
     color: #f46517;
 }
 
+.menucontainer {
+    border-radius: 10px;
+    box-shadow: 9px 11px 19px rgba(21, 171, 226, 0.181);
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1;
+}
+
 .current-issue-home {
     padding: 10px;
     width: 100%;
@@ -33,10 +42,10 @@ $aidspan-orange: #f46517;
 }
 
 .top-intro {
-    background: linear-gradient( 180deg, #f2fbff 82.24%, rgba(242, 251, 255, 0) 100%);
     height: 200px;
     display: flex;
     flex-wrap: initial;
+    width: 98%;
     align-items: center;
     justify-content: center;
     flex-direction: row;

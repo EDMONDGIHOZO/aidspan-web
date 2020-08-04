@@ -1,17 +1,17 @@
 <template>
   <div class="allissues">
-    <h3>TOUT EDITIONS - OFM</h3>
+    <h3>ALL ISSUES - GFO</h3>
 
     <v-row class="titlebar">
       <v-col cols="12" sm="4">
         <v-text-field
           dense
-          label="rechercher une édition"
+          label="search for issue"
           v-model="search"
           append-icon="mdi-magnify"
           @click:append="searchIssue"
           @keyup.enter="searchIssue"
-          hint="Appuyez sur Entrée pour rechercher"
+          hint="hit enter to search"
         ></v-text-field>
       </v-col>
       <v-col cols="12" class="searchroom" v-if="!hideresults">
@@ -35,9 +35,8 @@
         </v-list-two-line>
       </v-col>
     </v-row>
-
     <v-row class="issueslist">
-      <v-col cols="12" sm="3" v-for="edition in editions" :key="edition.nid">
+      <v-col cols="12" md="4" v-for="edition in allIssues" :key="edition.nid">
         <v-card hover class="isscard" @click="viewissue(edition.nid)">
           <v-card-title class="edition-tit">{{edition.title}}</v-card-title>
           <v-card-actions>
@@ -53,44 +52,50 @@
         </v-card>
       </v-col>
       <v-col cols="12">
-        <Pagination :statedata="ofmissues" />
+        <pagination />
       </v-col>
     </v-row>
   </div>
 </template> 
 
 <script>
-import Pagination from "@/components/helpers/paginateofm.vue";
 import Api from "@/services/Api";
+import pagination from "@/components/helpers/pagination.vue";
 
 export default {
-  name: "ofm",
+  name: "gfo",
+  components: {
+    pagination,
+  },
   data() {
     return {
       search: "",
       results: [],
       hideresults: true,
+      pageNumber: 1,
     };
   },
-  components: {
-    Pagination,
+  mounted() {
+    this.$store.dispatch("fetchgfo");
   },
   computed: {
-    editions() {
-      return this.$store.state.ofmissues.data;
+    allIssues() {
+      return this.$store.state.issues.data;
     },
   },
-  mounted() {
-    return this.$store.dispatch("fetchofms");
-  },
+
   methods: {
     viewissue(issuenid) {
       return this.$router.push({ name: "edition", params: { nid: issuenid } });
     },
+    pageit(pageNum) {
+      this.pageNumber = pageNum;
+    },
+
     searchIssue() {
       const formdata = {
         title: this.search,
-        lang: "fr",
+        lang: "en",
       };
       Api()
         .post("/all-issues", formdata)
@@ -112,8 +117,11 @@ export default {
 }
 
 .issueslist {
-  background-color: #ff7a2b;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px #0bb6eb;
 }
 .titlebar {
   color: #ff7a2b;
@@ -132,6 +140,7 @@ export default {
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
+  height: 120px;
 }
 
 .isscard:hover {

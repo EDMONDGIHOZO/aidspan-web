@@ -9,36 +9,14 @@
           <div class="content" v-scrollAnimation>
             <p class="ma-10">{{$t('gfo_intro.description')}}</p>
           </div>
-          <div class="bottom-toolbar">
-            <v-row justify="center">
-              <v-dialog v-model="dialog" fullscreen hide-overlay transition="slide-x-transition">
-                <template v-slot:activator="{ on }">
-                  <v-btn color="success" v-if="language === 'fr'" text @click="ofm">TOUS LES NUMÉROS</v-btn>
-                  <v-btn dark v-on="on" text color="primary" v-else>ALL GFO ISSUES</v-btn>
-                  <v-btn
-                    text
-                    color="secondary"
-                    href="#current-issue-editorial"
-                  >{{$t('currentissue')}}</v-btn>
-                </template>
-                <v-card>
-                  <v-toolbar dark color="primary">
-                    <v-btn icon dark @click="dialog = false">
-                      <v-icon>mdi-close</v-icon>
-                    </v-btn>
-                    <v-toolbar-title>GFO Newsletter</v-toolbar-title>
-                    <v-spacer></v-spacer>
-                    <h1>All Issues</h1>
-                  </v-toolbar>
-                  <!--- view all issues component -->
-                  <AllIssues></AllIssues>
-                </v-card>
-              </v-dialog>
-            </v-row>
-          </div>
         </v-col>
       </v-row>
     </v-container>
+    <div class="bottom-toolbar">
+      <v-btn color="success" v-if="language === 'fr'" text @click="ofm" rounded>TOUS LES NUMÉROS</v-btn>
+      <v-btn dark @click="gfo" text color="primary" v-else rounded>ALL GFO ISSUES</v-btn>
+      <v-btn text color="secondary" href="#current-issue-editorial" rounded>{{$t('currentissue')}}</v-btn>
+    </div>
     <!--- end of the last live articles -->
     <!-- start the current isssue view -->
     <v-container id="current-issue-editorial">
@@ -65,7 +43,7 @@
                 hover
                 router
                 :to="{name: 'article', params: {article_id: article.nid}}"
-                min-height="180"
+                min-height="120"
               >
                 <v-card-text class="font-weight-bold">
                   <p class>{{ article.title | str_limit(320) }}</p>
@@ -96,10 +74,10 @@
         <!--- end of current issue -->
         <v-col cols="12">
           <p class="font-weight-regular white--text text-end">{{currentIssue.changed | formatDate}}</p>
-          <v-card class="pa-5 text-center" color="light-blue lighten-3" flat>
+          <v-card class="pa-5 text-center" flat>
             <p>{{$t('gfonote')}}</p>
             <v-divider></v-divider>
-            <p class="py-5">{{$t('contactgfo')}}</p>
+            <p class="py-3 font-weight-bold">{{$t('contactgfo')}}</p>
             <v-card-actions>
               <v-btn
                 color="primary"
@@ -124,7 +102,6 @@
 </template>
 
 <script>
-import AllIssues from "@/components/pages/client/all-issues.vue";
 import Vue2Filters from "vue2-filters";
 import features from "@/components/helpers/features.vue";
 
@@ -135,21 +112,21 @@ export default {
       gfoLinks: [
         {
           title: "GFO LIVE",
-          route: "#live-articles"
+          route: "#live-articles",
         },
         {
           title: "CURRENT ISSUE",
-          route: "#current-issue-editorial"
+          route: "#current-issue-editorial",
         },
         {
           title: "ALL ISSUE ",
-          route: "#all-issues"
-        }
+          route: "#all-issues",
+        },
       ],
       dialog: false,
       notifications: false,
       sound: true,
-      widgets: false
+      widgets: false,
     };
   },
   mounted() {
@@ -162,20 +139,24 @@ export default {
     },
     language() {
       return this.$i18n.locale;
-    }
+    },
   },
   methods: {
     ofm() {
       this.$router.push({
-        name: "ofm"
+        name: "ofm",
       });
-    }
+    },
+    gfo() {
+      this.$router.push({
+        name: "gfo",
+      });
+    },
   },
   components: {
-    AllIssues,
-    features
+    features,
   },
-  mixins: [Vue2Filters.mixin]
+  mixins: [Vue2Filters.mixin],
 };
 </script>
 
@@ -185,10 +166,10 @@ export default {
   justify-content: center;
   align-items: center;
   background: #f2fbff;
-  box-shadow: inset 1px 15px 27px rgba(0, 0, 0, 0.1);
   height: 322px;
   margin-bottom: 40px;
   border-radius: 20px;
+  top: 50px;
 }
 
 #articles-current-container {
@@ -225,20 +206,19 @@ export default {
   width: 98%;
 }
 
-#gfo-intro .bottom-toolbar {
-  flex-direction: row;
-  flex-grow: 3;
-  align-self: center;
-  background: #ffffff;
+.bottom-toolbar {
   box-shadow: 0px 1px 23px rgba(0, 0, 0, 0.1);
   border-radius: 31.5px;
-  margin-bottom: -80px;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 60px;
   text-align: center;
-  padding-top: 11px;
+  height: 40px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 40px;
 }
 
 #live-articles {

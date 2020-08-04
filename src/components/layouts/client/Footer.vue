@@ -8,24 +8,33 @@
           <Timeline id="aidspan" sourceType="list" />
         </v-card>
       </v-col>
-      <v-col cols="12" md="3">
-        <v-card class="mx-auto" tile flat>
-          <v-list shaped color="secondary">
-            <v-subheader class="white--text"><h3> {{$t('quicklinks')}}</h3></v-subheader>
-            <v-list-item-group color="primary">
-              <v-list-item v-for="(link, i) in quicklinks" :key="i">
-                <v-list-item-content>
-                  <v-list-item-title v-text="link.title" @click="goto(link.route)"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-card>
+      <v-col cols="12" md="4">
+        <v-list one-line class="quicks" color="secondary">
+          <v-list-item>
+            <h4 class="white--text my-4">{{$t('quicklinks')}}</h4>
+          </v-list-item>
+          <v-list-item-group color="primary">
+            <v-list-item>
+              <v-list-item-content class="white--text">{{$t('quicks.staffweb')}}</v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content class="white--text">{{$t('quicks.careers')}}</v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content class="white--text">{{$t('quicks.key-docs')}}</v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content class="white--text">{{$t('quicks.gallery')}}</v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
       </v-col>
       <v-col cols="12" md="4">
         <v-card class="mx-auto" tile flat>
           <v-list shaped color="secondary">
-            <v-subheader class="white--text"><h3>CONTACT</h3></v-subheader>
+            <v-subheader class="white--text">
+              <h3>CONTACT</h3>
+            </v-subheader>
             <v-list-item-group color="primary">
               <v-list-item v-for="(info, i) in contacts" :key="i">
                 <v-list-item-icon>
@@ -70,16 +79,16 @@ export default {
     },
     contacts() {
       return this.$store.state.basicInfo;
-    }
+    },
   },
   methods: {
     goto(routeLink) {
-      return this.$router.push({ path: routeLink });
-    }
+      return this.$router.push({ name: routeLink });
+    },
   },
   components: {
-    Timeline
-  }
+    Timeline,
+  },
 };
 </script>
 
@@ -110,13 +119,20 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  box-shadow: 0px 0 10px rgba(182, 228, 255, 0.8);
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 #sub-footer .twitter-card {
   overflow-y: scroll;
+  overflow: hidden;
 }
 
 .last-footer {
   background-color: #f46517;
+}
+
+.quicks {
+  text-transform: uppercase;
 }
 </style>

@@ -4,52 +4,56 @@
     <v-row class="current-issue-home">
       <v-col cols="12" class="introduction-ofm-gfo">
         <h1>GFO & OFM</h1>
-        <p>Aidspan Release Issues with articles every month, in French and English</p>
+        <p>{{$t('desc-gfo')}}</p>
       </v-col>
       <v-col cols="12" md="4" class="current-issue-home-title">
-        <h3>{{$t('currentissue')}}</h3>
+        <h3 class="blue--text lighten-4">{{$t('currentissue')}}</h3>
       </v-col>
       <v-col cols="12" md="8" class="titlebar">
         <h3>{{ currentIssue.title }}</h3>
-        <v-btn
-          depressed
-          small
-          rounded
-          color="white"
-          @click.prevent="downloadIssue(currentIssue.title, currentIssue.language)"
-        >
-          <v-icon left small>mdi-download</v-icon>download
-        </v-btn>
       </v-col>
-      <v-col cols="12" class="articles-container">
-        <v-card
-          class="current-article-home mx-3"
-          v-for="article in currentIssue.related_articles"
-          :key="article.nid"
-          @click="goTo(article.nid)"
+      <v-col cols="12" class="articles">
+        <Carousel3d
+          :controls-visible="true"
+          :perspective="0"
+          :space="400"
+          :display="7"
+          :height="400"
+          :autoplay="true"
+          :autoplayTimeout="2100"
+          :count="7"
+          
         >
-          <v-card-title>
-            <h4>{{ article.title | str_limit(70) }}</h4>
-          </v-card-title>
-          <v-list-item class="grow">
-            <v-list-item-avatar>
-              <v-icon>mdi-feather</v-icon>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <div class="author_name">{{ article.article_author.field_article_author_value}}</div>
-            </v-list-item-content>
-            <v-row align="center" justify="end">
-              <v-icon class="mr-1" small>mdi-history</v-icon>
-              <span class="subheading mr-2 article_date">{{ article.changed | formatDate}}</span>
-            </v-row>
-          </v-list-item>
-          <v-card-text>
-            <p
-              v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
-              class="abstract-text"
-            ></p>
-          </v-card-text>
-        </v-card>
+          <Slide v-for="(article, i) in currentIssue.related_articles" :key="i" :index="i">
+            <v-card @click="goTo(article.nid)" class="current-article-home mx-3" max-width="410" outlined>
+              <v-card-title>
+                <h5 class="text-left blue--text darken-1">{{ article.title | str_limit(70) }}</h5>
+              </v-card-title>
+              <v-list-item class="grow">
+                <v-list-item-avatar color="primary" small>
+                  <v-icon color="white">mdi-feather</v-icon>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <div class="author_name">
+                    <small>{{ article.article_author.field_article_author_value}}</small>
+                  </div>
+                </v-list-item-content>
+                <v-row align="center" justify="end">
+                  <v-icon class="mr-1" small>mdi-history</v-icon>
+                  <span class="subheading mr-2 article_date">
+                    <small>{{ article.changed | formatDate}}</small>
+                  </span>
+                </v-row>
+              </v-list-item>
+              <v-card-text>
+                <p
+                  v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
+                  class="abstract-text text-left"
+                ></p>
+              </v-card-text>
+            </v-card>
+          </Slide>
+        </Carousel3d>
       </v-col>
     </v-row>
   </div>
@@ -58,8 +62,13 @@
 <script>
 import Vue2Filters from "vue2-filters";
 import DownloadIssue from "@/mixins/downloadIssue";
+import { Carousel3d, Slide } from "vue-carousel-3d";
 
 export default {
+  components: {
+    Carousel3d,
+    Slide,
+  },
   mounted() {
     if (localStorage.getItem("lang") === null) {
       localStorage.setItem("lang", this.$i18n.locale);
@@ -71,33 +80,33 @@ export default {
     goTo(goToLink) {
       return this.$router.push({
         name: "article",
-        params: { article_id: goToLink }
+        params: { article_id: goToLink },
       });
-    }
+    },
   },
 
   data() {
     return {
       downloader: "",
-      model: []
+      model: null,
     };
   },
 
   computed: {
     currentIssue() {
       return this.$store.state.currentIssueArticles.data || {};
-    }
+    },
   },
   mixins: [Vue2Filters.mixin, DownloadIssue],
   filters: {
-    capitalize: function(value) {
+    capitalize: function (value) {
       if (!value) return "";
       value = value.toString();
       return (
         value.charAt(0).toUpperCase() + value.slice(1).substr(0, 320) + "..."
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -152,8 +161,8 @@ export default {
 
 .current-article-home {
   display: inline-block;
-  width: 400px;
-  height: 380px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   vertical-align: top;
   border: #f46517 1px dotted;
 }
@@ -185,12 +194,28 @@ export default {
     margin: 0;
   }
 
+  .articles-container {
+    padding: 0;
+    margin-top: 20px;
+  }
   .current-issue-articles-home {
     padding: 0;
   }
 
   .titlebar {
     border-radius: 0px;
+  }
+}
+
+.carousel-3d-container {
+  .carousel-3d-slide {
+    padding: 1px;
+    background-color: white;
+    border: none;
+
+    .title {
+      font-size: 22px;
+    }
   }
 }
 </style>

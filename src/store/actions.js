@@ -12,11 +12,11 @@ export default {
                 console.log(error)
             })
     },
-    async fetchIssues({ commit }, pageNumber) {
+    async fetchgfo({ commit }, pageNumber) {
         Api()
             .get(`/gfo?page=${pageNumber}`)
             .then(function(response) {
-                commit('SET_ISSUES', response.data)
+                commit('SET_GFO', response.data)
             })
             .catch(function(error) {
                 console.log(error)

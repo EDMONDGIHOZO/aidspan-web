@@ -18,48 +18,49 @@ export default {
     singleTag: [],
     activelang: '',
     ofmissues: [],
+    gfoissues: [],
     edition: {},
     adminMenus: [{
             id: 1,
             title: 'Dashboard',
             icon: 'mdi-home',
             lang: 'en',
-            route: '/admin'
+            route: '/admin',
         },
         {
             id: 2,
             title: 'GFO Newsletter',
             icon: 'mdi-email-newsletter',
             lang: 'en',
-            route: '/admin/gfos'
+            route: '/admin/gfos',
         },
         {
             id: 3,
             title: 'Publications',
             icon: 'mdi-receipt',
             lang: 'en',
-            route: '/admin/publications'
+            route: '/admin/publications',
         },
         {
             id: 4,
             title: 'Documents',
             icon: 'mdi-file-document',
             lang: 'en',
-            route: '/admin/documents'
+            route: '/admin/documents',
         },
         {
             id: 5,
             title: 'Careers',
             icon: 'mdi-briefcase',
             lang: 'en',
-            route: '/admin/careers '
+            route: '/admin/careers ',
         },
         {
             id: 6,
             title: 'Donors',
             icon: 'mdi-seed',
             lang: 'en',
-            route: '/admin/donors '
+            route: '/admin/donors ',
         },
     ],
 
@@ -67,25 +68,31 @@ export default {
             id: 1,
             title: 'new issue',
             lang: 'en',
-            route: 'new-issue'
+            route: 'new-issue',
         },
         {
             id: 2,
             title: 'new article',
             lang: 'en',
-            route: 'new-article'
+            route: 'new-article',
         },
         {
             id: 3,
             title: 'new publication',
             lang: 'en',
-            route: 'new-publication'
+            route: 'new-publication',
         },
         {
             id: 4,
             title: 'Image Upload',
             lang: 'en',
-            route: 'new-image'
+            route: 'new-image',
+        },
+        {
+            id: 4,
+            title: 'New Key Document',
+            lang: 'en',
+            route: 'new-key-doc',
         },
     ],
     settingsMenu: [{
@@ -93,14 +100,14 @@ export default {
             title: 'Users',
             icon: 'mdi-account-group',
             lang: 'en',
-            route: 'new-issues'
+            route: 'new-issues',
         },
         {
             id: 2,
             title: 'Basic Site Info',
             icon: 'mdi-alert-circle-check',
             lang: 'en',
-            route: 'new-article'
+            route: 'new-article',
         },
     ],
     /** end of dyanamic data from server */
@@ -129,7 +136,7 @@ export default {
 
     basicInfo: [{
             icon: 'mdi-phone',
-            title: '+254 (0)774-135984'
+            title: '+254 (0)774-135984',
         },
         {
             icon: 'mdi-pin',
@@ -137,7 +144,7 @@ export default {
         },
         {
             icon: 'mdi-email',
-            title: 'info@aidspan.org'
+            title: 'info@aidspan.org',
         },
     ],
     slides: [{
@@ -164,44 +171,39 @@ export default {
     appIcon: require('@/assets/images/common/aid_icon.png'),
 
     quicklinks: [{
-            title: 'Staff web',
-            route: 'dashboard'
-        },
-        {
             title: 'Key Documents',
-            route: 'aidspan/key-documents'
+            route: 'key-documents',
         },
         {
             title: 'Gallery',
-            route: 'gallery'
+            route: 'gallery',
         },
         {
-            title: 'Careers',
-            route: 'aidspan/careers'
-        },
-        {
-            title: 'Sitemap',
-            route: 'aidspan/sitemap'
-        },
+            title: 'Career and Opportunities',
+            route: 'aidspan/careers',
+        }
     ],
 
     epidemics: [{
-            ep_name: 'TUBERCLOSIS',
-            ep_icon: require('@/assets/images/common/tuberclosis.png'),
-            ep_id: 'safda3',
-            class: 'T',
-        },
-        {
             ep_name: 'AIDS',
             ep_icon: require('@/assets/images/common/aids.png'),
             ep_id: 'adfawe',
             class: 'A',
+            color: 'red--text text-center font-weight-bold',
+        },
+        {
+            ep_name: 'TUBERCLOSIS',
+            ep_icon: require('@/assets/images/common/tuberclosis.png'),
+            ep_id: 'safda3',
+            class: 'T',
+            color: 'blue--text text-center font-weight-bold',
         },
         {
             ep_name: 'MALARIA',
             ep_icon: require('@/assets/images/common/maralia.png'),
             ep_id: '213fjdsl',
             class: 'M',
+            color: 'amber--text text-center font-weight-bold',
         },
     ],
 
@@ -216,15 +218,15 @@ export default {
         type: 'news',
         tags: [{
                 title: 'corona Virus',
-                route: 'tags'
+                route: 'tags',
             },
             {
                 title: 'Pendemic',
-                route: 'tags'
+                route: 'tags',
             },
             {
                 title: 'Africa',
-                route: 'tags'
+                route: 'tags',
             },
         ],
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus.',

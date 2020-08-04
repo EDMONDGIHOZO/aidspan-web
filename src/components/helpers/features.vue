@@ -12,7 +12,14 @@
       </div>
       <v-list dense>
         <v-list-item>
-          <v-text-field label="Search Author" single-line dense v-model="searchauth"></v-text-field>
+          <v-text-field
+            label="Search Author"
+            single-line
+            dense
+            background-color="white"
+            prepend-inner-icon="mdi-magnify"
+            v-model="searchauth"
+          ></v-text-field>
         </v-list-item>
         <v-list-item-group color="primary">
           <v-list-item v-for="artype in filteredauthors" :key="artype.id">
@@ -29,7 +36,7 @@
     </div>
     <div class="boxi-2">
       <div class="sticks">
-        <h4 class="text-center my-4">FEATURED TAGS</h4>
+        <h4 class="text-center my-4">LATEST TAGS</h4>
       </div>
       <tags />
     </div>
@@ -56,7 +63,7 @@ export default {
       ],
       searchbtn: false,
       searchtype: "",
-      searchauth: "",
+      searchauth: ""
     };
   },
   computed: {

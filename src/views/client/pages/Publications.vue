@@ -1,86 +1,63 @@
 <template>
-  <div>
-    <p class="text-center my-2">PUBLICATIONS</p>
-    <v-row>
-      <v-col cols="12" class="typeslist">
-        <v-btn
-          v-for="type in types"
-          :key="type.id"
-          class="ma-4 type-name"
-          rounded
-          color="success"
-        >{{type.name}}</v-btn>
-      </v-col>
-    </v-row>
-    <pub-list v-bind:publications="publications" id="publication-view"></pub-list>
+  <div class="publications">
+    <div class="sidenav">
+      <v-btn icon @mouseover="seen = !seen" color="primary">
+        <v-icon>mdi-eye</v-icon>
+      </v-btn>
+      <div class="menus" v-if="!seen">
+        <v-btn depressed rounded color="secondary" class="mx-3" href="#reports">Reports</v-btn>
+        <v-btn depressed rounded color="primary" class="mx-3" href="#guides">Guides</v-btn>
+      </div>
+    </div>
+    <Reports id="reports" />
+    <Guides id="guides" />
   </div>
 </template>
-
-
 <script>
-import publicationList from "@/views/client/pages/publications-list.vue";
-
+import Reports from "@/views/client/pages/reports.vue";
+import Guides from "@/views/client/pages/Guides.vue";
 export default {
-  mounted() {
-    this.$store.dispatch("getPublications");
-    this.$store.dispatch("loadPublicationsTypes");
-    this.$store.dispatch("loadSubscribers");
-  },
-  data() {
-    return {
-      currentType: "all"
-    };
-  },
-
-  filters: {
-    capitalize: function(value) {
-      if (!value) return "";
-      value = value.toString();
-      return (
-        value.charAt(0).toUpperCase() + value.slice(1).substr(0, 150) + "..."
-      );
-    }
-  },
-
-  computed: {
-    publications() {
-      return this.$store.getters.getPublications;
-    },
-    types() {
-      return this.$store.getters.getAllPubTypes;
-    },
-  },
+  name: "publications",
   components: {
-    "pub-list": publicationList
-  }
+    Reports,
+    Guides,
+  },
+  data: () => ({
+    seen: false,
+  }),
 };
 </script>
-
 <style lang="scss" scoped>
-.intro {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 27px;
-  text-align: center;
-  color: #f46517;
+.sidenav {
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 0;
+  border-radius: 10px;
+}
+.sidenav .menus {
+  overflow-x: hidden;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 23px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-#publication-view {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: space-between;
+
+@media only screen and (max-width: 600px) {
+  .sidenav {
+      bottom: 0;
+  }
+  #reports {
+      margin-top: 40px;
+  }
 }
-.typeslist {
-  max-width: 97%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: columns;
-  margin-left: auto;
-  margin-right: auto;
-}
+
+
+
+
 </style>

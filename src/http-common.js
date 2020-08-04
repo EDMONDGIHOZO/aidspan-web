@@ -1,9 +1,10 @@
 import Axios from 'axios'
 
 export default Axios.create({
-    //baseURL: "http://backend.aidspan.org/api/v1",
-    baseURL: "localhost:3331/api/v1",
+    baseURL: "https://webapi.aidspan.org/api/v1",
+    //baseURL: 'http://localhost:3331/api/v1',
     headers: {
-        "Content-type": "application/json"
-    }
+        'Content-type': 'application/json',
+        Authorization: 'Bearer',
+    },
 })

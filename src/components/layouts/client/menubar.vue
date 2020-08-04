@@ -1,6 +1,6 @@
 <template>
   <div class="menubar hidden-xs-only" id="menubar">
-    <v-toolbar min-width="100%" color="primary" class="menucontainer">
+    <v-app-bar min-width="100%" color="primary" class="menucontainer">
       <!--- menubar list -->
       <v-btn rounded class="mx-1" depressed color="primary" @click="gohome">
         <v-icon left small>{{$t('home.action')}}</v-icon>
@@ -14,34 +14,40 @@
         <v-icon left small>{{$t('about.action')}}</v-icon>
         {{$t('about.title')}}
       </v-btn>
-      <v-btn rounded class="mx-1" depressed color="primary" @click="goanalytics">
-        <v-icon left small>{{$t('analytics.action')}}</v-icon>
-        {{$t('analytics.title')}}
-      </v-btn>
       <v-menu open-on-hover bottom offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn rounded class="mx-1" depressed color="primary" v-on="on" v-bind="attrs" @click="gopubs">
-            <v-icon left small>{{$t('publications.action')}}</v-icon>
-            {{$t('publications.title')}}
+          <v-btn
+            rounded
+            class="mx-1"
+            depressed
+            color="primary"
+            v-bind="attrs"
+            v-on="on"
+            @click="goanalytics"
+          >
+            <v-icon left small>{{$t('analytics.action')}}</v-icon>
+            {{$t('analytics.title')}}
           </v-btn>
         </template>
-        <v-list shaped>
-          <v-list-item-group color="primary">
-            <v-list-item>
-              <v-list-title>{{$t('publications.submenus[0].title')}}</v-list-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-title>{{$t('publications.submenus[1].title')}}</v-list-title>
-            </v-list-item>
-          </v-list-item-group>
+        <v-list rounded>
+          <v-list-item @click="goanalytics">
+            <v-btn depressed text rounded>Methodologies</v-btn>
+          </v-list-item>
+          <v-list-item @click="Vcountry">
+            <v-btn depressed text rounded>Grants By Country</v-btn>
+          </v-list-item>
         </v-list>
       </v-menu>
+      <v-btn rounded class="mx-1" depressed color="primary" @click="gopubs">
+        <v-icon left small>{{$t('publications.action')}}</v-icon>
+        {{$t('publications.title')}}
+      </v-btn>
 
       <!---menu end -->
       <v-spacer></v-spacer>
       <Search :dialog="false" />
       <locale-switch></locale-switch>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
@@ -52,7 +58,7 @@ export default {
   computed: {
     menus() {
       return this.$store.state.menus.data;
-    }
+    },
   },
   methods: {
     gohome() {
@@ -61,20 +67,32 @@ export default {
     gogfo() {
       return this.$router.push({ name: "Editorial" });
     },
-    goabout(){
-         return this.$router.push({ name: "about" });
+    goabout() {
+      return this.$router.push({ name: "about" });
     },
-    goanalytics(){
-         return this.$router.push({ name: "Analytics" });
+    goanalytics() {
+      return this.$router.push({ name: "Analytics" });
     },
-    gopubs(){
-         return this.$router.push({ name: "Publications" });
-    }
+    gopubs() {
+      return this.$router.push({ name: "Publications" });
+    },
+
+    Vcountry() {
+      return this.$router.push({ name: "GrantsPortfolio" });
+    },
+    onMutate() {
+      let height = 0;
+      const toolbar = this.$refs.toolbar;
+      if (toolbar) {
+        height = `${toolbar.$el.offsetHeight}px`;
+      }
+      document.documentElement.style.setProperty("--toolbarHeight", height);
+    },
   },
   components: {
     Search,
-    "locale-switch": localSwitcher
-  }
+    "locale-switch": localSwitcher,
+  },
 };
 </script>
 

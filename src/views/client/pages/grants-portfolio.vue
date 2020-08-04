@@ -23,8 +23,8 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th colspan="3" class="text-center title">
-                  Grants by Diseases
+                <th colspan="3" class="text-center">
+                  <h4 color="primary" class="text-uppercase">Grants by Diseases</h4>
                 </th>
               </tr>
               <tr>
@@ -38,7 +38,7 @@
                 <td class="text-left">{{ disease.dName }}</td>
                 <td>
                   $ {{ disease.dsignedAmount }}
-                  <v-chip class="ma-2" color="success" outlined>
+                  <v-chip class="ma-2 align-left" color="success" outlined>
                     {{ disease.dSignedPercentage }}
                     <v-icon right small>mdi-percent</v-icon>
                   </v-chip>
@@ -64,7 +64,9 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th colspan="3" class="text-center title">Grants by Regions</th>
+                <th colspan="3" class="text-center">
+                    <h4 color="primary" class="text-uppercase">Grants by Regions</h4>
+                </th>
               </tr>
               <tr>
                 <th class="text-left">Region</th>
@@ -103,8 +105,8 @@
           <v-card-title class="blue--text font-weight-black">
             GRANTS BY COUNTRY
           </v-card-title>
-          <v-card-text class="body-1">
-            The information provided here is based entirely on data obtained
+          <v-card-text>
+              <p>The information provided here is based entirely on data obtained
             from the Global Fund, most of which is on the Fund's website. The
             Aidspan web server checks every three hours for possible new data at
             the Fund's website. Every few months, the Global Fund assigns each
@@ -114,7 +116,7 @@
             potential demonstrated”) or C (“Unacceptable”). In the map below, we
             show the average rating assigned by the Global Fund since January
             2010 for grants to each country. Where a country has had fewer than
-            four ratings assigned, no average rating is shown.
+            four ratings assigned, no average rating is shown.</p>
           </v-card-text>
         </v-card>
       </v-col>

@@ -13,6 +13,9 @@ export default {
     SET_OFM(state, payload) {
         state.ofmissues = payload
     },
+    SET_GFO(state, payload) {
+        state.issues = payload
+    },
     SET_EDITION(state, payload) {
         state.edition = payload
     },
@@ -61,6 +64,9 @@ export default {
     },
     SET_CURRENT_PAGE_OFM(state, data) {
         state.ofmissues.page = data
+    },
+    SET_CURRENT_PAGE_GFO(state, data) {
+        state.gfoissues.page = data
     },
 
 }
