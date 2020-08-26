@@ -69,7 +69,7 @@
             <v-slide-group multiple show-arrows light>
               <v-slide-item v-for="logo in donorsLogos" :key="logo.id">
                 <v-card flat class="ma-2 pa-3" outlined :href="logo.web" target="_blank">
-                  <img :src="logo.img" alt="donor logo" height="73px" />
+                  <img :src="logo.img" alt="donor logo" height="50px" />
                 </v-card>
               </v-slide-item>
             </v-slide-group>
@@ -88,64 +88,65 @@ import { mapState } from "vuex";
 import currentIssue from "@/components/helpers/currentIssue.vue";
 import Landing from "@/components/tools/landingimage.vue";
 
+
 export default {
   computed: {
-    ...mapState(["slides", "articles", "publications", "epidemics"])
+    ...mapState(["slides", "articles", "publications", "epidemics"]),
   },
   components: {
     "current-issue": currentIssue,
-    "landing-image": Landing
+    "landing-image": Landing,
+   
   },
 
   data() {
     return {
       //donors logos //
       donorsLogos: [
-          
         {
           img: require("@/assets/images/common/donors/giz.jpg"),
           web: "https://www.giz.de/en/",
-          id: 1
+          id: 1,
         },
         {
           img: require("@/assets/images/common/donors/norad.png"),
           web: "https://norad.no/en/front/",
-          id: 2
+          id: 2,
         },
         {
           img: require("@/assets/images/common/donors/Ahf.jpg"),
           web: "https://www.aidshealth.org",
-          id: 3
+          id: 3,
         },
         {
           img: require("@/assets/images/common/donors/irishAid.jpg"),
           web: "https://www.irishaid.ie/",
-          id: 4
+          id: 4,
         },
         {
           img: require("@/assets/images/common/donors/governmentNetherland.png"),
           web: "https://www.giz.de/en/worldwide",
-          id: 5
+          id: 5,
         },
         {
           img: require("@/assets/images/common/donors/opensociety.png"),
           web: "https://www.opensocietyfoundations.org/",
-          id: 6
+          id: 6,
         },
 
         {
           img: require("@/assets/images/common/donors/initiative5.png"),
           web: "https://www.initiative5pour100.fr/",
-          id: 7
-        }
+          id: 7,
+        },
       ],
 
       //end of donors logos
       //subscribe form
       email: "",
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
       valid: false,
       select: null,
@@ -158,34 +159,34 @@ export default {
           icon: "folder",
           iconClass: "orange lighten-1 white--text",
           title: "Photos",
-          subtitle: "Jan 9, 2014"
+          subtitle: "Jan 9, 2014",
         },
         {
           icon: "folder",
           iconClass: "orange lighten-1 white--text",
           title: "Recipes",
-          subtitle: "Jan 17, 2014"
+          subtitle: "Jan 17, 2014",
         },
         {
           icon: "folder",
           iconClass: "orange lighten-1 white--text",
           title: "Work",
-          subtitle: "Jan 28, 2014"
-        }
+          subtitle: "Jan 28, 2014",
+        },
       ],
       items2: [
         {
           icon: "assignment",
           iconClass: "blue white--text",
           title: "Vacation itinerary",
-          subtitle: "Jan 20, 2014"
+          subtitle: "Jan 20, 2014",
         },
         {
           icon: "call_to_action",
           iconClass: "amber white--text",
           title: "Kitchen remodel",
-          subtitle: "Jan 10, 2014"
-        }
+          subtitle: "Jan 10, 2014",
+        },
       ],
       //sampled data
       model: false,
@@ -194,31 +195,31 @@ export default {
           icon: "mdi-google-analytics",
           title: "DATA ANALYTICS",
           language: "en",
-          link: "/data-analyics"
+          link: "/data-analyics",
         },
         {
           icon: "mdi-email-newsletter",
           title: "EDITORIAL",
           language: "en",
-          link: "/gfo-newsletter"
+          link: "/gfo-newsletter",
         },
         {
           icon: "mdi-parachute",
           title: "POLICY ANALYSIS",
           language: "en",
-          link: "policy-analysis"
-        }
+          link: "policy-analysis",
+        },
       ],
       colors: [
         "green",
         "secondary",
         "yellow darken-4",
         "red lighten-2",
-        "orange darken-1"
+        "orange darken-1",
       ],
-      cycle: false
+      cycle: false,
     };
-  }
+  },
 };
 </script>
 

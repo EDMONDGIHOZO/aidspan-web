@@ -1,15 +1,15 @@
 <template>
   <div class="locales">
-    <v-chip color="secondary">
-      <v-btn
-        v-for="locale in locales"
-        :key="locale"
-        icon
-        rounded
-        class="langs"
-        @click="switchLocale(locale)"
-      >{{locale}}</v-btn>
-    </v-chip>
+    <v-btn
+      v-for="locale in locales"
+      :key="locale"
+      fab
+      small
+      color="secondary"
+      rounded
+      class="mx-1 langs"
+      @click="switchLocale(locale)"
+    >{{locale}}</v-btn>
   </div>
 </template>
 
@@ -23,13 +23,13 @@ export default {
         localStorage.setItem("lang", locale);
         window.location.reload();
       }
-    }
+    },
   },
   data() {
     return {
-      locales: process.env.VUE_APP_I18N_SUPPORTED_LOCALE.split(",")
+      locales: process.env.VUE_APP_I18N_SUPPORTED_LOCALE.split(","),
     };
-  }
+  },
 };
 </script>
 

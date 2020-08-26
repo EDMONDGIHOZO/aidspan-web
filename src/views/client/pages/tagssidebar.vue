@@ -3,85 +3,69 @@
     <div class="progress" v-if="loading">
       <v-progress-circular :size="50" color="primary" :indeterminate="true"></v-progress-circular>
     </div>
-    <ais-instant-search :search-client="searchClient" index-name="article_tags">
-      <ais-configure :hits-per-page.camel="20" :query="searchQuery" />
-      <v-list one-line>
-        <v-list-item>
-          <v-text-field
-            label="type a tag name , "
-            required
-            single-line
-            dense
-            background-color="white"
-            prepend-inner-icon="mdi-magnify"
-            v-model="searchQuery"
-          ></v-text-field>
+    <v-list dense>
+      <v-list-item>
+        <v-text-field
+          label="Search in tags"
+          type="text"
+          ref="search"
+          single-line
+          hide-details
+          background-color="white"
+          prepend-inner-icon="mdi-magnify"
+          dense
+          v-model.trim="search"
+        ></v-text-field>
+      </v-list-item>
+      <v-list-item-group color="secondary" rounded>
+        <v-list-item v-for="artag in filteredtags" :key="artag.name" @click="viewtag(artag.tid)">
+          <v-list-item-content>
+            <v-list-item-title v-text="artag.name"></v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
-        <v-list-item-group mandatory>
-          <ais-hits>
-            <template slot="item" slot-scope="{ item }">
-              <v-list-item @click="gototag(item.tid)">
-                <v-chip class="ma-2" color="primary" small text-color="white">{{item.language}}</v-chip>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.name"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </template>
-          </ais-hits>
-        </v-list-item-group>
-      </v-list>
-      <v-divider></v-divider>
-      <div class="search-panel__filters">
-        <ais-refinement-list
-          :class-names="{
-            'ais-RefinementList': 'langlist',
-            'ais-RefinementList-item': 'langItem',
-        }"
-          attribute="language"
-        />
-      </div>
-    </ais-instant-search>
+      </v-list-item-group>
+    </v-list>
   </div>
 </template>
 
 
 <script>
-import algoliasearch from "algoliasearch";
+import Api from "@/services/Api"
 export default {
   data() {
     return {
       search: "",
       tags: [],
       loading: false,
-      maxNum: 40,
-      en: "warning",
-      fr: "primary",
-      searchQuery: "",
-      searchClient: algoliasearch(
-        "60L5IRZWVM",
-        "f79c7704105112a8735d1d2dc871b99b"
-      )
+      maxNum: 300,
     };
   },
   computed: {
     filteredtags() {
-      return this.tags.filter(tag => {
+      return this.tags.filter((tag) => {
         return tag.name.toLowerCase().includes(this.search.toLowerCase());
       });
-    }
+    },
+  },
+  created() {
+    Api()
+      .get(`article-tags/all/${this.maxNum}`)
+      .then((response) => {
+        this.tags = response.data;
+      });
   },
   methods: {
-    gototag(tid) {
+    viewtag(tid) {
       this.$router.push({
         name: "articletags",
-        params: { tid: tid }
+        params: { tid: tid },
       });
     },
     findMore() {
       this.maxNum = this.maxNum + 10;
       console.log(this.maxNum);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,8 +1,9 @@
 <template>
   <div>
     <!-- start the searchbox overlay -->
-    <v-btn icon color="white" @click.stop="dialog = true">
-      <v-icon small>mdi-magnify</v-icon>
+    <v-btn color="primary" class="white--text" @click.stop="dialog = true" depressed outlined rounded>
+      SEARCH
+      <v-icon medium right>mdi-magnify</v-icon>
     </v-btn>
     <v-row justify-center>
       <v-dialog
@@ -32,7 +33,7 @@
                     v-model="searchQuery"
                   ></v-text-field>
                   <v-row>
-                    <v-col cols="12" md="4">
+                    <v-col cols="12" md="3">
                       <v-card outlined>
                         <v-card-title>
                           <h4>Filter by Authors</h4>
@@ -44,7 +45,7 @@
                         </v-card-text>
                       </v-card>
                     </v-col>
-                    <v-col cols="12" md="4">
+                    <v-col cols="12" md="3">
                       <v-card outlined>
                         <v-card-title>
                           <h4>Filter by Years</h4>
@@ -56,7 +57,7 @@
                         </v-card-text>
                       </v-card>
                     </v-col>
-                    <v-col cols="12" md="4">
+                    <v-col cols="12" md="3">
                       <v-card outlined>
                         <v-card-title>
                           <h4>Filter by Types</h4>
@@ -64,6 +65,18 @@
                         <v-card-text>
                           <div class="search-panel__filters">
                             <ais-refinement-list attribute="type.name" />
+                          </div>
+                        </v-card-text>
+                      </v-card>
+                    </v-col>
+                    <v-col cols="12" md="3">
+                      <v-card outlined>
+                        <v-card-title>
+                          <h4>Filter by Tags</h4>
+                        </v-card-title>
+                        <v-card-text>
+                          <div class="search-panel__filters">
+                            <ais-refinement-list attribute="tag.name" />
                           </div>
                         </v-card-text>
                       </v-card>
@@ -81,7 +94,7 @@
                               ></v-list-item-title>
                               <v-list-item-subtitle
                                 class="text--primary"
-                              >Author | {{item.author.field_article_author_value}}</v-list-item-subtitle>
+                              >Author | {{item.author.field_article_author_value}}   -   {{item.created}}</v-list-item-subtitle>
                             </v-list-item-content>
                           </v-list-item>
                         </v-card>
@@ -147,7 +160,7 @@ export default {
   margin-right: auto;
 }
 
-.ais-RefinementList-count{
-    background-color: rgb(204, 117, 4);
+.ais-RefinementList-count {
+  background-color: rgb(204, 117, 4);
 }
 </style>

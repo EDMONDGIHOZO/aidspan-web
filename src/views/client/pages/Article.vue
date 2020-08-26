@@ -34,10 +34,6 @@
               <span class="mx-5 text-lg-right">
                 <small class="font-weight-bold">{{ article.created | formatDate }}</small>
               </span>
-              <span class="mx-5 text-lg-right">
-                <v-icon small left color="info">mdi-eye</v-icon>
-                <small class="font-weight-bold">{{views}} {{$t('views')}}</small>
-              </span>
             </v-col>
             <!-- start the social sharing icons -->
             <v-col cols="7" md="4" class="text-right">
@@ -61,7 +57,7 @@
                     <i class="fa fa-envelope"></i>
                   </network>
                   <network network="facebook">
-                    <i class="fa fa-facebook fa-5x"></i>
+                    <i class="fa fa-facebook"></i>
                   </network>
 
                   <network network="linkedin">
@@ -73,7 +69,7 @@
             <!--- end of the social sharing icons -->
             <v-col cols="12">
               <v-card class="abstract" flat>
-                <v-card-title>Abstract</v-card-title>
+                <v-card-title class="white--text">{{$t("abstract")}}</v-card-title>
                 <v-card-text>
                   <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
                 </v-card-text>
@@ -231,12 +227,13 @@
           dark
           bottom
           fixed
-          small
           right
-          fab
+          rounded
+          depressed
           @click.stop="issueview = !issueview"
         >
-          <v-icon small>mdi-chevron-left</v-icon>
+          <v-icon left>mdi-chevron-left</v-icon>
+          <strong>Show Issue</strong>
         </v-btn>
       </v-fab-transition>
       <v-col cols="12" md="3">
@@ -276,7 +273,7 @@
                       v-text="issue.title"
                       class="issue-title-side font-weight-black title-2"
                     ></v-list-item-title>
-                    <v-list-item-subtitle>{{issue.changed | formatDate}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{issue.created | formatDate}}</v-list-item-subtitle>
                   </v-list-item-content>
                   <v-list-item-action>
                     <v-btn icon @click="downloadIssue(issue.title)">
@@ -384,7 +381,6 @@ export default {
       show: false,
       currentlink: "",
       user_inf: {},
-      views: 0,
     };
   },
 
@@ -409,11 +405,7 @@ export default {
       .get(`Articles/${this.article_id}`)
       .then((response) => {
         this.article = response.data.article;
-        if(response.data.views[0].v !== null){
-            this.views = response.data.views[0].v;
-        }else {
-            this.views = 0
-        }
+        document.title = response.data.article.title;
         this.loading = false;
         this.currentlink = window.location.href;
         if (response.data.likes !== null) {
@@ -541,16 +533,16 @@ export default {
 
 #articleSection .abstract {
   text-align: left;
-  text-transform: capitalize;
   background: #42aeef;
-  color: rgb(255, 255, 255);
   font-style: italic;
 }
 
-#articleSection .abstract .text {
-  font-size: 16px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
+.abstract .text {
+    color: white;
+}
+
+.abstract .text a {
+    color: #000000;
 }
 
 #articleSection .content {

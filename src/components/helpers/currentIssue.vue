@@ -17,15 +17,20 @@
           :controls-visible="true"
           :perspective="0"
           :space="400"
-          :display="7"
+          :display="10"
           :height="400"
           :autoplay="true"
           :autoplayTimeout="2100"
-          :count="7"
-          
+          :count="10"
         >
           <Slide v-for="(article, i) in currentIssue.related_articles" :key="i" :index="i">
-            <v-card @click="goTo(article.nid)" class="current-article-home mx-3" max-width="410" outlined>
+            <v-card
+              @click="goTo(article.nid)"
+              class="current-article-home mx-3"
+              max-width="420"
+              min-height="400"
+              outlined
+            >
               <v-card-title>
                 <h5 class="text-left blue--text darken-1">{{ article.title | str_limit(70) }}</h5>
               </v-card-title>
@@ -41,7 +46,7 @@
                 <v-row align="center" justify="end">
                   <v-icon class="mr-1" small>mdi-history</v-icon>
                   <span class="subheading mr-2 article_date">
-                    <small>{{ article.changed | formatDate}}</small>
+                    <small>{{ article.created | formatDate}}</small>
                   </span>
                 </v-row>
               </v-list-item>
@@ -74,6 +79,7 @@ export default {
       localStorage.setItem("lang", this.$i18n.locale);
     }
     this.$store.dispatch("loadCurrentIssue", this.$i18n.locale);
+    this.window.resizeTo = (800, 900);
   },
 
   methods: {
@@ -91,7 +97,6 @@ export default {
       model: null,
     };
   },
-
   computed: {
     currentIssue() {
       return this.$store.state.currentIssueArticles.data || {};

@@ -3,6 +3,7 @@
 export default {
     /** get dynamic data from server  */
     issues: [],
+    subdb: true,
     issue_article: {},
     currentIssueArticles: {},
     article: {},
@@ -185,7 +186,7 @@ export default {
     ],
 
     epidemics: [{
-            ep_name: 'AIDS',
+            ep_name: 'HIV-AIDS',
             ep_icon: require('@/assets/images/common/aids.png'),
             ep_id: 'adfawe',
             class: 'A',

@@ -130,6 +130,8 @@ const routes = [{
                     {
                         path: 'edition/:nid',
                         name: 'edition',
+                        props: true,
+                        params: true,
                         component: () =>
                             import (
                                 /* webpackChunkName: "single-edition" */
@@ -146,7 +148,7 @@ const routes = [{
                         params: true,
                         component: () =>
                             import (
-                                /* webpackChunkName: "editoral" */
+                                /* webpackChunkName: "article-tags" */
                                 '../views/client/pages/articletags.vue'
                             ),
                         meta: {
@@ -167,6 +169,7 @@ const routes = [{
                             title: 'GFO Article Types',
                         },
                     },
+
                     {
                         path: 'article/:article_id',
                         name: 'article',
@@ -180,6 +183,21 @@ const routes = [{
                             ),
                         meta: {
                             title: 'Gfo Newsletter',
+                        },
+                    },
+                    {
+                        path: 'search/:query',
+                        name: 'search-results',
+                        props: true,
+                        params: true,
+
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "search-result" */
+                                '../views/client/pages/search.vue'
+                            ),
+                        meta: {
+                            title: 'Search results',
                         },
                     },
                     {
@@ -365,10 +383,30 @@ const routes = [{
                             title: 'create new Publication',
                         },
                     },
+                    {
+                        path: 'edit-article/:nid',
+                        props: true,
+                        params: true,
+                        name: 'edit',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "edit" */
+                                '../views/admin/dashboard/pages/EditArticle.vue'
+                            ),
+                        meta: {
+                            title: 'edit-article',
+                        },
+                    },
                 ],
             },
         ],
     },
+    { path: '/node/:id', redirect: '/en/c/article/:id' },
+    { path: '/fr/node/:id', redirect: '/fr/c/article/:id' },
+    { path: '/gfo_article/:query', redirect: '/en/c/search/:query' },
+    { path: '/page/:title', redirect: '/en/c' },
+    { path: '/taxonomy/term/:tid', redirect: '/en/c/article-tags/:tid' },
+    { path: "/user/logout", redirect: "/en/c/editorial" },
     {
         path: '*',
         name: 'notFound',

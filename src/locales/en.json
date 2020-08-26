@@ -20,6 +20,12 @@
         "action": "mdi-lightbulb-on",
         "route": "en/about-us"
     },
+    "policy": {
+        "title": "Policy Analysis",
+        "action": "mdi-hexagon-multiple",
+        "route": "en/about-us#policy",
+        "data": "Aidspan conducts independent and critical analysis and investigation of Global Fund policies, strategies, processes and structures, funding mechanisms, transparency and data quality. We publish its analytical content through reports, case studies, peer-reviewed articles, and reviews. Aidspan also provides guidance to those applying for, implementing or overseeing Global Fund grants by publishing guides on diverse subjects. Aidspan relies on a small team of in-house researchers and external collaborators with expertise in health economics, epidemiology, governance, health systems strengthening, and Global Fund processes among others. We are developing collaborations with research institutions and other policy-focused organizations. Aidspan aims to provide independent analyses on the Global Fund policies that can be used by our stakeholders. They include the Global Fund (Secretariat, Office of the Inspector General (OIG) and Board, including the committees), Global Fund donors, implementers, civil society researchers, and media. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations."
+    },
     "analytics": {
         "title": "Data analytics",
         "action": "mdi-google-analytics",
@@ -45,7 +51,11 @@
         "action": "mdi-eye",
         "route": "en/publications"
     },
-    "newsletterbtn": "Subscribe to newsletters",
+    "newsletterbtn": "subscribe to our newsletter",
+    "thankyou": {
+        "title": "thank you for subscribing to our newsletter",
+        "message": "Please remember to mark our email as important!"
+    },
     "newsletterbtn_desc": "for the newsletter in English choose GFO or OFM for french",
     "subscribe": "subscribe",
     "define_guides": "Aidspan Guides Are Free Downloadable Publications Of 50 To 150 Pages Providing Detailed Practical Advice To Those Applying For, Overseeing Or Implementing Global Fund Grants. Guides Exist On Subjects From How To Apply For A Global Fund Grant To How To Set Up A Country Coordinating Mechanism.",
@@ -92,5 +102,10 @@
         "staffweb": "GFO Editor",
         "gallery": "Gallery",
         "careers": "Career and Opportunities"
+    },
+    "abstract": "ABSTRACT",
+    "board-dirs": {
+        "title": "BOARD OF DIRECTORS",
+        "desc": "Aidspan has two 2-day board meetings per year. Board members are not paid for their work. Aidspan is headed by a Board of Directors composed of four accomplished professionals with diverse skills."
     }
 }

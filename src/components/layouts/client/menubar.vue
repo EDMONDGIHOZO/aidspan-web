@@ -1,18 +1,23 @@
 <template>
   <div class="menubar hidden-xs-only" id="menubar">
-    <v-app-bar min-width="100%" color="primary" class="menucontainer">
+      <Header class="d-none d-sm-flex"></Header>
+    <v-app-bar min-width="100%" color="primary" flat class="menucontainer">
       <!--- menubar list -->
-      <v-btn rounded class="mx-1" depressed color="primary" @click="gohome">
+      <v-btn rounded class="mx-0" depressed color="primary" @click="gohome">
         <v-icon left small>{{$t('home.action')}}</v-icon>
         {{$t('home.title')}}
       </v-btn>
-      <v-btn rounded class="mx-1" depressed color="primary" @click="gogfo">
+      <v-btn rounded class="mx-0" depressed color="primary" @click="gogfo">
         <v-icon left small>{{$t('gfo.action')}}</v-icon>
         {{$t('gfo.title')}}
       </v-btn>
-      <v-btn rounded class="mx-1" depressed color="primary" @click="goabout">
+      <v-btn rounded class="mx-0" depressed color="primary" @click="goabout">
         <v-icon left small>{{$t('about.action')}}</v-icon>
         {{$t('about.title')}}
+      </v-btn>
+      <v-btn rounded class="mx-0" depressed color="primary" @click="policy">
+        <v-icon left small>{{$t('policy.action')}}</v-icon>
+        {{$t('policy.title')}}
       </v-btn>
       <v-menu open-on-hover bottom offset-y>
         <template v-slot:activator="{ on, attrs }">
@@ -42,7 +47,7 @@
         <v-icon left small>{{$t('publications.action')}}</v-icon>
         {{$t('publications.title')}}
       </v-btn>
-
+    
       <!---menu end -->
       <v-spacer></v-spacer>
       <Search :dialog="false" />
@@ -54,6 +59,7 @@
 <script>
 import Search from "@/components/helpers/search.vue";
 import localSwitcher from "@/components/helpers/localeswitch.vue";
+import Header from "@/components/layouts/client/Header.vue";
 export default {
   computed: {
     menus() {
@@ -76,6 +82,9 @@ export default {
     gopubs() {
       return this.$router.push({ name: "Publications" });
     },
+    policy() {
+      return this.$router.push({ path: "c/about-us#policy" });
+    },
 
     Vcountry() {
       return this.$router.push({ name: "GrantsPortfolio" });
@@ -91,21 +100,17 @@ export default {
   },
   components: {
     Search,
+     Header,
     "locale-switch": localSwitcher,
   },
 };
 </script>
 
 <style lang="scss">
-nav {
-  -webkit-box-shadow: -1px 4px 5px 0px rgba(64, 186, 247, 0.53);
-  -moz-box-shadow: -1px 4px 5px 0px rgba(64, 186, 247, 0.53);
-  box-shadow: -1px 4px 5px 0px rgba(64, 186, 247, 0.53);
-}
 
 .right-icons .btn {
   float: right;
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 .emptyList {

@@ -53,30 +53,10 @@
       <v-col cols="12">
         <v-card color="primary" flat shaped id="policy">
           <v-card-title>
-            <h4>POLICY ANALYSIS</h4>
+            <h4>{{$t("policy.title")}}</h4>
           </v-card-title>
           <v-card-text>
-            <p class="white--text">
-              Aidspan conducts independent and critical analysis and
-              investigation of Global Fund policies, strategies, processes and
-              structures, funding mechanisms, transparency and data quality. We
-              publish its analytical content through reports, case studies,
-              peer-reviewed articles, and reviews. Aidspan also provides
-              guidance to those applying for, implementing or overseeing Global
-              Fund grants by publishing guides on diverse subjects. Aidspan
-              relies on a small team of in-house researchers and external
-              collaborators with expertise in health economics, epidemiology,
-              governance, health systems strengthening, and Global Fund
-              processes among others. We are developing collaborations with
-              research institutions and other policy-focused organizations.
-              Aidspan aims to provide independent analyses on the Global Fund
-              policies that can be used by our stakeholders. They include the
-              Global Fund (Secretariat, Office of the Inspector General (OIG)
-              and Board, including the committees), Global Fund donors,
-              implementers, civil society researchers, and media. All Aidspan
-              publications are open access. We welcome suggestions for articles
-              and research collaborations.
-            </p>
+            <p class="white--text">{{$t("policy.data")}}</p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -113,14 +93,11 @@
     </v-row>
     <v-row class="board-row">
       <v-col cols="12">
-        <h3 class="text-center">BOARD OF DIRECTORS</h3>
-        <p class="pa-5 text-center">
-          Aidspan has two 2-day board meetings per year. Board members are not paid for their work.
-          Aidspan is headed by a Board of Directors composed of four accomplished professionals with diverse skills.
-        </p>
+        <h3 class="text-center">{{$t("board-dirs.title")}}</h3>
+        <p class="pa-5 text-center">{{$t("board-dirs.desc")}}</p>
       </v-col>
       <v-col cols="12" id="board">
-        <v-hover v-for="director in directors" :key="director.names">
+        <v-hover v-for="director in directors" :key="director.id">
           <template v-slot:default="{ hover }">
             <v-card class="leader" width="400">
               <v-img :src="director.img" height="300" :aspect-ratio="16/9"></v-img>
@@ -138,7 +115,12 @@
                   class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal"
                 >
                   <p>{{director.desc}}</p>
-                  <v-chip color="secondary" small :href="'mailto:'+director.email" target="_black">{{director.email}}</v-chip>
+                  <v-chip
+                    color="secondary"
+                    small
+                    :href="'mailto:'+director.email"
+                    target="_black"
+                  >{{director.email}}</v-chip>
                 </v-overlay>
               </v-expand-transition>
             </v-card>
@@ -278,32 +260,29 @@ export default {
       //core values
       directors: [
         {
-          names: "Ida Hakizinka",
-          position: "EXECUTIVE DIRECTOR",
-          img: require("@/assets/images/common/board/ida.jpg"),
-          desc: "Aidspan’s Executive Director, ex officio",
-          email: "(ida.hakizinka@aidspan.org)",
-        },
-        {
-          names: "Professor Alan Whiteside",
-          position: "BOARD Member",
-          email: "(awhiteside@balsillieschool.ca)",
-          desc:
-            "Founder and Executive Director of the Health Economics and HIV/AIDS Research Division at the University of KwaZulu-Natal",
-          img:
-            "https://docs.aidspan.org/wl/?id=36GwStX5S3Ao7OeYlBiNXp2bsmgbgaYF",
-        },
-        {
+          id: 1,
           names: "ISAAC AWUONDO",
           position: "BOARD CHAIR",
           email: "(isaac.awuondo@cbagroup.com)",
           desc:
             "Group Managing Director, Commercial Bank of Africa, Based in Nairobi, Kenya.",
           img:
-            "https://docs.aidspan.org/wl/?id=BvU25i9fMQLpXUUD0TgcoQLHGeAwzd4O",
+            "https://copiaglobal.com/wp-content/uploads/2019/09/IMG_0001.jpeg",
+        },
+
+        {
+          id: 2,
+          names: "Professor Alan Whiteside",
+          position: "BOARD Member",
+          email: "(awhiteside@balsillieschool.ca)",
+          desc:
+            "Founder and Executive Director of the Health Economics and HIV/AIDS Research Division at the University of KwaZulu-Natal",
+          img:
+            "data:image/jpeg;base64,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",
         },
         {
-          names: "Djalo",
+          id: 3,
+          names: "Djalo Mele",
           email: "(djalomele@yahoo.fr)",
           position: "BOARD Member",
           desc:
@@ -312,6 +291,7 @@ export default {
             "https://docs.aidspan.org/wl/?id=X97aIrA2uNvi1UlMaNE862iSEgYfWBBz",
         },
         {
+          id: 4,
           names: "Dr. Jesse Boardman Bump",
           email: "(bump@hsph.harvard.edu)",
           position: "BOARD Member",
@@ -319,6 +299,14 @@ export default {
             "Executive director of the Takemi Program in International Health and lecturer on global health policy at the Harvard T.H. Chan School of Public Health.",
           img:
             "https://pkimgcdn.peekyou.com/932a0368033d136a8c1130738c513a4e.jpeg",
+        },
+        {
+          id: 5,
+          names: "Ida Hakizinka",
+          position: "EXECUTIVE DIRECTOR",
+          img: require("@/assets/images/common/board/ida.jpg"),
+          desc: "Aidspan’s Executive Director, ex officio",
+          email: "(ida.hakizinka@aidspan.org)",
         },
       ],
     };
@@ -370,7 +358,6 @@ export default {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-
 }
 .desc {
   font-size: 20px;
@@ -384,7 +371,7 @@ export default {
   background-color: #e9edf0;
 }
 .miscard {
-    min-width: 100%;
+  min-width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
   box-shadow: 10px 10px 18px rgba(244, 247, 252, 0.9),
