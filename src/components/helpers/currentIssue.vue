@@ -19,8 +19,6 @@
           :space="400"
           :display="10"
           :height="400"
-          :autoplay="true"
-          :autoplayTimeout="2100"
           :count="10"
         >
           <Slide v-for="(article, i) in currentIssue.related_articles" :key="i" :index="i">

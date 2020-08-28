@@ -10,6 +10,8 @@
       </div>
       <div class="articles">
         <v-card
+          width="550"
+          height="350"
           hover
           class="ma-3 single"
           v-for="article in issuedetails.related_articles"
@@ -30,12 +32,23 @@
               v-html="$options.filters.capitalize(article.article_abstract.field_article_abstract_value)"
               class="abstract-text text-left"
             ></p>
+          </v-card-text>
+          <v-card-actions>
             <v-row>
               <v-col cols="6">
-                <v-chip class="ma-2" color="primary">{{article.article_number.field_article_number_value}}</v-chip>
+                <template v-slot:extension>
+                  <v-fab-transition>
+                    <v-btn
+                      color="pink"
+                      dark
+                      small
+                      left
+                    >{{article.article_number.field_article_number_value}}</v-btn>
+                  </v-fab-transition>
+                </template>
               </v-col>
             </v-row>
-          </v-card-text>
+          </v-card-actions>
         </v-card>
       </div>
     </div>
@@ -76,7 +89,7 @@ export default {
       if (!value) return "";
       value = value.toString();
       return (
-        value.charAt(0).toUpperCase() + value.slice(1).substr(0, 800) + "..."
+        value.charAt(0).toUpperCase() + value.slice(1).substr(0, 300) + "..."
       );
     },
   },
@@ -92,7 +105,7 @@ export default {
 
 .articles {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
 }

@@ -10,7 +10,7 @@ export default {
             str = str.replace('GFO Issue ', '')
 
             if (islanguage === 'en') {
-                link = `/sites/default/files/gfo/${str}/English/GFO-Issue-${str}.pdf`
+                link = `../aid-server/public/uploads/sites/default/files/gfo/${str}/English/GFO-Issue-${str}.pdf`
             } else {
                 link = `/sites/default/files/gfo/${str}/French/OFM-Edition-${str}.pdf`
             }

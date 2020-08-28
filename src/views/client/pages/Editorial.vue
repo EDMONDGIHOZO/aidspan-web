@@ -28,6 +28,7 @@
           <h3 class="ma-5">
             <span class="orange--text">{{currentIssue.title}}</span>
             | {{currentIssue.changed | formatDate }}
+            <v-btn color="success" small class="mx-5" rounded depressed>DOWNLOAD</v-btn>
           </h3>
           <v-row>
             <v-col

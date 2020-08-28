@@ -6,34 +6,6 @@
       </div>
       <article-types />
     </div>
-    <div class="boxi-1">
-      <div class="sticks">
-        <h4 class="text-center my-4">GFO & OFM AUTHORS</h4>
-      </div>
-      <v-list dense>
-        <v-list-item>
-          <v-text-field
-            label="Search Author"
-            single-line
-            dense
-            background-color="white"
-            prepend-inner-icon="mdi-magnify"
-            v-model="searchauth"
-          ></v-text-field>
-        </v-list-item>
-        <v-list-item-group color="primary">
-          <v-list-item v-for="artype in filteredauthors" :key="artype.id">
-            <v-list-item-content>
-              <v-list-item-title v-text="artype.title"></v-list-item-title>
-            </v-list-item-content>
-            <v-spacer></v-spacer>
-            <v-list-item-avatar class="author-avatar" size="40">
-              <span class="font-weight-bold white--text typename">{{artype.title}}</span>
-            </v-list-item-avatar>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </div>
     <div class="boxi-2">
       <div class="sticks">
         <h4 class="text-center my-4">LATEST TAGS</h4>
@@ -54,13 +26,6 @@ export default {
   },
   data() {
     return {
-      authors: [
-        { title: "Adele Sulcas", id: "1" },
-        { title: "David Garmaise", id: "3" },
-        { title: "IDA HAKIZINKA", id: "4" },
-        { title: "AIDSPAN STAFF", id: "5" },
-        { title: "BERNARD", id: "6" }
-      ],
       searchbtn: false,
       searchtype: "",
       searchauth: ""
@@ -102,7 +67,7 @@ export default {
   margin: 3px;
   padding: 10px;
   padding-top: 0;
-  width: 28%;
+  width: 45%;
 }
 
 .boxi-1::-webkit-scrollbar {
@@ -123,7 +88,7 @@ export default {
   margin: 10px;
   padding: 10px;
   padding-top: 0;
-  width: 40%;
+  width: 45%;
 }
 .typename {
   font-size: 0pt;
