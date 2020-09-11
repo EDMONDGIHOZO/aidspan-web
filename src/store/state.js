@@ -193,7 +193,7 @@ export default {
             color: 'red--text text-center font-weight-bold',
         },
         {
-            ep_name: 'TUBERCLOSIS',
+            ep_name: 'TUBERCULOSIS',
             ep_icon: require('@/assets/images/common/tuberclosis.png'),
             ep_id: 'safda3',
             class: 'T',
@@ -209,29 +209,6 @@ export default {
     ],
 
     /// template article
-    fake_article: {
-        title: 'Is it possible to contain and treat widespread COVID-19 infection in Africa?',
-        secondTitle: 'Can African countries attempts to “flatten the curve” work, especially in the presence of large numbers of people living with HIV and TB?',
-        abstract: 'On March 16, at the World Health Organization’s most recent COVID-19 press conference in Geneva, WHO Director-General Dr. Tedros Adhanom Ghebreyesus said: “As the virus moves to low-income countries, were deeply concerned about the impact it could have among populations with high HIV prevalence, or among malnourished children.”',
-        date: '18 mar 2020',
-        author: 'Adele Sulcas',
-        number: 1,
-        type: 'news',
-        tags: [{
-                title: 'corona Virus',
-                route: 'tags',
-            },
-            {
-                title: 'Pendemic',
-                route: 'tags',
-            },
-            {
-                title: 'Africa',
-                route: 'tags',
-            },
-        ],
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu placerat magna, eu condimentum lorem. Mauris gravida tortor quam, aliquam gravida urna semper eget. Etiam consectetur justo et risus fringilla, a elementum urna mattis. Donec et luctus elit. Quisque at neque sit amet mauris ultrices posuere nec et lacus. Quisque purus felis, volutpat viverra commodo a, feugiat eget orci. Ut venenatis fermentum felis, ut feugiat urna rhoncus a. Morbi nec iaculis libero, in placerat augue. Sed sed turpis hendrerit, suscipit metus vel, consequat augue. Maecenas sagittis varius lectus nec maximus.',
-    },
     Areas: [],
     Diseases: [],
     Countries: [],

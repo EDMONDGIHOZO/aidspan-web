@@ -105,7 +105,7 @@ const routes = [{
                     },
                     {
                         path: 'gallery',
-                        name: 'Gallery',
+                        name: 'gallery',
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */

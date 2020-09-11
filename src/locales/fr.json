@@ -107,5 +107,13 @@
     "board-dirs": {
         "title": "CONSEIL D'ADMINISTRATION",
         "desc": "Aidspan tient deux réunions du conseil d'administration de 2 jours par an. Les membres du conseil ne sont pas payés pour leur travail. Aidspan est dirigé par un conseil d'administration composé de quatre professionnels accomplis aux compétences diverses."
+    },
+    "malaria": "PALUDISME",
+    "tuber": "TUBERCULOSE",
+    "hiv": "VIH-SIDA",
+    "feedback": {
+        "info": "Nous recherchons toujours des moyens d'améliorer nos contenus. dites-nous ce que vous avez aimé et ce que nous pouvons améliorer.",
+        "btn": "J'ai des commentaires!",
+        "thanks": "Merci pour vos commentaires!"
     }
 }

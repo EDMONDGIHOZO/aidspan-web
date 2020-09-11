@@ -14,13 +14,13 @@
             <h4 class="white--text my-4">{{$t('quicklinks')}}</h4>
           </v-list-item>
           <v-list-item-group color="primary">
-            <v-list-item>
+            <v-list-item @click="goto('careers')">
               <v-list-item-content class="white--text">{{$t('quicks.careers')}}</v-list-item-content>
             </v-list-item>
-            <v-list-item router to="key-documents">
+            <v-list-item @click="goto('key-documents')">
               <v-list-item-content class="white--text">{{$t('quicks.key-docs')}}</v-list-item-content>
             </v-list-item>
-            <v-list-item>
+            <v-list-item @click="goto('gallery')">
               <v-list-item-content class="white--text">{{$t('quicks.gallery')}}</v-list-item-content>
             </v-list-item>
           </v-list-item-group>
@@ -52,20 +52,20 @@
           <v-card-text>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.837859457764!2d36.80554231475391!3d-1.270237999073516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19adefd9df75%3A0x89171157b4b95624!2sAidspan!5e0!3m2!1sen!2srw!4v1598303758988!5m2!1sen!2srw"
-              width="300"
-              height="200"
               frameborder="0"
               style="border:0;"
               allowfullscreen
               aria-hidden="false"
               tabindex="0"
+              id="mapbox"
             ></iframe>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <v-footer padless dark>
-      <v-card class="flex" flat tile hover>
+    <v-footer padless dark color="secondary">
+      <v-card class="flex mt-4" flat tile hover color="primary darken-2">
+        <feedback />
         <v-card-title class="primary">
           <strong class="subheading mx-4">{{$t('getconnected')}}</strong>
           <socials color="white" />
@@ -82,6 +82,7 @@
 <script>
 import { Timeline } from "vue-tweet-embed";
 import socials from "@/components/tools/sociallinks";
+import feedback from "@/components/helpers/feedback";
 export default {
   computed: {
     icons() {
@@ -102,6 +103,7 @@ export default {
   components: {
     Timeline,
     socials,
+    feedback,
   },
 };
 </script>
@@ -125,6 +127,10 @@ export default {
   color: #000000;
 }
 
+.feedback {
+  font-size: 18px;
+}
+
 #contacts-card .title {
   font-weight: bold;
   font-size: 20px;
@@ -142,5 +148,10 @@ export default {
 
 .quicks {
   text-transform: uppercase;
+}
+
+#mapbox {
+  min-width: 100%;
+  height: 250px;
 }
 </style>

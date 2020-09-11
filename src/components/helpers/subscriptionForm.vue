@@ -110,6 +110,8 @@ export default {
     thanks: false,
     loading: false,
     subscribeDialog: false,
+    checkbox: false,
+    dialog: false,
     subscriber: {
       email: "",
       select: []

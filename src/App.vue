@@ -1,25 +1,25 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <router-view></router-view>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 <script>
-
 export default {
   name: "Aidspan",
   methods: {
     afterLeave() {
       this.$root.$emit("triggerScroll");
     },
-  }
+  },
 };
 </script>
 <style lang="scss">
 $color-pack: true;
 @import "~vuetify/src/styles/main.sass";
 #app {
+  scroll-behavior: smooth;
   font-family: "Raleway", sans-serif;
   transition-property: transform, visibility;
   transition-duration: 300ms;

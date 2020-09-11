@@ -28,20 +28,21 @@
             <v-card
               flat
               class="mb-5"
-              width="400"
               hover
               @click="viewarticle(article.nid)"
               v-for="article in tag.articles"
               :key="article.nid"
             >
-              <v-card-title>{{article.title}}</v-card-title>
+              <v-card-title class="font-weight-black">{{article.title}}</v-card-title>
               <v-card-text>
                 <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
               </v-card-text>
               <v-card-actions>
-                <span class="px-4">{{article.created | formatDate }}</span>
+                <v-chip class="ma-2" color="primary">{{article.created | formatDate }}</v-chip>
               </v-card-actions>
+              <v-divider inset></v-divider>
             </v-card>
+            
           </div>
         </v-card>
       </v-col>
@@ -55,7 +56,7 @@ import Api from "@/services/Api";
 
 export default {
   components: {
-    "side-bar": SideBar
+    "side-bar": SideBar,
   },
 
   data() {
@@ -65,7 +66,6 @@ export default {
       searchResults: [],
       showTitle: true,
       loadingTags: true,
-      
     };
   },
   name: "articletags",
@@ -73,33 +73,33 @@ export default {
   created() {
     Api()
       .get(`article-tags/${this.tid}`)
-      .then(response => {
+      .then((response) => {
         this.currentTag = response.data.data;
         //this.loading = false;
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   },
 
   methods: {
     viewarticle(artnid) {
       return this.$router.push({
         name: "article",
-        params: { article_id: artnid }
+        params: { article_id: artnid },
       });
     },
     findTags() {
       Api()
         .get(`article-tags/search?query=${this.searchQuery}`)
-        .then(response => {
+        .then((response) => {
           this.searchResults = response.data.data;
           //this.loading = false;
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     },
     showSearch() {
       this.showTitle = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -122,7 +122,6 @@ export default {
   overflow: hidden;
   flex-wrap: wrap;
   flex-direction: row;
-  background-color: rgba(238, 138, 8, 0.26);
   padding: 20px;
   border-radius: 10px;
 }

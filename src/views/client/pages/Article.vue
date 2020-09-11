@@ -1,12 +1,19 @@
 <template>
   <v-container class="my-1" id="article-container">
     <v-col cols="12" v-if="loading">
-      <v-progress-linear color="orange accent-4" indeterminate rounded height="10"></v-progress-linear>
+      <v-container style="height: 400px;">
+        <v-row class="fill-height" align-content="center" justify="center">
+          <v-col class="text-center" cols="12">Getting Article</v-col>
+          <v-col cols="6">
+            <v-progress-linear color="deep-orange accent-4" indeterminate rounded height="6"></v-progress-linear>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-col>
     <v-row>
       <v-col cols="12">
         <v-col id="articleSection">
-          <v-flex md12>
+          <v-flex md="12">
             <p class="article-title">{{ article.title }}</p>
             <p
               class="second-article-title"
@@ -113,7 +120,8 @@
                   <v-btn icon @click="dislike" class="mr-2 ml-5" small color="info">
                     <v-icon color="warning">mdi-thumb-down-outline</v-icon>
                   </v-btn>
-                  <small class="font-weight-bold red--text lighten-3">{{dislikes}} Dslikes</small>
+                  <small class="font-weight-bold red--text lighten-3">{{dislikes}} Dislikes</small>
+                  <small class="font-weight-bold white--text lighten-3 mx-5"><v-icon left small color="white">mdi-eye</v-icon>{{views}}</small>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -276,7 +284,7 @@
                     <v-list-item-subtitle>{{issue.created | formatDate}}</v-list-item-subtitle>
                   </v-list-item-content>
                   <v-list-item-action>
-                    <v-btn icon @click="downloadIssue(issue.title)">
+                    <v-btn icon @click="downloadIssue(issue.title, issue.language)">
                       <v-icon color="primary lighten-1">mdi-download</v-icon>
                     </v-btn>
                   </v-list-item-action>
@@ -349,6 +357,16 @@ import Axios from "axios";
 
 export default {
   props: ["article_id"],
+  watch: {
+    loader() {
+      const l = this.loader;
+      this[l] = !this[l];
+
+      setTimeout(() => (this[l] = false), 3000);
+
+      this.loader = null;
+    },
+  },
   data() {
     const defaultForm = Object.freeze({
       names: "",
@@ -381,6 +399,7 @@ export default {
       show: false,
       currentlink: "",
       user_inf: {},
+      views: 0,
     };
   },
 
@@ -405,6 +424,7 @@ export default {
       .get(`Articles/${this.article_id}`)
       .then((response) => {
         this.article = response.data.article;
+        this.views = response.data.views[0].v;
         document.title = response.data.article.title;
         this.loading = false;
         this.currentlink = window.location.href;
@@ -538,11 +558,11 @@ export default {
 }
 
 .abstract .text {
-    color: white;
+  color: white;
 }
 
 .abstract .text a {
-    color: #000000;
+  color: #000000;
 }
 
 #articleSection .content {

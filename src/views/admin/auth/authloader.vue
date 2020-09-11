@@ -1,6 +1,6 @@
 <template>
   <div class="authholder">
-    <v-content>
+    <v-main>
       <v-row class="authentication-box">
         <v-col cols="12" sm="6" md="6" id="auth-logo-holder" class="d-none d-md-flex">
           <v-card flat>
@@ -15,7 +15,7 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-content>
+    </v-main>
   </div>
 </template>
 

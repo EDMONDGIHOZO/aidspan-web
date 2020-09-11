@@ -17,10 +17,22 @@
           <p>{{$t('mission.subtitle')}}</p>
         </div>
         <div class="mission-content">
-          <v-card hover class="epidemic-card" v-for="epidemic in epidemics" :key="epidemic.ep_id">
+          <v-card hover class="epidemic-card">
             <v-card-text>
-              <v-img :src="epidemic.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
-              <p :class="epidemic.color">{{ epidemic.ep_name }}</p>
+              <v-img :src="hiv.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
+              <p :class="hiv.color">{{$t('hiv') }}</p>
+            </v-card-text>
+          </v-card>
+          <v-card hover class="epidemic-card">
+            <v-card-text>
+              <v-img :src="tuber.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
+              <p :class="tuber.color">{{$t('tuber')}}</p>
+            </v-card-text>
+          </v-card>
+          <v-card hover class="epidemic-card">
+            <v-card-text>
+              <v-img :src="malaria.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
+              <p :class="malaria.color">{{$t('malaria')}}</p>
             </v-card-text>
           </v-card>
         </div>
@@ -44,7 +56,7 @@
               <span class="sub-title">{{$t('report_title')}}</span>
               <p>{{$t('report_intro')}}</p>
             </v-col>
-            <v-btn block text color="primary" router to="publications">{{$t('viewall')}}</v-btn>
+            <v-btn block text color="primary" @click="viewpubs">{{$t('viewall')}}</v-btn>
           </v-row>
         </v-card>
       </v-col>
@@ -88,7 +100,6 @@ import { mapState } from "vuex";
 import currentIssue from "@/components/helpers/currentIssue.vue";
 import Landing from "@/components/tools/landingimage.vue";
 
-
 export default {
   computed: {
     ...mapState(["slides", "articles", "publications", "epidemics"]),
@@ -96,11 +107,38 @@ export default {
   components: {
     "current-issue": currentIssue,
     "landing-image": Landing,
-   
+  },
+
+  methods: {
+    viewpubs() {
+      this.$router.push({ name: 'Publications' });
+    },
   },
 
   data() {
     return {
+      hiv: {
+        ep_name: "HIV-AIDS",
+        ep_icon: require("@/assets/images/common/aids.png"),
+        ep_id: "adfawe",
+        class: "A",
+        color: "red--text text-center font-weight-bold",
+      },
+      tuber: {
+        ep_name: "TUBERCULOSIS",
+        ep_icon: require("@/assets/images/common/tuberclosis.png"),
+        ep_id: "safda3",
+        class: "T",
+        color: "blue--text text-center font-weight-bold",
+      },
+      malaria: {
+        ep_name: "MALARIA",
+        ep_icon: require("@/assets/images/common/maralia.png"),
+        ep_id: "213fjdsl",
+        class: "M",
+        color: "amber--text text-center font-weight-bold",
+      },
+
       //donors logos //
       donorsLogos: [
         {
@@ -153,7 +191,6 @@ export default {
       newsletters: ["OFM", "GFO", "Both"],
       checkbox: false,
       //end of subscribe form
-
       items: [
         {
           icon: "folder",

@@ -27,7 +27,7 @@
             >
               <v-list-item-content>
                 <v-list-item-title>{{issue.title}}</v-list-item-title>
-                <v-list-item-subtitle>{{issue.changed | formatDate}}</v-list-item-subtitle>
+                <v-list-item-subtitle>{{issue.issue_date.field_issue_date_value}}</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </div>
@@ -43,7 +43,7 @@
           <v-card-actions>
             <v-list-item class="grow">
               <v-list-item-content>
-                <v-list-item-title>{{edition.changed | formatDate}}</v-list-item-title>
+                <v-list-item-title>{{edition.issue_date.field_issue_date_value | formatDateNormal }}</v-list-item-title>
               </v-list-item-content>
               <v-row align="center" justify="end">
                 <span class="subheading mr-2">{{edition.__meta__.related_articles_count}} Articles</span>
@@ -57,7 +57,7 @@
       </v-col>
     </v-row>
   </div>
-</template> 
+</template>
 
 <script>
 import Pagination from "@/components/helpers/paginateofm.vue";

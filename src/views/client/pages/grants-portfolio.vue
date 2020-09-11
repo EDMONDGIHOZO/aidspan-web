@@ -13,13 +13,7 @@
 
     <v-row id="grants-tables" width="100%">
       <v-col cols="12" md="6">
-        <v-simple-table
-          height="450"
-          fixed-header
-          id="disease-table"
-          dark
-          class="elevation-15"
-        >
+        <v-simple-table height="450" fixed-header id="disease-table" dark class="elevation-15">
           <template v-slot:default>
             <thead>
               <tr>
@@ -52,8 +46,16 @@
                 </td>
               </tr>
               <tr class="diseaseFooter">
-                <td colspan="2">Total Agreement Amount | $ 120Bn</td>
-                <td colspan="2">Total Disbursed Amount | $ 110Bn</td>
+                <td colspan="2">
+                  <small>Total Agreement Amount:</small>
+                  <br />
+                  {{totalDisbAmount}}
+                </td>
+                <td colspan="2">
+                  <small>Total Disbursed Amount:</small>
+                  <br />
+                  {{totalAgreementAmount}}
+                </td>
               </tr>
             </tbody>
           </template>
@@ -65,7 +67,7 @@
             <thead>
               <tr>
                 <th colspan="3" class="text-center">
-                    <h4 color="primary" class="text-uppercase">Grants by Regions</h4>
+                  <h4 color="primary" class="text-uppercase">Grants by Regions</h4>
                 </th>
               </tr>
               <tr>
@@ -102,26 +104,26 @@
     <v-row class="py-5">
       <v-col class="gbc-intro" cols="12">
         <v-card light hover class="elevation-15">
-          <v-card-title class="blue--text font-weight-black">
-            GRANTS BY COUNTRY
-          </v-card-title>
+          <v-card-title class="blue--text font-weight-black">GRANTS BY COUNTRY</v-card-title>
           <v-card-text>
-              <p>The information provided here is based entirely on data obtained
-            from the Global Fund, most of which is on the Fund's website. The
-            Aidspan web server checks every three hours for possible new data at
-            the Fund's website. Every few months, the Global Fund assigns each
-            grant a rating that measures the performance of that grant over the
-            past few months. These ratings are (“Exceeds expectations”), A2
-            (“Meets expectations”), B1 (“Adequate”), B2 (“Inadequate but
-            potential demonstrated”) or C (“Unacceptable”). In the map below, we
-            show the average rating assigned by the Global Fund since January
-            2010 for grants to each country. Where a country has had fewer than
-            four ratings assigned, no average rating is shown.</p>
+            <p>
+              The information provided here is based entirely on data obtained
+              from the Global Fund, most of which is on the Fund's website. The
+              Aidspan web server checks every three hours for possible new data at
+              the Fund's website. Every few months, the Global Fund assigns each
+              grant a rating that measures the performance of that grant over the
+              past few months. These ratings are (“Exceeds expectations”), A2
+              (“Meets expectations”), B1 (“Adequate”), B2 (“Inadequate but
+              potential demonstrated”) or C (“Unacceptable”). In the map below, we
+              show the average rating assigned by the Global Fund since January
+              2010 for grants to each country. Where a country has had fewer than
+              four ratings assigned, no average rating is shown.
+            </p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12">
-        <countriesMap> </countriesMap>
+        <countriesMap></countriesMap>
       </v-col>
     </v-row>
     <!-- end of the map -->
@@ -131,11 +133,15 @@
 <script>
 //import GrantsByCountry from "@/components/pages/grantsOverview.vue";
 //import Diseases from "@/components/pages/diseases.vue";
+import Api from "@/services/Api";
 import GrantsCountry from "@/components/pages/client/grants-country.vue";
 export default {
   //dummy data
   data() {
     return {
+      totalDisbAmount: 0,
+      totalAgreementAmount: 0,
+
       //data for charts options//
 
       ///end of chart
@@ -146,7 +152,7 @@ export default {
           dsignedAmount: 45066,
           dSignedPercentage: 40,
           dDisbursedAmount: 34000,
-          dDisbursedPercentage: 30
+          dDisbursedPercentage: 30,
         },
         {
           dName: "HIV/AIDS",
@@ -154,7 +160,7 @@ export default {
           dsignedAmount: 55068,
           dSignedPercentage: 20,
           dDisbursedAmount: 24000,
-          dDisbursedPercentage: 10
+          dDisbursedPercentage: 10,
         },
         {
           dName: "Tuberclosis",
@@ -162,7 +168,7 @@ export default {
           dsignedAmount: 45778,
           dSignedPercentage: 30,
           dDisbursedAmount: 34000,
-          dDisbursedPercentage: 40
+          dDisbursedPercentage: 40,
         },
         {
           dName: "TB/HIV",
@@ -170,15 +176,7 @@ export default {
           dsignedAmount: 450778,
           dSignedPercentage: 10,
           dDisbursedAmount: 34000,
-          dDisbursedPercentage: 60
-        },
-        {
-          dName: "HIV",
-          dId: "234ftsg",
-          dsignedAmount: 45068,
-          dSignedPercentage: 20,
-          dDisbursedAmount: 44000,
-          dDisbursedPercentage: 30
+          dDisbursedPercentage: 60,
         },
         {
           dName: "RSSH",
@@ -186,8 +184,8 @@ export default {
           dsignedAmount: 45078,
           dSignedPercentage: 41,
           dDisbursedAmount: 36000,
-          dDisbursedPercentage: 30
-        }
+          dDisbursedPercentage: 30,
+        },
       ],
 
       regions: [
@@ -197,7 +195,7 @@ export default {
           rId: "fadsh23atht54",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "High Impact Asia",
@@ -205,7 +203,7 @@ export default {
           rId: "fadsh2afd43w34",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "High Impact Africa 1",
@@ -213,7 +211,7 @@ export default {
           rId: "fadsh2ders34",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "High Impact Africa 2",
@@ -221,7 +219,7 @@ export default {
           rId: "fadsh234esd3434",
           rPercentage: 34,
           rTotalDisbursedAmount: 3300000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Southern and Eastern Africa",
@@ -229,7 +227,7 @@ export default {
           rId: "fadsh2agrdeg34",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Eastern Europe and Central Asia",
@@ -237,7 +235,7 @@ export default {
           rId: "fadsh2waefg34",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Latin America and Caribbean",
@@ -245,7 +243,7 @@ export default {
           rId: "fadsh23afgd4",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Central Africa",
@@ -253,7 +251,7 @@ export default {
           rId: "fadsh2asdva34",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Western Africa",
@@ -261,7 +259,7 @@ export default {
           rId: "fadsh23r4",
           rPercentage: 34,
           rTotalDisbursedAmount: 330000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "South East Africa",
@@ -269,7 +267,7 @@ export default {
           rId: "fadshh234",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
+          rDisPercentage: 14,
         },
         {
           rName: "Middle East and North Africa",
@@ -277,15 +275,33 @@ export default {
           rId: "fasddsh234",
           rPercentage: 34,
           rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14
-        }
-      ]
+          rDisPercentage: 14,
+        },
+      ],
     };
   },
 
-   components: {
-    "countriesMap": GrantsCountry,
-  }
+  created() {
+    function cleanNumber(amount) {
+      const cleaned = new Intl.NumberFormat("en-EN", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount);
+
+      return cleaned;
+    }
+    Api()
+      .get("/components")
+      .then((response) => {
+        this.totalDisbAmount = cleanNumber(response.data.totalAgreement);
+        this.totalAgreementAmount = cleanNumber(response.data.totalDisbursed);
+        
+      });
+  },
+
+  components: {
+    countriesMap: GrantsCountry,
+  },
 };
 </script>
 

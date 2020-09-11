@@ -10,13 +10,16 @@ export default {
             str = str.replace('GFO Issue ', '')
 
             if (islanguage === 'en') {
-                link = `../aid-server/public/uploads/sites/default/files/gfo/${str}/English/GFO-Issue-${str}.pdf`
+                link = `/sites/default/files/gfo/${str}/English/GFO-Issue-${str}.pdf`
             } else {
                 link = `/sites/default/files/gfo/${str}/French/OFM-Edition-${str}.pdf`
             }
             axios({
                 url: `${base_url}${link}`,
                 method: 'GET',
+                headers: {
+                    'Content-type': 'application/json',
+                },
                 responseType: 'blob', // important
             }).then((response) => {
                 const url = window.URL.createObjectURL(new Blob([response.data]))

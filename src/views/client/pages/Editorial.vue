@@ -28,7 +28,7 @@
           <h3 class="ma-5">
             <span class="orange--text">{{currentIssue.title}}</span>
             | {{currentIssue.changed | formatDate }}
-            <v-btn color="success" small class="mx-5" rounded depressed>DOWNLOAD</v-btn>
+            <v-btn color="success" small class="mx-5" :loading="loader"  @click="downloadIssue(currentIssue.title, currentIssue.language)" rounded depressed>DOWNLOAD</v-btn>
           </h3>
           <v-row>
             <v-col
@@ -105,7 +105,7 @@
 <script>
 import Vue2Filters from "vue2-filters";
 import features from "@/components/helpers/features.vue";
-
+import DownloadIssue from "@/mixins/downloadIssue";
 export default {
   name: "editorial",
   data() {
@@ -128,6 +128,7 @@ export default {
       notifications: false,
       sound: true,
       widgets: false,
+      loader: false,
     };
   },
   mounted() {
@@ -157,7 +158,7 @@ export default {
   components: {
     features,
   },
-  mixins: [Vue2Filters.mixin],
+  mixins: [Vue2Filters.mixin, DownloadIssue],
 };
 </script>
 

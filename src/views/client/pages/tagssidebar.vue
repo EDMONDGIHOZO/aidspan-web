@@ -1,9 +1,17 @@
 <template>
   <div class="tags">
     <div class="progress" v-if="loading">
-      <v-progress-circular :size="50" color="primary" :indeterminate="true"></v-progress-circular>
+      <v-container style="height: 400px;">
+        <v-row class="fill-height" align-content="center" justify="center">
+          <v-col class="text-center" cols="12">Getting Tags</v-col>
+          <v-col cols="6">
+            <v-progress-linear color="deep-orange accent-4" indeterminate rounded height="6"></v-progress-linear>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
-    <v-list dense>
+    
+    <v-list dense v-else>
       <v-list-item>
         <v-text-field
           label="Search in tags"
@@ -30,14 +38,14 @@
 
 
 <script>
-import Api from "@/services/Api"
+import Api from "@/services/Api";
 export default {
   data() {
     return {
       search: "",
       tags: [],
-      loading: false,
-      maxNum: 300,
+      loading: true,
+      maxNum: 2500,
     };
   },
   computed: {
@@ -52,6 +60,7 @@ export default {
       .get(`article-tags/all/${this.maxNum}`)
       .then((response) => {
         this.tags = response.data;
+        this.loading = false;
       });
   },
   methods: {
@@ -63,7 +72,6 @@ export default {
     },
     findMore() {
       this.maxNum = this.maxNum + 10;
-      console.log(this.maxNum);
     },
   },
 };

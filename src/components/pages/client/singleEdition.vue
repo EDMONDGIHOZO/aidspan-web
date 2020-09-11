@@ -20,7 +20,7 @@
         >
           <v-card-title class="font-weight-bold">{{article.title | str_limit(200)}}</v-card-title>
           <v-row wrap class="mx-auto">
-            <v-col cols="6">
+            <v-col cols="6" v-if="article.article_author !== null">
               <small>{{article.article_author.field_article_author_value}}</small>
             </v-col>
             <v-col cols="6">
@@ -99,14 +99,15 @@ export default {
 <style lang="scss" scoped>
 .issue {
   padding: 20px;
-  max-width: 90%;
+  max-width: 100%;
   margin: auto;
+
 }
 
 .articles {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-end;
   flex-wrap: wrap;
 }
 

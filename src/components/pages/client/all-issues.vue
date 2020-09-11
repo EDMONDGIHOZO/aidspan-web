@@ -16,7 +16,7 @@
                 <v-spacer></v-spacer>
                 <span class="text-right">
                   <v-icon right color="secondary" small>mdi-calendar</v-icon>
-                  {{issue.created | formatDate }}
+                  {{issue.changed | formatDate }}
                 </span>
               </v-expansion-panel-header>
               <v-expansion-panel-content>
