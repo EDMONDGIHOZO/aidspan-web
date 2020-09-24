@@ -56,6 +56,18 @@ const routes = [{
                         },
                     },
                     {
+                        path: 'about-us#policy',
+                        name: 'policy',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "about-us" */
+                                '../views/client/pages/About.vue'
+                            ),
+                        meta: {
+                            title: 'About aidspan',
+                        },
+                    },
+                    {
                         path: 'editorial',
                         name: 'Editorial',
                         component: () =>
@@ -406,7 +418,7 @@ const routes = [{
     { path: '/gfo_article/:query', redirect: '/en/c/search/:query' },
     { path: '/page/:title', redirect: '/en/c' },
     { path: '/taxonomy/term/:tid', redirect: '/en/c/article-tags/:tid' },
-    { path: "/user/logout", redirect: "/en/c/editorial" },
+    { path: '/user/logout', redirect: '/en/c/editorial' },
     {
         path: '*',
         name: 'notFound',

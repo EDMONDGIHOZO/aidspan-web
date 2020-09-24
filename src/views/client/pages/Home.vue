@@ -111,7 +111,7 @@ export default {
 
   methods: {
     viewpubs() {
-      this.$router.push({ name: 'Publications' });
+      this.$router.push({ name: "Publications" });
     },
   },
 

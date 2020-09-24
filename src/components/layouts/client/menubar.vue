@@ -1,6 +1,6 @@
 <template>
   <div class="menubar hidden-xs-only" id="menubar">
-      <Header class="d-none d-sm-flex"></Header>
+    <Header class="d-none d-sm-flex"></Header>
     <v-app-bar min-width="100%" color="primary" flat class="menucontainer">
       <!--- menubar list -->
       <v-btn rounded class="mx-0" depressed color="primary" @click="gohome">
@@ -47,7 +47,7 @@
         <v-icon left small>{{$t('publications.action')}}</v-icon>
         {{$t('publications.title')}}
       </v-btn>
-    
+
       <!---menu end -->
       <v-spacer></v-spacer>
       <Search :dialog="false" />
@@ -73,9 +73,7 @@ export default {
     gogfo() {
       return this.$router.push({ name: "Editorial" });
     },
-    goabout() {
-      return this.$router.push({ name: "about" });
-    },
+    goabout() {},
     goanalytics() {
       return this.$router.push({ name: "Analytics" });
     },
@@ -83,7 +81,7 @@ export default {
       return this.$router.push({ name: "Publications" });
     },
     policy() {
-      return this.$router.push({ path: "c/about-us#policy" });
+      return this.$router.push({ name: "policy" });
     },
 
     Vcountry() {
@@ -100,14 +98,13 @@ export default {
   },
   components: {
     Search,
-     Header,
+    Header,
     "locale-switch": localSwitcher,
   },
 };
 </script>
 
 <style lang="scss">
-
 .right-icons .btn {
   float: right;
   margin-right: 3px;

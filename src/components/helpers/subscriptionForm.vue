@@ -5,6 +5,7 @@
       class="ma-12 subscribeBtn"
       rounded
       color="secondary"
+      depressed
       @click.stop="subscribeDialog = true"
     >{{$t("newsletterbtn")}}</v-btn>
     <!---subscribe dialog -->
@@ -28,6 +29,7 @@
           <v-col cols="12" v-if="thanks">
             <h3 class="green--text text-center">{{$t('thankyou.title')}}</h3>
             <h5 class="black--text text-center">{{$t('thankyou.message')}}</h5>
+            <small class="center-text green--text">{{message}}</small>
           </v-col>
           <v-col cols="12" md="12" v-else>
             <div class="ma-3">
@@ -38,25 +40,28 @@
             </div>
             <v-form ref="form" v-model="valid" lazy-validation justify-center>
               <v-text-field
-                v-model="subscriber.email"
+                v-model="email"
                 :rules="emailRules"
                 label="E-mail"
                 required
+                dense
                 outlined
-                rounded
                 color="secondary"
                 background-color="white"
               ></v-text-field>
 
               <v-select
-                v-model="subscriber.select"
+                v-model="selections"
                 :items="newsletters"
-                :rules="[v => !!v || 'Item is required']"
-                label="GFO or OFM ?"
-                required
-                class="white--text"
+                item-value="event_type_id"
+                item-text="title"
+                return-object
+                label="Newsletters"
+                multiple
+                dense
+                outlined
+                chips
               ></v-select>
-
               <div class="text-center">
                 <v-dialog v-model="dialog" max-width="400">
                   <template v-slot:activator="{ on }">
@@ -102,7 +107,7 @@
 </template>
 
 <script>
-//import staffer from "@/services/staffer";
+import Api from "@/services/Api";
 export default {
   data: () => ({
     subscribed: false,
@@ -112,19 +117,55 @@ export default {
     subscribeDialog: false,
     checkbox: false,
     dialog: false,
+    message: "",
     subscriber: {
       email: "",
-      select: []
+      select: [],
     },
-    newsletters: ["OFM", "GFO", "BOTH"],
+    email: "",
+    selections: [],
+    newsletters: [
+      {
+        title: "GFO",
+        event_type_id: 9,
+      },
+      {
+        title: "OFM",
+        event_type_id: 10,
+      },
+    ],
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
   }),
+
+  /** created() {
+    ///check if the it alread poped up in local storage
+    const popstatus = localStorage.getItem("popstat");
+    if (popstatus === null) {
+      localStorage.setItem("popstat", true);
+      this.subscribeDialog = true;
+    } else {
+      this.subscribeDialog = false;
+    }
+    /// set the pop up status in local storage
+  }, */
   methods: {
     saveSubscriber() {
       this.thanks = true;
+      const formdata = {
+        email: this.email,
+        newsletters: this.selections,
+      };
+
+      var jsoned = JSON.stringify(formdata);
+
+      Api()
+        .post("/subscribers", jsoned)
+        .then((response) => {
+          this.message = response.data.message;
+        });
     },
   },
 };

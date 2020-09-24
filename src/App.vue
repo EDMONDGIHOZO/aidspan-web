@@ -13,6 +13,11 @@ export default {
       this.$root.$emit("triggerScroll");
     },
   },
+
+  ///remove the pop up from local storage
+  /**beforeMount() {
+    localStorage.removeItem("popstat");
+  }, */
 };
 </script>
 <style lang="scss">
