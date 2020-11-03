@@ -4,6 +4,7 @@
       <img :src="appIcon" alt="aidspan-logo" width="40px" />
       <p class="app-title">{{$t('slogan')}}</p>
       <v-spacer></v-spacer>
+         <Search :dialog="false" searchClass="mobile-search" />
       <v-app-bar-nav-icon @click.stop="mobMenu = !mobMenu" color="#00AEEF"></v-app-bar-nav-icon>
     </v-app-bar>
     <v-navigation-drawer app v-model="mobMenu" right width="70%">
@@ -53,10 +54,12 @@
 
 <script>
 import localeSwitcher from "@/components/helpers/localeswitch.vue";
+import Search from "@/components/helpers/search.vue";
 export default {
   name: "Menubar",
   components: {
     "locale-switch": localeSwitcher,
+    Search,
   },
   data() {
     return {

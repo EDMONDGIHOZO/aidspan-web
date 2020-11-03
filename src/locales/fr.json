@@ -51,9 +51,9 @@
         "action": "mdi-eye",
         "route": "en/publications"
     },
-    "newsletterbtn": "Abonnez-vous à notre newsletter",
+    "newsletterbtn": "Abonnez-vous à notre bulletin",
     "thankyou": {
-        "title": "Merci de vous être inscrit à notre newsletter",
+        "title": "Merci de vous être inscrit à notre bulletin",
         "message": "N'oubliez pas de marquer notre e-mail comme important!"
     },
     "newsletterbtn_desc": "pour la newsletter en anglais choisissez GFO ou OFM pour le français",

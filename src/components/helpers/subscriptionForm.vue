@@ -56,7 +56,7 @@
                 item-value="event_type_id"
                 item-text="title"
                 return-object
-                label="Newsletters"
+                label="Select Newsletter(s)"
                 multiple
                 dense
                 outlined
@@ -122,7 +122,7 @@ export default {
       email: "",
       select: [],
     },
-    email: "",
+    email: "email",
     selections: [],
     newsletters: [
       {

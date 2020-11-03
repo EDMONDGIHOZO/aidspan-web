@@ -19,7 +19,8 @@ Vue.use(Vuelidate)
 import scrollAnimation from './directives/scrollAnimation'
 import SocialSharing from 'vue-social-sharing'
 import i18n from './i18n'
-
+import _ from 'lodash'
+Object.defineProperty(Vue.prototype, '$_', { value: _ })
 
 ///add the google analytics here
 // Vue.use(VueGtag, {

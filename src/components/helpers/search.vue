@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div :class="searchClass">
     <!-- start the searchbox overlay -->
     <v-btn
       color="primary"
-      class="white--text"
+      class="sbtn"
       @click.stop="dialog = true"
       depressed
       outlined
@@ -28,7 +28,19 @@
             <ais-instant-search :search-client="searchClient" index-name="dev_articles">
               <ais-configure :hits-per-page.camel="12" :query="searchQuery" />
               <v-row wrap justify-center>
-                <v-col cols="12" md="3">
+                <v-col cols="12" md="3" class="filterby">
+                    <v-card outlined class="my-5 attribox" color="grey lighten-4">
+                    <v-card-title>
+                      <h4>Filter by Language</h4>
+                    </v-card-title>
+                    <v-card-text>
+                      <div class="search-panel__filters">
+                        <ais-refinement-list
+                          attribute="language"
+                        />
+                      </div>
+                    </v-card-text>
+                  </v-card>
                   <v-card outlined class="attribox" color="grey lighten-4">
                     <v-card-title>
                       <h4>Filter by Years</h4>
@@ -68,7 +80,7 @@
                     </v-card-text>
                   </v-card>
                 </v-col>
-                <v-col cols="9">
+                <v-col cols="12" md="9">
                   <v-text-field
                     label="You can search an article, issue , etc .. "
                     required
@@ -79,12 +91,14 @@
                     prepend-inner-icon="mdi-magnify"
                     v-model="searchQuery"
                   ></v-text-field>
-                  <ais-stats>
+                  <!-- 
+                      <ais-stats>
                     <p slot-scope="{ nbHits, processingTimeMS, query }" class="grey--text font-italic">
                       {{ nbHits }} Articles retrieved in {{ processingTimeMS }}ms for
                       <q>{{ query }}</q>
                     </p>
                   </ais-stats>
+                  -->
 
                   <v-card outlined class="lister">
                     <v-card-text>
@@ -96,7 +110,7 @@
                                 <v-list-item-title v-text="item.title" class="font-weight-bold"></v-list-item-title>
                                 <v-list-item-subtitle
                                   class="blue--text font-weight-bold"
-                                >{{item.created}} - {{item.language}}</v-list-item-subtitle>
+                                >{{item.changed}} - {{item.language}}</v-list-item-subtitle>
                                 <v-list-item-subtitle
                                   v-text="item.author.field_article_author_value"
                                   class="orange--text font-weight-bold"
@@ -168,7 +182,7 @@
 import algoliasearch from "algoliasearch";
 import "instantsearch.css/themes/reset-min.css";
 export default {
-  props: ["dialog"],
+  props: ["dialog", "searchClass"],
   data() {
     return {
       searchQuery: "",

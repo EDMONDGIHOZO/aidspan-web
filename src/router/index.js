@@ -80,6 +80,18 @@ const routes = [{
                         },
                     },
                     {
+                        path: 'careers',
+                        name: 'careers',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "careers" */
+                                '../views/client/pages/careers.vue'
+                            ),
+                        meta: {
+                            title: 'GFO NEWSLETTER',
+                        },
+                    },
+                    {
                         path: 'key-documents',
                         name: 'key-documents',
                         component: () =>
@@ -263,6 +275,18 @@ const routes = [{
                             title: 'Aidspan Data Bank',
                         },
                     },
+                    {
+                        path: 'subscribe',
+                        name: 'Subscribe',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "subscribe" */
+                                '../views/client/pages/subscribe.vue'
+                            ),
+                        meta: {
+                            title: 'Subscribe to newsletter',
+                        },
+                    },
                 ],
             },
             /** end of client routes */
@@ -419,6 +443,7 @@ const routes = [{
     { path: '/page/:title', redirect: '/en/c' },
     { path: '/taxonomy/term/:tid', redirect: '/en/c/article-tags/:tid' },
     { path: '/user/logout', redirect: '/en/c/editorial' },
+    { path: '/apw_gfo_subscribe/nojs/test/form', redirect: '/en/c/subscribe' },
     {
         path: '*',
         name: 'notFound',

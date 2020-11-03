@@ -1,5 +1,5 @@
 {
-    "name": "AIDSPAN",
+    "name": "aidspan",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -15,6 +15,7 @@
         "axios": "^0.19.2",
         "core-js": "^3.6.5",
         "instantsearch.css": "^7.4.4",
+        "lodash": "^4.17.20",
         "moment": "^2.27.0",
         "vue": "^2.6.12",
         "vue-carousel-3d": "^0.2.0",

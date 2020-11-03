@@ -1,9 +1,9 @@
 import axios from 'axios'
 export default {
     methods: {
-        downloadPublication: function(title) {
-            const filename = title
-            var str = title
+        downloadPublication: function(url) {
+            const filename = url
+            var str = url
             let base_url = window.location.origin
                 //window.location.origin
             let link = `/sites/default/files/publications/${str}`

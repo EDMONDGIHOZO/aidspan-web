@@ -140,7 +140,7 @@ export default {
             title: '+254 (0)774-135984',
         },
         {
-            icon: 'mdi-pin',
+            icon: 'mdi-map-marker',
             title: 'P.O. Box 66869 - 00800,Nairobi, Kenya',
         },
         {

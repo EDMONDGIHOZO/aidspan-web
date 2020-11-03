@@ -1,11 +1,16 @@
 <template>
   <v-container class="my-1" id="article-container">
     <v-col cols="12" v-if="loading">
-      <v-container style="height: 400px;">
+      <v-container style="height: 400px">
         <v-row class="fill-height" align-content="center" justify="center">
           <v-col class="text-center" cols="12">Getting Article</v-col>
           <v-col cols="6">
-            <v-progress-linear color="deep-orange accent-4" indeterminate rounded height="6"></v-progress-linear>
+            <v-progress-linear
+              color="deep-orange accent-4"
+              indeterminate
+              rounded
+              height="6"
+            ></v-progress-linear>
           </v-col>
         </v-row>
       </v-container>
@@ -14,11 +19,10 @@
       <v-col cols="12">
         <v-col id="articleSection">
           <v-flex md="12">
-            <p class="article-title">{{ article.title }}</p>
-            <p
-              class="second-article-title"
-              v-if="article.article_second_title !== null"
-            >{{ article.article_second_title.field_article_secondary_title_value }}</p>
+            <p class="article-title">{{ main_title }}</p>
+            <p class="second-article-title" v-if="second_title !== null">
+              {{ second_title }}
+            </p>
             <p v-else>-</p>
           </v-flex>
           <v-row>
@@ -28,27 +32,26 @@
                   <v-icon>mdi-feather</v-icon>
                 </v-avatar>
                 By
-                {{ article.article_author.field_article_author_value }}
+                {{ author }}
               </v-chip>
 
               <v-chip class="ma-2" small color="primary" text-color="white">
-                <v-avatar
-                  left
-                  class="primary darken-4"
-                >{{ article.article_number.field_article_number_value }}</v-avatar>
-                <span v-for="type in article.article_types" :key="type.id">{{ type.name }}</span>
+                <v-avatar left class="primary darken-4">{{ number }}</v-avatar>
+                <span>{{ article_type }}</span>
               </v-chip>
               <span class="mx-5 text-lg-right">
-                <small class="font-weight-bold">{{ article.created | formatDate }}</small>
+                <small class="font-weight-bold">{{
+                  article_date | formatDate
+                }}</small>
               </span>
             </v-col>
             <!-- start the social sharing icons -->
             <v-col cols="7" md="4" class="text-right">
               <social-sharing
                 :url="currentlink"
-                :title="article.title"
-                :description="article.article_abstract.field_article_abstract_value"
-                :quote="article.article_abstract.field_article_abstract_value"
+                :title="main_title"
+                :description="shareable"
+                :quote="shareable"
                 hashtags="aidspan,GFO,OFM, GlobalFund"
                 twitter-user="aidspan"
                 inline-template
@@ -76,9 +79,11 @@
             <!--- end of the social sharing icons -->
             <v-col cols="12">
               <v-card class="abstract" flat>
-                <v-card-title class="white--text">{{$t("abstract")}}</v-card-title>
+                <v-card-title class="white--text">{{
+                  $t("abstract")
+                }}</v-card-title>
                 <v-card-text>
-                  <span v-html="article.article_abstract.field_article_abstract_value" class="text"></span>
+                  <span v-html="abstracts" class="text" ref="abs"></span>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -86,16 +91,35 @@
             <v-col cols="12" class="content">
               <v-row wrap>
                 <v-col cols="12" class="adjuster">
-                  <v-btn class="mr-2" @click="fonter" small color="primary" icon>
-                    <v-icon color="primary" small>mdi-format-font-size-increase</v-icon>
+                  <v-btn
+                    class="mr-2"
+                    @click="fonter"
+                    small
+                    color="primary"
+                    icon
+                  >
+                    <v-icon color="primary" small
+                      >mdi-format-font-size-increase</v-icon
+                    >
                   </v-btn>
-                  <v-btn class="mr-2" small @click="fontSize--" color="secondary" icon>
-                    <v-icon color="secondary" small>mdi-format-font-size-decrease</v-icon>
+                  <v-btn
+                    class="mr-2"
+                    small
+                    @click="fontSize--"
+                    color="secondary"
+                    icon
+                  >
+                    <v-icon color="secondary" small
+                      >mdi-format-font-size-decrease</v-icon
+                    >
                   </v-btn>
                 </v-col>
               </v-row>
-              <p v-bind:style="{fontSize: fontSize +'px'}">
-                <span v-html=" article.article_content.field_article_content_value "></span>
+              <p
+                v-bind:style="{ fontSize: fontSize + 'px' }"
+                class="article-contents"
+              >
+                <span v-html="contents"></span>
               </p>
             </v-col>
           </v-row>
@@ -115,13 +139,26 @@
                   >
                     <v-icon color="primary">mdi-thumb-up-outline</v-icon>
                   </v-btn>
-                  <small class="font-weight-bold orange--text lighten-3">{{likes}} Likes</small>
+                  <small class="font-weight-bold orange--text lighten-3"
+                    >{{ likes }} Likes</small
+                  >
 
-                  <v-btn icon @click="dislike" class="mr-2 ml-5" small color="info">
+                  <v-btn
+                    icon
+                    @click="dislike"
+                    class="mr-2 ml-5"
+                    small
+                    color="info"
+                  >
                     <v-icon color="warning">mdi-thumb-down-outline</v-icon>
                   </v-btn>
-                  <small class="font-weight-bold red--text lighten-3">{{dislikes}} Dislikes</small>
-                  <small class="font-weight-bold white--text lighten-3 mx-5"><v-icon left small color="white">mdi-eye</v-icon>{{views}}</small>
+                  <small class="font-weight-bold red--text lighten-3"
+                    >{{ dislikes }} Dislikes</small
+                  >
+                  <small class="font-weight-bold white--text lighten-3 mx-5"
+                    ><v-icon left small color="white">mdi-eye</v-icon
+                    >{{ views }}</small
+                  >
                 </v-card-text>
               </v-card>
             </v-col>
@@ -133,37 +170,42 @@
                 <v-card flat outlined class="mb-3">
                   <v-card-text>
                     <span class="subheading">Tags:</span>
-                    <v-chip-group mandatory v-if="article.Tags !== 0">
+                    <v-chip-group mandatory v-if="tags !== 0">
                       <v-chip
-                        v-for="tag in article.Tags"
+                        v-for="tag in tags"
                         :key="tag.tid"
                         color="primary"
                         @click="viewtag(tag.tid)"
                       >
-                        {{
-                        tag.name
-                        }}
+                        {{ tag.name }}
                       </v-chip>
                     </v-chip-group>
-                    {{language}}
+                    {{ language }}
                   </v-card-text>
                 </v-card>
               </v-col>
               <v-col cols="12 comments">
-                <div v-if="article.comments.length > 0">
+                <div v-if="comments.length > 0">
                   <v-badge
                     color="blue"
                     class="title mb-5 mt-5"
-                    :content="article.__meta__.comments_count"
+                    :content="comments_count"
                   >
                     COMMENTS
                     <v-icon right color="primary">mdi-comment</v-icon>
                   </v-badge>
-                  <v-card v-for="comment in article.comments" :key="comment.id" class="mb-5" flat>
-                    <v-card-title>{{comment.user.name }}</v-card-title>
-                    <v-card-text>{{comment.comment}}</v-card-text>
+                  <v-card
+                    v-for="comment in comments"
+                    :key="comment.id"
+                    class="mb-5"
+                    flat
+                  >
+                    <v-card-title>{{ comment.user.name }}</v-card-title>
+                    <v-card-text>{{ comment.comment }}</v-card-text>
                     <v-card-actions>
-                      <span class="px-3">{{comment.created_at | formatDateWords }}</span>
+                      <span class="px-3">{{
+                        comment.created_at | formatDateWords
+                      }}</span>
                     </v-card-actions>
                   </v-card>
                 </div>
@@ -215,7 +257,8 @@
                       text
                       color="primary"
                       type="submit"
-                    >Submit</v-btn>
+                      >Submit</v-btn
+                    >
                   </v-card-actions>
                 </v-form>
               </v-col>
@@ -246,7 +289,12 @@
       </v-fab-transition>
       <v-col cols="12" md="3">
         <v-row>
-          <v-card flat v-for="issue in article.article_issue" :key="issue.nid" class="pa-5">
+          <v-card
+            flat
+            v-for="issue in article_issue"
+            :key="issue.nid"
+            class="pa-5"
+          >
             <v-navigation-drawer
               fixed
               right
@@ -281,10 +329,15 @@
                       v-text="issue.title"
                       class="issue-title-side font-weight-black title-2"
                     ></v-list-item-title>
-                    <v-list-item-subtitle>{{issue.created | formatDate}}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{
+                      issue.created | formatDate
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                   <v-list-item-action>
-                    <v-btn icon @click="downloadIssue(issue.title, issue.language)">
+                    <v-btn
+                      icon
+                      @click="downloadIssue(issue.title, issue.language)"
+                    >
                       <v-icon color="primary lighten-1">mdi-download</v-icon>
                     </v-btn>
                   </v-list-item-action>
@@ -292,14 +345,19 @@
               </v-list>
               <div class="bottom-articles">
                 <v-card
-                  v-for="article in issue.related_articles"
-                  :key="article.nid"
+                  v-for="(article, index) in issue_articles"
+                  :key="index"
                   class="my-2 article-summary"
                   flat
                   hover
                 >
                   <v-card-title>
-                    <p class="title-2" style="margin-bottom: -10px">{{ article.title }}</p>
+                    <v-chip color="primary">
+                      {{ article.article_number.field_article_number_value }}
+                    </v-chip>
+                    <p class="title-2" style="margin-bottom: -10px">
+                      {{ article.title }}
+                    </p>
                   </v-card-title>
                   <v-card-actions>
                     <v-btn
@@ -307,8 +365,12 @@
                       text
                       @click="loading = true"
                       router
-                      :to="{name: 'article', params: {article_id: article.nid}}"
-                    >Read</v-btn>
+                      :to="{
+                        name: 'article',
+                        params: { article_id: article.nid },
+                      }"
+                      >Read</v-btn
+                    >
                     <v-spacer></v-spacer>
                     <v-tooltip bottom>
                       <template v-slot:activator="{ on, attrs }">
@@ -321,9 +383,7 @@
                           icon
                         >
                           <v-icon>
-                            {{
-                            show ? "mdi-chevron-up" : "mdi-chevron-down"
-                            }}
+                            {{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}
                           </v-icon>
                         </v-btn>
                       </template>
@@ -334,7 +394,7 @@
                     <div v-show="show">
                       <v-divider></v-divider>
                       <v-card-text>
-                        <span v-html="article.article_abstract.field_article_abstract_value"></span>
+                        <span v-html="abstracts"></span>
                       </v-card-text>
                     </div>
                   </v-expand-transition>
@@ -375,10 +435,28 @@ export default {
 
     return {
       //issue navigation
+      issue_articles: [],
       issueview: false,
       hidden: false,
       loading: true,
       article: [],
+      /// article data
+      main_title: "",
+      second_title: "",
+      author: "",
+      type: "",
+      article_date: "",
+      abstracts: "",
+      contents: "",
+      tags: [],
+      number: "",
+      article_type: "",
+      comments: [],
+      comments_count: "",
+      nid: "",
+      shareable: "",
+      article_issue: [],
+      /** end of article data */
       hidebutton: false,
       likes: 0,
       dislikes: 0,
@@ -423,14 +501,43 @@ export default {
     Api()
       .get(`Articles/${this.article_id}`)
       .then((response) => {
-        this.article = response.data.article;
+        this.main_title = response.data.article.title;
+        this.number =
+          response.data.article.article_number.field_article_number_value;
+        this.nid = response.data.article.nid;
+        this.article_date = response.data.article.created;
+        this.author =
+          response.data.article.article_author.field_article_author_value;
+        this.article_type = response.data.article.article_types[0].name;
+        this.abstracts =
+          response.data.article.article_abstract.field_article_abstract_value;
+        this.contents =
+          response.data.article.article_content.field_article_content_value;
+        this.tags = response.data.article.Tags;
+        this.comments = response.data.article.comments;
+        this.comments_count = response.data.article.__meta__.comments_count;
+        this.article_issue = response.data.article.article_issue;
+        this.issue_articles = response.data.article.article_issue[0].related_articles.sort(
+          function (a, b) {
+            return (
+              a.article_number.field_article_number_value -
+              b.article_number.field_article_number_value
+            );
+          }
+        );
+        this.shareable = this.removeSpecials(
+          response.data.article.article_abstract.field_article_abstract_value
+        );
+        ///end of article data
         this.views = response.data.views[0].v;
         document.title = response.data.article.title;
         this.loading = false;
         this.currentlink = window.location.href;
+        ////end of
         if (response.data.likes !== null) {
           this.likes = response.data.article.likes.likes;
         }
+        ///-----
       })
       .catch((e) => {
         this.errors.push(e);
@@ -442,7 +549,6 @@ export default {
     ).then((response) => {
       const formdata = {
         article_nid: this.article_id,
-        viewer_ip: response.data.ip,
         country: response.data.country_name,
         continent: response.data.continent_name,
         city: response.data.city,
@@ -474,6 +580,7 @@ export default {
         this.fontSize = 15;
       }
     },
+
     like() {
       const formdata = {
         article_nid: this.article_id,
@@ -490,6 +597,10 @@ export default {
       this.hidebutton = true;
       this.dislikes += 1;
       Api().post("article-dislike", formdata);
+    },
+    removeSpecials(str) {
+      let parser = new DOMParser().parseFromString(str, "text/html");
+      return parser.documentElement.textContent;
     },
   },
   components: {
@@ -559,6 +670,8 @@ export default {
 
 .abstract .text {
   color: white;
+  font-weight: bold;
+  line-height: 25px;
 }
 
 .abstract .text a {
@@ -608,6 +721,9 @@ export default {
   align-items: center;
 }
 
+i {
+  color: red !important;
+}
 .feedback {
   display: flex;
   justify-content: space-around;

@@ -50,7 +50,7 @@
 
       <!---menu end -->
       <v-spacer></v-spacer>
-      <Search :dialog="false" />
+      <Search :dialog="false" searchClass="desktop-search" />
       <locale-switch></locale-switch>
     </v-app-bar>
   </div>
@@ -73,7 +73,9 @@ export default {
     gogfo() {
       return this.$router.push({ name: "Editorial" });
     },
-    goabout() {},
+    goabout() {
+        return this.$router.push({ name: "about" });
+    },
     goanalytics() {
       return this.$router.push({ name: "Analytics" });
     },

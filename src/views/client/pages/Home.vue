@@ -147,34 +147,33 @@ export default {
           id: 1,
         },
         {
-          img: require("@/assets/images/common/donors/norad.png"),
-          web: "https://norad.no/en/front/",
+          img: require("@/assets/images/common/donors/governmentNetherland.png"),
+          web: "https://www.giz.de/en/worldwide",
           id: 2,
         },
         {
-          img: require("@/assets/images/common/donors/Ahf.jpg"),
-          web: "https://www.aidshealth.org",
+          img: require("@/assets/images/common/donors/norad.png"),
+          web: "https://norad.no/en/front/",
           id: 3,
+        },
+        {
+          img: require("@/assets/images/common/donors/initiative5.png"),
+          web: "https://www.initiative5pour100.fr/",
+          id: 4,
         },
         {
           img: require("@/assets/images/common/donors/irishAid.jpg"),
           web: "https://www.irishaid.ie/",
-          id: 4,
+          id: 5,
         },
         {
-          img: require("@/assets/images/common/donors/governmentNetherland.png"),
-          web: "https://www.giz.de/en/worldwide",
-          id: 5,
+          img: require("@/assets/images/common/donors/Ahf.jpg"),
+          web: "https://www.aidshealth.org",
+          id: 6,
         },
         {
           img: require("@/assets/images/common/donors/opensociety.png"),
           web: "https://www.opensocietyfoundations.org/",
-          id: 6,
-        },
-
-        {
-          img: require("@/assets/images/common/donors/initiative5.png"),
-          web: "https://www.initiative5pour100.fr/",
           id: 7,
         },
       ],

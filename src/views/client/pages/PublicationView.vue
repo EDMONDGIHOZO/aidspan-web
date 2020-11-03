@@ -27,7 +27,7 @@
               </v-tooltip>
             </v-list-item-content>
             <v-list-item-action>
-              <v-btn icon @click="downloadPublication(file.file.filepath)">
+              <v-btn icon @click="downloadPublication(file.file.filename)">
                 <v-icon color="grey lighten-1">mdi-download</v-icon>
               </v-btn>
             </v-list-item-action>
