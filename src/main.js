@@ -15,7 +15,8 @@ import Vuelidate from 'vuelidate'
 import moment from 'moment'
 import Vue2Filters from 'vue2-filters'
 Vue.use(Vuelidate)
-    //import for animation
+
+//import for animation
 import scrollAnimation from './directives/scrollAnimation'
 import SocialSharing from 'vue-social-sharing'
 import i18n from './i18n'
@@ -32,7 +33,8 @@ Object.defineProperty(Vue.prototype, '$_', { value: _ })
 Vue.use(SocialSharing)
     /** for content ordering  */
 Vue.use(Vue2Filters)
-    /** date formatting  */
+
+/** date formatting  */
 Vue.filter('formatDate', function(value) {
     if (value) {
         return moment.unix(value).format('MMM Do YYYY')

@@ -25,25 +25,26 @@
             <span>SEARCH AIDSPAN</span>
           </v-card-title>
           <v-container>
-            <ais-instant-search :search-client="searchClient" index-name="dev_articles">
+            <ais-instant-search
+              :search-client="searchClient"
+              index-name="dev_articles"
+            >
               <ais-configure :hits-per-page.camel="12" :query="searchQuery" />
               <v-row wrap justify-center>
                 <v-col cols="12" md="3" class="filterby">
-                    <v-card outlined class="my-5 attribox" color="grey lighten-4">
+                  <v-card outlined class="my-5 attribox" color="grey lighten-4">
                     <v-card-title>
                       <h4>Filter by Language</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
-                        <ais-refinement-list
-                          attribute="language"
-                        />
+                        <ais-refinement-list attribute="language" />
                       </div>
                     </v-card-text>
                   </v-card>
                   <v-card outlined class="attribox" color="grey lighten-4">
                     <v-card-title>
-                      <h4>Filter by Years</h4>
+                      <h4>Filter by Dates</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
@@ -51,6 +52,8 @@
                           attribute="created"
                           :sort-by="['isRefined', 'name:desc']"
                           show-more="true"
+                          searchable="true"
+                          searchable-placeholder="example 2020"
                         />
                       </div>
                     </v-card-text>
@@ -64,6 +67,8 @@
                         <ais-refinement-list
                           attribute="author.field_article_author_value"
                           show-more="true"
+                          searchable="true"
+                          searchable-placeholder="example David"
                         />
                       </div>
                     </v-card-text>
@@ -75,7 +80,14 @@
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
-                        <ais-refinement-list attribute="type.name" show-more="true" />
+                        <ais-refinement-list
+                          attribute="type.name"
+                          show-more="true"
+                          searchable="true"
+                          searchable-placeholder="example NEWS"
+                          class-names="{
+                            'ais-RefinementList-item': 'refitem'}"
+                        />
                       </div>
                     </v-card-text>
                   </v-card>
@@ -100,24 +112,47 @@
                   </ais-stats>
                   -->
 
-                  <v-card outlined class="lister">
+                  <v-card flat class="lister ma-4">
                     <v-card-text>
                       <ais-hits>
                         <template slot="item" slot-scope="{ item }">
-                          <v-list three-line>
-                            <v-list-item link @click="goTo(item.nid)">
-                              <v-list-item-content>
-                                <v-list-item-title v-text="item.title" class="font-weight-bold"></v-list-item-title>
-                                <v-list-item-subtitle
-                                  class="blue--text font-weight-bold"
-                                >{{item.changed}} - {{item.language}}</v-list-item-subtitle>
-                                <v-list-item-subtitle
-                                  v-text="item.author.field_article_author_value"
-                                  class="orange--text font-weight-bold"
-                                ></v-list-item-subtitle>
-                              </v-list-item-content>
-                            </v-list-item>
-                          </v-list>
+                          <v-card
+                            @click="goTo(item.nid)"
+                            flat
+                            class="result-card"
+                          >
+                            <v-card-title v-text="item.title"> </v-card-title>
+                            <v-card-text>
+                              <p
+                                v-html="
+                                  item.abstract.field_article_abstract_value
+                                "
+                              ></p>
+                            </v-card-text>
+                            <v-card-actions>
+                              <v-row>
+                                <v-col cols="12" md="4">
+                                  <strong class="pl-5 pr-5">{{
+                                    item.created
+                                  }}</strong>
+                                  <v-chip color="primary">
+                                    {{ item.language }}
+                                  </v-chip>
+                                </v-col>
+                                <v-col cols="12" md="4">
+                                  <strong class="text-italic text-right">{{
+                                    item.author.field_article_author_value
+                                  }}</strong>
+                                </v-col>
+                                <v-col cols="12" md="4">
+                                  <strong
+                                    class="text-italic text-right orange--text"
+                                    >{{ item.type[0].name }}</strong
+                                  >
+                                </v-col>
+                              </v-row>
+                            </v-card-actions>
+                          </v-card>
                         </template>
                       </ais-hits>
                     </v-card-text>
@@ -126,39 +161,51 @@
                     <ul
                       class="paginater"
                       slot-scope="{
-      currentRefinement,
-      nbPages,
-      pages,
-      isFirstPage,
-      isLastPage,
-      refine,
-      createURL
-    }"
+                        currentRefinement,
+                        nbPages,
+                        pages,
+                        isFirstPage,
+                        isLastPage,
+                        refine,
+                        createURL,
+                      }"
                     >
                       <li v-if="!isFirstPage">
-                        <a :href="createURL(0)" @click.prevent="refine(0)">‹‹</a>
+                        <a :href="createURL(0)" @click.prevent="refine(0)"
+                          >‹‹</a
+                        >
                       </li>
                       <li v-if="!isFirstPage">
                         <a
                           :href="createURL(currentRefinement - 1)"
                           @click.prevent="refine(currentRefinement - 1)"
-                        >‹</a>
+                          >‹</a
+                        >
                       </li>
                       <li v-for="page in pages" :key="page">
                         <a
                           :href="createURL(page)"
-                          :style="{ fontWeight: page === currentRefinement ? 'bold' : '' }"
+                          :style="{
+                            fontWeight:
+                              page === currentRefinement ? 'bold' : '',
+                          }"
                           @click.prevent="refine(page)"
-                        >{{ page + 1 }}</a>
+                          >{{ page + 1 }}</a
+                        >
                       </li>
                       <li v-if="!isLastPage">
                         <a
                           :href="createURL(currentRefinement + 1)"
                           @click.prevent="refine(currentRefinement + 1)"
-                        >›</a>
+                          >›</a
+                        >
                       </li>
                       <li v-if="!isLastPage">
-                        <a :href="createURL(nbPages)" @click.prevent="refine(nbPages)">››</a>
+                        <a
+                          :href="createURL(nbPages)"
+                          @click.prevent="refine(nbPages)"
+                          >››</a
+                        >
                       </li>
                     </ul>
                   </ais-pagination>
@@ -169,7 +216,9 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="red darken-1" text @click="dialog = false">Close</v-btn>
+            <v-btn color="red darken-1" text @click="dialog = false"
+              >Close</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -247,9 +296,22 @@ export default {
   background-color: rgb(204, 117, 4);
 }
 
+.result-card {
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+}
+.result-card:hover {
+  background-color: #e7e7e7;
+  margin-bottom: 10px;
+}
+
 .lister {
   max-height: 700px;
   overflow-y: scroll;
   margin-bottom: 10px;
+}
+
+.refitem {
+    color:#0eaae7;
 }
 </style>

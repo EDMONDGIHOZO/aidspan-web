@@ -1,38 +1,41 @@
 <template>
   <div class="key_docs">
-    <p class="doc_title font-weight-bold text-center text-uppercase">Career and opportunities</p>
+    <p class="doc_title font-weight-bold text-center text-uppercase">
+      Career and opportunities
+    </p>
     <div class="doc_list_container">
-      <v-card v-if="docs.length < 1" flat>
-        <v-card-text>
-          <h1 class="text-center">No opportunity available now!</h1>
-        </v-card-text>
-      </v-card>
-      <v-card class="pa-2 doc" v-for="doc in docs" :key="doc.id" v-else>
-        <v-row align="center">
-          <v-col cols="2" md="1">
-            <v-avatar>
-              <v-icon color="primary">{{doc.format}}</v-icon>
-            </v-avatar>
-          </v-col>
-          <v-col cols="10" md="9">
-            <h4 class="text-left">{{doc.doc_name}}</h4>
-          </v-col>
-          <v-col cols="12" md="2">
-            <v-btn
-              :href="doc.doc_link"
-              depressed
-              color="primary"
-              rounded
-              small
-              v-if="doc.doc_link !== null"
-            >
-              <v-icon color="white" left>mdi-file-download</v-icon>Download
-            </v-btn>
-
-            <small v-else>no file available</small>
+      <div class="loader" v-if="noJob">
+     <v-row>
+         <v-col cols="6">
+              <v-skeleton-loader v-bind="attrs" type="card-heading"></v-skeleton-loader>
+         </v-col>
+         <v-col cols="6">
+              <v-skeleton-loader v-bind="attrs" type="card-heading"></v-skeleton-loader>
+         </v-col>
+     </v-row>
+    </div>
+      <div class="joblist">
+        <v-row wrap>
+          <v-col cols="12" md="6" v-for="job in jobs" :key="job.nid">
+            <v-card class="pa-4" outlined>
+              <v-card-title class="text-uppercase">{{
+                job.title
+              }}</v-card-title>
+              <v-card-text>
+                <p v-html="job.body.body_summary"></p>
+              </v-card-text>
+              <v-card-actions>
+                <v-list-item class="grow">
+                  <v-btn color="info" rounded depressed @click=" viewCareer(job.nid)">READ MORE</v-btn>
+                  <v-row align="center" justify="end">
+                    <span>{{ job.changed | formatDate }}</span>
+                  </v-row>
+                </v-list-item>
+              </v-card-actions>
+            </v-card>
           </v-col>
         </v-row>
-      </v-card>
+      </div>
     </div>
   </div>
 </template>
@@ -40,14 +43,28 @@
 import Api from "@/services/Api";
 export default {
   data: () => ({
-    docs: [],
+    noJob: true,
+    dialog: false,
+    jobs: [],
   }),
   mounted() {
     Api()
-      .get("/key-documents")
+      .get("/careers")
       .then((response) => {
-        this.docs = response.data.data;
+        this.jobs = response.data.data;
+        this.noJob = false;
       });
+  },
+
+  methods: {
+    viewCareer(id) {
+      return this.$router.push({
+        name: "career",
+        params: {
+          id: id,
+        },
+      });
+    },
   },
 };
 </script>
@@ -81,7 +98,7 @@ export default {
   border: 1px solid #eeeeee;
   box-sizing: border-box;
   border-radius: 15px;
-  padding: 40px;
+  padding: 20px;
 }
 
 @media screen and (max-width: 520px) {

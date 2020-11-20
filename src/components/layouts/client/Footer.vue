@@ -22,7 +22,7 @@
             <h4>{{ $t("quicklinks") }}</h4>
           </li>
           <li @click="goto('careers')" class="linked">
-            {{ $t("quicks.careers") }}
+            <v-badge color="primary" content="New">{{ $t("quicks.careers") }} </v-badge>
           </li>
           <li @click="goto('gallery')" class="linked">
             {{ $t("quicks.gallery") }}

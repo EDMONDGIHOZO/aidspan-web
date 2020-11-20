@@ -92,6 +92,20 @@ const routes = [{
                         },
                     },
                     {
+                        path: 'career/:id',
+                        name: 'career',
+                        props: true,
+                        params: true,
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "career" */
+                                '../views/client/pages/career.vue'
+                            ),
+                        meta: {
+                            title: 'Job',
+                        },
+                    },
+                    {
                         path: 'key-documents',
                         name: 'key-documents',
                         component: () =>

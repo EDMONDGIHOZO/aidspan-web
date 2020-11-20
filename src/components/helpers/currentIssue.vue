@@ -74,10 +74,10 @@ import DownloadIssue from "@/mixins/downloadIssue";
 
 export default {
   mounted() {
+    this.$store.dispatch("loadCurrentIssue", this.$i18n.locale);
     if (localStorage.getItem("lang") === null) {
       localStorage.setItem("lang", this.$i18n.locale);
     }
-    this.$store.dispatch("loadCurrentIssue", this.$i18n.locale);
   },
 
   methods: {

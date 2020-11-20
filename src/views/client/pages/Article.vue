@@ -545,16 +545,16 @@ export default {
   },
   mounted() {
     Axios.get(
-      "https://api.ipdata.co?api-key=c2b88d6921fb67aa71a1b172ee472b85b6abea9f04e088876a4c677b"
+      "https://api.ipregistry.co/?key=y7clx5dqymhs3x"
     ).then((response) => {
       const formdata = {
         article_nid: this.article_id,
-        country: response.data.country_name,
-        continent: response.data.continent_name,
-        city: response.data.city,
-        longitude: response.data.longitude,
-        latitude: response.data.latitude,
-        is_eu: response.data.is_eu,
+        country: response.data.location.country.name,
+        continent: response.data.location.continent.name,
+        city: response.data.location.region.name,
+        longitude: response.data.location.longitude,
+        latitude: response.data.location.latitude,
+        is_eu: response.data.location.in_eu,
         last_view: response.data.time_zone.current_time,
       };
       Api().post("/article-view", formdata);
