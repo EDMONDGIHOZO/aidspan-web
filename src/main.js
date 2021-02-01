@@ -4,7 +4,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import store from '@/store'
 import InstantSearch from 'vue-instantsearch'
-//import VueGtag from 'vue-gtag'
+// import VueGtag from 'vue-gtag'
 //import the custom styles
 import './assets/styles/mobileDevices.scss'
 import './assets/styles/responsive.scss'
@@ -25,10 +25,16 @@ Object.defineProperty(Vue.prototype, '$_', { value: _ })
 
 ///add the google analytics here
 // Vue.use(VueGtag, {
-//  config: {
-//    id: 'UA-167593216-1',
-//},
-//})
+//         config: {
+//             id: 'UA-167593216-1',
+//             params: {
+//                 send_page_view: true,
+//                 appName: 'aidspan-web',
+//                 pageTrackerScreenviewEnabled: true,
+//             },
+//             router,
+//         },
+//     })
 /** sharing stuffs */
 Vue.use(SocialSharing)
     /** for content ordering  */

@@ -278,12 +278,13 @@
           dark
           bottom
           fixed
+          small
           right
           rounded
           depressed
           @click.stop="issueview = !issueview"
         >
-          <v-icon left>mdi-chevron-left</v-icon>
+          <v-icon left color="white">mdi-chevron-left</v-icon>
           <strong>Show Issue</strong>
         </v-btn>
       </v-fab-transition>
@@ -319,7 +320,7 @@
                       @click.stop="issueview = !issueview"
                     >
                       Hide Issue
-                      <v-icon>mdi-chevron-right</v-icon>
+                      <v-icon color="white">mdi-chevron-right</v-icon>
                     </v-btn>
                   </v-fab-transition>
                 </v-list-item>
@@ -372,7 +373,7 @@
                       >Read</v-btn
                     >
                     <v-spacer></v-spacer>
-                    <v-tooltip bottom>
+                    <!-- <v-tooltip bottom>
                       <template v-slot:activator="{ on, attrs }">
                         <v-btn
                           color="primary"
@@ -388,16 +389,16 @@
                         </v-btn>
                       </template>
                       <span>Show Related Issue</span>
-                    </v-tooltip>
+                    </v-tooltip> -->
                   </v-card-actions>
-                  <v-expand-transition>
+                  <!-- <v-expand-transition>
                     <div v-show="show">
                       <v-divider></v-divider>
                       <v-card-text>
                         <span v-html="abstracts"></span>
                       </v-card-text>
                     </div>
-                  </v-expand-transition>
+                  </v-expand-transition> -->
                 </v-card>
               </div>
             </v-navigation-drawer>
@@ -413,17 +414,14 @@ import socialSharing from "vue-social-sharing";
 import "font-awesome/css/font-awesome.min.css";
 import DownloadIssue from "@/mixins/downloadIssue";
 import Api from "@/services/Api";
-import Axios from "axios";
-
+// import Axios from "axios";
 export default {
   props: ["article_id"],
   watch: {
     loader() {
       const l = this.loader;
       this[l] = !this[l];
-
       setTimeout(() => (this[l] = false), 3000);
-
       this.loader = null;
     },
   },
@@ -432,7 +430,6 @@ export default {
       names: "",
       comment: "",
     });
-
     return {
       //issue navigation
       issue_articles: [],
@@ -480,7 +477,6 @@ export default {
       views: 0,
     };
   },
-
   mixins: [DownloadIssue],
   //props: ['article_id'],
   computed: {
@@ -543,23 +539,6 @@ export default {
         this.errors.push(e);
       });
   },
-  mounted() {
-    Axios.get(
-      "https://api.ipregistry.co/?key=y7clx5dqymhs3x"
-    ).then((response) => {
-      const formdata = {
-        article_nid: this.article_id,
-        country: response.data.location.country.name,
-        continent: response.data.location.continent.name,
-        city: response.data.location.region.name,
-        longitude: response.data.location.longitude,
-        latitude: response.data.location.latitude,
-        is_eu: response.data.location.in_eu,
-        last_view: response.data.time_zone.current_time,
-      };
-      Api().post("/article-view", formdata);
-    });
-  },
 
   methods: {
     resetForm() {
@@ -580,7 +559,6 @@ export default {
         this.fontSize = 15;
       }
     },
-
     like() {
       const formdata = {
         article_nid: this.article_id,
@@ -625,7 +603,6 @@ export default {
   margin: 10px;
   border: solid #6cd3fcad 1px;
 }
-
 #articleSection {
   display: flex;
   justify-content: center;
@@ -639,16 +616,13 @@ export default {
   color: #00adef;
   text-transform: uppercase;
 }
-
 #articleSection .second-article-title {
   font-weight: bold;
   font-size: 18px;
   line-height: 19px;
   /* identical to box height */
-
   color: #000000;
 }
-
 #articleSection .authoring {
   display: flex;
   justify-content: space-between;
@@ -657,27 +631,22 @@ export default {
   align-items: center;
   flex-direction: row;
 }
-
 #articleSection .authoring .social {
   justify-self: center;
 }
-
 #articleSection .abstract {
   text-align: left;
   background: #42aeef;
   font-style: italic;
 }
-
 .abstract .text {
   color: white;
   font-weight: bold;
   line-height: 25px;
 }
-
 .abstract .text a {
   color: #000000;
 }
-
 #articleSection .content {
   margin-top: 20px;
   color: #000000;
@@ -690,14 +659,12 @@ export default {
   padding: 20px;
   overflow: hidden;
 }
-
 .bottom-articles {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .comments {
   border-left: solid 4px rgb(40, 189, 248);
   border-radius: 10px;
@@ -714,13 +681,11 @@ export default {
 .comments .number {
   font-weight: bold;
 }
-
 .adjuster {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 i {
   color: red !important;
 }

@@ -1,8 +1,8 @@
 <template>
   <nav class="d-flex d-sm-none">
-    <v-app-bar fixed>
+    <v-app-bar fixed color="white" light flat>
       <img :src="appIcon" alt="aidspan-logo" width="40px" />
-      <p class="app-title">{{$t('slogan')}}</p>
+      <p class="app-title aid-title">{{$t('slogan')}}</p>
       <v-spacer></v-spacer>
          <Search :dialog="false" searchClass="mobile-search" />
       <v-app-bar-nav-icon @click.stop="mobMenu = !mobMenu" color="#00AEEF"></v-app-bar-nav-icon>
@@ -125,6 +125,10 @@ export default {
   align-items: center;
   margin: auto;
   padding: 10px;
+}
+
+.aid-title {
+    font-size: 10px !important;
 }
 
 #menu .submenu {

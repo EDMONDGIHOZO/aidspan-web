@@ -4,13 +4,17 @@
     <v-row class="my-5">
       <v-col cols="12" id="aboutus-container">
         <v-card class="abt">
-          <v-card-title class="text-uppercase font-weight-bold">{{$t('whatwedo.title')}}</v-card-title>
-          <v-card-text>{{$t('whatwedo.content')}}</v-card-text>
+          <v-card-title class="text-uppercase font-weight-bold">{{
+            $t("whatwedo.title")
+          }}</v-card-title>
+          <v-card-text>{{ $t("whatwedo.content") }}</v-card-text>
         </v-card>
         <v-card class="my-5 abt">
-          <v-card-title class="font-weight-bold">{{$t('whatweare.title')}}</v-card-title>
+          <v-card-title class="font-weight-bold">{{
+            $t("whatweare.title")
+          }}</v-card-title>
           <v-card-text>
-            <p>{{$t('whatweare.content')}}</p>
+            <p>{{ $t("whatweare.content") }}</p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -21,7 +25,12 @@
       <v-col cols="12" md="8" class="cores">
         <h4 class="px-5 my-4 text-uppercase my-1">Core Values</h4>
         <v-tabs horizontal background-color="#e9edf0">
-          <v-tab v-for="value in coreValues" :key="value.id" id="tabstitle" tab-reverse-transition>
+          <v-tab
+            v-for="value in coreValues"
+            :key="value.id"
+            id="tabstitle"
+            tab-reverse-transition
+          >
             <p class="font-weight-bold">{{ value.title }}</p>
           </v-tab>
 
@@ -38,12 +47,16 @@
       <!-- start of the mission and vision -->
       <v-col cols="12" md="4" class="mission-vision">
         <v-card flat class="miscard" shaped>
-          <v-card-title class="white-text font-weight-bold">{{$t('mission.title')}}</v-card-title>
-          <v-card-text>{{$t('mission.short')}}</v-card-text>
+          <v-card-title class="white-text font-weight-bold">{{
+            $t("mission.title")
+          }}</v-card-title>
+          <v-card-text>{{ $t("mission.short") }}</v-card-text>
         </v-card>
         <v-card flat class="miscard" shaped>
-          <v-card-title class="white-text font-weight-bold">{{$t('vision.title')}}</v-card-title>
-          <v-card-text>{{$t('vision.content')}}</v-card-text>
+          <v-card-title class="white-text font-weight-bold">{{
+            $t("vision.title")
+          }}</v-card-title>
+          <v-card-text>{{ $t("vision.content") }}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -53,10 +66,10 @@
       <v-col cols="12">
         <v-card color="primary" flat shaped id="policy">
           <v-card-title>
-            <h4>{{$t("policy.title")}}</h4>
+            <h4>{{ $t("policy.title") }}</h4>
           </v-card-title>
           <v-card-text>
-            <p class="white--text">{{$t("policy.data")}}</p>
+            <p class="white--text">{{ $t("policy.data") }}</p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -77,14 +90,22 @@
           </v-card-text>
         </v-card>
         <v-timeline dense align-top light>
-          <v-timeline-item v-for="year in achieves" :key="year.id" :color="year.color" small>
+          <v-timeline-item
+            v-for="year in achieves"
+            :key="year.id"
+            :color="year.color"
+            small
+          >
             <template v-slot:opposite>
-              <span :class="`font-weight-bold ${year.color}--text`" v-text="year.year"></span>
+              <span
+                :class="`font-weight-bold ${year.color}--text`"
+                v-text="year.year"
+              ></span>
             </template>
             <v-card flat class="hiscard">
               <v-card-text>{{ year.describe }}</v-card-text>
               <v-card-actions>
-                <small class="font-weight-bold">{{year.year}}</small>
+                <small class="font-weight-bold">{{ year.year }}</small>
               </v-card-actions>
             </v-card>
           </v-timeline-item>
@@ -93,17 +114,31 @@
     </v-row>
     <v-row class="board-row">
       <v-col cols="12">
-        <h3 class="text-center">{{$t("board-dirs.title")}}</h3>
-        <p class="pa-5 text-center">{{$t("board-dirs.desc")}}</p>
+        <h3 class="text-center">{{ $t("board-dirs.title") }}</h3>
+        <p class="pa-5 text-center">{{ $t("board-dirs.desc") }}</p>
       </v-col>
-      <v-col cols="12" id="board">
-        <v-hover v-for="director in directors" :key="director.id">
+      <v-col
+        cols="12"
+        md="4"
+        id="board"
+        v-for="director in directors"
+        :key="director.id"
+      >
+        <v-hover>
           <template v-slot:default="{ hover }">
-            <v-card class="leader" width="400">
-              <v-img :src="director.img" height="300" :aspect-ratio="16/9"></v-img>
-              <v-card-subtitle class="pb-0 text-uppercase">{{director.position}}</v-card-subtitle>
+            <v-card class="leader" min-width="360">
+              <v-img
+                :src="director.img"
+                height="300"
+                :aspect-ratio="16 / 9"
+              ></v-img>
+              <v-card-subtitle class="pb-0 text-uppercase">{{
+                director.position
+              }}</v-card-subtitle>
               <v-card-text>
-                <h4 class="primary--text text-capitalize">{{director.names}}</h4>
+                <h4 class="primary--text text-capitalize">
+                  {{ director.names }}
+                </h4>
               </v-card-text>
               <v-expand-transition>
                 <v-overlay
@@ -112,15 +147,16 @@
                   absolute
                   color="#00adef"
                   style="height: 100%; cursor: alias"
-                  class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal"
+                  class="d-flex transition-fast-in-fast-out darken-2 pa-5 v-card--reveal"
                 >
-                  <p>{{director.desc}}</p>
+                  <p>{{ director.desc }}</p>
                   <v-chip
                     color="secondary"
                     small
-                    :href="'mailto:'+director.email"
+                    :href="'mailto:' + director.email"
                     target="_black"
-                  >{{director.email}}</v-chip>
+                    >{{ director.email }}</v-chip
+                  >
                 </v-overlay>
               </v-expand-transition>
             </v-card>
@@ -287,25 +323,33 @@ export default {
           position: "BOARD Member",
           desc:
             "President of the Country Coordinating Mechanism in Niger, Based in Niamey, Niger.",
-          img:
-            "https://docs.aidspan.org/wl/?id=X97aIrA2uNvi1UlMaNE862iSEgYfWBBz",
+          img: "https://pbs.twimg.com/profile_images/1314529600391782400/DLaH6sEX_400x400.jpg"
         },
         {
           id: 4,
           names: "Dr. Jesse Boardman Bump",
-          email: "(bump@hsph.harvard.edu)",
+          email: "bump@hsph.harvard.edu",
           position: "BOARD Member",
           desc:
             "Executive director of the Takemi Program in International Health and lecturer on global health policy at the Harvard T.H. Chan School of Public Health.",
-          img:
-            "https://pkimgcdn.peekyou.com/932a0368033d136a8c1130738c513a4e.jpeg",
+          img: require("@/assets/images/common/board/bump.jpg"),
         },
         {
-          id: 5,
+          id: 6,
+          names: "Prof.Gavin George",
+          position: "Board Member",
+          img:
+            "https://cdn.theconversation.com/avatars/1107047/width238/Gavin_George.jpg",
+          desc:
+            "Prof Gavin George is a Programme Leader at the Health Economics and HIV and AIDS Research Division (HEARD) and Associate Professor in the School of Accounting, Economics and Finance at the University of KwaZuluNatal, Durban, South Africa.",
+          email: "(ida.hakizinka@aidspan.org)",
+        },
+        {
+          id: 7,
           names: "Ida Hakizinka",
           position: "EXECUTIVE DIRECTOR",
           img: require("@/assets/images/common/board/ida.jpg"),
-          desc: "Aidspan’s Executive Director, ex officio",
+          desc: "Aidspan’s Executive Director",
           email: "(ida.hakizinka@aidspan.org)",
         },
       ],
@@ -327,12 +371,12 @@ export default {
   #board {
     text-align: center;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   #board .leader {
-    width: 100%;
     margin-bottom: 20px;
     margin-right: auto;
     margin-left: auto;

@@ -1,6 +1,9 @@
 <template>
   <div class="main-footer">
     <v-row id="sub-footer">
+        <v-col cols="12" class="pa-2 d-sm-none mobile-sub">
+             <v-btn color="white" width="240" text rounded class="mb-3" @click="goto('Subscribe')">{{$t('subscribe')}}</v-btn>
+        </v-col>
       <v-col cols="12" md="3" class="twitter-card">
         <v-card color="primary">
           <Timeline
@@ -174,5 +177,15 @@ export default {
 .contact-list .linked:hover {
   color: #000000;
   font-size: 18px;
+}
+
+.mobile-sub {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: auto;
 }
 </style>

@@ -14,6 +14,13 @@ export default {
     },
   },
 
+  mounted() {
+    let checked = "12.456.677.8";
+    let userid = checked.split(".").join("");
+    if (!localStorage.getItem("your_id"))
+      localStorage.setItem("your_id", userid);
+  },
+
   ///remove the pop up from local storage
   /**beforeMount() {
     localStorage.removeItem("popstat");

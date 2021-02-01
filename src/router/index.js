@@ -6,6 +6,9 @@ import i18n from '../i18n'
 import Home from '@/views/client/pages/Home.vue'
 import AppHolder from '@/components/layouts/appholder.vue'
 
+import Api from '@/services/Api'
+import Axios from 'axios'
+
 Vue.use(VueRouter)
 
 const routes = [{
@@ -213,7 +216,6 @@ const routes = [{
                         name: 'article',
                         props: true,
                         params: true,
-
                         component: () =>
                             import (
                                 /* webpackChunkName: "editoral" */
@@ -221,6 +223,7 @@ const routes = [{
                             ),
                         meta: {
                             title: 'Gfo Newsletter',
+                            countIt: true,
                         },
                     },
                     {
@@ -476,7 +479,6 @@ const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes,
-
     scrollBehavior: function(to) {
         if (to.hash) {
             return {
@@ -485,5 +487,40 @@ const router = new VueRouter({
         }
     },
 })
+
+router.afterEach((to, from, next) => {
+    if (to.meta.countIt) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        let id = to.params.article_id
+        updatedArticle(id)
+    } else {
+        next() // make sure to always call next()!
+    }
+})
+
+////counting function
+
+function updatedArticle(id) {
+
+    Axios.get(
+        "https://api.ipregistry.co/?key=y7clx5dqymhs3x"
+    ).then((response) => {
+        const formdata = {
+            article_nid: id,
+            country: response.data.location.country.name,
+            continent: response.data.location.continent.name,
+            city: response.data.location.region.name,
+            longitude: response.data.location.longitude,
+            latitude: response.data.location.latitude,
+            is_eu: response.data.location.in_eu,
+            last_view: response.data.time_zone.current_time,
+            ip: response.data.ip
+        };
+        Api().post("/article-view", formdata);
+    });
+
+
+}
 
 export default router
