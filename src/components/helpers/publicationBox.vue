@@ -19,16 +19,21 @@
 						{{ description | str_limit }}
 					</p>
 				</v-card-text>
-    <v-divider></v-divider>
+				<v-divider></v-divider>
 				<v-card-actions>
 					<div class="download-buttons">
-                        <span>files</span>
-						<v-btn color="secondary" icon>
-							<v-icon>mdi-file-pdf</v-icon>
-						</v-btn>
-						<v-btn color="success" icon>
-							<v-icon>mdi-file-word</v-icon>
-						</v-btn>
+						<div class="files">
+							<span>files</span>
+							<v-btn color="secondary" icon>
+								<v-icon>mdi-file-pdf</v-icon>
+							</v-btn>
+							<v-btn color="success" icon>
+								<v-icon>mdi-file-word</v-icon>
+							</v-btn>
+						</div>
+                        <div class="type">
+                            <v-chip color="secondary">guide</v-chip>
+                        </div>
 					</div>
 				</v-card-actions>
 			</v-card>
@@ -54,10 +59,10 @@ export default {
 	flex-direction: row;
 }
 
-.download-buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.download-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 </style>

@@ -5,7 +5,22 @@
 		</div>
 
 		<v-row class="wrapper">
-			<v-col cols="12" md="8">
+			<v-col cols="12" md="3">
+				<v-list dense color="primary" rounded dark>
+					<v-subheader class="tit">CATEGORIES</v-subheader>
+					<v-list-item-group v-model="select_pub" color="primary">
+						<v-list-item v-for="(item, i) in items" :key="i">
+							<v-list-item-content>
+								<v-list-item-title v-text="item.text"></v-list-item-title>
+							</v-list-item-content>
+							<v-list-item-avatar>
+								23
+							</v-list-item-avatar>
+						</v-list-item>
+					</v-list-item-group>
+				</v-list>
+			</v-col>
+			<v-col cols="12" md="9">
 				<div class="list-container">
 					<div class="search">
 						<v-text-field
@@ -20,21 +35,6 @@
 						<pub-box />
 					</div>
 				</div>
-			</v-col>
-			<v-col cols="12" md="4">
-				<v-list dense color="primary" rounded dark>
-					<v-subheader class="tit">CATEGORIES</v-subheader>
-					<v-list-item-group v-model="select_pub" color="primary">
-						<v-list-item v-for="(item, i) in items" :key="i">
-							<v-list-item-content>
-								<v-list-item-title v-text="item.text"></v-list-item-title>
-							</v-list-item-content>
-							<v-list-item-avatar>
-							23
-							</v-list-item-avatar>
-						</v-list-item>
-					</v-list-item-group>
-				</v-list>
 			</v-col>
 		</v-row>
 	</div>
@@ -63,8 +63,9 @@ export default {
 	font-family: Poppins;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 40px;
-	line-height: 60px;
+	font-size: 30px;
+  line-height: 60px;
+  margin-left: 12px;
 	/* identical to box height */
 	color: #a6acbe;
 }
@@ -90,7 +91,7 @@ export default {
 }
 
 .tit {
-  font-size: 20px;
+	font-size: 20px;
 	text-transform: uppercase;
 	color: white;
 }
