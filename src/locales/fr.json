@@ -115,5 +115,13 @@
         "info": "Nous recherchons toujours des moyens d'améliorer nos contenus. dites-nous ce que vous avez aimé et ce que nous pouvons améliorer.",
         "btn": "J'ai des commentaires!",
         "thanks": "Merci pour vos commentaires!"
+    },
+
+    "history": {
+        "title": "notre histoire",
+        "legacy1": "Aidspan a lancé Global Fund Observer (GFO), l'établissant rapidement comme la source définitive de nouvelles, d'analyses et de commentaires sur le Fonds mondial.",
+        "legacy1date": "22 Décembre"
     }
+
+    
 }
