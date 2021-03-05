@@ -1,127 +1,188 @@
 {
-    "message": "hello i18n !!",
-    "mission": {
-        "content": "Aidspan est une organisation internationale non gouvernementale (ONG) créée en 2002 en tant qu'observateur indépendant du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme. Aidspan fournit au Fonds mondial de lutte contre le sida, la tuberculose et le paludisme (le «Fonds mondial») des informations et analyses des parties prenantes pour comprendre et évaluer les progrès du Fonds mondial. Aidspan vise à influencer la transparence et l'efficacité du Fonds mondial aux niveaux mondial et national",
-        "title": "NOTRE MISSION",
-        "subtitle": "Le monde sans épidémies de:",
-        "short": "Pour être un chien de garde efficace mettant en évidence, analysant et la transparence et l'efficacité du Fonds mondial de lutte contre le sida, Tuberculose et paludisme aux niveaux mondial et national"
-    },
-    "vision": {
-        "title": "VISION",
-        "content": "Un monde sans épidémies de sida, de tuberculose et de Malaria"
-    },
-    "home": {
-        "title": "Accueil",
-        "action": "mdi-home",
-        "route": "/en"
-    },
-    "about": {
-        "title": "à propos de nous",
-        "action": "mdi-lightbulb-on",
-        "route": "en/about-us"
-    },
-    "policy": {
-        "title": "Analyse de politique",
-        "action": "mdi-hexagon-multiple",
-        "route": "en/about-us#policy",
-        "data": "Aidspan mène des analyses et des enquêtes indépendantes et critiques sur les politiques, stratégies, processus et structures du Fonds mondial, les mécanismes de financement, la transparence et la qualité des données. Nous publions son contenu analytique à travers des rapports, des études de cas, des articles évalués par des pairs et des critiques. Aidspan fournit également des conseils à ceux qui demandent, mettent en œuvre ou supervisent des subventions du Fonds mondial en publiant des guides sur divers sujets. Aidspan s'appuie sur une petite équipe de chercheurs internes et de collaborateurs externes ayant une expertise en économie de la santé, en épidémiologie, en gouvernance, en renforcement des systèmes de santé et en processus du Fonds mondial, entre autres. Nous développons des collaborations avec des instituts de recherche et d'autres organisations axées sur les politiques. Aidspan vise à fournir des analyses indépendantes sur les politiques du Fonds mondial qui peuvent être utilisées par nos parties prenantes. Ils comprennent le Fonds mondial (Secrétariat, Bureau de l'Inspecteur général (BIG) et Conseil d'administration, y compris les comités), les donateurs du Fonds mondial, les exécutants, les chercheurs de la société civile et les médias. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche."
-    },
-    "analytics": {
-        "title": "Analyse des données",
-        "action": "mdi-google-analytics",
-        "route": "en/methodologies"
-    },
-    "publications": {
-        "title": "publications",
-        "intro_title": "publications d'Aidspan",
-        "action": "mdi-folder-star",
-        "route": "en/publications",
-        "submenus": [{
-                "title": "Rapports",
-                "route": "reports"
-            },
-            {
-                "title": "Guides",
-                "route": "guides"
-            }
-        ]
-    },
-    "gfo": {
-        "title": "OFM",
-        "action": "mdi-eye",
-        "route": "en/publications"
-    },
-    "newsletterbtn": "Abonnez-vous à notre bulletin",
-    "thankyou": {
-        "title": "Merci de vous être inscrit à notre bulletin",
-        "message": "N'oubliez pas de marquer notre e-mail comme important!"
-    },
-    "newsletterbtn_desc": "pour la newsletter en anglais choisissez GFO ou OFM pour le français",
-    "subscribe": "souscrire",
-    "define_guides": "Les guides Aidspan sont des publications téléchargeables gratuites de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets tels que la procédure de demande de subvention du Fonds mondial et la mise en place d'un mécanisme de coordination par pays.",
-    "report_intro": "Les publications de recherche d'Aidspan visent à fournir aux lecteurs des informations précises et impartiales des résultats qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en accès libre. Nous apprécions les suggestions d'articles et de collaborations de recherche. Veuillez adresser toutes vos demandes au directeur exécutif à info@aidspan.org",
-    "report_title": "RAPPORTS",
-    "viewall": "Voir tout",
-    "quicklinks": "LIENS RAPIDES",
-    "getconnected": "Connectez-vous avec nous sur les réseaux sociaux!",
-    "apwintro": "Aidspan Portal Workbench ™ est une application Web flexible et puissante qui récupère les données du portefeuille de subventions à partir des services Web fournis par le Fonds mondial, puis rend les données disponibles de manière conviviale.",
-    "gfo_intro": {
-        "title": "OBSERVATEUR DU FONDS MONDIAL",
-        "description": "L'Observateur du Fonds mondial est la principale voix indépendante fournissant des informations, des analyses et des opinions sur le Fonds mondial. Abonnez-vous à notre newsletter gratuite deux fois par mois pour obtenir des explications fiables et faisant autorité sur les politiques, pratiques et procédures du Secrétariat, des informations privilégiées sur les réunions du Conseil du Fonds mondial, une analyse des rapports du Bureau de l'Inspecteur général et des histoires réelles qui captent l'impact et le rôle du Fonds mondial au niveau des pays, veuillez ajouter gfo-newsletter@aidspan.org à votre liste d'expéditeurs de courrier électronique approuvés pour éviter que votre système de messagerie ne traite les problèmes entrants de l'observateur du Fonds mondial comme du spam."
-    },
-    "allissues": "TOUT NUMÉROS",
-    "currentissue": "ÉDITION COURANTE",
-    "gfonote": "OBSERVATEUR DU FONDS MONDIAL (OFM) est produit par le Département éditorial d'Aidspan. Aidspan apprécie les commentaires des lecteurs sur les articles de GFO. Aidspan se réjouit également des offres d'écrire des articles et des suggestions de sujets que nous pourrions couvrir dans GFO.",
-    "contactgfo": "CONTACTER LE SERVICE ÉDITORIAL SUR",
-    "sendemail": "envoyer un e-mail",
-    "whatwedo": {
-        "title": "Ce que nous faisons",
-        "content": "Aidspan est une organisation à but non lucratif basée au Kenya dont la mission est de renforcer l'efficacité du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme en servant de chien de garde indépendant du Fonds et de ses exécutants."
-    },
-    "whatweare": {
-        "title": "CE QUE NOUS SOMMES",
-        "content": "Aidspan a bâti sa réputation de rapports, commentaires et analyses responsables sur tous les aspects de l'écologie du Fonds mondial depuis 2002. Nous avons construit un vaste réseau mondial de liens. Nous essayons de toujours commenter de manière constructive dans quelle mesure le Conseil d'administration, le Secrétariat et les exécutants des subventions du Fonds mondial sont efficaces et respectent les principes fondateurs du Fonds. Nous le faisons en publiant des informations opportunes et pertinentes et une analyse réfléchie et incisive et; en facilitant le débat critique; et promouvoir une plus grande transparence, responsabilité, efficacité et impact. L'un de nos principaux canaux à ce jour a été l'observateur du Fonds mondial."
-    },
-    "slogan": "L'observateur indépendant du Fonds mondial",
-    "reports": {
+  "message": "hello i18n !!",
+  "mission": {
+    "content": "Aidspan est une organisation internationale non gouvernementale (ONG) créée en 2002 en tant qu'observateur indépendant du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme. Aidspan fournit au Fonds mondial de lutte contre le sida, la tuberculose et le paludisme (le «Fonds mondial») des informations et analyses des parties prenantes pour comprendre et évaluer les progrès du Fonds mondial. Aidspan vise à influencer la transparence et l'efficacité du Fonds mondial aux niveaux mondial et national",
+    "title": "NOTRE MISSION",
+    "subtitle": "Le monde sans épidémies de:",
+    "short": "Pour être un chien de garde efficace mettant en évidence, analysant et la transparence et l'efficacité du Fonds mondial de lutte contre le sida, Tuberculose et paludisme aux niveaux mondial et national"
+  },
+  "vision": {
+    "title": "VISION",
+    "content": "Un monde sans épidémies de sida, de tuberculose et de Malaria"
+  },
+  "home": {
+    "title": "Accueil",
+    "action": "mdi-home",
+    "route": "/en"
+  },
+  "about": {
+    "title": "à propos de nous",
+    "action": "mdi-lightbulb-on",
+    "route": "en/about-us"
+  },
+  "policy": {
+    "title": "Analyse de politique",
+    "action": "mdi-hexagon-multiple",
+    "route": "en/about-us#policy",
+    "data": "Aidspan mène des analyses et des enquêtes indépendantes et critiques sur les politiques, stratégies, processus et structures du Fonds mondial, les mécanismes de financement, la transparence et la qualité des données. Nous publions son contenu analytique à travers des rapports, des études de cas, des articles évalués par des pairs et des critiques. Aidspan fournit également des conseils à ceux qui demandent, mettent en œuvre ou supervisent des subventions du Fonds mondial en publiant des guides sur divers sujets. Aidspan s'appuie sur une petite équipe de chercheurs internes et de collaborateurs externes ayant une expertise en économie de la santé, en épidémiologie, en gouvernance, en renforcement des systèmes de santé et en processus du Fonds mondial, entre autres. Nous développons des collaborations avec des instituts de recherche et d'autres organisations axées sur les politiques. Aidspan vise à fournir des analyses indépendantes sur les politiques du Fonds mondial qui peuvent être utilisées par nos parties prenantes. Ils comprennent le Fonds mondial (Secrétariat, Bureau de l'Inspecteur général (BIG) et Conseil d'administration, y compris les comités), les donateurs du Fonds mondial, les exécutants, les chercheurs de la société civile et les médias. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche."
+  },
+  "analytics": {
+    "title": "Analyse des données",
+    "action": "mdi-google-analytics",
+    "route": "en/methodologies"
+  },
+  "publications": {
+    "title": "publications",
+    "intro_title": "publications d'Aidspan",
+    "action": "mdi-folder-star",
+    "route": "en/publications",
+    "submenus": [
+      {
         "title": "Rapports",
-        "description": "Les publications d'Aidspan sont des documents de travail, des articles évalués par des pairs, des revues, des rapports et des analyses des processus, de l'efficacité et de l'impact du Fonds mondial et de ses activités. Les publications de recherche d'Aidspan visent à fournir aux lecteurs des résultats précis et impartiaux qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche.Veuillez adresser toutes vos demandes de renseignements au directeur exécutif à info@aidspan.org"
-    },
-    "guides": {
+        "route": "reports"
+      },
+      {
         "title": "Guides",
-        "description": "Les guides Aidspan sont des publications téléchargeables gratuitement de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets allant de la procédure de demande de subvention du Fonds mondial à la mise en place d'un mécanisme de coordination national."
-    },
-    "readmore": "Lire la suite",
-    "visitapw": "visitez APW",
-    "all-issue": "Tout Edition",
-    "desc-gfo": "Edition des articles chaque mois, en français et en anglais",
-    "views": "Vues",
-    "donors": "Nos Bailleurs de fonds",
-    "quicks": {
-        "key-docs": "Documents Officiels",
-        "staffweb": "Editeurs OFM",
-        "gallery": "Gallerie",
-        "careers": "Carrière et opportunités"
-    },
-    "abstract": "RÉSUMÉ",
-    "board-dirs": {
-        "title": "CONSEIL D'ADMINISTRATION",
-        "desc": "Aidspan tient deux réunions du conseil d'administration de 2 jours par an. Les membres du conseil ne sont pas payés pour leur travail. Aidspan est dirigé par un conseil d'administration composé de quatre professionnels accomplis aux compétences diverses."
-    },
-    "malaria": "PALUDISME",
-    "tuber": "TUBERCULOSE",
-    "hiv": "VIH-SIDA",
-    "feedback": {
-        "info": "Nous recherchons toujours des moyens d'améliorer nos contenus. dites-nous ce que vous avez aimé et ce que nous pouvons améliorer.",
-        "btn": "J'ai des commentaires!",
-        "thanks": "Merci pour vos commentaires!"
-    },
+        "route": "guides"
+      }
+    ]
+  },
+  "gfo": {
+    "title": "OFM",
+    "action": "mdi-eye",
+    "route": "en/publications"
+  },
+  "newsletterbtn": "Abonnez-vous à notre bulletin",
+  "thankyou": {
+    "title": "Merci de vous être inscrit à notre bulletin",
+    "message": "N'oubliez pas de marquer notre e-mail comme important!"
+  },
+  "newsletterbtn_desc": "pour la newsletter en anglais choisissez GFO ou OFM pour le français",
+  "subscribe": "souscrire",
+  "define_guides": "Les guides Aidspan sont des publications téléchargeables gratuites de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets tels que la procédure de demande de subvention du Fonds mondial et la mise en place d'un mécanisme de coordination par pays.",
+  "report_intro": "Les publications de recherche d'Aidspan visent à fournir aux lecteurs des informations précises et impartiales des résultats qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en accès libre. Nous apprécions les suggestions d'articles et de collaborations de recherche. Veuillez adresser toutes vos demandes au directeur exécutif à info@aidspan.org",
+  "report_title": "RAPPORTS",
+  "viewall": "Voir tout",
+  "quicklinks": "LIENS RAPIDES",
+  "getconnected": "Connectez-vous avec nous sur les réseaux sociaux!",
+  "apwintro": "Aidspan Portal Workbench ™ est une application Web flexible et puissante qui récupère les données du portefeuille de subventions à partir des services Web fournis par le Fonds mondial, puis rend les données disponibles de manière conviviale.",
+  "gfo_intro": {
+    "title": "OBSERVATEUR DU FONDS MONDIAL",
+    "description": "L'Observateur du Fonds mondial est la principale voix indépendante fournissant des informations, des analyses et des opinions sur le Fonds mondial. Abonnez-vous à notre newsletter gratuite deux fois par mois pour obtenir des explications fiables et faisant autorité sur les politiques, pratiques et procédures du Secrétariat, des informations privilégiées sur les réunions du Conseil du Fonds mondial, une analyse des rapports du Bureau de l'Inspecteur général et des histoires réelles qui captent l'impact et le rôle du Fonds mondial au niveau des pays, veuillez ajouter gfo-newsletter@aidspan.org à votre liste d'expéditeurs de courrier électronique approuvés pour éviter que votre système de messagerie ne traite les problèmes entrants de l'observateur du Fonds mondial comme du spam."
+  },
+  "allissues": "TOUT NUMÉROS",
+  "currentissue": "ÉDITION COURANTE",
+  "gfonote": "OBSERVATEUR DU FONDS MONDIAL (OFM) est produit par le Département éditorial d'Aidspan. Aidspan apprécie les commentaires des lecteurs sur les articles de GFO. Aidspan se réjouit également des offres d'écrire des articles et des suggestions de sujets que nous pourrions couvrir dans GFO.",
+  "contactgfo": "CONTACTER LE SERVICE ÉDITORIAL SUR",
+  "sendemail": "envoyer un e-mail",
+  "whatwedo": {
+    "title": "Ce que nous faisons",
+    "content": "Aidspan est une organisation à but non lucratif basée au Kenya dont la mission est de renforcer l'efficacité du Fonds mondial de lutte contre le sida, la tuberculose et le paludisme en servant de chien de garde indépendant du Fonds et de ses exécutants."
+  },
+  "whatweare": {
+    "title": "CE QUE NOUS SOMMES",
+    "content": "Aidspan a bâti sa réputation de rapports, commentaires et analyses responsables sur tous les aspects de l'écologie du Fonds mondial depuis 2002. Nous avons construit un vaste réseau mondial de liens. Nous essayons de toujours commenter de manière constructive dans quelle mesure le Conseil d'administration, le Secrétariat et les exécutants des subventions du Fonds mondial sont efficaces et respectent les principes fondateurs du Fonds. Nous le faisons en publiant des informations opportunes et pertinentes et une analyse réfléchie et incisive et; en facilitant le débat critique; et promouvoir une plus grande transparence, responsabilité, efficacité et impact. L'un de nos principaux canaux à ce jour a été l'observateur du Fonds mondial."
+  },
+  "slogan": "L'observateur indépendant du Fonds mondial",
+  "reports": {
+    "title": "Rapports",
+    "description": "Les publications d'Aidspan sont des documents de travail, des articles évalués par des pairs, des revues, des rapports et des analyses des processus, de l'efficacité et de l'impact du Fonds mondial et de ses activités. Les publications de recherche d'Aidspan visent à fournir aux lecteurs des résultats précis et impartiaux qui peuvent être utilisés par les gouvernements, les ONG, les chercheurs et les donateurs. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche.Veuillez adresser toutes vos demandes de renseignements au directeur exécutif à info@aidspan.org"
+  },
+  "guides": {
+    "title": "Guides",
+    "description": "Les guides Aidspan sont des publications téléchargeables gratuitement de 50 à 150 pages fournissant des conseils pratiques détaillés à ceux qui demandent, supervisent ou mettent en œuvre des subventions du Fonds mondial. Des guides existent sur des sujets allant de la procédure de demande de subvention du Fonds mondial à la mise en place d'un mécanisme de coordination national."
+  },
+  "readmore": "Lire la suite",
+  "visitapw": "visitez APW",
+  "all-issue": "Tout Edition",
+  "desc-gfo": "Edition des articles chaque mois, en français et en anglais",
+  "views": "Vues",
+  "donors": "Nos Bailleurs de fonds",
+  "quicks": {
+    "key-docs": "Documents Officiels",
+    "staffweb": "Editeurs OFM",
+    "gallery": "Gallerie",
+    "careers": "Carrière et opportunités"
+  },
+  "abstract": "RÉSUMÉ",
+  "board-dirs": {
+    "title": "CONSEIL D'ADMINISTRATION",
+    "desc": "Aidspan tient deux réunions du conseil d'administration de 2 jours par an. Les membres du conseil ne sont pas payés pour leur travail. Aidspan est dirigé par un conseil d'administration composé de quatre professionnels accomplis aux compétences diverses."
+  },
+  "malaria": "PALUDISME",
+  "tuber": "TUBERCULOSE",
+  "hiv": "VIH-SIDA",
+  "feedback": {
+    "info": "Nous recherchons toujours des moyens d'améliorer nos contenus. dites-nous ce que vous avez aimé et ce que nous pouvons améliorer.",
+    "btn": "J'ai des commentaires!",
+    "thanks": "Merci pour vos commentaires!"
+  },
 
-    "history": {
-        "title": "notre histoire",
-        "legacy1": "Aidspan a lancé Global Fund Observer (GFO), l'établissant rapidement comme la source définitive de nouvelles, d'analyses et de commentaires sur le Fonds mondial.",
-        "legacy1date": "22 Décembre"
+  "history": {
+    "title": "HISTOIRE",
+    "desc": "Aidspan se concentre actuellement exclusivement sur le Fonds mondial et ses pays de mise en œuvre. Depuis sa création en 2002, Aidspan a largement contribué à améliorer les connaissances et la compréhension de ce mécanisme multilatéral de financement de la santé. Les points saillants sélectionnés du travail d'Aidspan comprennent:",
+    "1": {
+      "date": "Décembre 2002",
+      "body": "Aidspan a lancé Global Fund Observer (GFO), l'établissant rapidement comme la source définitive de nouvelles, d'analyses et de commentaires sur le Fonds mondial."
+    },
+    "2": {
+      "date": "Mars 2004",
+      "body": "Aidspan a publié son premier «Guide de candidature au Fonds mondial». Le guide a été mis à jour chaque année depuis, reflétant l'évolution du Fonds lui-même."
+    },
+    "3": {
+      "date": "Mars 2004",
+      "body": "Au cours des deux premières années d'existence du Fonds mondial, Aidspan et deux partenaires ont développé et affiné le Cadre de contributions équitables: une équation qui proposait la taille optimale de la contribution de chaque pays donateur au Fonds en fonction de sa richesse relative. Cette approche a finalement été adoptée par un certain nombre de groupes de défense et par le Fonds lui-même, sous une forme modifiée."
+    },
+    "4": {
+      "date": "Mai 2005",
+      "body": "Le Fonds mondial a lancé un audit externe approfondi des procédures du Secrétariat après qu'Aidspan ait écrit une note confidentielle au président du Conseil d'administration du Fonds mondial soulevant certaines préoccupations."
+    },
+    "5": {
+      "date": "Août 2005",
+      "body": "Le Fonds mondial a temporairement suspendu toutes les subventions à l'Ouganda après avoir confirmé les allégations de corruption soulevées par un lecteur de GFO et partagées avec le Fonds par Aidspan."
+    },
+    "6": {
+      "date": "Janvier 2007",
+      "body": "Aidspan a organisé une table ronde sur les problèmes rencontrés par les bénéficiaires du Fonds mondial pour accéder à l'assistance technique, à laquelle ont participé les responsables des programmes de l'ONUSIDA, du PEPFAR, de l'OMS et de la Banque mondiale sur le sida et d'autres dirigeants mondiaux de la santé."
+    },
+    "7": {
+      "date": "Mai 2007",
+      "body": "Aidspan a déménagé son siège social de New York, aux États-Unis, à Nairobi, au Kenya."
+    },
+    "8": {
+      "date": "Janvier 2009",
+      "body": "Aidspan a élaboré son plan stratégique pour 2010-2013, contribuant à augmenter son budget de fonctionnement annuel qui a conduit à l'expansion de ses programmes et de son personnel."
+    },
+    "9": {
+      "date": "Mars 2009",
+      "body": "L'Ouganda a emprisonné les deux premiers des quatre fonctionnaires pour corruption liée au Fonds mondial qui a été signalée pour la première fois par Aidspan."
+    },
+    "10": {
+        "date": "Avril 2012",
+        "body": "Aidspan a fourni un témoignage à un comité parlementaire britannique dans lequel il a déclaré que le Fonds mondial ne pouvait pas se permettre d'avoir une deuxième année comme 2011 et qu'il pourrait être définitivement endommagé s'il le faisait."
+      },
+      "11": {
+        "date": "Janvier 2015",
+        "body": "Aidspan a élaboré son troisième plan stratégique, couvrant la période 2016-2018."
+      }
+  },
+  "core": {
+    "title": "valeurs fondamentales",
+    "timeliness": {
+      "title": "OPPORTUNITÉ",
+      "body": "Aidspan vise à fournir le contenu le plus pertinent quand il est le plus utile à son public grâce à une recherche proactive, une analyse prospective et des rapports rapides."
+    },
+    "integrity": {
+      "title": "intégrité",
+      "body": "Aidspan promeut et respecte les normes les plus élevées d'honnêteté, d'exactitude, de véracité et de conduite éthique."
+    },
+    "collab": {
+      "title": "COLLABORATION",
+      "body": "Aidspan valorise l'engagement des parties prenantes qui conduit à l'appropriation de la subvention et à l'amélioration des résultats. Aidspan embrasse la coopération dans ses travaux, valorisant une approche intégrée et interdisciplinaire de la recherche, de l'analyse et de la publication."
+    },
+    "accountability": {
+      "title": "COLLABORATION",
+      "body": "Aidspan valorise l'engagement des parties prenantes qui conduit à l'appropriation de la subvention et à l'amélioration des résultats. Aidspan embrasse la coopération dans ses travaux, valorisant une approche intégrée et interdisciplinaire de la recherche, de l'analyse et de la publication."
     }
-
-    
+  }
 }

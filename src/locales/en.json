@@ -119,7 +119,70 @@
   },
   "history": {
     "title": "our history",
-    "legacy1": "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund.",
-    "legacy1date": "December 22"
+    "desc": "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund.",
+    "1": {
+      "date": "December, 2002",
+      "body": "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund."
+    },
+    "2": {
+      "date": "March, 2004",
+      "body": "Aidspan published its first “Guide to Applying to the Global Fund”. The guide has been updated annually since, reflecting the evolution of the Fund itself."
+    },
+    "3": {
+      "date": "March, 2004",
+      "body": "In the first two years of the existence of the Global Fund, Aidspan and two partners developed and refined the Equitable Contributions Framework : an equation that proposed the optimal size of the contribution from each donor country to the Fund based on its relative wealth. This approach was eventually adopted by a number of advocacy groups and by the Fund itself, in a modified form."
+    },
+    "4": {
+      "date": "Mai 2005",
+      "body": "The Global Fund launched an in-depth external audit of Secretariat procedures after Aidspan wrote a confidential memo to the chair of the Global Fund Board raising certain concerns."
+    },
+    "5": {
+      "date": "August, 2005",
+      "body": "The Global Fund temporarily suspended all grants to Uganda after confirming allegations of corruption raised by a GFO reader and shared with the Fund by Aidspan."
+    },
+    "6": {
+      "date": "January, 2007",
+      "body": "Aidspan convened a round table on problems faced by Global Fund recipients in accessing technical assistance, attended by the heads of UNAIDS, PEPFAR, the WHO and World Bank AIDS programmes, and other global health leaders."
+    },
+    "7": {
+      "date": "May, 2007",
+      "body": "Aidspan moved its headquarters from New York, US, to Nairobi, Kenya."
+    },
+    "8": {
+      "date": "January, 2009",
+      "body": "Aidspan developed its Strategic Plan for 2010-2013, helping to drive an increase in its annual operating budget that led to the expansion of its programs and staff."
+    },
+    "9": {
+      "date": "March, 2009",
+      "body": "Uganda jailed the first two of four officials for Global Fund-related corruption that was first reported by Aidspan."
+    },
+    "10": {
+      "date": "April, 2012",
+      "body": "Aidspan provided testimony to a UK parliamentary committee in which it said that the Global Fund could not afford to have a second year like 2011, and might be permanently damaged if it did."
+    },
+    "11": {
+      "date": "January, 2015",
+      "body": "Aidspan developed its third strategic plan, covering the period 2016-2018."
+    }
+  },
+
+  "core": {
+    "title": "CORE VALUES",
+    "timeliness": {
+      "title": "TIMELINESS",
+      "body": "Aidspan aims to deliver the most pertinent content when it is most useful to its audiences through proactive research, prospective analysis, and prompt reporting."
+    },
+    "integrity": {
+      "title": "INTEGRITY",
+      "body": "Aidspan promotes and holds itself to the highest standards of honesty, accuracy, truthfulness and ethical conduct."
+    },
+    "collab": {
+      "title": "COLLABORATION",
+      "body": "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication."
+    },
+    "accountability": {
+      "title": "ACCOUNTABILITY",
+      "body": "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication."
+    }
   }
 }

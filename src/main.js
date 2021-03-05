@@ -52,6 +52,11 @@ Vue.filter("formatDateNormal", function(value) {
     return moment(value).format("MMM Do YYYY");
   }
 });
+Vue.filter("normalizeFrench", function(value) {
+  if (value) {
+    return _.deburr(value);
+  }
+});
 /** dates with words */
 Vue.filter("formatDateWords", function(value) {
   if (value) {
@@ -79,11 +84,14 @@ Vue.filter("str_limit", function(value, size) {
   if (value.length <= size) {
     return value;
   }
-  return value.substr(0, size) + "...";
+  return value.substr(0, size) + " ...";
 });
 
 Vue.directive("scrollAnimation", scrollAnimation);
 Vue.config.productionTip = false;
+
+// backend url
+Vue.prototype.$hostname = "https://webapi.aidspan.org/api/v1/";
 
 new Vue({
   router,

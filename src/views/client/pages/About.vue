@@ -19,30 +19,13 @@
         </v-card>
       </v-col>
     </v-row>
-
     <!--- starting the tabs of core values and mission and vision section -->
     <v-row wrap class="justify-1">
       <v-col cols="12" md="8" class="cores">
-        <h4 class="px-5 my-4 text-uppercase my-1">Core Values</h4>
-        <v-tabs horizontal background-color="#e9edf0">
-          <v-tab
-            v-for="value in coreValues"
-            :key="value.id"
-            id="tabstitle"
-            tab-reverse-transition
-          >
-            <p class="font-weight-bold">{{ value.title }}</p>
-          </v-tab>
-
-          <v-tab-item v-for="value in coreValues" :key="value.id">
-            <v-card flat id="tabcontainer" height="265px" color="#e9edf0">
-              <v-card-text>
-                <p class="desc">{{ value.desc }}</p>
-              </v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs>
+        <h4 class="px-5 my-4 text-uppercase my-1">{{ $t("core.title") }}</h4>
+        <core-values />
       </v-col>
+
       <!-- end of core values-->
       <!-- start of the mission and vision -->
       <v-col cols="12" md="4" class="mission-vision">
@@ -78,38 +61,16 @@
     <v-row id="history">
       <v-col cols="12" md="12" lg="12">
         <v-card flat color="secondary">
-          <v-card-title class="font-weight-black">OUR HISTORY</v-card-title>
+          <v-card-title class="font-weight-black">{{
+            $t("history.title")
+          }}</v-card-title>
           <v-card-text>
             <p class="white--text">
-              Aidspan is currently focused exclusively on the Global Fund and
-              its implementing countries. Since its founding in 2002, Aidspan
-              has contributed extensively to improving knowledge and insight
-              into this multilateral health financing mechanism. Selected
-              highlights of Aidspan's work include:
+              {{ $t("history.desc") }}
             </p>
           </v-card-text>
         </v-card>
-        <v-timeline dense align-top light>
-          <v-timeline-item
-            v-for="year in achieves"
-            :key="year.id"
-            :color="year.color"
-            small
-          >
-            <template v-slot:opposite>
-              <span
-                :class="`font-weight-bold ${year.color}--text`"
-                v-text="year.year"
-              ></span>
-            </template>
-            <v-card flat class="hiscard">
-              <v-card-text>{{ year.describe }}</v-card-text>
-              <v-card-actions>
-                <small class="font-weight-bold">{{ year.year }}</small>
-              </v-card-actions>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
+        <history />
       </v-col>
     </v-row>
     <v-row class="board-row">
@@ -168,131 +129,17 @@
 </template>
 
 <script>
+import CoreValues from "@/components/helpers/CoreValues.vue";
+import History from "@/components/helpers/History.vue"
 export default {
+  components: {
+    "core-values": CoreValues,
+    "history": History
+  },
   data() {
     return {
       ///board of member sliders
       model: null,
-      /// years
-      achieves: [
-        {
-          color: "cyan",
-          year: "December, 2002",
-          id: 12,
-          describe:
-            "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund.",
-        },
-        {
-          color: "green",
-          year: "March, 2004",
-          id: 11,
-          describe:
-            "Aidspan published its first “Guide to Applying to the Global Fund”. The guide has been updated annually since, reflecting the evolution of the Fund itself.",
-        },
-        {
-          color: "pink",
-          year: "March, 2004",
-          id: 10,
-          describe:
-            "In the first two years of the existence of the Global Fund, Aidspan and two partners developed and refined the Equitable Contributions Framework : an equation that proposed the optimal size of the contribution from each donor country to the Fund based on its relative wealth. This approach was eventually adopted by a number of advocacy groups and by the Fund itself, in a modified form.",
-        },
-        {
-          color: "amber",
-          year: "May, 2005",
-          id: 9,
-          describe:
-            "The Global Fund launched an in-depth external audit of Secretariat procedures after Aidspan wrote a confidential memo to the chair of the Global Fund Board raising certain concerns.",
-        },
-        {
-          color: "orange",
-          year: "August, 2005",
-          id: 8,
-          describe:
-            "The Global Fund temporarily suspended all grants to Uganda after confirming allegations of corruption raised by a GFO reader and shared with the Fund by Aidspan.",
-        },
-        {
-          color: "cyan",
-          year: "January, 2007",
-          id: 7,
-          describe:
-            "Aidspan convened a round table on problems faced by Global Fund recipients in accessing technical assistance, attended by the heads of UNAIDS, PEPFAR, the WHO and World Bank AIDS programmes, and other global health leaders.",
-        },
-        {
-          color: "green",
-          year: "May, 2007",
-          id: 4,
-          describe:
-            "Aidspan moved its headquarters from New York, US, to Nairobi, Kenya.",
-        },
-        {
-          color: "pink",
-          year: "January, 2009",
-          id: 6,
-          describe:
-            "Aidspan developed its Strategic Plan for 2010-2013, helping to drive an increase in its annual operating budget that led to the expansion of its programs and staff.",
-        },
-        {
-          color: "amber",
-          year: "March, 2009",
-          id: 3,
-          describe:
-            "Uganda jailed the first two of four officials for Global Fund-related corruption that was first reported by Aidspan.",
-        },
-        {
-          color: "orange",
-          year: "April, 2012",
-          id: 2,
-          describe:
-            "Aidspan provided testimony to a UK parliamentary committee in which it said that the Global Fund could not afford to have a second year like 2011, and might be permanently damaged if it did.",
-        },
-        {
-          color: "green",
-          year: "May, 2007",
-          id: 5,
-          describe:
-            "Aidspan moved its headquarters from New York, US, to Nairobi, Kenya.",
-        },
-        {
-          color: "pink",
-          year: "January, 2015",
-          id: 1,
-          describe:
-            "Aidspan developed its third strategic plan, covering the period 2016-2018.",
-        },
-      ],
-      // end of timeline //
-      coreValues: [
-        {
-          desc:
-            "Aidspan aims to use resources towards results through a proactive and thoughtful approach to events and stakeholders.",
-          id: "ffighs",
-          title: "EFFECTIVENESS",
-        },
-        {
-          desc:
-            "Aidspan aims to deliver the most pertinent content when it is most useful to its audiences through proactive research, prospective analysis, and prompt reporting.",
-          id: "ffighsDSREW3",
-          title: "TIMELINESS",
-        },
-        {
-          desc:
-            "Aidspan promotes and holds itself to the highest standards of honesty, accuracy, truthfulness and ethical conduct.",
-          id: "ffighsDSRESSW3",
-          title: "INTEGRITY",
-        },
-        {
-          desc:
-            "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication.",
-          id: "ffighsDSRESSsdwW3",
-          title: "COLLABORATION",
-        },
-        {
-          desc:
-            "Aidspan promotes full accountability for the use of the Global Fund resources at the global and country levels. Aidspan takes full responsibility for the content it publishes, paying close attention to its sources, as well as listening to its audience, to respond as best as it can to questions or criticism, including correcting errors or mistakes should they occur.",
-          id: "fdwsfighsDSRESSsdwW3",
-          title: "ACCOUNTABILITY",
-        },
-      ],
       //core values
       directors: [
         {
@@ -323,7 +170,8 @@ export default {
           position: "BOARD Member",
           desc:
             "President of the Country Coordinating Mechanism in Niger, Based in Niamey, Niger.",
-          img: "https://pbs.twimg.com/profile_images/1314529600391782400/DLaH6sEX_400x400.jpg"
+          img:
+            "https://pbs.twimg.com/profile_images/1314529600391782400/DLaH6sEX_400x400.jpg",
         },
         {
           id: 4,
@@ -403,17 +251,7 @@ export default {
   justify-content: space-around;
   flex-direction: column;
 }
-.desc {
-  font-size: 20px;
-}
-.cores {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-right: solid 3px #24b3f5;
-  background-color: #e9edf0;
-}
+
 .miscard {
   min-width: 100%;
   border-radius: 10px;

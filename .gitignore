@@ -5,7 +5,7 @@ node_modules
 public/sites
 
  http-common.js
-
+.env
 
 
 # local env files

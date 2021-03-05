@@ -1,34 +1,44 @@
 <template>
   <div class="key_docs">
-    <p class="doc_title font-weight-bold text-center text-uppercase">Key Documents</p>
+    <p class="doc_title font-weight-bold text-center text-uppercase">
+      Key Documents
+    </p>
     <div class="doc_list_container">
       <v-card v-if="docs.length < 1" flat>
         <v-card-text>
           <h1 class="text-center">No document found</h1>
         </v-card-text>
       </v-card>
-      <v-card class="pa-2 doc" v-for="doc in docs" :key="doc.id" v-else>
+      <v-card
+        class="pa-2 doc"
+        v-for="doc in docs"
+        :key="doc.id"
+        flat
+        outlined
+        v-else
+      >
         <v-row align="center">
-          <v-col cols="2" md="1">
-            <v-avatar>
-              <v-icon color="primary">{{doc.format}}</v-icon>
-            </v-avatar>
-          </v-col>
           <v-col cols="10" md="9">
-            <h4 class="text-left">{{doc.doc_name}}</h4>
+            <h4 class="text-left">{{ doc.title }}</h4>
           </v-col>
-          <v-col cols="12" md="2">
-            <v-btn
-              :href="doc.doc_link"
-              depressed
-              color="primary"
-              rounded
-              small
-              v-if="doc.doc_link !== null"
-            >
-              <v-icon color="white" left>mdi-file-download</v-icon>Download
-            </v-btn>
-
+          <v-col cols="12" md="2" class="links">
+            <div v-if="doc.files.length !== null">
+              <v-btn
+                
+                small
+                :color="file.format === 'word' ? 'info' : 'red'"
+                class="my-2"
+                v-for="file in doc.files"
+                :key="file.id"
+                @click="downloadPublication(file.filename)"
+                rounded
+                dark
+                depressed
+              >
+                <v-icon left>{{ 'mdi-file-' +file.format }}</v-icon>
+                download</v-btn
+              >
+            </div>
             <small v-else>no file available</small>
           </v-col>
         </v-row>
@@ -38,7 +48,11 @@
 </template>
 <script>
 import Api from "@/services/Api";
+import DownloadPublication from "@/mixins/downloadPublication";
+
 export default {
+  mixins: [DownloadPublication],
+
   data: () => ({
     docs: [],
   }),
@@ -76,13 +90,6 @@ export default {
   background: #f6f8ff;
   cursor: pointer;
 }
-.doc_list_container {
-  background: rgba(196, 196, 196, 0.12);
-  border: 1px solid #eeeeee;
-  box-sizing: border-box;
-  border-radius: 15px;
-  padding: 40px;
-}
 
 @media screen and (max-width: 520px) {
   .key_docs {
@@ -95,6 +102,12 @@ export default {
   .doc_list_container {
     padding: 0;
     border-radius: 0;
+  }
+
+  .doc .links {
+    display: flex;
+    justify-content: space-between;
+    background: red;
   }
 }
 </style>
