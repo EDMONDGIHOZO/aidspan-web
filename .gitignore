@@ -5,8 +5,12 @@ node_modules
 public/sites
 
  http-common.js
+<<<<<<< HEAD
  /services
 
+=======
+.env
+>>>>>>> maint
 
 
 # local env files

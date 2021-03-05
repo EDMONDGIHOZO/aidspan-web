@@ -85,7 +85,7 @@
                 rounded
                 block
                 depressed
-                href="mailto:adele.sulcas@aidspan.org"
+                href="mailto:info@aidspan.org"
               >{{$t('sendemail')}}</v-btn>
             </v-card-actions>
           </v-card>

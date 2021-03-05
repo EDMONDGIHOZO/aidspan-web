@@ -1,27 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import vuetify from './plugins/vuetify'
-import store from '@/store'
-import InstantSearch from 'vue-instantsearch'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import vuetify from "./plugins/vuetify";
+import store from "@/store";
+import InstantSearch from "vue-instantsearch";
 // import VueGtag from 'vue-gtag'
 //import the custom styles
-import './assets/styles/mobileDevices.scss'
-import './assets/styles/responsive.scss'
-import './assets/styles/animate.scss'
-import './assets/styles/mobile.scss'
-import './assets/styles/main.scss'
-import Vuelidate from 'vuelidate'
-import moment from 'moment'
-import Vue2Filters from 'vue2-filters'
-Vue.use(Vuelidate)
+import "./assets/styles/mobileDevices.scss";
+import "./assets/styles/responsive.scss";
+import "./assets/styles/animate.scss";
+import "./assets/styles/mobile.scss";
+import "./assets/styles/main.scss";
+import Vuelidate from "vuelidate";
+import moment from "moment";
+import Vue2Filters from "vue2-filters";
+Vue.use(Vuelidate);
 
 //import for animation
-import scrollAnimation from './directives/scrollAnimation'
-import SocialSharing from 'vue-social-sharing'
-import i18n from './i18n'
-import _ from 'lodash'
-Object.defineProperty(Vue.prototype, '$_', { value: _ })
+import scrollAnimation from "./directives/scrollAnimation";
+import SocialSharing from "vue-social-sharing";
+import i18n from "./i18n";
+import _ from "lodash";
+Object.defineProperty(Vue.prototype, "$_", { value: _ });
 
 ///add the google analytics here
 // Vue.use(VueGtag, {
@@ -36,48 +36,68 @@ Object.defineProperty(Vue.prototype, '$_', { value: _ })
 //         },
 //     })
 /** sharing stuffs */
-Vue.use(SocialSharing)
-    /** for content ordering  */
-Vue.use(Vue2Filters)
+Vue.use(SocialSharing);
+/** for content ordering  */
+Vue.use(Vue2Filters);
 
 /** date formatting  */
-Vue.filter('formatDate', function(value) {
-    if (value) {
-        return moment.unix(value).format('MMM Do YYYY')
-    }
-})
+Vue.filter("formatDate", function(value) {
+  if (value) {
+    return moment.unix(value).format("MMM Do YYYY");
+  }
+});
 
-Vue.filter('formatDateNormal', function(value) {
-        if (value) {
-            return moment(value).format('MMM Do YYYY')
-        }
-    })
-    /** dates with words */
-Vue.filter('formatDateWords', function(value) {
-    if (value) {
-        return moment(value).startOf('day').fromNow()
-    }
-})
+Vue.filter("formatDateNormal", function(value) {
+  if (value) {
+    return moment(value).format("MMM Do YYYY");
+  }
+});
+Vue.filter("normalizeFrench", function(value) {
+  if (value) {
+    return _.deburr(value);
+  }
+});
+/** dates with words */
+Vue.filter("formatDateWords", function(value) {
+  if (value) {
+    return moment(value)
+      .startOf("day")
+      .fromNow();
+  }
+});
 
-Vue.use(InstantSearch)
-Vue.filter('str_limit', function(value, size) {
-    if (!value) return ''
-    value = value.toString()
+Vue.filter("formatDataSize", function(value) {
+  if (value == 0) {
+    return "0.00 B";
+  }
+  var e = Math.floor(Math.log(value) / Math.log(1024));
+  return (
+    (value / Math.pow(1024, e)).toFixed(2) + " " + " KMGTP".charAt(e) + "B"
+  );
+});
 
-    if (value.length <= size) {
-        return value
-    }
-    return value.substr(0, size) + '...'
-})
+Vue.use(InstantSearch);
+Vue.filter("str_limit", function(value, size) {
+  if (!value) return "";
+  value = value.toString();
 
-Vue.directive('scrollAnimation', scrollAnimation)
-Vue.config.productionTip = false
+  if (value.length <= size) {
+    return value;
+  }
+  return value.substr(0, size) + " ...";
+});
+
+Vue.directive("scrollAnimation", scrollAnimation);
+Vue.config.productionTip = false;
+
+// backend url
+Vue.prototype.$hostname = "https://webapi.aidspan.org/api/v1/";
 
 new Vue({
-    router,
-    template: 'dark',
-    vuetify,
-    store,
-    i18n,
-    render: (h) => h(App),
-}).$mount('#app')
+  router,
+  template: "dark",
+  vuetify,
+  store,
+  i18n,
+  render: (h) => h(App),
+}).$mount("#app");

@@ -1,119 +1,188 @@
 {
-    "message": "hello i18n !!",
-    "mission": {
-        "content": "Aidspan Is An international non-governmental organization (NGO) created In 2002 as an independent observer of the global fund to fight AIDS, TB, And Malaria. Aidspan provides the global fund to fight AIDS, tuberculosis and malaria (The “Global Fund”) stakeholders information and analysis to understand and evaluate the global fund progress. Aidspan aims to influence the transparency and effectiveness of the global fund at the global and country-level.",
-        "title": "OUR MISSION",
-        "subtitle": "The world without Epidemics of ",
-        "short": "To be an effective watchdog highlighting, analyzing and in uencing the transparency and effectiveness of the Global Fund to Fight AIDS, Tuberculosis and Malaria at the global and country level"
-    },
-    "vision": {
-        "title": "VISION",
-        "content": "A world without epidemics of AIDS, Tuberculosis, and Malaria"
-    },
-    "home": {
-        "title": "Home",
-        "action": "mdi-home",
-        "route": "/en"
-    },
-    "about": {
-        "title": "About us",
-        "action": "mdi-lightbulb-on",
-        "route": "en/about-us"
-    },
-    "policy": {
-        "title": "Policy Analysis",
-        "action": "mdi-hexagon-multiple",
-        "route": "en/about-us#policy",
-        "data": "Aidspan conducts independent and critical analysis and investigation of Global Fund policies, strategies, processes and structures, funding mechanisms, transparency and data quality. We publish its analytical content through reports, case studies, peer-reviewed articles, and reviews. Aidspan also provides guidance to those applying for, implementing or overseeing Global Fund grants by publishing guides on diverse subjects. Aidspan relies on a small team of in-house researchers and external collaborators with expertise in health economics, epidemiology, governance, health systems strengthening, and Global Fund processes among others. We are developing collaborations with research institutions and other policy-focused organizations. Aidspan aims to provide independent analyses on the Global Fund policies that can be used by our stakeholders. They include the Global Fund (Secretariat, Office of the Inspector General (OIG) and Board, including the committees), Global Fund donors, implementers, civil society researchers, and media. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations."
-    },
-    "analytics": {
-        "title": "Data analytics",
-        "action": "mdi-google-analytics",
-        "route": "en/methodologies"
-    },
-    "publications": {
-        "title": "Publications",
-        "action": "mdi-folder-star",
-        "route": "en/publications",
-        "intro_title": "Aidspan Publications",
-        "submenus": [{
-                "title": "Reports",
-                "route": "reports"
-            },
-            {
-                "title": "Guides",
-                "route": "guides"
-            }
-        ]
-    },
-    "gfo": {
-        "title": "GFO",
-        "action": "mdi-eye",
-        "route": "en/publications"
-    },
-    "newsletterbtn": "subscribe to our newsletter",
-    "thankyou": {
-        "title": "thank you for subscribing to our newsletter",
-        "message": "Please remember to mark our email as important!"
-    },
-    "newsletterbtn_desc": "for the newsletter in English choose GFO or OFM for french",
-    "subscribe": "subscribe",
-    "define_guides": "Aidspan Guides Are Free Downloadable Publications Of 50 To 150 Pages Providing Detailed Practical Advice To Those Applying For, Overseeing Or Implementing Global Fund Grants. Guides Exist On Subjects From How To Apply For A Global Fund Grant To How To Set Up A Country Coordinating Mechanism.",
-    "report_intro": "Aidspan research publications aim to provide readers with accurate unbiased results that can be utilized by governments, NGOs, researchers, and donors. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations.Please direct all enquiries to the Executive Director at info@aidspan.org",
-    "report_title": "REPORTS",
-    "viewall": "View All",
-    "quicklinks": "QUICK LINKS",
-    "getconnected": "Get connected with us on social networks!",
-    "apwintro": "Aidspan Portal Workbench™ is a flexible and powerful web-based application which retrieves grant portfolio data from the web services provided by the Global Fund and then makes the data available in a user-friendly way.",
-    "gfo_intro": {
-        "title": "GLOBAL FUND OBSERVER",
-        "description": "The Global Fund Observer is the leading independent voice providing insight, analysis and opinion about the Global Fund. Subscribe to our free, twice-monthly newsletter for authoritative and credible explanations about the policies, practices and procedures at the Secretariat, insider information about Global Fund Board meetings, analysis on reports from the Office of the Inspector General, and real stories capturing the impact and role of the Global Fund at the country level, Please add gfo-newsletter@aidspan.org to your list of approved email senders to avoid your email system treating incoming issues of the Global Fund Observer as spam."
-    },
-    "allissues": "All Issues",
-    "currentissue": "Current Issue",
-    "gfonote": "Global Fund Observer (GFO) is produced by the Editorial Department of Aidspan. Aidspan welcomes comments from readers on the articlesin GFO. Aidspan also welcomes offers to write articles and suggestions for topics we could cover in GFO.",
-    "contactgfo": "CONTACT EDITORIAL DEPARTMENT ON",
-    "sendemail": "send E-Mail",
-    "whatwedo": {
-        "title": "What we do",
-        "content": "Aidspan is a non-profit organization based in Kenya whose mission is to reinforce the effectiveness of the Global Fund to Fight AIDS, Tuberculosis and Malaria by serving as an independent watchdog of the Fund and its grant implementers."
-    },
-    "whatweare": {
-        "title": "WHAT WE ARE",
-        "content": "Aidspan has been building its reputation for responsible reporting, commentary and analysis on all aspects of the Global Fund ecology since 2002. We have built an extensive global network of links. We try to always constructively comment on the extent to which the Global Fund's Board, Secretariat and grant implementers are being effective and are living up to the Fund's founding principles. We do this by publishing timely and relevant information and thoughtful, incisive analysis and; through facilitating critical debate; and promoting greater transparency, accountability, effectiveness and impact. One of our main channels to date has been the Global Fund Observer."
-    },
-    "slogan": "The Independent Global Fund Observer",
-    "reports": {
+  "message": "hello i18n !!",
+  "mission": {
+    "content": "Aidspan Is An international non-governmental organization (NGO) created In 2002 as an independent observer of the global fund to fight AIDS, TB, And Malaria. Aidspan provides the global fund to fight AIDS, tuberculosis and malaria (The “Global Fund”) stakeholders information and analysis to understand and evaluate the global fund progress. Aidspan aims to influence the transparency and effectiveness of the global fund at the global and country-level.",
+    "title": "OUR MISSION",
+    "subtitle": "The world without Epidemics of ",
+    "short": "To be an effective watchdog highlighting, analyzing and in uencing the transparency and effectiveness of the Global Fund to Fight AIDS, Tuberculosis and Malaria at the global and country level"
+  },
+  "vision": {
+    "title": "VISION",
+    "content": "A world without epidemics of AIDS, Tuberculosis, and Malaria"
+  },
+  "home": {
+    "title": "Home",
+    "action": "mdi-home",
+    "route": "/en"
+  },
+  "about": {
+    "title": "About us",
+    "action": "mdi-lightbulb-on",
+    "route": "en/about-us"
+  },
+  "policy": {
+    "title": "Policy Analysis",
+    "action": "mdi-hexagon-multiple",
+    "route": "en/about-us#policy",
+    "data": "Aidspan conducts independent and critical analysis and investigation of Global Fund policies, strategies, processes and structures, funding mechanisms, transparency and data quality. We publish its analytical content through reports, case studies, peer-reviewed articles, and reviews. Aidspan also provides guidance to those applying for, implementing or overseeing Global Fund grants by publishing guides on diverse subjects. Aidspan relies on a small team of in-house researchers and external collaborators with expertise in health economics, epidemiology, governance, health systems strengthening, and Global Fund processes among others. We are developing collaborations with research institutions and other policy-focused organizations. Aidspan aims to provide independent analyses on the Global Fund policies that can be used by our stakeholders. They include the Global Fund (Secretariat, Office of the Inspector General (OIG) and Board, including the committees), Global Fund donors, implementers, civil society researchers, and media. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations."
+  },
+  "analytics": {
+    "title": "Data analytics",
+    "action": "mdi-google-analytics",
+    "route": "en/methodologies"
+  },
+  "publications": {
+    "title": "Publications",
+    "action": "mdi-folder-star",
+    "route": "en/publications",
+    "intro_title": "Aidspan Publications",
+    "submenus": [
+      {
         "title": "Reports",
-        "description": "Aidspan publications are working papers, peer reviewed articles, reviews, reports and analyses of the processes, effectiveness and impact of the Global Fund and its activities. Aidspan research publications aim to provide readers with accurate unbiased results that can be utilized by governments, NGOs, researchers, and donors.All Aidspan publications are open access. We welcome suggestions for articles and research collaborations.Please direct all enquiries to the Executive Director at info@aidspan.org"
-    },
-    "guides": {
+        "route": "reports"
+      },
+      {
         "title": "Guides",
-        "description": "Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical advice to those applying for, overseeing or implementing Global Fund grants. Guides exist on subjects from how to apply for a Global Fundgrant to how to set up a Country Coordinating Mechanism."
+        "route": "guides"
+      }
+    ]
+  },
+  "gfo": {
+    "title": "GFO",
+    "action": "mdi-eye",
+    "route": "en/publications"
+  },
+  "newsletterbtn": "subscribe to our newsletter",
+  "thankyou": {
+    "title": "thank you for subscribing to our newsletter",
+    "message": "Please remember to mark our email as important!"
+  },
+  "newsletterbtn_desc": "for the newsletter in English choose GFO or OFM for french",
+  "subscribe": "subscribe",
+  "define_guides": "Aidspan Guides Are Free Downloadable Publications Of 50 To 150 Pages Providing Detailed Practical Advice To Those Applying For, Overseeing Or Implementing Global Fund Grants. Guides Exist On Subjects From How To Apply For A Global Fund Grant To How To Set Up A Country Coordinating Mechanism.",
+  "report_intro": "Aidspan research publications aim to provide readers with accurate unbiased results that can be utilized by governments, NGOs, researchers, and donors. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations.Please direct all enquiries to the Executive Director at info@aidspan.org",
+  "report_title": "REPORTS",
+  "viewall": "View All",
+  "quicklinks": "QUICK LINKS",
+  "getconnected": "Get connected with us on social networks!",
+  "apwintro": "Aidspan Portal Workbench™ is a flexible and powerful web-based application which retrieves grant portfolio data from the web services provided by the Global Fund and then makes the data available in a user-friendly way.",
+  "gfo_intro": {
+    "title": "GLOBAL FUND OBSERVER",
+    "description": "The Global Fund Observer is the leading independent voice providing insight, analysis and opinion about the Global Fund. Subscribe to our free, twice-monthly newsletter for authoritative and credible explanations about the policies, practices and procedures at the Secretariat, insider information about Global Fund Board meetings, analysis on reports from the Office of the Inspector General, and real stories capturing the impact and role of the Global Fund at the country level, Please add gfo-newsletter@aidspan.org to your list of approved email senders to avoid your email system treating incoming issues of the Global Fund Observer as spam."
+  },
+  "allissues": "All Issues",
+  "currentissue": "Current Issue",
+  "gfonote": "Global Fund Observer (GFO) is produced by the Editorial Department of Aidspan. Aidspan welcomes comments from readers on the articlesin GFO. Aidspan also welcomes offers to write articles and suggestions for topics we could cover in GFO.",
+  "contactgfo": "CONTACT EDITORIAL DEPARTMENT ON",
+  "sendemail": "send E-Mail",
+  "whatwedo": {
+    "title": "What we do",
+    "content": "Aidspan is a non-profit organization based in Kenya whose mission is to reinforce the effectiveness of the Global Fund to Fight AIDS, Tuberculosis and Malaria by serving as an independent watchdog of the Fund and its grant implementers."
+  },
+  "whatweare": {
+    "title": "WHAT WE ARE",
+    "content": "Aidspan has been building its reputation for responsible reporting, commentary and analysis on all aspects of the Global Fund ecology since 2002. We have built an extensive global network of links. We try to always constructively comment on the extent to which the Global Fund's Board, Secretariat and grant implementers are being effective and are living up to the Fund's founding principles. We do this by publishing timely and relevant information and thoughtful, incisive analysis and; through facilitating critical debate; and promoting greater transparency, accountability, effectiveness and impact. One of our main channels to date has been the Global Fund Observer."
+  },
+  "slogan": "The Independent Global Fund Observer",
+  "reports": {
+    "title": "Reports",
+    "description": "Aidspan publications are working papers, peer reviewed articles, reviews, reports and analyses of the processes, effectiveness and impact of the Global Fund and its activities. Aidspan research publications aim to provide readers with accurate unbiased results that can be utilized by governments, NGOs, researchers, and donors.All Aidspan publications are open access. We welcome suggestions for articles and research collaborations.Please direct all enquiries to the Executive Director at info@aidspan.org"
+  },
+  "guides": {
+    "title": "Guides",
+    "description": "Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical advice to those applying for, overseeing or implementing Global Fund grants. Guides exist on subjects from how to apply for a Global Fundgrant to how to set up a Country Coordinating Mechanism."
+  },
+  "readmore": "Read More",
+  "visitapw": "visit APW",
+  "all-issue": "All Issues",
+  "desc-gfo": "Aidspan Release Issues with articles every month, in French and English",
+  "views": "Views",
+  "donors": "Our Donors",
+  "quicks": {
+    "key-docs": "Key Documents",
+    "staffweb": "GFO Editor",
+    "gallery": "Gallery",
+    "careers": "Career and Opportunities"
+  },
+  "abstract": "ABSTRACT",
+  "board-dirs": {
+    "title": "BOARD OF DIRECTORS",
+    "desc": "Aidspan has two 2-day board meetings per year. Board members are not paid for their work. Aidspan is headed by a Board of Directors composed of four accomplished professionals with diverse skills."
+  },
+  "malaria": "MALARIA",
+  "tuber": "TUBERCULOSIS",
+  "hiv": "HIV-AIDS",
+  "feedback": {
+    "info": "We are always looking for ways to improve our contents. let us know what you liked and what we can improve on.",
+    "btn": "I've got feedback!",
+    "thanks": "thanks for your feedback!"
+  },
+  "history": {
+    "title": "our history",
+    "desc": "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund.",
+    "1": {
+      "date": "December, 2002",
+      "body": "Aidspan launched Global Fund Observer (GFO), rapidly establishing it as the definitive source of news, analysis and commentary about the Global Fund."
     },
-    "readmore": "Read More",
-    "visitapw": "visit APW",
-    "all-issue": "All Issues",
-    "desc-gfo": "Aidspan Release Issues with articles every month, in French and English",
-    "views": "Views",
-    "donors": "Our Donors",
-    "quicks": {
-        "key-docs": "Key Documents",
-        "staffweb": "GFO Editor",
-        "gallery": "Gallery",
-        "careers": "Career and Opportunities"
+    "2": {
+      "date": "March, 2004",
+      "body": "Aidspan published its first “Guide to Applying to the Global Fund”. The guide has been updated annually since, reflecting the evolution of the Fund itself."
     },
-    "abstract": "ABSTRACT",
-    "board-dirs": {
-        "title": "BOARD OF DIRECTORS",
-        "desc": "Aidspan has two 2-day board meetings per year. Board members are not paid for their work. Aidspan is headed by a Board of Directors composed of four accomplished professionals with diverse skills."
+    "3": {
+      "date": "March, 2004",
+      "body": "In the first two years of the existence of the Global Fund, Aidspan and two partners developed and refined the Equitable Contributions Framework : an equation that proposed the optimal size of the contribution from each donor country to the Fund based on its relative wealth. This approach was eventually adopted by a number of advocacy groups and by the Fund itself, in a modified form."
     },
-    "malaria": "MALARIA",
-    "tuber": "TUBERCULOSIS",
-    "hiv": "HIV-AIDS",
-    "feedback": {
-        "info": "We are always looking for ways to improve our contents. let us know what you liked and what we can improve on.",
-        "btn": "I've got feedback!",
-        "thanks": "thanks for your feedback!"
+    "4": {
+      "date": "Mai 2005",
+      "body": "The Global Fund launched an in-depth external audit of Secretariat procedures after Aidspan wrote a confidential memo to the chair of the Global Fund Board raising certain concerns."
+    },
+    "5": {
+      "date": "August, 2005",
+      "body": "The Global Fund temporarily suspended all grants to Uganda after confirming allegations of corruption raised by a GFO reader and shared with the Fund by Aidspan."
+    },
+    "6": {
+      "date": "January, 2007",
+      "body": "Aidspan convened a round table on problems faced by Global Fund recipients in accessing technical assistance, attended by the heads of UNAIDS, PEPFAR, the WHO and World Bank AIDS programmes, and other global health leaders."
+    },
+    "7": {
+      "date": "May, 2007",
+      "body": "Aidspan moved its headquarters from New York, US, to Nairobi, Kenya."
+    },
+    "8": {
+      "date": "January, 2009",
+      "body": "Aidspan developed its Strategic Plan for 2010-2013, helping to drive an increase in its annual operating budget that led to the expansion of its programs and staff."
+    },
+    "9": {
+      "date": "March, 2009",
+      "body": "Uganda jailed the first two of four officials for Global Fund-related corruption that was first reported by Aidspan."
+    },
+    "10": {
+      "date": "April, 2012",
+      "body": "Aidspan provided testimony to a UK parliamentary committee in which it said that the Global Fund could not afford to have a second year like 2011, and might be permanently damaged if it did."
+    },
+    "11": {
+      "date": "January, 2015",
+      "body": "Aidspan developed its third strategic plan, covering the period 2016-2018."
     }
+  },
+
+  "core": {
+    "title": "CORE VALUES",
+    "timeliness": {
+      "title": "TIMELINESS",
+      "body": "Aidspan aims to deliver the most pertinent content when it is most useful to its audiences through proactive research, prospective analysis, and prompt reporting."
+    },
+    "integrity": {
+      "title": "INTEGRITY",
+      "body": "Aidspan promotes and holds itself to the highest standards of honesty, accuracy, truthfulness and ethical conduct."
+    },
+    "collab": {
+      "title": "COLLABORATION",
+      "body": "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication."
+    },
+    "accountability": {
+      "title": "ACCOUNTABILITY",
+      "body": "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication."
+    }
+  }
 }

@@ -2,19 +2,15 @@
   <div class="container">
     <div class="publication" v-if="loaded">
       <v-btn color="secondary" text outlined @click="$router.go(-1)"
-        >Back</v-btn
+        >back</v-btn
       >
-      <v-card height="100" flat outlined class="my-5">
-        <v-card-text>
-          <v-row wrap>
-            <v-col cols="12">
-              <h2 class="text-center">{{ publication.title }}</h2>
-            </v-col>
-          </v-row>
-        </v-card-text>
-      </v-card>
+
+      <div class="title-bar">
+        <h2>{{ publication.title }}</h2>
+      </div>
+
       <v-row wrap>
-        <v-col cols="12" md="3" class="files px-4 mx-3">
+        <!-- <v-col cols="12" md="3" class="files px-4 mx-3">
           <v-list dense v-if="!nofiles">
             <v-list-item>
               <h4>Files</h4>
@@ -39,19 +35,38 @@
               </v-list-item-action>
             </v-list-item>
           </v-list>
+        </v-col> -->
+
+        <v-col cols="12" md="8">
+          <div class="description">
+            <h4>Description</h4>
+            <p
+              v-html="
+                publication.description.field_publication_description_value
+              "
+              class="my-5"
+            ></p>
+          </div>
         </v-col>
-        <v-col cols="12" md="5" class="description mx-3">
-          <h4>Description</h4>
-          <p
-            v-html="publication.field_publication_description_value"
-            class="my-5"
-          ></p>
-        </v-col>
-        <v-col cols="12" md="3" class="details mx-3">
-          <h4 class="orange--text">
-            Author | {{ publication.field_publication_author_value }}
-          </h4>
-          <h5 class="mt-4">{{ publication.created | formatDate }}</h5>
+
+        <v-col cols="12" md="4">
+          <info
+            title="Author"
+            :data="publication.author.field_publication_author_value"
+          />
+          <info
+            title="Date Published"
+            :data="publication.created | formatDate"
+          />
+          <info
+            title="Category"
+            :data="publication.pubType.field_publication_type_id_value === '2' ? 'GUIDE' : 'REPORT'"
+          />
+          <info
+            :title="publication.publication_files.length + ' ' + 'file(s)' "
+            :files="publication.publication_files"
+            :isFiles="true"
+          />
         </v-col>
       </v-row>
     </div>
@@ -60,8 +75,7 @@
 
 <script>
 import Api from "@/services/Api";
-import Vue2Filters from "vue2-filters";
-import DownloadPublication from "@/mixins/downloadPublication";
+import Info from "@/components/tools/InfoBox.vue";
 export default {
   name: "publication",
   props: ["pub_id"],
@@ -71,10 +85,12 @@ export default {
     loaded: false,
     nofiles: true,
   }),
-  mixins: [Vue2Filters.mixin, DownloadPublication],
 
   mounted() {
     this.getPublication();
+  },
+  components: {
+    info: Info,
   },
 
   methods: {
@@ -82,7 +98,7 @@ export default {
       Api()
         .get(`/publications/${this.pub_id}`)
         .then((response) => {
-          this.publication = response.data.publication;
+          this.publication = response.data.data;
           // check if files are greater than zero
           this.loaded = true;
           this.nofiles = false;
@@ -96,17 +112,16 @@ export default {
 .title-bar {
   height: 80px;
   padding: 10px;
+  margin-top: 20px;
+  border-bottom: #ee8a07 dotted 1px;
 }
 .publication {
   margin: auto;
-  max-width: 98%;
   padding: 10px;
 }
 
 .publication .files {
   height: 492px;
-  left: 33px;
-  top: 360px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   overflow-y: scroll;
@@ -125,16 +140,12 @@ export default {
 
 .publication .description {
   padding: 20px;
-  background: #f464171a;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   border-top: solid 3px #ee8a07;
 }
 
 .publication .details {
-  max-height: 130px;
-  left: 1067px;
-  top: 360px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
 }
