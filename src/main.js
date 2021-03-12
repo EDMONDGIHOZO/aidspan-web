@@ -4,7 +4,6 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import store from "@/store";
 import InstantSearch from "vue-instantsearch";
-// import VueGtag from 'vue-gtag'
 //import the custom styles
 import "./assets/styles/mobileDevices.scss";
 import "./assets/styles/responsive.scss";
@@ -14,6 +13,7 @@ import "./assets/styles/main.scss";
 import Vuelidate from "vuelidate";
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
+import VueAnalytics from "vue-analytics";
 Vue.use(Vuelidate);
 
 //import for animation
@@ -23,18 +23,12 @@ import i18n from "./i18n";
 import _ from "lodash";
 Object.defineProperty(Vue.prototype, "$_", { value: _ });
 
-///add the google analytics here
-// Vue.use(VueGtag, {
-//         config: {
-//             id: 'UA-167593216-1',
-//             params: {
-//                 send_page_view: true,
-//                 appName: 'aidspan-web',
-//                 pageTrackerScreenviewEnabled: true,
-//             },
-//             router,
-//         },
-//     })
+// Configuration VueAnalytics
+Vue.use(VueAnalytics, {
+  id: "UA-34360518-1",
+  router
+});
+
 /** sharing stuffs */
 Vue.use(SocialSharing);
 /** for content ordering  */
@@ -90,8 +84,7 @@ Vue.filter("str_limit", function(value, size) {
 Vue.directive("scrollAnimation", scrollAnimation);
 Vue.config.productionTip = false;
 
-// backend url
-Vue.prototype.$hostname = "https://webapi.aidspan.org/api/v1/";
+Vue.prototype.$foo = "bar";
 
 new Vue({
   router,

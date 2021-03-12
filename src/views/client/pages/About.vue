@@ -45,18 +45,6 @@
     </v-row>
     <!-- end of the visino and mission -->
     <!-- start policy analysis --->
-    <v-row>
-      <v-col cols="12">
-        <v-card color="primary" flat shaped id="policy">
-          <v-card-title>
-            <h4>{{ $t("policy.title") }}</h4>
-          </v-card-title>
-          <v-card-text>
-            <p class="white--text">{{ $t("policy.data") }}</p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
     <!-- start the history timeline  -->
     <v-row id="history">
       <v-col cols="12" md="12" lg="12">

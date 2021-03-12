@@ -27,6 +27,12 @@ const routes = [{
                 return next()
             })
         },
+
+        AfterEnter(){
+            // initiate the session
+            // record the next route to the web visit
+        },
+
         children: [
             /** client web path */
             {
@@ -57,15 +63,27 @@ const routes = [{
                         },
                     },
                     {
-                        path: 'about-us#policy',
+                        path: 'policy',
                         name: 'policy',
                         component: () =>
                             import (
-                                /* webpackChunkName: "about-us" */
-                                '../views/client/pages/About.vue'
+                                /* webpackChunkName: "policy" */
+                                '../components/pages/Consacre.vue'
                             ),
                         meta: {
                             title: 'About aidspan',
+                        },
+                    },
+                    {
+                        path: 'strategy',
+                        name: 'strategy',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "strategy" */
+                                '../components/pages/Strategy.vue'
+                            ),
+                        meta: {
+                            title: 'strategies aidspan',
                         },
                     },
                     {
@@ -213,6 +231,9 @@ const routes = [{
                         path: 'article/:article_id',
                         name: 'article',
                         props: true,
+                        afterEnter(){
+                            // record the visited article information
+                        },
                         params: true,
                         component: () =>
                             import (

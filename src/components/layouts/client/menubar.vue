@@ -15,10 +15,9 @@
         <v-icon left small>{{$t('about.action')}}</v-icon>
         {{$t('about.title')}}
       </v-btn>
-      <v-btn rounded class="mx-0" depressed color="primary" @click="policy">
-        <v-icon left small>{{$t('policy.action')}}</v-icon>
-        {{$t('policy.title')}}
-      </v-btn>
+
+      
+
       <v-menu open-on-hover bottom offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -43,6 +42,32 @@
           </v-list-item>
         </v-list>
       </v-menu>
+
+      <v-menu open-on-hover bottom offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            rounded
+            class="mx-1"
+            depressed
+            color="primary"
+            v-bind="attrs"
+            v-on="on"
+            @click="policy"
+          >
+            <v-icon left small>{{$t('policy.action')}}</v-icon>
+            {{$t('policy.title')}}
+          </v-btn>
+        </template>
+        <v-list rounded>
+          <v-list-item @click="policy">
+            <v-btn depressed text rounded>Policy</v-btn>
+          </v-list-item>
+          <v-list-item @click="strategy">
+            <v-btn depressed text rounded>strategy</v-btn>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <v-btn rounded class="mx-1" depressed color="primary" @click="gopubs">
         <v-icon left small>{{$t('publications.action')}}</v-icon>
         {{$t('publications.title')}}
@@ -84,6 +109,9 @@ export default {
     },
     policy() {
       return this.$router.push({ name: "policy" });
+    },
+    strategy() {
+      return this.$router.push({ name: "strategy" });
     },
 
     Vcountry() {
