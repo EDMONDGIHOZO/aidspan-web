@@ -19,6 +19,8 @@ Vue.use(Vuelidate);
 
 Vue.use(VueMeta, {
   // optional pluginOptions
+  keyName: 'aidspan',
+  tagId: "UA-34360518-1",
   refreshOnceOnNavigation: true
 })
 
@@ -41,24 +43,24 @@ Vue.use(SocialSharing);
 Vue.use(Vue2Filters);
 
 /** date formatting  */
-Vue.filter("formatDate", function(value) {
+Vue.filter("formatDate", function (value) {
   if (value) {
     return moment.unix(value).format("MMM Do YYYY");
   }
 });
 
-Vue.filter("formatDateNormal", function(value) {
+Vue.filter("formatDateNormal", function (value) {
   if (value) {
     return moment(value).format("MMM Do YYYY");
   }
 });
-Vue.filter("normalizeFrench", function(value) {
+Vue.filter("normalizeFrench", function (value) {
   if (value) {
     return _.deburr(value);
   }
 });
 /** dates with words */
-Vue.filter("formatDateWords", function(value) {
+Vue.filter("formatDateWords", function (value) {
   if (value) {
     return moment(value)
       .startOf("day")
@@ -66,7 +68,7 @@ Vue.filter("formatDateWords", function(value) {
   }
 });
 
-Vue.filter("formatDataSize", function(value) {
+Vue.filter("formatDataSize", function (value) {
   if (value == 0) {
     return "0.00 B";
   }
@@ -77,7 +79,7 @@ Vue.filter("formatDataSize", function(value) {
 });
 
 Vue.use(InstantSearch);
-Vue.filter("str_limit", function(value, size) {
+Vue.filter("str_limit", function (value, size) {
   if (!value) return "";
   value = value.toString();
 
