@@ -24,6 +24,7 @@
         "vue-gtag": "^1.8.0",
         "vue-i18n": "^8.21.0",
         "vue-instantsearch": "^2.7.1",
+        "vue-meta": "^2.4.0",
         "vue-router": "^3.4.3",
         "vue-social-sharing": "^2.4.7",
         "vue-tweet-embed": "^2.4.0",

@@ -14,7 +14,13 @@ import Vuelidate from "vuelidate";
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
 import VueAnalytics from "vue-analytics";
+import VueMeta from 'vue-meta'
 Vue.use(Vuelidate);
+
+Vue.use(VueMeta, {
+  // optional pluginOptions
+  refreshOnceOnNavigation: true
+})
 
 //import for animation
 import scrollAnimation from "./directives/scrollAnimation";

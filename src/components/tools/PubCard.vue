@@ -25,7 +25,7 @@
               icon
               v-for="file in pub.files"
               :key="file.id"
-              @click="downloadPublication(file.filename)"
+              @click="downloadFile(file.filename)"
               ><v-icon :color="file.format == 'pdf' ? 'red' : 'info'"
                 >mdi-file-{{ file.format }}-box</v-icon
               ></v-btn
@@ -42,7 +42,6 @@
 
 <script>
 import TextDialog from "@/components/tools/TextDialog.vue";
-import DownloadPublication from "@/mixins/downloadPublication";
 
 export default {
   name: "pubcard",
@@ -53,15 +52,20 @@ export default {
     };
   },
 
-  mixins: [DownloadPublication],
 
   components: {
     "text-dialog": TextDialog,
   },
 
   methods: {
-    downloadFile() {
-      console.log(this.$hostname);
+    downloadFile(name) {
+      const downloadLink =
+        `https://webapi.aidspan.org/api/v1/` + "fileget/" + name;
+      const link = document.createElement("a");
+      link.href = downloadLink;
+      link.setAttribute("download", link);
+      document.body.appendChild(link);
+      link.click();
     },
   },
 };

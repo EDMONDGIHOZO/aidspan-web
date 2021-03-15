@@ -493,6 +493,23 @@ export default {
       };
     },
   },
+
+  metaInfo() {
+    return {
+      title: `${this.main_title} - #GFO & OFM Articles`,
+      meta: [
+        {
+          name: "description",
+          content: this.abstracts.slice(0, 120),
+        },
+        {
+          name: "author",
+          content: this.author,
+        },
+      ],
+    };
+  },
+
   created() {
     Api()
       .get(`Articles/${this.article_id}`)

@@ -60,10 +60,10 @@
         </template>
         <v-list rounded>
           <v-list-item @click="policy">
-            <v-btn depressed text rounded>Policy</v-btn>
+            <v-btn depressed text rounded>{{$t('policy.title')}}</v-btn>
           </v-list-item>
           <v-list-item @click="strategy">
-            <v-btn depressed text rounded>strategy</v-btn>
+            <v-btn depressed text rounded>{{$t('strategy.title')}}</v-btn>
           </v-list-item>
         </v-list>
       </v-menu>

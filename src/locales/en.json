@@ -26,6 +26,11 @@
     "route": "en/about-us#policy",
     "data": "Aidspan conducts independent and critical analysis and investigation of Global Fund policies, strategies, processes and structures, funding mechanisms, transparency and data quality. We publish its analytical content through reports, case studies, peer-reviewed articles, and reviews. Aidspan also provides guidance to those applying for, implementing or overseeing Global Fund grants by publishing guides on diverse subjects. Aidspan relies on a small team of in-house researchers and external collaborators with expertise in health economics, epidemiology, governance, health systems strengthening, and Global Fund processes among others. We are developing collaborations with research institutions and other policy-focused organizations. Aidspan aims to provide independent analyses on the Global Fund policies that can be used by our stakeholders. They include the Global Fund (Secretariat, Office of the Inspector General (OIG) and Board, including the committees), Global Fund donors, implementers, civil society researchers, and media. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations."
   },
+
+  "strategy": {
+    "title": "strategy"
+  },
+
   "analytics": {
     "title": "Data analytics",
     "action": "mdi-google-analytics",

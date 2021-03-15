@@ -26,6 +26,9 @@
     "route": "en/about-us#policy",
     "data": "Aidspan mène des analyses et des enquêtes indépendantes et critiques sur les politiques, stratégies, processus et structures du Fonds mondial, les mécanismes de financement, la transparence et la qualité des données. Nous publions son contenu analytique à travers des rapports, des études de cas, des articles évalués par des pairs et des critiques. Aidspan fournit également des conseils à ceux qui demandent, mettent en œuvre ou supervisent des subventions du Fonds mondial en publiant des guides sur divers sujets. Aidspan s'appuie sur une petite équipe de chercheurs internes et de collaborateurs externes ayant une expertise en économie de la santé, en épidémiologie, en gouvernance, en renforcement des systèmes de santé et en processus du Fonds mondial, entre autres. Nous développons des collaborations avec des instituts de recherche et d'autres organisations axées sur les politiques. Aidspan vise à fournir des analyses indépendantes sur les politiques du Fonds mondial qui peuvent être utilisées par nos parties prenantes. Ils comprennent le Fonds mondial (Secrétariat, Bureau de l'Inspecteur général (BIG) et Conseil d'administration, y compris les comités), les donateurs du Fonds mondial, les exécutants, les chercheurs de la société civile et les médias. Toutes les publications d'Aidspan sont en libre accès. Nous apprécions les suggestions d'articles et de collaborations de recherche."
   },
+  "strategy": {
+    "title": "stratégie"
+  },
   "analytics": {
     "title": "Analyse des données",
     "action": "mdi-google-analytics",

@@ -63,24 +63,24 @@ const routes = [{
                         },
                     },
                     {
-                        path: 'policy',
-                        name: 'policy',
-                        component: () =>
-                            import (
-                                /* webpackChunkName: "policy" */
-                                '../components/pages/Consacre.vue'
-                            ),
-                        meta: {
-                            title: 'About aidspan',
-                        },
-                    },
-                    {
                         path: 'strategy',
                         name: 'strategy',
                         component: () =>
                             import (
                                 /* webpackChunkName: "strategy" */
                                 '../components/pages/Strategy.vue'
+                            ),
+                        meta: {
+                            title: 'About aidspan',
+                        },
+                    },
+                    {
+                        path: 'policy',
+                        name: 'policy',
+                        component: () =>
+                            import (
+                                /* webpackChunkName: "policy" */
+                                '../components/pages/Consacre.vue'
                             ),
                         meta: {
                             title: 'strategies aidspan',
