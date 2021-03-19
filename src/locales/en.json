@@ -20,6 +20,12 @@
     "action": "mdi-lightbulb-on",
     "route": "en/about-us"
   },
+
+  "policyStrategy": {
+    "title": "policy and strategy",
+    "action": "mdi-hexagon-multiple"
+  },
+
   "policy": {
     "title": "Policy Analysis",
     "action": "mdi-hexagon-multiple",
@@ -97,6 +103,8 @@
     "title": "Guides",
     "description": "Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical advice to those applying for, overseeing or implementing Global Fund grants. Guides exist on subjects from how to apply for a Global Fundgrant to how to set up a Country Coordinating Mechanism."
   },
+
+  "close": "close",
   "readmore": "Read More",
   "visitapw": "visit APW",
   "all-issue": "All Issues",

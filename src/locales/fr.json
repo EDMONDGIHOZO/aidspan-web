@@ -20,6 +20,13 @@
     "action": "mdi-lightbulb-on",
     "route": "en/about-us"
   },
+
+  "close": "Fermer",
+
+  "policyStrategy": {
+    "title": "politique et stratégie",
+    "action": "mdi-hexagon-multiple"
+  },
   "policy": {
     "title": "Analyse de politique",
     "action": "mdi-hexagon-multiple",
@@ -161,13 +168,13 @@
       "body": "L'Ouganda a emprisonné les deux premiers des quatre fonctionnaires pour corruption liée au Fonds mondial qui a été signalée pour la première fois par Aidspan."
     },
     "10": {
-        "date": "Avril 2012",
-        "body": "Aidspan a fourni un témoignage à un comité parlementaire britannique dans lequel il a déclaré que le Fonds mondial ne pouvait pas se permettre d'avoir une deuxième année comme 2011 et qu'il pourrait être définitivement endommagé s'il le faisait."
-      },
-      "11": {
-        "date": "Janvier 2015",
-        "body": "Aidspan a élaboré son troisième plan stratégique, couvrant la période 2016-2018."
-      }
+      "date": "Avril 2012",
+      "body": "Aidspan a fourni un témoignage à un comité parlementaire britannique dans lequel il a déclaré que le Fonds mondial ne pouvait pas se permettre d'avoir une deuxième année comme 2011 et qu'il pourrait être définitivement endommagé s'il le faisait."
+    },
+    "11": {
+      "date": "Janvier 2015",
+      "body": "Aidspan a élaboré son troisième plan stratégique, couvrant la période 2016-2018."
+    }
   },
   "core": {
     "title": "valeurs fondamentales",

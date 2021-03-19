@@ -54,8 +54,8 @@
             v-on="on"
             @click="policy"
           >
-            <v-icon left small>{{$t('policy.action')}}</v-icon>
-            {{$t('policy.title')}}
+            <v-icon left small>{{$t('policyStrategy.action')}}</v-icon>
+            {{$t('policyStrategy.title')}}
           </v-btn>
         </template>
         <v-list rounded>

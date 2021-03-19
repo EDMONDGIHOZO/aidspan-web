@@ -1,7 +1,7 @@
 <template>
   <section class="introduction">
     <div class="container">
-      <v-row wrap>
+      <v-row wrap v-if="language === 'fr'">
         <v-col cols="12" md="6">
           <div class="definition">
             <p>
@@ -34,16 +34,39 @@
         </v-col>
 
         <v-col cols="12" md="3" v-for="(res, index) in resources" :key="index">
-          <v-card height="325" rounded outlined> 
+          <v-card height="325" rounded outlined>
             <v-card-title color="primary">
               {{ res.title }}
             </v-card-title>
-             <v-divider></v-divider>
+            <v-divider></v-divider>
             <v-card-text>
-              <p v-for="(cont, index) in res.pieces" :key="index" class="font-weight-bold">
+              <p
+                v-for="(cont, index) in res.pieces"
+                :key="index"
+                class="font-weight-bold"
+              >
                 {{ cont }}
               </p>
             </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <div class="articles">
+            <Articles />
+          </div>
+        </v-col>
+      </v-row>
+      <v-row wrap v-else class="strategy">
+        <v-col cols="12">
+          <v-card>
+            <v-card-text class="text-center">
+              <h4>Coming soon</h4>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="info" small depressed router href="/fr/c/strategy"
+                >Read in French</v-btn
+              >
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -52,8 +75,12 @@
 </template>
 
 <script>
+import Articles from "@/components/pages/strategyArticles.vue";
 export default {
   name: "policy",
+  components: {
+    Articles,
+  },
   data() {
     return {
       definition:
@@ -112,6 +139,13 @@ export default {
         "De nombreux documents sont produits au cours de ces débats, dont certains sont disponibles sur le site internet du Fonds mondial mais pas tous, et la langue officielle reste l’anglais. Par ailleurs, plusieurs documents clés ont été produits ces derniers mois, qui éclairent l’efficacité et les performances obtenues grâce à la stratégie actuelle :",
     };
   },
+
+  computed: {
+    language() {
+      const current = this.$i18n.locale;
+      return current;
+    },
+  },
 };
 </script>
 
@@ -146,7 +180,7 @@ export default {
 }
 
 .section-title {
-    margin: 10px;
+  margin: 10px;
 }
 
 .cont {
@@ -155,5 +189,16 @@ export default {
   padding: 14px;
   margin-top: 33px;
   color: white;
+}
+
+.strategy {
+  min-height: 100vh;
+}
+
+.articles {
+  background: linear-gradient(#00AEEF, #FF7A2B);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 19px rgba(43, 183, 255, 0.46);
 }
 </style>
