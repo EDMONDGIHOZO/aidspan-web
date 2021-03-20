@@ -1,78 +1,97 @@
 <template>
   <div class="container">
-    <div class="text-center">
-      <v-dialog v-model="dialog" max-width="800">
-        <template v-slot:activator="{ on, attrs }">
-          <div class="actions">
-            <v-chip class="ma-2" color="secondary" outlined label>
-              {{ date | formatDate }}
-            </v-chip>
-            <v-btn
-              color="accent"
-              class="ma-2"
-              depressed
-              v-bind="attrs"
-              v-on="on"
-            >
-              {{ $t("readmore") }}
-              <v-icon right>mdi-arrow-down-drop-circle-outline</v-icon>
-            </v-btn>
-          </div>
-        </template>
+    <div class="single-strategy" v-if="loaded">
+      <!-- thumbnail full image -->
+      <div class="image-container">
+        <v-parallax
+          v-if="strategy.image !== null"
+          :src="
+            `https://gfo.aidspan.org/sites/default/files/strategic/${strategy.image.image.filename}`
+          "
+        ></v-parallax>
+        <v-parallax
+          v-else
+          height="300"
+          rounded
+          src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+        ></v-parallax>
+      </div>
 
-        <v-card>
-          <v-img
-            :src="`https://gfo.aidspan.org/sites/default/files/strategic/${image}`"
-          ></v-img>
-          <v-card-title>
-            <div class="tit-container">
-              {{ title }}
-            </div>
-          </v-card-title>
+      <div class="title-container">
+        <h1>{{ strategy.title }}</h1>
+        <v-chip color="secondary" class="my-4">
+          {{ strategy.created | formatDate }}
+        </v-chip>
+      </div>
 
-          <v-card-text v-html="description"></v-card-text>
+      <div class="content">
+        <span v-html="strategy.description.body_value"></span>
+      </div>
+    </div>
 
-          <v-divider></v-divider>
+    <div class="contents" v-else>
+      <v-skeleton-loader
+        v-bind="attrs"
+        type="list-item-avatar, divider, list-item-three-line, card-heading, image, actions"
+      ></v-skeleton-loader>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="dialog = false"> {{$t("close")}} </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+      <v-skeleton-loader
+        v-bind="attrs"
+        type="list-item-avatar-three-line, image, article"
+      ></v-skeleton-loader>
     </div>
   </div>
 </template>
 
 <script>
+import Api from "@/services/Api";
 export default {
-  props: ["date", "title", "description", "image"],
+  name: "strategy",
+  props: ["id"],
   data() {
     return {
-      dialog: false,
+      strategy: null,
+      loaded: false,
     };
+  },
+
+  mounted() {
+    this.getAsingle();
+  },
+
+  methods: {
+    // fetch the strategy
+    getAsingle() {
+      Api()
+        .get(`strategies/${this.id}`)
+        .then((response) => {
+          console.log(response.status);
+          if (response.status == "200") {
+            this.strategy = response.data;
+            this.loaded = true;
+          } else {
+            alert("someting went wrong, please check your network");
+          }
+        });
+    },
   },
 };
 </script>
 
 <style scoped>
-.actions {
-  width: 100%;
-  background: rgb(255, 255, 255);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-radius: 6px;
+.single-strategy {
+  width: 98%;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.tit-container {
+.single-strategy :is(.image-container, .title-container, .contents) {
+  width: 100%;
   padding: 10px;
-  background: #00aeef;
-  color: white;
-  border-radius: 6px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  min-width: 100%;
+}
+
+.title-container h1{
+  color: #00AEEF;
 }
 </style>

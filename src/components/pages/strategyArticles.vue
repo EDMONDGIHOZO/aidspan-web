@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12">
         <div class="mainTitle">
-          <h2>ARTICLES</h2>
+          <h2>CONTENU</h2>
         </div>
       </v-col>
       <v-row dense class="art-container">
@@ -14,15 +14,22 @@
           md="6"
           class="colu"
         >
-          <v-card class="cards" flat min-height="300" dark>
+          <v-card
+            class="cards"
+            min-height="150"
+            dark
+            @click="open(article.nid)"
+          >
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
                 <v-card-title
                   class="article-title"
-                  v-text="article.title"
+                  v-text="$options.filters.str_limit(article.title, 130)"
                 ></v-card-title>
-                <v-divider></v-divider>
-                <v-card-text
+                <v-card-subtitle class="date">
+                  {{ article.created | formatDate }}
+                </v-card-subtitle>
+                <!-- <v-card-text
                   class="contents"
                   v-html="
                     $options.filters.str_limit(
@@ -31,15 +38,7 @@
                     )
                   "
                 >
-                </v-card-text>
-                <v-card-actions>
-                  <Single
-                    :date="article.created"
-                    :description="article.description.body_value"
-                    :title="article.title"
-                    :image="article.image !== null ? `${article.image.image.filename}` : 'd'"
-                  />
-                </v-card-actions>
+                </v-card-text> -->
               </div>
 
               <v-avatar
@@ -49,7 +48,9 @@
                 v-if="article.image !== null"
               >
                 <v-img
-                  :src="`https://gfo.aidspan.org/sites/default/files/strategic/${article.image.image.filename}`"
+                  :src="
+                    `https://gfo.aidspan.org/sites/default/files/strategic/${article.image.image.filename}`
+                  "
                 ></v-img>
               </v-avatar>
               <v-avatar
@@ -71,12 +72,8 @@
 
 <script>
 import Api from "@/services/Api";
-import Single from "@/components/helpers/singleStrategy.vue";
 export default {
   name: "strategy-articles",
-  components: {
-    Single,
-  },
   data() {
     return {
       articles: [],
@@ -103,6 +100,9 @@ export default {
   },
 
   methods: {
+    open(nid) {
+      this.$router.push({ name: "strategyContent", params: { id: nid } });
+    },
     //   get the articles
     getArticles() {
       Api()
@@ -166,5 +166,9 @@ export default {
 .cards {
   background: rgba(13, 148, 201, 0.514);
   border: dotted 0.5px white;
+}
+
+.cards:hover{
+  background: rgb(13, 148, 201);
 }
 </style>

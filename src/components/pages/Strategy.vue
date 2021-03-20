@@ -33,7 +33,7 @@
           </div>
         </v-col>
 
-        <v-col cols="12" md="3" v-for="(res, index) in resources" :key="index">
+        <!-- <v-col cols="12" md="3" v-for="(res, index) in resources" :key="index">
           <v-card height="325" rounded outlined>
             <v-card-title color="primary">
               {{ res.title }}
@@ -49,7 +49,7 @@
               </p>
             </v-card-text>
           </v-card>
-        </v-col>
+        </v-col> -->
         <v-col cols="12">
           <div class="articles">
             <Articles />
@@ -58,12 +58,12 @@
       </v-row>
       <v-row wrap v-else class="strategy">
         <v-col cols="12">
-          <v-card>
+          <v-card flat>
             <v-card-text class="text-center">
-              <h4>Coming soon</h4>
+             <span class="display-3">COMING SOON </span>
             </v-card-text>
-            <v-card-actions>
-              <v-btn color="info" small depressed router href="/fr/c/strategy"
+            <v-card-actions class="justify-center">
+              <v-btn color="info"  depressed router href="/fr/c/strategy"
                 >Read in French</v-btn
               >
             </v-card-actions>

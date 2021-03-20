@@ -76,6 +76,20 @@ const routes = [
             },
           },
           {
+            path: "strategy-content/:id",
+            name: "strategyContent",
+            params: true,
+            props: true,
+            component: () =>
+              import(
+                /* webpackChunkName: "strategy-content" */
+                "../components/helpers/singleStrategy.vue"
+              ),
+            meta: {
+              title: "single strategy",
+            },
+          },
+          {
             path: "policy",
             name: "policy",
             component: () =>
