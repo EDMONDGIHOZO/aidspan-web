@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <v-row justify="center">
+    <v-row justify="center" v-if="loaded">
       <v-col cols="12">
         <div class="mainTitle">
           <h2>CONTENU</h2>
@@ -67,6 +67,17 @@
         </v-col>
       </v-row>
     </v-row>
+    <div class="contents" v-else>
+      <v-skeleton-loader
+        v-bind="attrs"
+        type="list-item-avatar, divider, actions"
+      ></v-skeleton-loader>
+
+      <v-skeleton-loader
+        v-bind="attrs"
+        type="list-item-avatar-three-line, image, article"
+      ></v-skeleton-loader>
+    </div>
   </div>
 </template>
 
@@ -168,7 +179,7 @@ export default {
   border: dotted 0.5px white;
 }
 
-.cards:hover{
+.cards:hover {
   background: rgb(13, 148, 201);
 }
 </style>

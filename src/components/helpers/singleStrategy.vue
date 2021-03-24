@@ -26,6 +26,9 @@
 
       <div class="content">
         <span v-html="strategy.description.body_value"></span>
+        <v-btn color="primary" class="ma-4" depressed rounded @click="back"
+          ><v-icon left>mdi-arrow-left</v-icon> Retour</v-btn
+        >
       </div>
     </div>
 
@@ -60,7 +63,11 @@ export default {
   },
 
   methods: {
+    back() {
+      return this.$router.go(-1);
+    },
     // fetch the strategy
+
     getAsingle() {
       Api()
         .get(`strategies/${this.id}`)
@@ -91,7 +98,7 @@ export default {
   padding: 10px;
 }
 
-.title-container h1{
-  color: #00AEEF;
+.title-container h1 {
+  color: #00aeef;
 }
 </style>

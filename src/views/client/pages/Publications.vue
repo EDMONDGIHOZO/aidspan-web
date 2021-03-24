@@ -19,11 +19,11 @@
           <div class="publications-list">
             <pub-card v-if="loading" :data="filteredPubs" />
             <div class="lo" v-else>
-              <loader type="card"/>
-              <loader type="card"/>
-              <loader type="card"/>
-              <loader type="card"/>
-              <loader type="card"/>
+              <loader type="card" />
+              <loader type="card" />
+              <loader type="card" />
+              <loader type="card" />
+              <loader type="card" />
             </div>
           </div>
         </div>
@@ -103,7 +103,9 @@ export default {
           this.loading = true;
           switch (cat) {
             case "guides":
-              this.publications = withFiles.filter((p) => p.category === "guide");
+              this.publications = withFiles.filter(
+                (p) => p.category === "guide"
+              );
               break;
             case "reports":
               this.publications = withFiles.filter(
@@ -118,10 +120,11 @@ export default {
   },
 
   computed: {
-    filteredPubs: function () {
+    filteredPubs: function() {
       return this.publications.filter((publication) => {
         let title = publication.title.toLowerCase();
-        return title.match(this.search);
+        let keywork = this.search.toLowerCase();
+        return title.match(keywork);
       });
     },
   },

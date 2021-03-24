@@ -54,6 +54,7 @@
           <div class="articles">
             <Articles />
           </div>
+          
         </v-col>
       </v-row>
       <v-row wrap v-else class="strategy">
