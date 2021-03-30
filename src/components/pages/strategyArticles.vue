@@ -18,17 +18,18 @@
             class="cards"
             min-height="150"
             dark
-            @click="open(article.nid)"
           >
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
                 <v-card-title
                   class="article-title"
                   v-text="$options.filters.str_limit(article.title, 130)"
+                  @click="open(article.nid)"
                 ></v-card-title>
                 <v-card-subtitle class="date">
                   {{ article.created | formatDate }}
                 </v-card-subtitle>
+                 <v-btn color="white" v-if="article.documents.length > 0" rounded class="ma-2 black--text" :href="article.documents[0].field_document_link_url" target="_blank">Télécharger</v-btn>
                 <!-- <v-card-text
                   class="contents"
                   v-html="
@@ -40,7 +41,6 @@
                 >
                 </v-card-text> -->
               </div>
-
               <v-avatar
                 class="ma-3 elevation-5"
                 size="125"
@@ -51,8 +51,10 @@
                   :src="
                     `https://gfo.aidspan.org/sites/default/files/strategic/${article.image.image.filename}`
                   "
+                  @click="open(article.nid)"
                 ></v-img>
               </v-avatar>
+
               <v-avatar
                 class="ma-3 elevation-5"
                 color="secondary"

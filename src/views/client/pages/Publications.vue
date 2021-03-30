@@ -17,7 +17,7 @@
             ></v-text-field>
           </div>
           <div class="publications-list">
-            <pub-card v-if="loading" :data="filteredPubs" />
+            <pub-card v-if="loading" :data="sorted" />
             <div class="lo" v-else>
               <loader type="card" />
               <loader type="card" />
@@ -55,6 +55,7 @@
 <script>
 import PubCard from "@/components/tools/PubCard.vue";
 import Loader from "@/components/tools/Loader.vue";
+import _ from "lodash";
 import Api from "@/services/Api";
 
 export default {
@@ -126,6 +127,11 @@ export default {
         let keywork = this.search.toLowerCase();
         return title.match(keywork);
       });
+    },
+
+    sorted() {
+      let data = _.orderBy(this.filteredPubs, ['pub', 'published_at'], ['asc', 'desc']);
+      return data;
     },
   },
 };

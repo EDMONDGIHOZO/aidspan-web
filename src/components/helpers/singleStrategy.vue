@@ -22,6 +22,17 @@
         <v-chip color="secondary" class="my-4">
           {{ strategy.created | formatDate }}
         </v-chip>
+        <v-btn
+          color="primary"
+          small
+          v-if="strategy.documents.length > 0"
+          rounded
+          depressed
+          class="ma-2"
+          :href="strategy.documents[0].field_document_link_url"
+          target="_blank"
+          >Télécharger</v-btn
+        >
       </div>
 
       <div class="content">
