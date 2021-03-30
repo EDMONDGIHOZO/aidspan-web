@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <div class="single-strategy" v-if="loaded">
+      <v-btn color="primary" class="ma-4" depressed rounded @click="back"
+        ><v-icon left>mdi-arrow-left</v-icon> Retour</v-btn
+      >
       <!-- thumbnail full image -->
       <div class="image-container">
         <v-parallax
@@ -37,10 +40,38 @@
 
       <div class="content">
         <span v-html="strategy.description.body_value"></span>
-        <v-btn color="primary" class="ma-4" depressed rounded @click="back"
-          ><v-icon left>mdi-arrow-left</v-icon> Retour</v-btn
-        >
       </div>
+
+      <div class="commentContainer">
+        <v-badge
+          color="blue"
+          class="title mb-5 mt-5"
+          :content="comments.length === 0 ? '0' : comments.length"
+        >
+          commentaires
+          <v-icon right color="primary">mdi-comment</v-icon>
+        </v-badge>
+        <div class="commentsView">
+          <v-card
+            v-for="comment in comments"
+            :key="comment.id"
+            class="mb-5"
+            max-width="700"
+            shaped
+            outlined
+            color="#f8f9fa"
+          >
+            <v-card-title>{{ comment.name }}</v-card-title>
+            <v-card-text>{{ comment.body }}</v-card-text>
+            <v-card-actions>
+              <span class="px-3">{{
+                comment.created_at | formatDateWords
+              }}</span>
+            </v-card-actions>
+          </v-card>
+        </div>
+      </div>
+      <comments :id="strategy.nid" />
     </div>
 
     <div class="contents" v-else>
@@ -59,6 +90,7 @@
 
 <script>
 import Api from "@/services/Api";
+import Comments from "./Comments.vue";
 export default {
   name: "strategy",
   props: ["id"],
@@ -66,11 +98,20 @@ export default {
     return {
       strategy: null,
       loaded: false,
+      comments: [],
     };
+  },
+
+  components: {
+    comments: Comments,
   },
 
   mounted() {
     this.getAsingle();
+  },
+
+  created() {
+    this.$root.$refs.A = this;
   },
 
   methods: {
@@ -86,6 +127,7 @@ export default {
           console.log(response.status);
           if (response.status == "200") {
             this.strategy = response.data;
+            this.comments = response.data.comments;
             this.loaded = true;
           } else {
             alert("someting went wrong, please check your network");
@@ -111,5 +153,11 @@ export default {
 
 .title-container h1 {
   color: #00aeef;
+}
+
+.commentsView {
+  max-height: 350px;
+  overflow-x: scroll;
+  max-width: 700px;
 }
 </style>

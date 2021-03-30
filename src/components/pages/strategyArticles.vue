@@ -29,7 +29,7 @@
                 <v-card-subtitle class="date">
                   {{ article.created | formatDate }}
                 </v-card-subtitle>
-                 <v-btn color="white" v-if="article.documents.length > 0" rounded class="ma-2 black--text" :href="article.documents[0].field_document_link_url" target="_blank">Télécharger</v-btn>
+                 <v-btn color="white" small v-if="article.documents.length > 0" rounded class="ma-2 black--text" :href="article.documents[0].field_document_link_url" target="_blank">Télécharger</v-btn>
                 <!-- <v-card-text
                   class="contents"
                   v-html="
@@ -139,6 +139,7 @@ export default {
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
+  cursor: pointer;
 }
 
 .container :is(.mainTitle) {
