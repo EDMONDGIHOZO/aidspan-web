@@ -2,10 +2,13 @@
   <nav class="d-flex d-sm-none">
     <v-app-bar fixed color="white" light flat>
       <img :src="appIcon" alt="aidspan-logo" width="40px" />
-      <p class="app-title aid-title">{{$t('slogan')}}</p>
+      <p class="app-title aid-title">{{ $t("slogan") }}</p>
       <v-spacer></v-spacer>
-         <Search :dialog="false" searchClass="mobile-search" />
-      <v-app-bar-nav-icon @click.stop="mobMenu = !mobMenu" color="#00AEEF"></v-app-bar-nav-icon>
+      <Search :dialog="false" searchClass="mobile-search" />
+      <v-app-bar-nav-icon
+        @click.stop="mobMenu = !mobMenu"
+        color="#00AEEF"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
     <v-navigation-drawer app v-model="mobMenu" right width="70%">
       <v-row>
@@ -22,28 +25,7 @@
         <v-col cols="12">
           <v-card flat class="mobmenu">
             <v-card-text>
-              <v-btn  block depressed  class="menubtn" @click="gohome">{{$t('home.title')}}</v-btn>
-              <v-btn block depressed  class="menubtn" @click="gogfo">{{$t('gfo.title')}}</v-btn>
-              <v-btn
-                depressed
-                block
-                 class="menubtn"
-                @click="goabout"
-              >{{$t('about.title')}}</v-btn>
-              <v-btn
-                
-                block
-                depressed
-                 class="menubtn"
-                @click="goanalytics"
-              >{{$t('analytics.title')}}</v-btn>
-              <v-btn
-                
-                depressed
-                block
-                class="menubtn"
-                @click="gopubs"
-              >{{$t('publications.title')}}</v-btn>
+              <menu-list device="mobile" />
             </v-card-text>
           </v-card>
         </v-col>
@@ -55,10 +37,13 @@
 <script>
 import localeSwitcher from "@/components/helpers/localeswitch.vue";
 import Search from "@/components/helpers/search.vue";
+import menuList from "@/components/layouts/client/Menu-list.vue";
 export default {
   name: "Menubar",
   components: {
     "locale-switch": localeSwitcher,
+    "menu-list": menuList,
+
     Search,
   },
   data() {
@@ -128,7 +113,7 @@ export default {
 }
 
 .aid-title {
-    font-size: 10px !important;
+  font-size: 10px !important;
 }
 
 #menu .submenu {
@@ -143,8 +128,8 @@ export default {
   flex-direction: column;
 }
 
-.mobmenu .menubtn{
-    margin-top: 10px;
-    text-align: left !important;
+.mobmenu .menubtn {
+  margin-top: 10px;
+  text-align: left !important;
 }
 </style>

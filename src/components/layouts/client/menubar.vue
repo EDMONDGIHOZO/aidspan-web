@@ -3,76 +3,7 @@
     <Header class="d-none d-sm-flex"></Header>
     <v-app-bar min-width="100%" color="primary" flat class="menucontainer">
       <!--- menubar list -->
-      <v-btn rounded class="mx-0" depressed color="primary" @click="gohome">
-        <v-icon left small>{{$t('home.action')}}</v-icon>
-        {{$t('home.title')}}
-      </v-btn>
-      <v-btn rounded class="mx-0" depressed color="primary" @click="gogfo">
-        <v-icon left small>{{$t('gfo.action')}}</v-icon>
-        {{$t('gfo.title')}}
-      </v-btn>
-      <v-btn rounded class="mx-0" depressed color="primary" @click="goabout">
-        <v-icon left small>{{$t('about.action')}}</v-icon>
-        {{$t('about.title')}}
-      </v-btn>
-
-      
-
-      <v-menu open-on-hover bottom offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            rounded
-            class="mx-1"
-            depressed
-            color="primary"
-            v-bind="attrs"
-            v-on="on"
-            @click="goanalytics"
-          >
-            <v-icon left small>{{$t('analytics.action')}}</v-icon>
-            {{$t('analytics.title')}}
-          </v-btn>
-        </template>
-        <v-list rounded>
-          <v-list-item @click="goanalytics">
-            <v-btn depressed text rounded>Methodologies</v-btn>
-          </v-list-item>
-          <v-list-item @click="Vcountry">
-            <v-btn depressed text rounded>Grants By Country</v-btn>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-
-      <v-menu open-on-hover bottom offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            rounded
-            class="mx-1"
-            depressed
-            color="primary"
-            v-bind="attrs"
-            v-on="on"
-            @click="policy"
-          >
-            <v-icon left small>{{$t('policyStrategy.action')}}</v-icon>
-            {{$t('policyStrategy.title')}}
-          </v-btn>
-        </template>
-        <v-list rounded>
-          <v-list-item @click="policy">
-            <v-btn depressed text rounded>{{$t('policy.title')}}</v-btn>
-          </v-list-item>
-          <v-list-item @click="strategy">
-            <v-btn depressed text rounded>{{$t('strategy.title')}}</v-btn>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-
-      <v-btn rounded class="mx-1" depressed color="primary" @click="gopubs">
-        <v-icon left small>{{$t('publications.action')}}</v-icon>
-        {{$t('publications.title')}}
-      </v-btn>
-
+        <menu-list device="computer" />
       <!---menu end -->
       <v-spacer></v-spacer>
       <Search :dialog="false" searchClass="desktop-search" />
@@ -85,6 +16,8 @@
 import Search from "@/components/helpers/search.vue";
 import localSwitcher from "@/components/helpers/localeswitch.vue";
 import Header from "@/components/layouts/client/Header.vue";
+import menuList from "@/components/layouts/client/Menu-list.vue";
+
 export default {
   computed: {
     menus() {
@@ -130,6 +63,7 @@ export default {
     Search,
     Header,
     "locale-switch": localSwitcher,
+     "menu-list": menuList,
   },
 };
 </script>
