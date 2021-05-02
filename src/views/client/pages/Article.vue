@@ -653,6 +653,7 @@ export default {
   line-height: 19px;
   /* identical to box height */
   color: #424242;
+  font-style: italic;
 }
 #articleSection .authoring {
   display: flex;
