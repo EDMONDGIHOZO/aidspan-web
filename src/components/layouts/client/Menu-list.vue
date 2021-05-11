@@ -147,6 +147,12 @@ export default {
   flex-direction: column;
 }
 
+.computer :is(.menuBtn) {
+  margin: auto;
+  overflow: hidden;
+  font-size: 12px;
+}
+
 .mobile :is(.menuBtn) {
   margin-bottom: 10px;
   min-width: 100%;

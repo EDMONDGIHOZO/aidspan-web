@@ -4,37 +4,62 @@
       <v-row>
         <v-col cols="12">
           <div class="text-center gfotitle">
-            <h3 class="font-weight-black">{{$t('gfo_intro.title')}}</h3>
+            <h3 class="font-weight-black">{{ $t("gfo_intro.title") }}</h3>
           </div>
           <div class="content" v-scrollAnimation>
-            <p class="ma-10">{{$t('gfo_intro.description')}}</p>
+            <p class="ma-10">{{ $t("gfo_intro.description") }}</p>
           </div>
         </v-col>
       </v-row>
     </v-container>
     <div class="bottom-toolbar">
-      <v-btn color="success" v-if="language === 'fr'" text @click="ofm" rounded>TOUS LES NUMÉROS</v-btn>
-      <v-btn dark @click="gfo" text color="primary" v-else rounded>ALL GFO ISSUES</v-btn>
-      <v-btn text color="secondary" href="#current-issue-editorial" rounded>{{$t('currentissue')}}</v-btn>
+      <v-btn
+        color="success"
+        v-if="this.$i18n.locale === 'fr'"
+        text
+        @click="ofm"
+        rounded
+        >TOUS LES NUMÉROS</v-btn
+      >
+      <v-btn dark @click="gfo" text color="primary" v-else rounded
+        >ALL GFO ISSUES</v-btn
+      >
+      <v-btn text color="secondary" href="#current-issue-editorial" rounded>{{
+        $t("currentissue")
+      }}</v-btn>
     </div>
     <!--- end of the last live articles -->
     <!-- start the current isssue view -->
     <v-container id="current-issue-editorial">
-      <v-row v-if="currentIssue">
+      <v-row v-if="loaded">
         <!--- current issue -->
 
         <v-col cols="12">
-          <h1 class="text-center text-uppercase" color="primary">{{$t('currentissue')}}</h1>
+          <h1 class="text-center text-uppercase" color="primary">
+            {{ $t("currentissue") }}
+          </h1>
           <h3 class="ma-5">
-            <span class="orange--text">{{currentIssue.title}}</span>
-            | {{currentIssue.changed | formatDate }}
-            <v-btn color="success" small class="mx-5" :loading="loader"  @click="downloadIssue(currentIssue.title, currentIssue.language)" rounded depressed>DOWNLOAD</v-btn>
+            <span class="orange--text">{{ currentIssue.title }}</span>
+            | {{ currentIssue.changed | formatDate }}
+            <v-btn
+              color="success"
+              small
+              class="mx-5"
+              :loading="loader"
+              @click="downloadIssue(currentIssue.title, currentIssue.language)"
+              rounded
+              depressed
+              >DOWNLOAD</v-btn
+            >
           </h3>
           <v-row>
             <v-col
               cols="12"
               md="6"
-              v-for="article in orderBy(currentIssue.related_articles, 'article_number.field_article_number_value')"
+              v-for="article in orderBy(
+                currentIssue.related_articles,
+                'article_number.field_article_number_value'
+              )"
               :key="article.nid"
             >
               <v-card
@@ -43,7 +68,7 @@
                 outlined
                 hover
                 router
-                :to="{name: 'article', params: {article_id: article.nid}}"
+                :to="{ name: 'article', params: { article_id: article.nid } }"
                 min-height="120"
               >
                 <v-card-text class="font-weight-bold">
@@ -74,11 +99,13 @@
 
         <!--- end of current issue -->
         <v-col cols="12">
-          <p class="font-weight-regular white--text text-end">{{currentIssue.changed | formatDate}}</p>
+          <p class="font-weight-regular white--text text-end">
+            {{ currentIssue.changed | formatDate }}
+          </p>
           <v-card class="pa-5 text-center" flat>
-            <p>{{$t('gfonote')}}</p>
+            <p>{{ $t("gfonote") }}</p>
             <v-divider></v-divider>
-            <p class="py-3 font-weight-bold">{{$t('contactgfo')}}</p>
+            <p class="py-3 font-weight-bold">{{ $t("contactgfo") }}</p>
             <v-card-actions>
               <v-btn
                 color="primary"
@@ -86,13 +113,16 @@
                 block
                 depressed
                 href="mailto:info@aidspan.org"
-              >{{$t('sendemail')}}</v-btn>
+                >{{ $t("sendemail") }}</v-btn
+              >
             </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
       <div v-else>
-        <h1>lOADING</h1>
+        <v-sheet color="white" class="pa-3" min-width="900">
+          <v-skeleton-loader class="mx-auto" type="article"></v-skeleton-loader>
+        </v-sheet>
       </div>
     </v-container>
     <!--- end of the current issue articles view  -->
@@ -106,6 +136,7 @@
 import Vue2Filters from "vue2-filters";
 import features from "@/components/helpers/features.vue";
 import DownloadIssue from "@/mixins/downloadIssue";
+import Api from "../../../services/Api";
 export default {
   name: "editorial",
   data() {
@@ -124,37 +155,41 @@ export default {
           route: "#all-issues",
         },
       ],
+      loaded: false,
       dialog: false,
       notifications: false,
       sound: true,
       widgets: false,
       loader: false,
+      currentIssue: {},
     };
   },
-  mounted() {
-    const lang = localStorage.getItem("lang");
-    this.$store.dispatch("loadCurrentIssue", lang);
+
+  created() {
+    this.getArticles().then((result) => {
+      this.currentIssue = result.data.data;
+      this.loaded = true;
+    });
   },
-  computed: {
-    currentIssue() {
-      return this.$store.state.currentIssueArticles.data;
-    },
-    language() {
-      return this.$i18n.locale;
-    },
-  },
+
   methods: {
     ofm() {
       this.$router.push({
         name: "ofm",
       });
     },
+
     gfo() {
       this.$router.push({
         name: "gfo",
       });
     },
+
+    getArticles() {
+      return Api().get(`/current-issue/${this.$i18n.locale}`);
+    },
   },
+
   components: {
     features,
   },

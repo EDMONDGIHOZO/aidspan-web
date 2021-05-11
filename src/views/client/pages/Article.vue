@@ -1,47 +1,49 @@
 <template>
   <v-container class="my-1" id="article-container">
-    <v-col cols="12" v-if="loading">
-      <v-container style="height: 400px">
-        <v-row class="fill-height" align-content="center" justify="center">
-          <v-col class="text-center" cols="12">Getting Article</v-col>
-          <v-col cols="6">
-            <v-progress-linear
-              color="deep-orange accent-4"
-              indeterminate
-              rounded
-              height="6"
-            ></v-progress-linear>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-col>
-    <v-row>
+    <v-row v-if="!loading">
       <v-col cols="12">
         <v-col id="articleSection">
           <v-flex md="12">
-            <p class="article-title">{{ main_title }}</p>
-            <p class="second-article-title" v-if="second_title !== null">
-              {{ second_title }}
+            <p class="article-title">{{ article.title }}</p>
+
+            <p
+              class="second-article-title"
+              v-if="article.article_second_title !== null"
+            >
+              {{
+                article.article_second_title.field_article_secondary_title_value
+              }}
             </p>
             <p v-else>-</p>
           </v-flex>
           <v-row>
             <v-col cols="12" md="8">
               <v-chip class="ma-2" small color="secondary" text-color="white">
-                <v-avatar left>
-                  <v-icon>mdi-feather</v-icon>
-                </v-avatar>
-                By
-                {{ author }}
+                <span class="font-weight-bold">By:</span>
+                <span v-if="article.article_author !== null" class="mx-2">{{
+                  article.article_author.field_article_author_value
+                }}</span>
+                <span v-else>not found</span>
               </v-chip>
 
               <v-chip class="ma-2" small color="primary" text-color="white">
-                <v-avatar left class="primary darken-4">{{ number }}</v-avatar>
-                <span>{{ article_type }}</span>
+                <v-avatar
+                  left
+                  class="primary darken-4"
+                  v-if="article.article_number !== null"
+                  >{{
+                    article.article_number.field_article_number_value
+                  }}</v-avatar
+                >
+                <span v-if="article.article_types !== null">{{
+                  article.article_types[0].name
+                }}</span>
+                <span v-else> no type found </span>
               </v-chip>
+
               <span class="mx-5 text-lg-right">
                 <small class="font-weight-bold">{{
-                  article_date | formatDate
+                  article.created | formatDate
                 }}</small>
               </span>
             </v-col>
@@ -49,7 +51,7 @@
             <v-col cols="7" md="4" class="text-right">
               <social-sharing
                 :url="currentlink"
-                :title="main_title"
+                :title="article.title"
                 :description="shareable"
                 :quote="shareable"
                 hashtags="aidspan,GFO,OFM, GlobalFund"
@@ -82,9 +84,16 @@
                 <v-card-title class="white--text">{{
                   $t("abstract")
                 }}</v-card-title>
-                <v-card-text>
-                  <span v-html="abstracts" class="text" ref="abs"></span>
+                <v-card-text v-if="article.article_abstract !== null">
+                  <span
+                    v-html="
+                      article.article_abstract.field_article_abstract_value
+                    "
+                    class="text"
+                    ref="abs"
+                  ></span>
                 </v-card-text>
+                <span v-else> no abstract available now</span>
               </v-card>
             </v-col>
 
@@ -119,7 +128,11 @@
                 v-bind:style="{ fontSize: fontSize + 'px' }"
                 class="article-contents"
               >
-                <span v-html="contents"></span>
+                <span
+                  v-html="article.article_content.field_article_content_value"
+                  v-if="article.article_content !== null"
+                >
+                </span>
               </p>
             </v-col>
           </v-row>
@@ -170,9 +183,9 @@
                 <v-card flat outlined class="mb-3">
                   <v-card-text>
                     <span class="subheading">Tags:</span>
-                    <v-chip-group mandatory v-if="tags !== 0">
+                    <v-chip-group mandatory v-if="article.Tags !== null">
                       <v-chip
-                        v-for="tag in tags"
+                        v-for="tag in article.Tags"
                         :key="tag.tid"
                         color="primary"
                         @click="viewtag(tag.tid)"
@@ -185,7 +198,7 @@
                 </v-card>
               </v-col>
               <v-col cols="12 comments">
-                <div v-if="comments.length > 0">
+                <div v-if="article.comments.length > 0">
                   <v-badge
                     color="blue"
                     class="title mb-5 mt-5"
@@ -271,6 +284,7 @@
           </v-card>
         </v-col>
       </v-col>
+      {{ article.article_issue[0].related_articles }}
       <v-fab-transition>
         <v-btn
           v-show="!hidden"
@@ -292,7 +306,7 @@
         <v-row>
           <v-card
             flat
-            v-for="issue in article_issue"
+            v-for="issue in article.article_issue[0].related_articles"
             :key="issue.nid"
             class="pa-5"
           >
@@ -404,6 +418,21 @@
             </v-navigation-drawer>
           </v-card>
         </v-row>
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <v-col cols="12">
+        <v-sheet color="white" class="pa-3" min-width="900">
+          <v-skeleton-loader class="mx-auto" type="article"></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="paragraph"
+          ></v-skeleton-loader>
+          <v-skeleton-loader
+            class="mx-auto"
+            type="paragraph"
+          ></v-skeleton-loader>
+        </v-sheet>
       </v-col>
     </v-row>
   </v-container>
@@ -526,39 +555,26 @@ export default {
     Api()
       .get(`Articles/${this.article_id}`)
       .then((response) => {
-        this.main_title = response.data.article.title;
-        this.second_title =
-          response.data.article.article_second_title.field_article_secondary_title_value;
-        this.number =
-          response.data.article.article_number.field_article_number_value;
-        this.nid = response.data.article.nid;
-        this.article_date = response.data.article.created;
-        this.author =
-          response.data.article.article_author.field_article_author_value;
-        this.article_type = response.data.article.article_types[0].name;
-        this.abstracts =
-          response.data.article.article_abstract.field_article_abstract_value;
-        this.contents =
-          response.data.article.article_content.field_article_content_value;
-        this.tags = response.data.article.Tags;
-        this.comments = response.data.article.comments;
-        this.comments_count = response.data.article.__meta__.comments_count;
-        this.article_issue = response.data.article.article_issue;
-        this.issue_articles = response.data.article.article_issue[0].related_articles.sort(
-          function(a, b) {
-            return (
-              a.article_number.field_article_number_value -
-              b.article_number.field_article_number_value
-            );
-          }
-        );
-        this.shareable = this.removeSpecials(
-          response.data.article.article_abstract.field_article_abstract_value
-        );
-        ///end of article data
-        this.views = response.data.views[0].v;
-        document.title = response.data.article.title;
-        this.loading = false;
+        if (response.statusText === "OK") {
+          this.article = response.data.article;
+          this.loading = false;
+          this.issue_articles = response.data.article.article_issue[0].related_articles.sort(
+            function(a, b) {
+              return (
+                a.article_number.field_article_number_value -
+                b.article_number.field_article_number_value
+              );
+            }
+          );
+
+          this.shareable = this.removeSpecials(
+            response.data.article.article_abstract.field_article_abstract_value
+          );
+          ///end of article data
+          this.views = response.data.views[0].v;
+          document.title = response.data.article.title;
+        }
+
         this.currentlink = window.location.href;
         ////end of
         if (response.data.likes !== null) {
