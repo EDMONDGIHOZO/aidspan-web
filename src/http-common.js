@@ -1,10 +1,10 @@
-import Axios from 'axios'
+import Axios from "axios";
+import urls from "./services/urls";
 
 export default Axios.create({
-    baseURL: "https://webapi.aidspan.org/api/v1",
-    // baseURL: 'http://localhost:3331/api/v1',
-    headers: {
-        'Content-type': 'application/json',
-        Authorization: 'Bearer',
-    },
-})
+  baseURL: urls.apiurl,
+  headers: {
+    "Content-type": "application/json",
+    Authorization: "Bearer",
+  },
+});

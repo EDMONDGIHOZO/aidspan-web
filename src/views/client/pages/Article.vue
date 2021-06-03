@@ -449,7 +449,8 @@ import socialSharing from "vue-social-sharing";
 import "font-awesome/css/font-awesome.min.css";
 import DownloadIssue from "@/mixins/downloadIssue";
 import Api from "@/services/Api";
-// import Axios from "axios";
+import Axios from "axios";
+import urls from "../../../services/urls";
 export default {
   props: ["article_id"],
   watch: {
@@ -588,12 +589,30 @@ export default {
         }
         ///-----
       })
+      .then(this.userInformation())
       .catch((e) => {
         this.errors.push(e);
       });
   },
 
   methods: {
+    async userInformation() {
+      await Axios.get(
+        `https://api.ipregistry.co/?key=${urls.ipregistrykey}`
+      ).then((res) => {
+        const data = {
+          ip: res.data.ip,
+          page_title: this.article.title,
+          country: res.data.location.country.name,
+          city: res.data.location.country.capital,
+          node_id: this.article_id,
+        };
+
+        // send info to the server
+        this.$store.dispatch("webvisit", data);
+      });
+    },
+
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
       this.$refs.form.reset();

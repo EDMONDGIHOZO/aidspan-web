@@ -4,13 +4,11 @@ node_modules
 
 public/sites
 
+urls.js
+
  http-common.js
-<<<<<<< HEAD
  /services
 
-=======
-.env
->>>>>>> maint
 
 
 # local env files
