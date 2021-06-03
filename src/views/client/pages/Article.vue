@@ -284,7 +284,6 @@
           </v-card>
         </v-col>
       </v-col>
-      {{ article.article_issue[0].related_articles }}
       <v-fab-transition>
         <v-btn
           v-show="!hidden"
@@ -338,6 +337,13 @@
                     </v-btn>
                   </v-fab-transition>
                 </v-list-item>
+                <v-card outlined>
+                  <v-card-text>
+                    <h3 class="text-center">
+                      {{ article.article_issue[0].title }}
+                    </h3>
+                  </v-card-text>
+                </v-card>
                 <v-list-item two-line>
                   <v-list-item-content>
                     <v-list-item-title
