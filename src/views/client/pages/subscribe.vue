@@ -15,7 +15,7 @@
           <h5 class="black--text text-center">{{ $t("thankyou.message") }}</h5>
           <small class="center-text green--text">{{ message }}</small>
           <v-btn color="primary" depressed rounded href="/en/c/editorial"
-            >Read Last Issue</v-btn
+            >Read Latest Issue</v-btn
           >
         </v-col>
         <v-col cols="12" md="12" v-else>
@@ -32,13 +32,14 @@
           <v-form ref="form" v-model="valid" lazy-validation justify-center>
             <v-text-field
               v-model="email"
-              :rules="emailRules"
+              :rules="[rules.required, rules.email]"
               label="E-mail"
               required
               dense
               outlined
               color="secondary"
               background-color="white"
+              type="email"
             ></v-text-field>
 
             <v-select
@@ -62,8 +63,7 @@
                     text-color="white"
                     v-on="on"
                   >
-                    <v-avatar left>
-                      <v-icon>mdi-information</v-icon> </v-avatar
+                    <v-avatar left> <v-icon>mdi-information</v-icon> </v-avatar
                     >Read our user Agreements.
                   </v-chip>
                 </template>
@@ -90,7 +90,6 @@
               </v-dialog>
             </div>
             <v-btn
-              :disabled="valid"
               color="secondary"
               class="mr-8"
               rounded
@@ -133,10 +132,14 @@ export default {
         event_type_id: 10,
       },
     ],
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
+    rules: {
+      required: (value) => !!value || "Required.",
+      counter: (value) => value.length <= 20 || "Max 20 characters",
+      email: (value) => {
+        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return pattern.test(value) || "Invalid e-mail.";
+      },
+    },
   }),
 
   /** created() {
