@@ -32,7 +32,7 @@
           <v-form ref="form" v-model="valid" lazy-validation justify-center>
             <v-text-field
               v-model="email"
-              :rules="[rules.required, rules.email]"
+              :rules="emailRules"
               label="E-mail"
               required
               dense
@@ -112,6 +112,7 @@ export default {
   data: () => ({
     subscribed: false,
     valid: false,
+    dialog: false,
     thanks: false,
     loading: false,
     checkbox: false,
@@ -132,14 +133,13 @@ export default {
         event_type_id: 10,
       },
     ],
-    rules: {
-      required: (value) => !!value || "Required.",
-      counter: (value) => value.length <= 20 || "Max 20 characters",
-      email: (value) => {
-        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return pattern.test(value) || "Invalid e-mail.";
-      },
-    },
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) =>
+        /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          v
+        ) || "E-mail must be valid",
+    ],
   }),
 
   /** created() {
@@ -155,19 +155,25 @@ export default {
   }, */
   methods: {
     saveSubscriber() {
-      this.thanks = true;
-      const formdata = {
-        email: this.email,
-        newsletters: this.selections,
-      };
+      const validation = this.$refs.form.validate();
 
-      var jsoned = JSON.stringify(formdata);
+      if (validation === true) {
+        this.thanks = true;
+        const formdata = {
+          email: this.email,
+          newsletters: this.selections,
+        };
 
-      Api()
-        .post("/subscribers", jsoned)
-        .then((response) => {
-          this.message = response.data.message;
-        });
+        var jsoned = JSON.stringify(formdata);
+
+        Api()
+          .post("/subscribers", jsoned)
+          .then((response) => {
+            this.message = response.data.message;
+          });
+      } else {
+        alert("please verify if that email is collect");
+      }
     },
   },
 };

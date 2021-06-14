@@ -22,6 +22,7 @@ yarn-error.log*
 
 # Editor directories and files
 .idea
+draft.txt
 .vscode
 *.suo
 *.ntvs*
