@@ -14,7 +14,13 @@
           <h3 class="green--text text-center">{{ $t("thankyou.title") }}</h3>
           <h5 class="black--text text-center">{{ $t("thankyou.message") }}</h5>
           <small class="center-text green--text">{{ message }}</small>
-          <v-btn color="primary" depressed rounded href="/en/c/editorial"
+          <v-btn
+            color="primary"
+            small
+            class="ma-4"
+            depressed
+            rounded
+            href="/en/c/editorial"
             >Read Latest Issue</v-btn
           >
         </v-col>
@@ -103,6 +109,17 @@
         </v-col>
       </v-flex>
     </v-card>
+    <div class="text-center">
+      <v-snackbar v-model="snackOn" top vertical>
+        {{ snacktext }}
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="indigo" text v-bind="attrs" @click="snackOn = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
+    </div>
   </div>
 </template>
 
@@ -116,6 +133,8 @@ export default {
     thanks: false,
     loading: false,
     checkbox: false,
+    snackOn: false,
+    snacktext: "email adress must be valid!",
     message: "",
     subscriber: {
       email: "",
@@ -138,7 +157,7 @@ export default {
       (v) =>
         /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
           v
-        ) || "E-mail must be valid",
+        ) || "E-mail and newsletter selection must be valid",
     ],
   }),
 
@@ -157,7 +176,7 @@ export default {
     saveSubscriber() {
       const validation = this.$refs.form.validate();
 
-      if (validation === true) {
+      if (validation === true && this.selections.length !== 0) {
         this.thanks = true;
         const formdata = {
           email: this.email,
@@ -172,7 +191,7 @@ export default {
             this.message = response.data.message;
           });
       } else {
-        alert("please verify if that email is collect");
+        this.snackOn = true;
       }
     },
   },
