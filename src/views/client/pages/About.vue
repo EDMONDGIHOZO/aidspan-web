@@ -118,11 +118,11 @@
 
 <script>
 import CoreValues from "@/components/helpers/CoreValues.vue";
-import History from "@/components/helpers/History.vue"
+import History from "@/components/helpers/History.vue";
 export default {
   components: {
     "core-values": CoreValues,
-    "history": History
+    history: History,
   },
   data() {
     return {
@@ -178,7 +178,7 @@ export default {
             "https://cdn.theconversation.com/avatars/1107047/width238/Gavin_George.jpg",
           desc:
             "Prof Gavin George is a Programme Leader at the Health Economics and HIV and AIDS Research Division (HEARD) and Associate Professor in the School of Accounting, Economics and Finance at the University of KwaZuluNatal, Durban, South Africa.",
-          email: "(ida.hakizinka@aidspan.org)",
+          email: "(georgeg@ukzn.ac.za)",
         },
         {
           id: 7,
