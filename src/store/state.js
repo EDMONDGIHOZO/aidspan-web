@@ -20,6 +20,8 @@ export default {
   activelang: "",
   ofmissues: [],
   gfoissues: [],
+  loadingIssues: true,
+  loadingIssuesFr: true,
   edition: {},
   user_info: {},
   adminMenus: [

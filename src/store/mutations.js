@@ -12,9 +12,11 @@ export default {
   },
   SET_OFM(state, payload) {
     state.ofmissues = payload;
+    state.loadingIssuesFr = false;
   },
   SET_GFO(state, payload) {
     state.issues = payload;
+    state.loadingIssues = false;
   },
   SET_EDITION(state, payload) {
     state.edition = payload;
