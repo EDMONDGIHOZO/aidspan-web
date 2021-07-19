@@ -14,15 +14,15 @@ import Vuelidate from "vuelidate";
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
 import VueAnalytics from "vue-analytics";
-import VueMeta from 'vue-meta'
+import VueMeta from "vue-meta";
 Vue.use(Vuelidate);
 
 Vue.use(VueMeta, {
   // optional pluginOptions
-  keyName: 'aidspan',
+  keyName: "aidspan",
   tagId: "UA-34360518-1",
-  refreshOnceOnNavigation: true
-})
+  refreshOnceOnNavigation: true,
+});
 
 //import for animation
 import scrollAnimation from "./directives/scrollAnimation";
@@ -34,7 +34,7 @@ Object.defineProperty(Vue.prototype, "$_", { value: _ });
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
   id: "UA-34360518-1",
-  router
+  router,
 });
 
 /** sharing stuffs */
@@ -43,24 +43,24 @@ Vue.use(SocialSharing);
 Vue.use(Vue2Filters);
 
 /** date formatting  */
-Vue.filter("formatDate", function (value) {
+Vue.filter("formatDate", function(value) {
   if (value) {
     return moment.unix(value).format("MMM Do YYYY");
   }
 });
 
-Vue.filter("formatDateNormal", function (value) {
+Vue.filter("formatDateNormal", function(value) {
   if (value) {
     return moment(value).format("MMM Do YYYY");
   }
 });
-Vue.filter("normalizeFrench", function (value) {
+Vue.filter("normalizeFrench", function(value) {
   if (value) {
     return _.deburr(value);
   }
 });
 /** dates with words */
-Vue.filter("formatDateWords", function (value) {
+Vue.filter("formatDateWords", function(value) {
   if (value) {
     return moment(value)
       .startOf("day")
@@ -68,7 +68,7 @@ Vue.filter("formatDateWords", function (value) {
   }
 });
 
-Vue.filter("formatDataSize", function (value) {
+Vue.filter("formatDataSize", function(value) {
   if (value == 0) {
     return "0.00 B";
   }
@@ -79,7 +79,8 @@ Vue.filter("formatDataSize", function (value) {
 });
 
 Vue.use(InstantSearch);
-Vue.filter("str_limit", function (value, size) {
+
+Vue.filter("str_limit", function(value, size) {
   if (!value) return "";
   value = value.toString();
 
@@ -87,6 +88,10 @@ Vue.filter("str_limit", function (value, size) {
     return value;
   }
   return value.substr(0, size) + " ...";
+});
+
+Vue.filter("onlyNumber", function(value) {
+  return value.replace(/\D/g, "");
 });
 
 Vue.directive("scrollAnimation", scrollAnimation);

@@ -1,54 +1,68 @@
 <template>
-  <div class="allissues">
-    <h3>ALL ISSUES - GFO</h3>
-
-    <v-row class="titlebar">
-      <v-col cols="12" sm="4">
-        <v-text-field
-          dense
-          label="search for issue"
-          v-model="search"
-          append-icon="mdi-magnify"
-          @click:append="searchIssue"
-          @keyup.enter="searchIssue"
-          hint="hit enter to search"
-        ></v-text-field>
+  <div class="all-issue">
+    <!-- title bar -->
+    <v-row wrap no-gutters justify-md="center">
+      <v-col cols="12">
+        <p class="text-center all-issues-title">ALL ISSUES - GFO</p>
       </v-col>
-      <v-col cols="12" class="searchroom" v-if="!hideresults">
-        <v-list-two-line subheader>
-          <v-subheader>Search results {{results.length}}</v-subheader>
-          <div class="results" v-if="results.length > 0">
+      <v-col cols="12">
+        <div class="search-bar">
+          <v-text-field
+            label="search for issue"
+            filled
+            dense
+            v-model="search"
+            @keyup.enter="searchIssue"
+            hint="hit enter to search"
+            clearable
+            append-icon="mdi-magnify"
+            @click:clear="clearSearch"
+          ></v-text-field>
+          <!-- searching progress -->
+          <v-progress-linear
+            color="secondary accent-4"
+            indeterminate
+            rounded
+            :active="searching"
+            height="6"
+          ></v-progress-linear>
+          <!-- search results -->
+          <v-card class="mx-auto" outlined hover flat v-if="!hideresults">
             <v-list-item
-              width="300"
-              rounded
+              two-line
               v-for="issue in results"
               :key="issue.nid"
+              class="my-3"
               @click="viewissue(issue.nid)"
             >
               <v-list-item-content>
-                <v-list-item-title>{{issue.title}}</v-list-item-title>
-                <v-list-item-subtitle>{{issue.issue_date.field_issue_date_value}}</v-list-item-subtitle>
+                <v-list-item-title class="bold-text"
+                  ><span class="result-title">{{
+                    issue.title
+                  }}</span></v-list-item-title
+                >
+                <v-list-item-subtitle>{{
+                  issue.created | formatDate
+                }}</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
-          </div>
-          <h5 v-else class="text-center">No Issue Found</h5>
-        </v-list-two-line>
+          </v-card>
+        </div>
       </v-col>
     </v-row>
+
     <v-row class="issueslist">
-      <v-col cols="12" md="4" v-for="edition in allIssues" :key="edition.nid">
-        <v-card hover class="isscard" @click="viewissue(edition.nid)">
-          <v-card-title class="edition-tit">{{edition.title}}</v-card-title>
-          <v-card-actions>
-            <v-list-item class="grow">
-              <v-list-item-content>
-                <v-list-item-title>{{edition.issue_date.field_issue_date_value | formatDateNormal}}</v-list-item-title>
-              </v-list-item-content>
-              <v-row align="center" justify="end">
-                <span class="subheading mr-2">{{edition.__meta__.related_articles_count}} Articles</span>
-              </v-row>
-            </v-list-item>
-          </v-card-actions>
+      <v-col cols="12" md="3" v-for="iss in allIssues" :key="iss.nid">
+        <v-card flat hover class="issue" @click="viewissue(iss.nid)">
+          <v-card-text>
+            <p class="issue-title">{{ iss.title }}</p>
+            <p class="subtitle" v-if="iss.issue_date !== null">
+              {{ iss.issue_date.field_issue_date_value | formatDateNormal }}
+            </p>
+            <p class="subtitle" v-else>
+              **
+            </p>
+          </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12">
@@ -73,11 +87,14 @@ export default {
       results: [],
       hideresults: true,
       pageNumber: 1,
+      searching: false,
+      limit: 3,
     };
   },
   mounted() {
     this.$store.dispatch("fetchgfo");
   },
+
   computed: {
     allIssues() {
       return this.$store.state.issues.data;
@@ -92,7 +109,13 @@ export default {
       this.pageNumber = pageNum;
     },
 
+    clearSearch() {
+      this.hideresults = true;
+      this.searching = false;
+    },
+
     searchIssue() {
+      this.searching = true;
       const formdata = {
         title: this.search,
         lang: "en",
@@ -100,8 +123,12 @@ export default {
       Api()
         .post("/all-issues", formdata)
         .then((response) => {
-          this.results = response.data;
+          const data = response.data;
+          if (data.length > 0) {
+            this.results = data.slice(0, 4);
+          }
           this.hideresults = false;
+          this.searching = false;
         })
         .catch();
     },
@@ -109,49 +136,51 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.allissues {
-  max-width: 97%;
+<style scoped>
+.all-issues-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.search-bar {
+  padding: 10px;
+  max-width: 50%;
   margin: auto;
-  padding: 20px;
+}
+
+.result-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .issueslist {
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: solid 1px #0bb6eb;
-}
-.titlebar {
-  color: #ff7a2b;
-  margin-bottom: 20px;
-}
-
-.searchroom {
-  border-radius: 10px;
-  max-height: 320px;
-  overflow-y: scroll;
   padding: 10px;
-}
-.isscard {
-  background: #ffffff;
-  box-sizing: border-box;
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-  height: 120px;
+  background: #f8fbfc;
 }
 
-.isscard:hover {
-  box-shadow: 2px 4px 4px rgba(3, 140, 158, 0.247);
+.issue-title {
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.issue {
+  border-radius: 8px;
+}
+.issue:hover {
+  box-shadow: 2px 4px 4px rgba(3, 140, 158, 0.74);
   border-radius: 10px;
   font-weight: bold;
   background-color: rgb(236, 248, 252);
-  transform: scale(1.1);
 }
-
-.edition-tit {
-  text-transform: uppercase;
+.issue > .subtitle {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 15px;
+  /* identical to box height */
+  color: #9e9e9e;
 }
 </style>

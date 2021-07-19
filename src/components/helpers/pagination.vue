@@ -1,11 +1,19 @@
 <template>
   <div class="pagination">
     <v-row justify="center">
-        <v-col cols="2">
-        <v-snackbar v-model="snackbar" :timeout="timeout" color="secondary" top elevation="24">
+      <v-col cols="2">
+        <v-snackbar
+          v-model="snackbar"
+          :timeout="timeout"
+          color="secondary"
+          top
+          elevation="24"
+        >
           {{ text }}
           <template v-slot:action="{ attrs }">
-            <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
+            <v-btn color="blue" text v-bind="attrs" @click="snackbar = false"
+              >Close</v-btn
+            >
           </template>
         </v-snackbar>
       </v-col>
@@ -30,10 +38,10 @@ export default {
   watch: {
     currentPage(newVal) {
       this.paginatePage(newVal);
-      if(newVal){
-          this.snackbar = true
+      if (newVal) {
+        this.snackbar = true;
       }
-    }
+    },
   },
   data: () => ({
     snackbar: false,
@@ -42,7 +50,7 @@ export default {
   methods: {
     paginatePage(pageNumber) {
       this.$store.dispatch("fetchgfo", pageNumber);
-    }
+    },
   },
   computed: {
     currentPage: {
@@ -51,29 +59,14 @@ export default {
       },
       set(value) {
         this.$store.commit("SET_CURRENT_PAGE", value);
-      }
+      },
     },
     lastPage: {
       get() {
         return this.$store.state.issues.lastPage;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
-<style lang="scss" scoped>
-.pagination {
-  max-width: 98%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  height: 80px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  -webkit-box-shadow: -1px -1px 18px 0px rgba(205, 209, 209, 0.69);
-  -moz-box-shadow: -1px -1px 18px 0px rgba(205, 209, 209, 0.69);
-  box-shadow: -1px -1px 18px 0px rgba(205, 209, 209, 0.69);
-  
-}
-</style>
+<style lang="scss" scoped></style>
