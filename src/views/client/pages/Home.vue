@@ -4,35 +4,47 @@
     <landing-image />
     <!--end of corousel -->
     <!-- intro section -->
-    <v-row row wrap id="web-intro">
+    <v-row row wrap id="web-intro" v-if="wwaFound">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
         <div class="header">
-          <h3>{{$t('whatweare.title')}}</h3>
+          <h3>{{ $t("whatweare.title") }}</h3>
         </div>
-        <p v-scrollAnimation>{{ $t('mission.content') }}</p>
+        <p v-scrollAnimation>{{ wwa }}</p>
       </v-col>
       <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
         <div class="mission-header" transition="scale-transition">
-          <h3>{{$t('mission.title')}}</h3>
-          <p>{{$t('mission.subtitle')}}</p>
+          <h3>{{ $t("mission.title") }}</h3>
+          <p>{{ $t("mission.subtitle") }}</p>
         </div>
         <div class="mission-content">
           <v-card hover class="epidemic-card">
             <v-card-text>
-              <v-img :src="hiv.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
-              <p :class="hiv.color">{{$t('hiv') }}</p>
+              <v-img
+                :src="hiv.ep_icon"
+                width="140"
+                class="disease-img d-none d-sm-flex"
+              ></v-img>
+              <p :class="hiv.color">{{ $t("hiv") }}</p>
             </v-card-text>
           </v-card>
           <v-card hover class="epidemic-card">
             <v-card-text>
-              <v-img :src="tuber.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
-              <p :class="tuber.color">{{$t('tuber')}}</p>
+              <v-img
+                :src="tuber.ep_icon"
+                width="140"
+                class="disease-img d-none d-sm-flex"
+              ></v-img>
+              <p :class="tuber.color">{{ $t("tuber") }}</p>
             </v-card-text>
           </v-card>
           <v-card hover class="epidemic-card">
             <v-card-text>
-              <v-img :src="malaria.ep_icon" width="140" class="disease-img d-none d-sm-flex"></v-img>
-              <p :class="malaria.color">{{$t('malaria')}}</p>
+              <v-img
+                :src="malaria.ep_icon"
+                width="140"
+                class="disease-img d-none d-sm-flex"
+              ></v-img>
+              <p :class="malaria.color">{{ $t("malaria") }}</p>
             </v-card-text>
           </v-card>
         </div>
@@ -46,26 +58,38 @@
     <v-row class="publication-row">
       <v-col cols="12" md="8">
         <v-card class="px-3" id="publications-intro" flat>
-          <v-card-title class="font-weight-bold">{{$t('publications.intro_title')}}</v-card-title>
+          <v-card-title class="font-weight-bold">{{
+            $t("publications.intro_title")
+          }}</v-card-title>
           <v-row>
             <v-col cols="12" md="6" class="guides">
               <span class="sub-title">GUIDES</span>
-              <p>{{$t('define_guides')}}</p>
+              <p>{{ $t("define_guides") }}</p>
             </v-col>
             <v-col cols="12" md="6" class="reports">
-              <span class="sub-title">{{$t('report_title')}}</span>
-              <p>{{$t('report_intro')}}</p>
+              <span class="sub-title">{{ $t("report_title") }}</span>
+              <p>{{ $t("report_intro") }}</p>
             </v-col>
-            <v-btn block text color="primary" @click="viewpubs">{{$t('viewall')}}</v-btn>
+            <v-btn block text color="primary" @click="viewpubs">{{
+              $t("viewall")
+            }}</v-btn>
           </v-row>
         </v-card>
       </v-col>
       <v-col cols="12" md="4" class="apw-home-intro">
-        <v-card class="pa-1" hover id="apw-card" flat href="https://data.aidspan.org">
+        <v-card
+          class="pa-1"
+          hover
+          id="apw-card"
+          flat
+          href="https://data.aidspan.org"
+        >
           <v-card-title>
             <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
           </v-card-title>
-          <v-card-text class="pa-4 font-weight-bold">{{$t('apwintro')}}</v-card-text>
+          <v-card-text class="pa-4 font-weight-bold">{{
+            $t("apwintro")
+          }}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -73,14 +97,20 @@
     <!-- our awesome donors -->
     <v-layout row wrap id="donors">
       <v-flex md2 xs12>
-        <h2 class="blue--text lighten-1">{{$t('donors')}}</h2>
+        <h2 class="blue--text lighten-1">{{ $t("donors") }}</h2>
       </v-flex>
       <v-flex md10 xs12>
         <div class="logos">
           <v-sheet class="mx-auto">
             <v-slide-group multiple show-arrows light>
               <v-slide-item v-for="logo in donorsLogos" :key="logo.id">
-                <v-card flat class="ma-2 pa-3" outlined :href="logo.web" target="_blank">
+                <v-card
+                  flat
+                  class="ma-2 pa-3"
+                  outlined
+                  :href="logo.web"
+                  target="_blank"
+                >
                   <img :src="logo.img" alt="donor logo" height="50px" />
                 </v-card>
               </v-slide-item>
@@ -99,6 +129,7 @@
 import { mapState } from "vuex";
 import currentIssue from "@/components/helpers/currentIssue.vue";
 import Landing from "@/components/tools/landingimage.vue";
+import Api from "@/services/Api";
 
 export default {
   computed: {
@@ -113,10 +144,28 @@ export default {
     viewpubs() {
       this.$router.push({ name: "Publications" });
     },
+
+    fetchStaticData() {
+      const lang = this.$i18n.locale;
+      Api()
+        .get(`/wwa/${lang}`)
+        .then((response) => {
+          let data = response.data.data;
+          console.log(data);
+          this.wwa = data.field_visible_text_value;
+          this.wwaFound = true;
+        });
+    },
+  },
+
+  created() {
+    this.fetchStaticData();
   },
 
   data() {
     return {
+      wwa: "",
+      wwaFound: false,
       hiv: {
         ep_name: "HIV-AIDS",
         ep_icon: require("@/assets/images/common/aids.png"),
