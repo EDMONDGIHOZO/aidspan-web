@@ -81,7 +81,7 @@
             <!--- end of the social sharing icons -->
             <v-col cols="12">
               <v-card class="abstract" flat>
-                <v-card-title class="white--text">{{
+                <v-card-title class="black--text">{{
                   $t("abstract")
                 }}</v-card-title>
                 <v-card-text v-if="article.article_abstract !== null">
@@ -713,7 +713,7 @@ export default {
   font-style: italic;
 }
 .abstract .text {
-  color: white;
+  color: #000000;
   font-weight: bold;
   line-height: 25px;
 }

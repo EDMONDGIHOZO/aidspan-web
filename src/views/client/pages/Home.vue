@@ -9,7 +9,7 @@
         <div class="header">
           <h3>{{ $t("whatweare.title") }}</h3>
         </div>
-        <p v-scrollAnimation>{{ wwa }}</p>
+        <p v-scrollAnimation class="black--text">{{ wwa }}</p>
       </v-col>
       <v-col cols="12" md="7" sm="6" lg="8" class="mission" v-scrollAnimation>
         <div class="mission-header" transition="scale-transition">
@@ -167,7 +167,7 @@ export default {
       wwa: "",
       wwaFound: false,
       hiv: {
-        ep_name: "HIV-AIDS",
+        ep_name: "HIV/AIDS",
         ep_icon: require("@/assets/images/common/aids.png"),
         ep_id: "adfawe",
         class: "A",
@@ -417,6 +417,7 @@ $lightgrey: rgb(69, 69, 70);
   #web-intro .mission .mission-content .epidemic-card {
     width: 100px;
     height: 100px;
+    color: red;
   }
 
   .disease-img {

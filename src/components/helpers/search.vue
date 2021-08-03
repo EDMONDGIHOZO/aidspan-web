@@ -34,7 +34,7 @@
                 <v-col cols="12" md="3" class="filterby">
                   <v-card outlined class="my-5 attribox" color="grey lighten-4">
                     <v-card-title>
-                      <h4>Filter by Language</h4>
+                      <h4>Sort by Language</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
@@ -44,7 +44,7 @@
                   </v-card>
                   <v-card outlined class="attribox" color="grey lighten-4">
                     <v-card-title>
-                      <h4>Filter by Dates</h4>
+                      <h4>Sort by Dates</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
@@ -60,7 +60,7 @@
                   </v-card>
                   <v-card outlined class="my-5 attribox" color="grey lighten-4">
                     <v-card-title>
-                      <h4>Filter by Author</h4>
+                      <h4>Sort by Author</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
@@ -76,7 +76,7 @@
                   <v-spacer></v-spacer>
                   <v-card outlined class="my-5 attribox" color="grey lighten-4">
                     <v-card-title>
-                      <h4>Filter by Types</h4>
+                      <h4>Sort by Types</h4>
                     </v-card-title>
                     <v-card-text>
                       <div class="search-panel__filters">
@@ -252,7 +252,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 .ais-InfiniteHits-item,
 .ais-InfiniteResults-item,
@@ -312,6 +311,6 @@ export default {
 }
 
 .refitem {
-    color:#0eaae7;
+  color: #0eaae7;
 }
 </style>

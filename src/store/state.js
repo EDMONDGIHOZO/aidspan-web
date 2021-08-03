@@ -201,7 +201,7 @@ export default {
 
   epidemics: [
     {
-      ep_name: "HIV-AIDS",
+      ep_name: "HIV/AIDS",
       ep_icon: require("@/assets/images/common/aids.png"),
       ep_id: "adfawe",
       class: "A",
