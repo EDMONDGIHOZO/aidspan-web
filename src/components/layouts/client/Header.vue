@@ -2,16 +2,24 @@
   <div class="header">
     <v-app-bar app height="80px" flat class="white">
       <div v-if="current_language === 'fr'">
-        <img :src="logo_fr" alt="aidspan-logo" class="d-none d-sm-flex" />
+        <img
+          :src="logo_fr"
+          alt="aidspan-logo"
+          class="d-none d-sm-flex head-logo"
+        />
       </div>
       <div v-else>
-        <img :src="logo" alt="aidspan-logo" class="d-none d-sm-flex" />
+        <img
+          :src="logo"
+          alt="aidspan-logo"
+          class="d-none d-sm-flex head-logo"
+        />
       </div>
       <!-- buttons field -->
       <v-spacer></v-spacer>
       <subscribe />
       <!--social media -->
-      <socials color="primary"/>
+      <socials color="primary" />
       <v-btn
         rounded
         color="secondary"
@@ -19,7 +27,8 @@
         class="mx-4"
         href="https://gfo.aidspan.org/user"
         target="_blank"
-      >Login</v-btn>
+        >Login</v-btn
+      >
     </v-app-bar>
     <!-- subscribe dialog -->
   </div>
