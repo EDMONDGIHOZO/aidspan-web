@@ -18,10 +18,10 @@ import VueMeta from "vue-meta";
 Vue.use(Vuelidate);
 
 Vue.use(VueMeta, {
-  // optional pluginOptions
-  keyName: "aidspan",
-  tagId: "UA-34360518-1",
-  refreshOnceOnNavigation: true,
+    // optional pluginOptions
+    keyName: "aidspan",
+    tagId: "UA-34360518-1",
+    refreshOnceOnNavigation: true,
 });
 
 //import for animation
@@ -33,8 +33,8 @@ Object.defineProperty(Vue.prototype, "$_", { value: _ });
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
-  id: "UA-34360518-1",
-  router,
+    id: "UA-34360518-1",
+    router,
 });
 
 /** sharing stuffs */
@@ -44,66 +44,66 @@ Vue.use(Vue2Filters);
 
 /** date formatting  */
 Vue.filter("formatDate", function(value) {
-  if (value) {
-    return moment.unix(value).format("MMM Do YYYY");
-  }
+    if (value) {
+        return moment.unix(value).format("MMM Do YYYY");
+    }
 });
 
 Vue.filter("formatDateNormal", function(value) {
-  if (value) {
-    return moment(value).format("MMM Do YYYY");
-  }
+    if (value) {
+        return moment(value).format("MMM Do YYYY");
+    }
 });
 Vue.filter("normalizeFrench", function(value) {
-  if (value) {
-    return _.deburr(value);
-  }
+    if (value) {
+        return _.deburr(value);
+    }
 });
 /** dates with words */
 Vue.filter("formatDateWords", function(value) {
-  if (value) {
-    return moment(value)
-      .startOf("day")
-      .fromNow();
-  }
+    if (value) {
+        return moment(value)
+            .startOf("day")
+            .fromNow();
+    }
 });
 
 Vue.filter("formatDataSize", function(value) {
-  if (value == 0) {
-    return "0.00 B";
-  }
-  var e = Math.floor(Math.log(value) / Math.log(1024));
-  return (
-    (value / Math.pow(1024, e)).toFixed(2) + " " + " KMGTP".charAt(e) + "B"
-  );
+    if (value == 0) {
+        return "0.00 B";
+    }
+    var e = Math.floor(Math.log(value) / Math.log(1024));
+    return (
+        (value / Math.pow(1024, e)).toFixed(2) + " " + " KMGTP".charAt(e) + "B"
+    );
 });
 
 Vue.use(InstantSearch);
 
 Vue.filter("str_limit", function(value, size) {
-  if (!value) return "";
-  value = value.toString();
+    if (!value) return "";
+    value = value.toString();
 
-  if (value.length <= size) {
-    return value;
-  }
-  return value.substr(0, size) + " ...";
+    if (value.length <= size) {
+        return value;
+    }
+    return value.substr(0, size) + " ...";
 });
 
 Vue.filter("onlyNumber", function(value) {
-  return value.replace(/\D/g, "");
+    return value.replace(/\D/g, "");
 });
 
 Vue.directive("scrollAnimation", scrollAnimation);
 Vue.config.productionTip = false;
 
-Vue.prototype.$foo = "bar";
+Vue.prototype.$api_url = "https://webapi.aidspan.org/api/v1";
 
 new Vue({
-  router,
-  template: "dark",
-  vuetify,
-  store,
-  i18n,
-  render: (h) => h(App),
+    router,
+    template: "dark",
+    vuetify,
+    store,
+    i18n,
+    render: (h) => h(App),
 }).$mount("#app");
