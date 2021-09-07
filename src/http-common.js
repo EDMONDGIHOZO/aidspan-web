@@ -1,10 +1,9 @@
-import Axios from "axios";
-import { urls } from "./services/urls";
+import Axios from 'axios'
 
 export default Axios.create({
-    baseURL: urls.apiurl,
-    headers: {
-        "Content-type": "application/json",
-        Authorization: "Bearer",
-    },
-});
+  baseURL: 'https://webapi.aidspan.org/api/v1/',
+  headers: {
+    'Content-type': 'application/json',
+    Authorization: 'Bearer',
+  },
+})

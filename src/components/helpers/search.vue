@@ -53,7 +53,7 @@
                           :sort-by="['isRefined', 'name:desc']"
                           show-more="true"
                           searchable="true"
-                          searchable-placeholder="example 2020"
+                          searchable-placeholder="type a date here"
                         />
                       </div>
                     </v-card-text>
@@ -68,7 +68,7 @@
                           attribute="author.field_article_author_value"
                           show-more="true"
                           searchable="true"
-                          searchable-placeholder="example David"
+                          searchable-placeholder="type an author name here"
                         />
                       </div>
                     </v-card-text>
@@ -84,7 +84,7 @@
                           attribute="type.name"
                           show-more="true"
                           searchable="true"
-                          searchable-placeholder="example NEWS"
+                          searchable-placeholder="type an article type name here"
                           class-names="{
                             'ais-RefinementList-item': 'refitem'}"
                         />

@@ -17,7 +17,7 @@
     <div class="contents" v-else>
       <v-row wrap no-gutters justify-md="center">
         <v-col cols="12">
-          <p class="text-center all-issues-title">TOUT EDITIONS - OFM</p>
+          <p class="text-center all-issues-title">TOUTES EDITIONS - OFM</p>
         </v-col>
         <v-col cols="12">
           <div class="search-bar">
