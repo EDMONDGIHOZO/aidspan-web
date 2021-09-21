@@ -29,10 +29,11 @@
               :search-client="searchClient"
               index-name="dev_articles"
             >
-              <ais-configure :hits-per-page.camel="12" :query="searchQuery" />
+              <ais-configure :hits-per-page.camel="20" :query="searchQuery" />
               <v-row wrap justify-center>
                 <v-col cols="12" md="3" class="filterby">
-                  <v-card outlined class="my-5 attribox" color="grey lighten-4">
+<!--                  languages -->
+                  <v-card outlined class="my-5 attribox" color="secondary">
                     <v-card-title>
                       <h4>Sort by Language</h4>
                     </v-card-title>
@@ -42,7 +43,8 @@
                       </div>
                     </v-card-text>
                   </v-card>
-                  <v-card outlined class="attribox" color="grey lighten-4">
+<!--                  dates-->
+                  <v-card outlined class="attribox" color="secondary">
                     <v-card-title>
                       <h4>Sort by Dates</h4>
                     </v-card-title>
@@ -58,7 +60,8 @@
                       </div>
                     </v-card-text>
                   </v-card>
-                  <v-card outlined class="my-5 attribox" color="grey lighten-4">
+<!--                  Authors-->
+                  <v-card outlined class="my-5 attribox" color="secondary">
                     <v-card-title>
                       <h4>Sort by Author</h4>
                     </v-card-title>
@@ -74,7 +77,7 @@
                     </v-card-text>
                   </v-card>
                   <v-spacer></v-spacer>
-                  <v-card outlined class="my-5 attribox" color="grey lighten-4">
+                  <v-card outlined class="my-5 attribox" color="secondary">
                     <v-card-title>
                       <h4>Sort by Types</h4>
                     </v-card-title>
@@ -103,7 +106,7 @@
                     prepend-inner-icon="mdi-magnify"
                     v-model="searchQuery"
                   ></v-text-field>
-                  <!-- 
+                  <!--
                       <ais-stats>
                     <p slot-scope="{ nbHits, processingTimeMS, query }" class="grey--text font-italic">
                       {{ nbHits }} Articles retrieved in {{ processingTimeMS }}ms for
@@ -313,4 +316,19 @@ export default {
 .refitem {
   color: #0eaae7;
 }
+
+/*  styling the search box*/
+  .ais-RefinementList-searchBox {
+    border: 2px #f46517 solid;
+    padding: 5px;
+    border-radius: 20px;
+    padding-left: 30px;
+  }
+
+  .filters-container {
+    background-color: #f46517;
+  }
+  .ais-RefinementList-item {
+  color: white;
+   }
 </style>

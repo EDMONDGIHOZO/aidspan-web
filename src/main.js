@@ -4,6 +4,7 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import store from "@/store";
 import InstantSearch from "vue-instantsearch";
+import 'instantsearch.css/themes/satellite.css';
 //import the custom styles
 import "./assets/styles/mobileDevices.scss";
 import "./assets/styles/responsive.scss";
