@@ -235,7 +235,7 @@
                           v-model="form.first"
                           :rules="rules.name"
                           color="purple darken-2"
-                          label="Names"
+                          label="Name (optional)"
                           required
                           solo
                         ></v-text-field>
@@ -245,7 +245,7 @@
                           v-model="form.names"
                           :rules="rules.email"
                           color="blue darken-2"
-                          label="email"
+                          label="Email"
                           required
                           solo
                         ></v-text-field>
@@ -255,7 +255,6 @@
                           <template v-slot:label>
                             <div>
                               comment
-                              <small>(recommended)</small>
                             </div>
                           </template>
                         </v-textarea>
@@ -449,8 +448,6 @@ import socialSharing from "vue-social-sharing";
 import "font-awesome/css/font-awesome.min.css";
 import DownloadIssue from "@/mixins/downloadIssue";
 import Api from "@/services/Api";
-import Axios from "axios";
-import urls from "../../../services/urls";
 export default {
   props: ["article_id"],
   watch: {
@@ -596,22 +593,22 @@ export default {
   },
 
   methods: {
-    async userInformation() {
-      await Axios.get(
-        `https://api.ipregistry.co/?key=${urls.ipregistrykey}`
-      ).then((res) => {
-        const data = {
-          ip: res.data.ip,
-          page_title: this.article.title,
-          country: res.data.location.country.name,
-          city: res.data.location.country.capital,
-          node_id: this.article_id,
-        };
+    // async userInformation() {
+    //   await Axios.get(
+    //     `https://api.ipregistry.co/?key=${urls.ipregistrykey}`
+    //   ).then((res) => {
+    //     const data = {
+    //       ip: res.data.ip,
+    //       page_title: this.article.title,
+    //       country: res.data.location.country.name,
+    //       city: res.data.location.country.capital,
+    //       node_id: this.article_id,
+    //     };
 
-        // send info to the server
-        this.$store.dispatch("webvisit", data);
-      });
-    },
+    //     // send info to the server
+    //     this.$store.dispatch("webvisit", data);
+    //   });
+    // },
 
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
