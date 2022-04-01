@@ -222,7 +222,7 @@
                     </v-card-actions>
                   </v-card>
                 </div>
-                <h3 v-else>No comments Yet, you can add one.</h3>
+                <h3 v-else>No comments Yet, Please add one.</h3>
 
                 <v-form ref="form" @submit.prevent="submit">
                   <v-container fluid>
@@ -253,9 +253,7 @@
                       <v-col cols="12">
                         <v-textarea v-model="form.comment" solo color="teal">
                           <template v-slot:label>
-                            <div>
-                              comment
-                            </div>
+                            <span>Comment</span>
                           </template>
                         </v-textarea>
                       </v-col>
@@ -371,14 +369,12 @@
                   flat
                   hover
                 >
-                  <v-card-title>
+                  <div class="side-title">
                     <v-chip color="primary">
                       {{ article.article_number.field_article_number_value }}
                     </v-chip>
-                    <p class="title-2" style="margin-bottom: -10px">
-                      {{ article.title }}
-                    </p>
-                  </v-card-title>
+                    <strong>{{ article.title }}</strong>
+                  </div>
                   <v-card-actions>
                     <v-btn
                       color="secondary"
@@ -519,7 +515,7 @@ export default {
     formIsValid() {
       return this.form.names;
     },
-    fontAdjust: function() {
+    fontAdjust: function () {
       return {
         increase: this.bigger,
         decrease: this.normal,
@@ -562,14 +558,15 @@ export default {
         if (response.statusText === "OK") {
           this.article = response.data.article;
           this.loading = false;
-          this.issue_articles = response.data.article.article_issue[0].related_articles.sort(
-            function(a, b) {
-              return (
-                a.article_number.field_article_number_value -
-                b.article_number.field_article_number_value
-              );
-            }
-          );
+          this.issue_articles =
+            response.data.article.article_issue[0].related_articles.sort(
+              function (a, b) {
+                return (
+                  a.article_number.field_article_number_value -
+                  b.article_number.field_article_number_value
+                );
+              }
+            );
 
           this.shareable = this.removeSpecials(
             response.data.article.article_abstract.field_article_abstract_value
@@ -671,6 +668,7 @@ export default {
   border-radius: 10px;
   margin: 10px;
   border: solid #6cd3fcad 1px;
+  width: 100%;
 }
 #articleSection {
   display: flex;
@@ -764,5 +762,12 @@ i {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
+}
+.side-title {
+  margin: 10px;
+  display: flex;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
 }
 </style>
