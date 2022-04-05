@@ -9,10 +9,10 @@
         }}</v-card-subtitle>
       </div>
       <v-card-text>
-        <p>
-          {{ pub.description | str_limit(limit) }}
-          <text-dialog :title="pub.title" :description="pub.description" />
-        </p>
+        <p
+          v-html="$options.filters.urlify(pub.description)"
+          class="abstract-text text-left"
+        ></p>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions v-if="pub.files.length !== 0">
@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import TextDialog from "@/components/tools/TextDialog.vue";
-
 export default {
   name: "pubcard",
   props: ["data"],
@@ -50,11 +48,6 @@ export default {
     return {
       limit: 300,
     };
-  },
-
-
-  components: {
-    "text-dialog": TextDialog,
   },
 
   methods: {
@@ -66,6 +59,14 @@ export default {
       link.setAttribute("download", link);
       document.body.appendChild(link);
       link.click();
+    },
+  },
+  filters: {
+    urlify: function (value) {
+      var urlRegex = /(https?:\/\/[^\s]+)/g;
+      return value.replace(urlRegex, function (url) {
+        return '<a href="' + url + '">' + url + "</a>";
+      });
     },
   },
 };
