@@ -226,7 +226,7 @@
                    <h3 v-else>No comments Yet, Please add one.</h3>
                 </v-card>
               </v-col>
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="comment-form-box">
                   <v-form ref="form" @submit.prevent="submit">
                     <v-container fluid>
                       <v-row>
@@ -237,10 +237,8 @@
                           <v-text-field
                             v-model="form.first"
                             outlined
-                            :rules="rules.name"
                             color="purple darken-2"
                             label="Name (optional)"
-                            required
                             dense
                           
                           ></v-text-field>
@@ -249,10 +247,8 @@
                           <v-text-field
                             v-model="form.names"
                             outlined
-                            :rules="rules.email"
                             color="blue darken-2"
-                            label="Email"
-                            required
+                            label="Email (optional)"
                             dense
                             
                           ></v-text-field>
@@ -499,22 +495,12 @@ export default {
       // end
       form: Object.assign({}, defaultForm),
       snackbar: false,
-      rules: {
-        email: [
-          (v) => !!v || "E-mail is required",
-          (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-        ],
-      },
       defaultForm,
       // id: this.$route.params, this will come from the url
       show: false,
       currentlink: "",
       user_inf: {},
       views: 0,
-      comment: {
-        body: "test",
-        sender: "test",
-      },
     };
   },
   mixins: [DownloadIssue],
@@ -524,7 +510,7 @@ export default {
       return this.$store.state.activelang;
     },
     formIsValid() {
-      return this.form.names;
+      return this.form.comment;
     },
     fontAdjust: function () {
       return {

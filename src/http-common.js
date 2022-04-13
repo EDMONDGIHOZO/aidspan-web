@@ -1,8 +1,8 @@
 import Axios from 'axios'
+import {apiurl} from './services/helpers'
 
 export default Axios.create({
-  baseURL: 'http://localhost:3333/api/v1/',
-  // baseURL: 'https://webapi.aidspan.org/api/v1/',
+  baseURL: apiurl,
   headers: {
     'Content-type': 'application/json',
     Authorization: 'Bearer',

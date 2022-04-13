@@ -1,14 +1,13 @@
-import axios from 'axios'
-
+import axios from "axios";
+import { apiurl } from "../services/helpers";
 
 export default () => {
   return axios.create({
-    baseURL: 'http://localhost:3333/api/v1/',
-    // baseURL: 'https://webapi.aidspan.org/api/v1/',
+    baseURL: apiurl,
     withCredentials: false,
     headers: {
-      Accept: 'application/json',
-      'content-type': 'application/json',
+      Accept: "application/json",
+      "content-type": "application/json",
     },
-  })
-}
+  });
+};

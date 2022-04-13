@@ -17,6 +17,7 @@ import moment from "moment";
 import Vue2Filters from "vue2-filters";
 import VueAnalytics from "vue-analytics";
 import VueMeta from "vue-meta";
+import {apiurl} from './services/helpers'
 Vue.use(Vuelidate);
 
 Vue.use(VueMeta, {
@@ -98,9 +99,7 @@ Vue.filter("onlyNumber", function(value) {
 
 Vue.directive("scrollAnimation", scrollAnimation);
 Vue.config.productionTip = false;
-
-Vue.prototype.$api_url = "http://localhost:3333/api/v1/";
-// Vue.prototype.$api_url = "https://webapi.aidspan.org/api/v1";
+Vue.prototype.$api_url =apiurl;
 
 new Vue({
     router,
