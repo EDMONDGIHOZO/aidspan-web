@@ -1,0 +1,113 @@
+#sidebar-article {
+  background-color: #00adef;
+  width: 100%;
+}
+.navyside {
+  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
+}
+.article-summary {
+  border-radius: 10px;
+  margin: 10px;
+  border: solid #6cd3fcad 1px;
+  width: 100%;
+}
+#articleSection {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+#articleSection .article-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #00adef;
+  text-transform: uppercase;
+}
+#articleSection .second-article-title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #424242;
+  font-style: italic;
+}
+#articleSection .authoring {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+}
+#articleSection .authoring .social {
+  justify-self: center;
+}
+#articleSection .abstract {
+  text-align: left;
+  background: #42aeef;
+  font-style: italic;
+}
+.abstract .text {
+  color: #000000;
+  font-weight: bold;
+  line-height: 25px;
+}
+.abstract .text a {
+  color: #000000;
+}
+#articleSection .content {
+  margin-top: 20px;
+  color: #000000;
+  font-weight: 400;
+  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
+  border-radius: 16px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  overflow: hidden;
+}
+.bottom-articles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.comments {
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.comments::-webkit-scrollbar {
+  display: none;
+}
+.comments .title {
+  color: #64b5f6;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.comments .number {
+  font-weight: bold;
+}
+.adjuster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedback {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.side-title {
+  margin: 10px;
+  display: flex;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}

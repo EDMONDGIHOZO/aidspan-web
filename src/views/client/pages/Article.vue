@@ -197,80 +197,87 @@
                   </v-card-text>
                 </v-card>
               </v-col>
-              <v-col cols="12 comments">
-                <div v-if="article.comments.length > 0">
-                  <v-badge
-                    color="blue"
-                    class="title mb-5 mt-5"
-                    :content="comments_count"
-                  >
-                    COMMENTS
-                    <v-icon right color="primary">mdi-comment</v-icon>
-                  </v-badge>
-                  <v-card
-                    v-for="comment in comments"
-                    :key="comment.id"
-                    class="mb-5"
-                    flat
-                  >
-                    <v-card-title>{{ comment.user.name }}</v-card-title>
-                    <v-card-text>{{ comment.comment }}</v-card-text>
-                    <v-card-actions>
-                      <span class="px-3">{{
-                        comment.created_at | formatDateWords
-                      }}</span>
-                    </v-card-actions>
-                  </v-card>
-                </div>
-                <h3 v-else>No comments Yet, Please add one.</h3>
-
-                <v-form ref="form" @submit.prevent="submit">
-                  <v-container fluid>
-                    <v-row>
-                      <v-col cols="12">
-                        <p class="font-weight-black">Add Comment</p>
-                      </v-col>
-                      <v-col cols="12" sm="6">
-                        <v-text-field
-                          v-model="form.first"
-                          :rules="rules.name"
-                          color="purple darken-2"
-                          label="Name (optional)"
-                          required
-                          solo
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6">
-                        <v-text-field
-                          v-model="form.names"
-                          :rules="rules.email"
-                          color="blue darken-2"
-                          label="Email"
-                          required
-                          solo
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
-                        <v-textarea v-model="form.comment" solo color="teal">
-                          <template v-slot:label>
-                            <span>Comment</span>
-                          </template>
-                        </v-textarea>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                  <v-card-actions>
-                    <v-btn text @click="resetForm" outlined>Cancel</v-btn>
-                    <v-btn
-                      :disabled="!formIsValid"
-                      outlined
-                      text
-                      color="primary"
-                      type="submit"
-                      >Submit</v-btn
+              <v-col cols="12 comments" md="6">
+                <v-card max-width="600" flat color="#f7f6f6" class="pa-4 comment-card">
+                  <div v-if="article.comments.length > 0">
+                    <v-badge
+                      color="blue"
+                      class="title mb-2 mt-2"
+                      :content="article.__meta__.comments_count"
                     >
-                  </v-card-actions>
-                </v-form>
+                      <small>COMMENTS</small>
+                      <v-icon right color="primary">mdi-comment</v-icon>
+                    </v-badge>
+                    <v-card
+                      v-for="comment in article.comments"
+                      :key="comment.id"
+                      class="mb-2"
+                      flat
+                    >
+                      <v-card-title>{{ comment.name }}</v-card-title>
+                      <v-card-text>{{ comment.body }}</v-card-text>
+                      <v-card-actions>
+                        <span class="px-3">{{
+                          comment.created_at | formatDateWords
+                        }}</span>
+                      </v-card-actions>
+                    </v-card>
+                  </div>
+                   <h3 v-else>No comments Yet, Please add one.</h3>
+                </v-card>
+              </v-col>
+              <v-col cols="12" md="6">
+                  <v-form ref="form" @submit.prevent="submit">
+                    <v-container fluid>
+                      <v-row>
+                        <v-col cols="12">
+                          <p class="font-weight-black">Add Comment</p>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <v-text-field
+                            v-model="form.first"
+                            outlined
+                            :rules="rules.name"
+                            color="purple darken-2"
+                            label="Name (optional)"
+                            required
+                            dense
+                          
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <v-text-field
+                            v-model="form.names"
+                            outlined
+                            :rules="rules.email"
+                            color="blue darken-2"
+                            label="Email"
+                            required
+                            dense
+                            
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12">
+                          <v-textarea v-model="form.comment" outlined color="teal">
+                            <template v-slot:label>
+                              <span>Comment</span>
+                            </template>
+                          </v-textarea>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <v-card-actions>
+                      <v-btn text @click="resetForm" outlined>Cancel</v-btn>
+                      <v-btn
+                        :disabled="!formIsValid"
+                        outlined
+                        text
+                        color="primary"
+                        type="submit"
+                        >Submit</v-btn
+                      >
+                    </v-card-actions>
+                  </v-form>
               </v-col>
             </v-row>
 
@@ -504,6 +511,10 @@ export default {
       currentlink: "",
       user_inf: {},
       views: 0,
+      comment: {
+        body: "test",
+        sender: "test",
+      },
     };
   },
   mixins: [DownloadIssue],
@@ -617,6 +628,8 @@ export default {
     submit() {
       this.snackbar = true;
       this.resetForm();
+      console.log(this.comment);
+      // this should be sending the comment
     },
     fonter() {
       if (this.fontSize < 80) {
@@ -655,119 +668,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-#sidebar-article {
-  background-color: #00adef;
-  width: 100%;
-}
-.navyside {
-  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
-}
-.article-summary {
-  border-radius: 10px;
-  margin: 10px;
-  border: solid #6cd3fcad 1px;
-  width: 100%;
-}
-#articleSection {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-}
-#articleSection .article-title {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 30px;
-  color: #00adef;
-  text-transform: uppercase;
-}
-#articleSection .second-article-title {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 19px;
-  /* identical to box height */
-  color: #424242;
-  font-style: italic;
-}
-#articleSection .authoring {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: row;
-}
-#articleSection .authoring .social {
-  justify-self: center;
-}
-#articleSection .abstract {
-  text-align: left;
-  background: #42aeef;
-  font-style: italic;
-}
-.abstract .text {
-  color: #000000;
-  font-weight: bold;
-  line-height: 25px;
-}
-.abstract .text a {
-  color: #000000;
-}
-#articleSection .content {
-  margin-top: 20px;
-  color: #000000;
-  font-weight: 400;
-  box-shadow: 0 0 16px rgba(73, 89, 106, 0.1);
-  border-radius: 16px;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  overflow: hidden;
-}
-.bottom-articles {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.comments {
-  border-left: solid 4px rgb(40, 189, 248);
-  border-radius: 10px;
-  background-color: rgba(215, 213, 216, 0.178);
-  height: 400px;
-  overflow-y: scroll;
-  padding: 20px;
-}
-.comments .title {
-  color: #64b5f6;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.comments .number {
-  font-weight: bold;
-}
-.adjuster {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-i {
-  color: red !important;
-}
-.feedback {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-}
-.side-title {
-  margin: 10px;
-  display: flex;
-  gap: 10px;
-  justify-items: center;
-  align-items: center;
-}
-</style>
