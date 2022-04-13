@@ -1,14 +1,15 @@
 <template>
   <div class="menubar hidden-xs-only" id="menubar">
     <Header class="d-none d-sm-flex"></Header>
-    <v-app-bar min-width="100%" color="primary" flat class="menucontainer">
+    <div class="menucontainer">
       <!--- menubar list -->
-        <menu-list device="computer" />
+      <menu-list device="computer" />
       <!---menu end -->
-      <v-spacer></v-spacer>
-      <Search :dialog="false" searchClass="desktop-search" />
+      <div class="search-side">
+        <Search :dialog="false" searchClass="desktop-search" />
       <locale-switch></locale-switch>
-    </v-app-bar>
+      </div>
+    </div>
   </div>
 </template>
 

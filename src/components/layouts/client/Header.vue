@@ -21,7 +21,6 @@
       <!--social media -->
       <socials color="primary" />
       <v-btn
-        rounded
         color="secondary"
         outlined
         class="mx-4"

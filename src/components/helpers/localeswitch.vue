@@ -3,11 +3,10 @@
     <v-btn
       v-for="locale in locales"
       :key="locale"
-      fab
-      small
-      color="secondary"
-      rounded
-      class="mx-1 langs"
+      depressed
+      class="text-white ml-2"
+      dark
+      outlined
       @click="switchLocale(locale)"
     >{{locale}}</v-btn>
   </div>

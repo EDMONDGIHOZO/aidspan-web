@@ -1,11 +1,19 @@
 <template>
   <div class="main-footer">
     <v-row id="sub-footer">
-        <v-col cols="12" class="pa-2 d-sm-none mobile-sub">
-             <v-btn color="white" width="240" text rounded class="mb-3" @click="goto('Subscribe')">{{$t('subscribe')}}</v-btn>
-        </v-col>
+      <v-col cols="12" class="pa-2 d-sm-none mobile-sub">
+        <v-btn
+          color="white"
+          width="240"
+          text
+          rounded
+          class="mb-3"
+          @click="goto('Subscribe')"
+          >{{ $t("subscribe") }}</v-btn
+        >
+      </v-col>
       <v-col cols="12" md="3" class="twitter-card">
-        <v-card color="primary">
+        <v-card class="ml-4">
           <Timeline
             id="aidspan"
             sourceType="profile"
@@ -25,7 +33,9 @@
             <h4>{{ $t("quicklinks") }}</h4>
           </li>
           <li @click="goto('careers')" class="linked">
-            <v-badge color="primary" content="New">{{ $t("quicks.careers") }} </v-badge>
+            <v-badge color="primary" content="New"
+              >{{ $t("quicks.careers") }}
+            </v-badge>
           </li>
           <li @click="goto('gallery')" class="linked">
             {{ $t("quicks.gallery") }}
@@ -46,20 +56,17 @@
           </li>
         </ul>
       </v-col>
-      <v-col cols="12" md="3">
-        <v-card class="ma-2">
-          <v-card-text>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.837859457764!2d36.80554231475391!3d-1.270237999073516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19adefd9df75%3A0x89171157b4b95624!2sAidspan!5e0!3m2!1sen!2srw!4v1598303758988!5m2!1sen!2srw"
-              frameborder="0"
-              style="border: 0"
-              allowfullscreen
-              aria-hidden="false"
-              tabindex="0"
-              id="mapbox"
-            ></iframe>
-          </v-card-text>
-        </v-card>
+      <v-col cols="12" md="3" class="overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.837859457764!2d36.80554231475391!3d-1.270237999073516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19adefd9df75%3A0x89171157b4b95624!2sAidspan!5e0!3m2!1sen!2srw!4v1598303758988!5m2!1sen!2srw"
+          width="280"
+          height="280"
+          frameborder="0"
+          style="relative; border-radius:10px"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
       </v-col>
     </v-row>
     <v-footer padless dark color="secondary">
@@ -109,12 +116,19 @@ export default {
 
 <style lang="scss">
 .twitter-card {
-  width: 300px;
-  padding: 25px;
-  height: 280px;
   overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  max-height: 300px;
+  width: 250px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  position: relative;
 }
-
+.twitter-card::-webkit-scrollbar {
+  display: none;
+}
 #quick-links-card {
   border-left: solid 4px #f46517;
 }
@@ -150,7 +164,6 @@ export default {
 }
 
 #mapbox {
-  min-width: 100%;
   height: 250px;
 }
 .contact-list {
@@ -180,12 +193,12 @@ export default {
 }
 
 .mobile-sub {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: auto;
 }
 </style>

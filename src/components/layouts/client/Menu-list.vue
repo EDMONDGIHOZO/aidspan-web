@@ -145,6 +145,7 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
+  text-align: left;
 }
 
 .computer :is(.menuBtn) {

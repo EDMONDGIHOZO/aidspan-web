@@ -14,10 +14,33 @@ $aidspan-orange: #f46517;
 }
 
 .menucontainer {
-  border-radius: 1px;
-  position: sticky;
-  position: -webkit-sticky;
+  width: 98%;
+  position: absolute;
+  background-color:#00aeef;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
   z-index: 1;
+  padding: 10px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.search-side {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menucontainer::-webkit-scrollbar {
+  display: none;
+}
+
+.search-button {
+  background-color: #00aeef;
+  height: 3rem;
+  position: relative;
 }
 
 .current-issue-home {
@@ -149,6 +172,15 @@ $aidspan-orange: #f46517;
   z-index: 1;
 }
 
+.v-dialog {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.v-dialog::-webkit-scrollbar {
+  display: none;
+}
+
 .home-slides .v-icon {
   font: 12px;
 }
@@ -202,11 +234,14 @@ $aidspan-orange: #f46517;
 
 .dashboard-container {
   padding: 10px;
+  background-color: rebeccapurple;
 }
 
 .main-footer {
   border-top: solid #d6ebf5 2px;
   background-color: $aidspan-orange;
+  padding-top: 10px;
+  overflow: hidden;
 }
 
 .desktop-search .sbtn {

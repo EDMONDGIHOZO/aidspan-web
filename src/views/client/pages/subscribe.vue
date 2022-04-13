@@ -19,7 +19,6 @@
             small
             class="ma-4"
             depressed
-            rounded
             href="/en/c/editorial"
             >Read Latest Issue</v-btn
           >
