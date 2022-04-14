@@ -213,7 +213,7 @@
                       <small>COMMENTS</small>
                       <v-icon right color="primary">mdi-comment</v-icon>
                     </v-badge>
-                    <p class="grey--text text-darken-1 mb-6 font-italic">Only approved comments will shown below..</p>
+                    <p class="grey--text text-darken-1 mb-6 font-italic">Only approved comments will be shown below..</p>
                     <v-card
                       v-for="comment in article.comments"
                       :key="comment.id"
@@ -282,7 +282,7 @@
             </v-row>
 
             <v-snackbar v-model="snackbar" absolute top right color="success">
-              <span>Thanks for your comment , highly appreciated</span>
+              <span>Thank you for the comment, it will be shown after approval from our team.</span>
               <v-icon dark>mdi-checkbox-marked-circle</v-icon>
             </v-snackbar>
           </v-card>
@@ -629,6 +629,7 @@ export default {
         name: this.userName === " " ? "anonymous" : this.userName,
       };
       Api().post("store-comment", formData);
+      this.resetForm()
     },
     fonter() {
       if (this.fontSize < 80) {
