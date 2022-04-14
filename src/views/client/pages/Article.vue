@@ -198,7 +198,12 @@
                 </v-card>
               </v-col>
               <v-col cols="12 comments" md="6">
-                <v-card max-width="600" flat color="#f7f6f6" class="pa-4 comment-card">
+                <v-card
+                  max-width="700"
+                  flat
+                  color="#f7f6f6"
+                  class="pa-4 comment-card"
+                >
                   <div v-if="article.comments.length > 0">
                     <v-badge
                       color="blue"
@@ -208,6 +213,7 @@
                       <small>COMMENTS</small>
                       <v-icon right color="primary">mdi-comment</v-icon>
                     </v-badge>
+                    <p class="grey--text text-darken-1 mb-6 font-italic">Only approved comments will shown below..</p>
                     <v-card
                       v-for="comment in article.comments"
                       :key="comment.id"
@@ -223,57 +229,55 @@
                       </v-card-actions>
                     </v-card>
                   </div>
-                   <h3 v-else>No comments Yet, Please add one.</h3>
+                  <h3 v-else>No comments Yet, Please add one.</h3>
                 </v-card>
               </v-col>
               <v-col cols="12" md="6" class="comment-form-box">
-                  <v-form ref="form" @submit.prevent="submit">
-                    <v-container fluid>
-                      <v-row>
-                        <v-col cols="12">
-                          <p class="font-weight-black">Add Comment</p>
-                        </v-col>
-                        <v-col cols="12" sm="6">
-                          <v-text-field
-                            v-model="form.first"
-                            outlined
-                            color="purple darken-2"
-                            label="Name (optional)"
-                            dense
-                          
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="6">
-                          <v-text-field
-                            v-model="form.names"
-                            outlined
-                            color="blue darken-2"
-                            label="Email (optional)"
-                            dense
-                            
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12">
-                          <v-textarea v-model="form.comment" outlined color="teal">
-                            <template v-slot:label>
-                              <span>Comment</span>
-                            </template>
-                          </v-textarea>
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                    <v-card-actions>
-                      <v-btn text @click="resetForm" outlined>Cancel</v-btn>
-                      <v-btn
-                        :disabled="!formIsValid"
-                        outlined
-                        text
-                        color="primary"
-                        type="submit"
-                        >Submit</v-btn
-                      >
-                    </v-card-actions>
-                  </v-form>
+                <v-form ref="form" @submit.prevent="submit">
+                  <v-container fluid>
+                    <v-row>
+                      <v-col cols="12">
+                        <p class="font-weight-black">Add Comment</p>
+                      </v-col>
+                      <v-col cols="12" sm="6">
+                        <v-text-field
+                          v-model="userName"
+                          outlined
+                          color="purple darken-2"
+                          label="Name (optional)"
+                          dense
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6">
+                        <v-text-field
+                          v-model="userMail"
+                          outlined
+                          color="blue darken-2"
+                          label="Email (optional)"
+                          dense
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-textarea v-model="commentBody" outlined color="teal">
+                          <template v-slot:label>
+                            <span>Comment</span>
+                          </template>
+                        </v-textarea>
+                      </v-col>
+                    </v-row>
+                  </v-container>
+                  <v-card-actions>
+                    <v-btn text @click="resetForm" outlined>Cancel</v-btn>
+                    <v-btn
+                      :disabled="!formIsValid"
+                      outlined
+                      text
+                      color="primary"
+                      type="submit"
+                      >Submit</v-btn
+                    >
+                  </v-card-actions>
+                </v-form>
               </v-col>
             </v-row>
 
@@ -482,6 +486,9 @@ export default {
       article_type: "",
       comments: [],
       comments_count: "",
+      commentBody: "",
+      userName: " ",
+      userMail: " ",
       nid: "",
       shareable: "",
       article_issue: [],
@@ -510,7 +517,7 @@ export default {
       return this.$store.state.activelang;
     },
     formIsValid() {
-      return this.form.comment;
+      return this.commentBody;
     },
     fontAdjust: function () {
       return {
@@ -613,9 +620,15 @@ export default {
     },
     submit() {
       this.snackbar = true;
-      this.resetForm();
-      console.log(this.comment);
       // this should be sending the comment
+      const formData = {
+        comment: this.commentBody,
+        id: this.article_id,
+        email: this.userMail === " " ? "anonymous@aidspan.org" : this.userMail,
+        type: "article",
+        name: this.userName === " " ? "anonymous" : this.userName,
+      };
+      Api().post("store-comment", formData);
     },
     fonter() {
       if (this.fontSize < 80) {

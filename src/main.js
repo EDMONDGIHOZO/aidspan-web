@@ -65,9 +65,7 @@ Vue.filter("normalizeFrench", function(value) {
 /** dates with words */
 Vue.filter("formatDateWords", function(value) {
     if (value) {
-        return moment(value)
-            .startOf("day")
-            .fromNow();
+        return moment(value).format('LL');
     }
 });
 

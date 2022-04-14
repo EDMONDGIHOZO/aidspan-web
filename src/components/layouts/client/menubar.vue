@@ -1,5 +1,5 @@
 <template>
-  <div class="menubar hidden-xs-only" id="menubar">
+  <div class="menubar hidden-xs-only mb-10" id="menubar">
     <Header class="d-none d-sm-flex"></Header>
     <div class="menucontainer">
       <!--- menubar list -->
