@@ -213,7 +213,6 @@
                       <small>COMMENTS</small>
                       <v-icon right color="primary">mdi-comment</v-icon>
                     </v-badge>
-                    <p class="grey--text text-darken-1 mb-6 font-italic">Only approved comments will be shown below..</p>
                     <v-card
                       v-for="comment in article.comments"
                       :key="comment.id"

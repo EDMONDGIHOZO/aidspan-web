@@ -1,5 +1,12 @@
 {
   "message": "hello i18n !!",
+  "searchDescription": "This feature allows you to search through all GFO articles in a variety of ways. You can search for a word or a string of words that appear in article titles, abstracts or content. You can search by the date of publication of the articles, by author name or by article type. You can also combine search fields; for example, you could search for “civil society” in the title field and “gender” in the content field to narrow down your search. In addition, you can search by GFO Issue Number if you know the number you are looking for.",
+  "searchHeader": {
+    "title": "Title",
+    "author": "Author",
+    "type": "Article Type",
+    "posted": "Date Posted"
+  },
   "mission": {
     "content": "Aidspan Is An international non-governmental organization (NGO) created In 2002 as an independent observer of the global fund to fight AIDS, TB, And Malaria. Aidspan provides the global fund to fight AIDS, tuberculosis and malaria (The “Global Fund”) stakeholders information and analysis to understand and evaluate the global fund progress. Aidspan aims to influence the transparency and effectiveness of the global fund at the global and country-level.",
     "title": "OUR VISION",

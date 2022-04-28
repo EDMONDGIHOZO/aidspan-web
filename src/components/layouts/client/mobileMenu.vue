@@ -94,10 +94,13 @@ export default {
 }
 
 .lang-switch {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   display: flex;
   justify-content: center;
+  background-color:#00aeef;
+  padding: 10px 0px;
+  border-radius: 10px;
 }
 .menutop img {
   width: 200px;
