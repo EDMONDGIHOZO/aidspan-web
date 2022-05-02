@@ -26,7 +26,7 @@
         class="mx-4"
         href="https://gfo.aidspan.org/user"
         target="_blank"
-        >Login</v-btn
+        >{{$t('login')}}</v-btn
       >
     </v-app-bar>
     <!-- subscribe dialog -->

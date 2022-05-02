@@ -9,7 +9,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="secondary" depressed dark v-bind="attrs" v-on="on">
-          search
+          {{ $t("search") }}
         </v-btn>
       </template>
       <!-- contents -->
@@ -36,6 +36,34 @@
                     <v-card-text>
                       {{ $t("searchDescription") }}
                     </v-card-text>
+                    <!-- <ais-hits>
+                      <div class="ais-RangeInput">
+                        <form class="ais-RangeInput-form">
+                          <label class="ais-RangeInput-label">
+                            <input
+                              class="
+                                ais-RangeInput-input ais-RangeInput-input--min
+                              "
+                              type="date"
+                              placeholder=""
+                              step="1"
+                            />
+                          </label>
+                          <span class="ais-RangeInput-separator">to</span>
+                          <label class="ais-RangeInput-label">
+                            <input
+                              class="
+                                ais-RangeInput-input ais-RangeInput-input--max
+                              "
+                              type="date"
+                              placeholder=""
+                              step="1"
+                            />
+                          </label>
+                          <v-btn class="ml-3 ais-RangeInput-submit" depressed color="primary" dark>Apply</v-btn>
+                        </form>
+                      </div>
+                    </ais-hits> -->
                   </v-card>
                   <v-text-field
                     label="You can search an article, issue , etc .. "
@@ -51,16 +79,24 @@
                   <!-- heading -->
                   <v-row class="header-row d-none d-lg-flex">
                     <v-col cols="12" md="5">
-                      <span class="font-weight-bold">{{ $t("searchHeader.title") }}</span>
+                      <span class="font-weight-bold">{{
+                        $t("searchHeader.title")
+                      }}</span>
                     </v-col>
                     <v-col cols="12" md="3">
-                      <span class="font-weight-bold">{{ $t("searchHeader.author") }}</span>
+                      <span class="font-weight-bold">{{
+                        $t("searchHeader.author")
+                      }}</span>
                     </v-col>
                     <v-col cols="12" md="2">
-                      <span class="font-weight-bold">{{ $t("searchHeader.type") }}</span>
+                      <span class="font-weight-bold">{{
+                        $t("searchHeader.type")
+                      }}</span>
                     </v-col>
                     <v-col cols="12" md="2">
-                      <span class="font-weight-bold">{{ $t("searchHeader.posted") }}</span>
+                      <span class="font-weight-bold">{{
+                        $t("searchHeader.posted")
+                      }}</span>
                     </v-col>
                     <!-- <v-col cols="12" md="2">
                       <span class="font-weight-bold">Abstract</span>
@@ -156,6 +192,17 @@
                     <strong>Filter by Language</strong>
                     <div class="search-panel__filters">
                       <ais-refinement-list attribute="language" />
+                    </div>
+                  </v-card-text>
+                  <v-card-text>
+                    <strong>Filter by Author</strong>
+                    <div class="search-panel__filters">
+                      <ais-refinement-list
+                        attribute="author.field_article_author_value"
+                        show-more="true"
+                        searchable="true"
+                        searchable-placeholder="type an author name here"
+                      />
                     </div>
                   </v-card-text>
                   <v-divider></v-divider>

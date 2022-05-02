@@ -1,5 +1,7 @@
 {
   "message": "hello i18n !!",
+  "search": "Recherche",
+  "login": "Connexion",
   "searchDescription": "Cette fonctionnalité vous permet de rechercher dans tous les articles GFO de différentes manières. Vous pouvez rechercher un mot ou une chaîne de mots qui apparaissent dans les titres, les résumés ou le contenu des articles. Vous pouvez effectuer une recherche par date de publication des articles, par nom d'auteur ou par type d'article. Vous pouvez également combiner des champs de recherche ; par exemple, vous pouvez rechercher « société civile » dans le champ de titre et « genre » dans le champ de contenu pour affiner votre recherche. De plus, vous pouvez effectuer une recherche par numéro de problème GFO si vous connaissez le numéro que vous recherchez.",
   "searchHeader": {
     "title": "Titre",
