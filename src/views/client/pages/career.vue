@@ -10,9 +10,7 @@
             >Back to Jobs</v-btn
           >
           <v-spacer></v-spacer>
-          <v-card-title>
-            <h1>{{ job.title }}</h1>
-          </v-card-title>
+          <h1 class="ml-4">{{ job.title }}</h1>
           <v-card-text>
             <p v-html="job.body.body_value"></p>
           </v-card-text>
