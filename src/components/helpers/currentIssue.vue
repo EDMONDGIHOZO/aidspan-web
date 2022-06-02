@@ -10,7 +10,7 @@
         <h3 class="blue--text lighten-4">{{$t('currentissue')}}</h3>
       </v-col>
       <v-col cols="12" md="8" class="titlebar">
-        <h3>{{ currentIssue.title }}</h3>
+        <h5 class="current-issue-title">{{ currentIssue.title }}</h5>
         <v-spacer></v-spacer>
         <v-btn color="white" icon @click="moveleft">
           <v-icon>mdi-arrow-left</v-icon>
@@ -179,24 +179,13 @@ export default {
 
 .titlebar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
   background-color: #3dc0fc;
   color: white;
   border-radius: 0px 50px 50px 0px;
-}
-
-.current-issue-articles-home {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  -ms-box-orient: horizontal;
-  padding: 10px;
-  border-radius: 20px;
 }
 
 .current-article-home {
@@ -240,28 +229,17 @@ export default {
     margin: 0;
   }
 
+  .current-issue-title {
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+
   .articles-container {
     padding: 0;
     margin-top: 20px;
   }
-  .current-issue-articles-home {
-    padding: 0;
-  }
-
   .titlebar {
     border-radius: 0px;
-  }
-}
-
-.carousel-3d-container {
-  .carousel-3d-slide {
-    padding: 1px;
-    background-color: white;
-    border: none;
-
-    .title {
-      font-size: 22px;
-    }
   }
 }
 </style>

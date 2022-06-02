@@ -1,12 +1,35 @@
 <template>
   <div class="all">
     <!-- bring the header -->
-    <landing-image />
-    <!--end of corousel -->
+    <div class="web-intro-container mx-1">
+      <!-- texts container -->
+      <div class="web-intro-texts p-4">
+        <div class="web-intro-text-overflow">
+          <span class="big-text">AIDSPAN</span>
+          <p class="normal-text"> - {{ $t("slogan") }} - </p>
+        </div>
+      </div>
+      <div class="web-intro-slider">
+        <div class="slider-child">
+          <v-carousel
+            v-model="corauselModel"
+            interval="4000"
+            cycle
+            hide-delimiter-background
+          >
+            <v-carousel-item v-for="image in sliderImages" :key="image.id">
+              <v-card max-width="700" class="mx-auto relative">
+                <v-img :src="image.url" :alt="image.alt" />
+              </v-card>
+            </v-carousel-item>
+          </v-carousel>
+        </div>
+      </div>
+    </div>
     <!-- intro section -->
     <v-row row wrap id="web-intro" v-if="wwaFound">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
-        <div class="header">
+        <div class="header title display-2">
           <h3>{{ $t("whatweare.title") }}</h3>
         </div>
         <p v-scrollAnimation class="black--text">{{ wwa }}</p>
@@ -70,9 +93,11 @@
               <span class="sub-title">{{ $t("report_title") }}</span>
               <p>{{ $t("report_intro") }}</p>
             </v-col>
-            <v-btn block text color="primary" @click="viewpubs">{{
-              $t("viewall")
-            }}</v-btn>
+            <v-col cols="12" class="my-4">
+              <v-btn block text color="secondary" outlined @click="viewpubs">{{
+                $t("viewall")
+              }}</v-btn>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
@@ -84,7 +109,7 @@
           flat
           href="https://data.aidspan.org"
         >
-          <v-card-title>
+          <v-card-title class="font-weight-bold">
             <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
           </v-card-title>
           <v-card-text class="pa-4 font-weight-bold">{{
@@ -99,25 +124,15 @@
       <v-flex md2 xs12>
         <h2 class="blue--text lighten-1">{{ $t("donors") }}</h2>
       </v-flex>
-      <v-flex md10 xs12>
-        <div class="logos">
-          <v-sheet class="mx-auto">
-            <v-slide-group multiple show-arrows light>
-              <v-slide-item v-for="logo in donorsLogos" :key="logo.id">
-                <v-card
-                  flat
-                  class="ma-2 pa-3"
-                  outlined
-                  :href="logo.web"
-                  target="_blank"
-                >
-                  <img :src="logo.img" alt="donor logo" height="50px" />
-                </v-card>
-              </v-slide-item>
-            </v-slide-group>
-          </v-sheet>
-        </div>
-      </v-flex>
+      <div class="logos pa-5">
+        <v-sheet class="mx-auto" max-width="700">
+          <v-slide-group multiple show-arrows>
+            <v-slide-item v-for="logo in donorsLogos" :key="logo.id" v-slot="{ active, toggle }">
+              <v-img :src="logo.img" :input-value="active" @click="toggle" max-width="150" max-height="50" class="mx-4" />
+            </v-slide-item>
+          </v-slide-group>
+        </v-sheet>
+      </div>
     </v-layout>
     <!--- end donors -->
   </div>
@@ -128,7 +143,6 @@
 //import the header,footer,mobile menu
 import { mapState } from "vuex";
 import currentIssue from "@/components/helpers/currentIssue.vue";
-import Landing from "@/components/tools/landingimage.vue";
 import Api from "@/services/Api";
 
 export default {
@@ -137,7 +151,6 @@ export default {
   },
   components: {
     "current-issue": currentIssue,
-    "landing-image": Landing,
   },
 
   methods: {
@@ -164,6 +177,14 @@ export default {
 
   data() {
     return {
+      corauselModel: 0,
+      corauselColors: [
+        "primary",
+        "secondary",
+        "yellow darken-2",
+        "red",
+        "orange",
+      ],
       wwa: "",
       wwaFound: false,
       hiv: {
@@ -187,6 +208,44 @@ export default {
         class: "M",
         color: "amber--text text-center font-weight-bold",
       },
+
+      sliderImages: [
+        {
+          id: "1",
+          alt: "ida",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654104228/aidspan/_cmc1102_49213252167_o_de0itr.jpg",
+        },
+        {
+          id: "2",
+          alt: "team",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654104190/aidspan/27_49213112362_o_w1ucfz.jpg",
+        },
+        {
+          id: "3",
+          alt: "team",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654104185/aidspan/_cmc1302_49212892776_o_qwwdm9.jpg",
+        },
+        {
+          id: "4",
+          alt: "aidspan",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654104179/aidspan/_cmc1091_49212550163_o_g8pvpv.jpg",
+        },
+        {
+          id: "6",
+          alt: "aidspan",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654104167/aidspan/24_49212615763_o_vgkfi1.jpg",
+        },
+        {
+          id: "7",
+          alt: "aidspan",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654098325/aidspan/ida_kaxddr.jpg",
+        },
+        {
+          id: "8",
+          alt: "aidspan",
+          url: "https://res.cloudinary.com/yebalabs-com/image/upload/v1654097303/aidspan/team-photo_v5oe3t.jpg",
+        },
+      ],
 
       //donors logos //
       donorsLogos: [

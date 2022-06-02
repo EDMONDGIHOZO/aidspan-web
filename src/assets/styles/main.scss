@@ -13,21 +13,101 @@ $aidspan-orange: #f46517;
   color: #f46517;
 }
 
+.web-intro-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #33AEE4;
+  background-image: url("~@/assets/images/common/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.web-intro-texts {
+  width: 10%;
+  overflow-x: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.web-intro-text-overflow {
+  background-color: rgba(255, 255, 255, 0.532);
+  border-radius: 5px;
+  color: #333;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 1rem 2rem;
+  z-index: 999;
+  margin: auto;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .web-intro-text-overflow{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: #fdfeff92;  
+  }
+  .warning {
+    display: none;
+  }
+}
+
+.web-intro-slider {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.slider-child {
+  margin-top: 5%;
+  margin-left: 20%;
+}
+
+.big-text {
+  font-size: 70px;
+  font-weight: bold;
+  line-height: 6rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: #33AEE4;
+}
+
+.normal-text {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  color: #f46618;
+}
+
 .menucontainer {
   width: 98%;
   position: absolute;
-  background-color:#00aeef;
+  background-color: #00aeef;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  overflow-x: scroll;
   z-index: 1;
   padding: 10px;
   margin: auto;
   border-radius: 5px;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
 }
 
+.menucontainer::-webkit-scrollbar {
+  display: none;
+}
+
+.button-text {
+  font-size: 10px;
+}
 .search-side {
   display: flex;
   justify-content: space-between;

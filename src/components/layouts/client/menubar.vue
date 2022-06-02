@@ -72,7 +72,6 @@ export default {
 <style lang="scss">
 .right-icons .btn {
   float: right;
-  margin-right: 3px;
 }
 
 .emptyList {

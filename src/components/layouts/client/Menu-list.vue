@@ -3,7 +3,7 @@
     <!--- menubar list -->
     <v-btn
       rounded
-      class="mx-0 menuBtn"
+      class="menuBtn"
       depressed
       color="primary"
       @click="gohome"
@@ -13,7 +13,7 @@
     </v-btn>
     <v-btn
       rounded
-      class="mx-0 menuBtn"
+      class="menuBtn"
       depressed
       color="primary"
       @click="gogfo"
@@ -23,7 +23,7 @@
     </v-btn>
     <v-btn
       rounded
-      class="mx-0 menuBtn"
+      class="menuBtn"
       depressed
       color="primary"
       @click="goabout"
@@ -36,7 +36,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           rounded
-          class="mx-1 menuBtn"
+          class="menuBtn"
           depressed
           color="primary"
           v-bind="attrs"
@@ -61,7 +61,7 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           rounded
-          class="mx-1 menuBtn"
+          class="menuBtn"
           depressed
           color="primary"
           v-bind="attrs"
@@ -84,7 +84,7 @@
 
     <v-btn
       rounded
-      class="mx-1 menuBtn"
+      class="menuBtn"
       depressed
       color="primary"
       @click="gopubs"
@@ -150,8 +150,7 @@ export default {
 
 .computer :is(.menuBtn) {
   margin: auto;
-  overflow: hidden;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .mobile :is(.menuBtn) {

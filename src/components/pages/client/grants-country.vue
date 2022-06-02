@@ -146,9 +146,7 @@ export default {
             1
           );
           polygon.tooltipText = grant;
-
           mapPolygon.dummyData = polygon;
-
           polygon.events.on("over", function() {
             mapPolygon.isHover = true;
           });

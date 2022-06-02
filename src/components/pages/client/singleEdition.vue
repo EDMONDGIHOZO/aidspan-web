@@ -9,32 +9,35 @@
       ></v-progress-linear>
     </div>
     <div class="issue">
-      <div class="issue-header">
-        <v-toolbar rounded outlined flat>
-          <v-toolbar-title class="font-weight-bold upppercase">
+      <div flat class="issue-header">
+        <div>
+          <p>
             {{ issuedetails.title }}
-            <v-btn
-              rounded
-              :loading="btnLoader"
-              :disabled="btnLoader"
-              color="secondary"
-              depressed
-              class="mx-4"
-              @click="
-                loader = 'btnLoader';
-                downloadIssue(issuedetails.title, issuedetails.language);
-              "
-            >
-              Download
-              <v-icon right> mdi-cloud-download </v-icon>
-            </v-btn>
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
+          </p>
+        </div>
+        <div>
+          <v-btn
+            rounded
+            :loading="btnLoader"
+            :disabled="btnLoader"
+            color="secondary"
+            depressed
+            small
+            class="mx-4"
+            @click="
+              loader = 'btnLoader';
+              downloadIssue(issuedetails.title, issuedetails.language);
+            "
+          >
+            Download
+            <v-icon right> mdi-cloud-download </v-icon>
+          </v-btn>
           <v-chip color="secondary" class="large">
             {{ issuedetails.related_articles.length }} Articles
           </v-chip>
-        </v-toolbar>
+        </div>
       </div>
+
       <v-row wrap class="articles-container">
         <v-col
           cols="12"
@@ -47,12 +50,10 @@
             height="350"
             hover
             outlined
-            class="ma-auto"
+            class="ma-auto pa-4"
             @click="viewArticle(article.nid)"
           >
-            <v-card-title class="font-weight-bold">{{
-              article.title | str_limit(200)
-            }}</v-card-title>
+            <p class="font-weight-bold">{{ article.title | str_limit(200) }}</p>
             <v-row wrap class="mx-auto">
               <v-col cols="6" v-if="article.article_author !== null">
                 <small>{{
@@ -111,16 +112,16 @@ export default {
   props: ["nid"],
   data: () => ({
     issuedetails: [],
-    link: '',
+    link: "",
     loading: true,
     btnLoader: false,
     loader: null,
     publicPath: process.env.BASE_URL,
-    current_web: window.location.origin
+    current_web: window.location.origin,
   }),
-//   components: {
-//     WebViewer,
-//   },
+  //   components: {
+  //     WebViewer,
+  //   },
   watch: {
     loader() {
       const l = this.loader;
@@ -198,22 +199,17 @@ export default {
   transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
 }
 
-.header {
+.issue-header {
+  border-bottom: solid 1px #e0e0e0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  align-items: baseline;
+  padding: 10px 0px 10px 0px;
 }
 
-.issue-header {
-  max-width: 100%;
-  margin: auto;
-  border-radius: 6px;
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+.issue-header p {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .single-card {

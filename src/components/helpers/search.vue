@@ -8,7 +8,7 @@
       scrollable
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="secondary" depressed dark v-bind="attrs" v-on="on">
+        <v-btn color="secondary" class="button-text" depressed dark v-bind="attrs" v-on="on">
           {{ $t("search") }}
         </v-btn>
       </template>

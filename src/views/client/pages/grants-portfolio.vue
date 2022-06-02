@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="top-intro">
       <v-col cols="12">
-        <p class="top-intro-text">
+        <p class="top-intro-text text-left">
           The information provided here is based entirely on data obtained from
           the Global Fund, most of which is on the Fund's website. The Aidspan
           web server checks every three hours for possible new data at the
@@ -13,12 +13,20 @@
 
     <v-row id="grants-tables" width="100%">
       <v-col cols="12" md="6">
-        <v-simple-table height="450" fixed-header id="disease-table" dark class="elevation-15">
+        <v-simple-table
+          height="450"
+          fixed-header
+          id="disease-table"
+          dark
+          class="elevation-15"
+        >
           <template v-slot:default>
             <thead>
               <tr>
                 <th colspan="3" class="text-center">
-                  <h4 color="primary" class="text-uppercase">Grants by Diseases</h4>
+                  <h4 color="primary" class="text-uppercase">
+                    Grants by Diseases
+                  </h4>
                 </th>
               </tr>
               <tr>
@@ -49,12 +57,12 @@
                 <td colspan="2">
                   <small>Total Agreement Amount:</small>
                   <br />
-                  {{totalDisbAmount}}
+                  {{ totalDisbAmount }}
                 </td>
                 <td colspan="2">
                   <small>Total Disbursed Amount:</small>
                   <br />
-                  {{totalAgreementAmount}}
+                  {{ totalAgreementAmount }}
                 </td>
               </tr>
             </tbody>
@@ -67,7 +75,9 @@
             <thead>
               <tr>
                 <th colspan="3" class="text-center">
-                  <h4 color="primary" class="text-uppercase">Grants by Regions</h4>
+                  <h4 color="primary" class="text-uppercase">
+                    Grants by Regions
+                  </h4>
                 </th>
               </tr>
               <tr>
@@ -104,26 +114,29 @@
     <v-row class="py-5">
       <v-col class="gbc-intro" cols="12">
         <v-card light hover class="elevation-15">
-          <v-card-title class="blue--text font-weight-black">GRANTS BY COUNTRY</v-card-title>
+          <v-card-title class="blue--text font-weight-black"
+            >GRANTS BY COUNTRY</v-card-title
+          >
           <v-card-text>
             <p>
               The information provided here is based entirely on data obtained
               from the Global Fund, most of which is on the Fund's website. The
-              Aidspan web server checks every three hours for possible new data at
-              the Fund's website. Every few months, the Global Fund assigns each
-              grant a rating that measures the performance of that grant over the
-              past few months. These ratings are (“Exceeds expectations”), A2
-              (“Meets expectations”), B1 (“Adequate”), B2 (“Inadequate but
-              potential demonstrated”) or C (“Unacceptable”). In the map below, we
-              show the average rating assigned by the Global Fund since January
-              2010 for grants to each country. Where a country has had fewer than
-              four ratings assigned, no average rating is shown.
+              Aidspan web server checks every three hours for possible new data
+              at the Fund's website. Every few months, the Global Fund assigns
+              each grant a rating that measures the performance of that grant
+              over the past few months. These ratings are (“Exceeds
+              expectations”), A2 (“Meets expectations”), B1 (“Adequate”), B2
+              (“Inadequate but potential demonstrated”) or C (“Unacceptable”).
+              In the map below, we show the average rating assigned by the
+              Global Fund since January 2010 for grants to each country. Where a
+              country has had fewer than four ratings assigned, no average
+              rating is shown.
             </p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12">
-        <countriesMap></countriesMap>
+        <countriesMap />
       </v-col>
     </v-row>
     <!-- end of the map -->
@@ -134,6 +147,7 @@
 //import GrantsByCountry from "@/components/pages/grantsOverview.vue";
 //import Diseases from "@/components/pages/diseases.vue";
 import Api from "@/services/Api";
+import GlobalFundApi from "@/services/GlobalFundApi";
 import GrantsCountry from "@/components/pages/client/grants-country.vue";
 export default {
   //dummy data
@@ -141,6 +155,7 @@ export default {
     return {
       totalDisbAmount: 0,
       totalAgreementAmount: 0,
+      diseaseComponents: [],
 
       //data for charts options//
 
@@ -281,6 +296,27 @@ export default {
     };
   },
 
+  methods: {
+    fetchComponentsData: async () => {
+      try {
+        await GlobalFundApi()
+        .get("/Components")
+        .then((response) => {
+          if (response.status === 200) {
+            const componentsData = response.data.value;
+            this.diseaseComponents = componentsData;
+          }
+        });
+      } catch (error) {
+        throw new Error(error)
+      }
+    },
+  },
+
+  mounted() {
+    this.fetchComponentsData();
+  },
+
   created() {
     function cleanNumber(amount) {
       const cleaned = new Intl.NumberFormat("en-EN", {
@@ -295,7 +331,6 @@ export default {
       .then((response) => {
         this.totalDisbAmount = cleanNumber(response.data.totalAgreement);
         this.totalAgreementAmount = cleanNumber(response.data.totalDisbursed);
-        
       });
   },
 

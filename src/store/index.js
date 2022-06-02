@@ -7,6 +7,7 @@ import mutations from './mutations'
 import state from './state'
 /** import modules */
 import uimods from './modules/ui'
+import gfmods from './modules/globalFund'
 
 
 Vue.use(Vuex)
@@ -20,6 +21,7 @@ const store = new Vuex.Store({
     state,
     modules: {
         ui: uimods,
+        globalFund: gfmods,
     },
 })
 
