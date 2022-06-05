@@ -1,31 +1,33 @@
 <template>
   <div class="all">
     <!-- bring the header -->
-    <div class="web-intro-container mx-1">
-      <!-- texts container -->
-      <div class="web-intro-texts p-4">
+    <v-row
+      align-content="center"
+      justify="center"
+      no-gutters
+      class="mb-4 rounded web-intro-container"
+    >
+      <v-col cols="12" md="4" class="web-intro-texts pa-3">
         <div class="web-intro-text-overflow">
           <span class="big-text">AIDSPAN</span>
-          <p class="normal-text"> - {{ $t("slogan") }} - </p>
+          <p class="normal-text">- {{ $t("slogan") }} -</p>
         </div>
-      </div>
-      <div class="web-intro-slider">
-        <div class="slider-child">
-          <v-carousel
-            v-model="corauselModel"
-            interval="4000"
-            cycle
-            hide-delimiter-background
-          >
-            <v-carousel-item v-for="image in sliderImages" :key="image.id">
-              <v-card max-width="700" class="mx-auto relative">
-                <v-img :src="image.url" :alt="image.alt" />
-              </v-card>
-            </v-carousel-item>
-          </v-carousel>
-        </div>
-      </div>
-    </div>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-carousel
+          v-model="corauselModel"
+          interval="4000"
+          cycle
+          hide-delimiter-background
+        >
+          <v-carousel-item v-for="image in sliderImages" :key="image.id">
+            <v-card class="mx-auto relative">
+              <v-img :src="image.url" :alt="image.alt" />
+            </v-card>
+          </v-carousel-item>
+        </v-carousel>
+      </v-col>
+    </v-row>
     <!-- intro section -->
     <v-row row wrap id="web-intro" v-if="wwaFound">
       <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
@@ -127,8 +129,19 @@
       <div class="logos pa-5">
         <v-sheet class="mx-auto" max-width="700">
           <v-slide-group multiple show-arrows>
-            <v-slide-item v-for="logo in donorsLogos" :key="logo.id" v-slot="{ active, toggle }">
-              <v-img :src="logo.img" :input-value="active" @click="toggle" max-width="150" max-height="50" class="mx-4" />
+            <v-slide-item
+              v-for="logo in donorsLogos"
+              :key="logo.id"
+              v-slot="{ active, toggle }"
+            >
+              <v-img
+                :src="logo.img"
+                :input-value="active"
+                @click="toggle"
+                max-width="150"
+                max-height="50"
+                class="mx-4"
+              />
             </v-slide-item>
           </v-slide-group>
         </v-sheet>
