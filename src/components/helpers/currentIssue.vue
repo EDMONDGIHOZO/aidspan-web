@@ -230,7 +230,7 @@ export default {
   }
 
   .current-issue-title {
-    font-size: 1.5em;
+    font-size: 0.7em;
     text-transform: uppercase;
   }
 

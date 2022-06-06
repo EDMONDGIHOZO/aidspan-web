@@ -7,7 +7,7 @@
       no-gutters
       class="mb-4 rounded web-intro-container"
     >
-      <v-col cols="12" md="4" class="web-intro-texts pa-3">
+      <v-col cols="12" md="4" class="web-intro-texts pa-3 d-none d-sm-flex">
         <div class="web-intro-text-overflow">
           <span class="big-text">AIDSPAN</span>
           <p class="normal-text">- {{ $t("slogan") }} -</p>
@@ -18,13 +18,13 @@
           v-model="corauselModel"
           interval="4000"
           cycle
-          hide-delimiter-background
+          height="auto"
         >
-          <v-carousel-item v-for="image in sliderImages" :key="image.id">
-            <v-card class="mx-auto relative">
-              <v-img :src="image.url" :alt="image.alt" />
-            </v-card>
+          <v-sheet class="fill-height">
+            <v-carousel-item v-for="image in sliderImages" :key="image.id">
+            <img :src="image.url" :alt="image.alt" class="slider-img" />
           </v-carousel-item>
+          </v-sheet>
         </v-carousel>
       </v-col>
     </v-row>
@@ -111,9 +111,10 @@
           flat
           href="https://data.aidspan.org"
         >
-          <v-card-title class="font-weight-bold">
-            <v-icon left small>mdi-post</v-icon>AIDSPAN PORTAL WORKBENCH
-          </v-card-title>
+          <div class="font-weight-bold title-bar-intro">
+            <v-icon left small>mdi-merge</v-icon>
+            <span>AIDSPAN PORTAL WORKBENCH</span>
+          </div>
           <v-card-text class="pa-4 font-weight-bold">{{
             $t("apwintro")
           }}</v-card-text>

@@ -1,14 +1,16 @@
 <template>
   <div>
     <div v-if="loading">
-      <v-progress-linear
+      <v-sheet class="fill-height pa-10 mt-6">
+        <v-progress-linear
         color="deep-orange accent-4"
         indeterminate
         rounded
         height="6"
       ></v-progress-linear>
+      </v-sheet>
     </div>
-    <div class="issue">
+    <div class="issue" v-else>
       <div flat class="issue-header">
         <div>
           <p>
@@ -47,9 +49,8 @@
           :key="article.article_number.field_article_number_value"
         >
           <v-card
-            height="350"
             hover
-            outlined
+            flat
             class="ma-auto pa-4"
             @click="viewArticle(article.nid)"
           >
@@ -113,7 +114,7 @@ export default {
   data: () => ({
     issuedetails: [],
     link: "",
-    loading: true,
+    loading: false,
     btnLoader: false,
     loader: null,
     publicPath: process.env.BASE_URL,
@@ -133,12 +134,7 @@ export default {
     },
   },
   created() {
-    Api()
-      .get(`/all-issues/${this.nid}`)
-      .then((response) => {
-        this.issuedetails = response.data.issue_data;
-        this.loading = false;
-      });
+    this.getArticles();
   },
   mixins: [DownloadIssue],
 
@@ -151,6 +147,15 @@ export default {
         name: "article",
         params: { article_id: artnid },
       });
+    },
+    getArticles() {
+      this.loading = true;
+      Api()
+        .get(`/all-issues/${this.nid}`)
+        .then((response) => {
+          this.issuedetails = response.data.issue_data;
+          this.loading = false;
+        });
     },
   },
   filters: {
@@ -167,36 +172,10 @@ export default {
 
 <style lang="scss" scoped>
 .issue {
-  padding: 20px;
-  max-width: 95%;
-  margin: auto;
-  background-color: #eeeeee4b;
-  border-radius: 15px;
-  grid-column: span 4;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  overflow: hidden;
-  background-color: #fff;
-  background-color: var(--white);
-  color: #000;
-  color: var(--black);
-  padding: 24px;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
-  transition: -webkit-box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 .issue-header {
@@ -205,6 +184,7 @@ export default {
   justify-content: space-between;
   align-items: baseline;
   padding: 10px 0px 10px 0px;
+  flex-wrap: wrap;
 }
 
 .issue-header p {
