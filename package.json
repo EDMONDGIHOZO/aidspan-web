@@ -23,6 +23,7 @@
         "vue-gtag": "^1.11.0",
         "vue-i18n": "^8.24.5",
         "vue-instantsearch": "^2.7.1",
+        "vue-light-gallery": "^1.0.1",
         "vue-meta": "^2.4.0",
         "vue-router": "^3.5.2",
         "vue-social-sharing": "^2.4.7",

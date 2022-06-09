@@ -9872,6 +9872,11 @@ vue-instantsearch@^2.7.1:
     algoliasearch-helper "^2.28.1"
     instantsearch.js "^3.6.0"
 
+vue-light-gallery@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-light-gallery/-/vue-light-gallery-1.0.1.tgz#9416121b6940d0874b0ee6d9a48cfb7a7903d9a9"
+  integrity sha512-xNKNZ3upRIHgIeFIOQ+3RZcHsr3CwZvSFq3SqcsZ2rBWlHqc9IsVpWlpD2EOJyy7ovgODTC8C2rfaiRchQ2GOA==
+
 vue-loader@^15.8.3:
   version "15.9.8"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.9.8.tgz#4b0f602afaf66a996be1e534fb9609dc4ab10e61"
