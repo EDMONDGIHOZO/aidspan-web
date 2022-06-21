@@ -61,8 +61,6 @@
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.837859457764!2d36.80554231475391!3d-1.270237999073516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19adefd9df75%3A0x89171157b4b95624!2sAidspan!5e0!3m2!1sen!2srw!4v1598303758988!5m2!1sen!2srw"
           width="280"
           height="280"
-          frameborder="0"
-          style="relative; border-radius:10px"
           allowfullscreen=""
           aria-hidden="false"
           tabindex="0"
@@ -118,7 +116,6 @@ export default {
 .twitter-card {
   overflow-y: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
   max-height: 300px;
   width: 250px;
   padding: 10px;
@@ -199,6 +196,5 @@ export default {
   align-items: center;
   text-align: center;
   margin: 0;
-  padding: auto;
 }
 </style>

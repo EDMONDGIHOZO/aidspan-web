@@ -4,6 +4,9 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import store from "@/store";
 import InstantSearch from "vue-instantsearch";
+import SocialSharing from "vue-social-sharing";
+import i18n from "./i18n";
+import _ from "lodash";
 import 'instantsearch.css/themes/satellite.css';
 //import the custom styles
 import "./assets/styles/mobileDevices.scss";
@@ -20,6 +23,7 @@ import VueMeta from "vue-meta";
 import {apiurl} from './services/helpers'
 Vue.use(Vuelidate);
 
+
 Vue.use(VueMeta, {
     // optional pluginOptions
     keyName: "aidspan",
@@ -29,9 +33,6 @@ Vue.use(VueMeta, {
 
 //import for animation
 import scrollAnimation from "./directives/scrollAnimation";
-import SocialSharing from "vue-social-sharing";
-import i18n from "./i18n";
-import _ from "lodash";
 Object.defineProperty(Vue.prototype, "$_", { value: _ });
 
 // Configuration VueAnalytics

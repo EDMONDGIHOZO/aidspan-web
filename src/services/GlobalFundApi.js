@@ -1,7 +1,8 @@
 import axios from "axios";
 import { globalFundUrl } from "../services/helpers";
 
-export default () => {
+
+const GFAPI = () => {
   return axios.create({
     baseURL: globalFundUrl,
     withCredentials: false,
@@ -10,4 +11,7 @@ export default () => {
       "content-type": "application/json",
     },
   });
-};
+}
+
+
+export default GFAPI

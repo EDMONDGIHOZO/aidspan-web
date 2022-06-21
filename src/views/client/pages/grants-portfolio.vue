@@ -17,14 +17,13 @@
           height="450"
           fixed-header
           id="disease-table"
-          dark
           class="elevation-15"
         >
-          <template v-slot:default>
+          <template v-slot:default v-if="diseaseLoaded">
             <thead>
               <tr>
                 <th colspan="3" class="text-center">
-                  <h4 color="primary" class="text-uppercase">
+                  <h4 class="text-uppercase text--primary">
                     Grants by Diseases
                   </h4>
                 </th>
@@ -36,33 +35,37 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="disease in diseases" :key="disease.dId">
-                <td class="text-left">{{ disease.dName }}</td>
+              <tr v-for="(disease, index) in diseaseComponents" :key="index">
+                <td class="text-left">{{disease[0]}}</td>
                 <td>
-                  $ {{ disease.dsignedAmount }}
-                  <v-chip class="ma-2 align-left" color="success" outlined>
-                    {{ disease.dSignedPercentage }}
-                    <v-icon right small>mdi-percent</v-icon>
-                  </v-chip>
+                  <div class="row-box">
+                    <p>$ {{ sumValues(disease[1], "totalCommittedAmount") }}</p>
+                    <v-chip class="percentage-chip align-left" color="success" outlined>
+                      {{percentageFinder(sumValues(disease[1], "totalCommittedAmount"),sumValues(disease[1], "totalSignedAmount") )}}
+                      <v-icon right small>mdi-percent</v-icon>
+                    </v-chip>
+                  </div>
                 </td>
                 <td class="text-right">
-                  $ {{ disease.dDisbursedAmount }}
-                  <v-chip class="ma-2" color="primary" outlined>
-                    {{ disease.dDisbursedPercentage }}
-                    <v-icon right small>mdi-percent</v-icon>
-                  </v-chip>
+                  <div class="row-box">
+                    <p>$ {{ sumValues(disease[1], "totalDisbursedAmount") }}</p>
+                    <v-chip class="percentage-chip" color="primary" outlined>
+                      {{percentageFinder(sumValues(disease[1], "totalDisbursedAmount"),sumValues(disease[1], "totalSignedAmount") )}}
+                      <v-icon right small>mdi-percent</v-icon>
+                    </v-chip>
+                  </div>
                 </td>
               </tr>
               <tr class="diseaseFooter">
                 <td colspan="2">
                   <small>Total Agreement Amount:</small>
                   <br />
-                  {{ totalDisbAmount }}
+                  {{ sumValues(allGrants, 'totalSignedAmount')}}
                 </td>
                 <td colspan="2">
                   <small>Total Disbursed Amount:</small>
                   <br />
-                  {{ totalAgreementAmount }}
+                  {{ sumValues(allGrants, 'totalDisbursedAmount') }}
                 </td>
               </tr>
             </tbody>
@@ -75,7 +78,7 @@
             <thead>
               <tr>
                 <th colspan="3" class="text-center">
-                  <h4 color="primary" class="text-uppercase">
+                  <h4 class="text-uppercase text--primary">
                     Grants by Regions
                   </h4>
                 </th>
@@ -144,202 +147,58 @@
 </template>
 
 <script>
-//import GrantsByCountry from "@/components/pages/grantsOverview.vue";
-//import Diseases from "@/components/pages/diseases.vue";
-import Api from "@/services/Api";
-import GlobalFundApi from "@/services/GlobalFundApi";
 import GrantsCountry from "@/components/pages/client/grants-country.vue";
+import sumValues from "@/mixins/grants-utils";
+import GFAPI from "@/services/GlobalFundApi";
+
 export default {
   //dummy data
   data() {
     return {
-      totalDisbAmount: 0,
+      totalDisbursementAmount: 0,
       totalAgreementAmount: 0,
       diseaseComponents: [],
-
+      diseaseLoaded: false,
+      allGrants: [],
       //data for charts options//
 
       ///end of chart
-      diseases: [
-        {
-          dName: "Malaria",
-          dId: "234ftsg",
-          dsignedAmount: 45066,
-          dSignedPercentage: 40,
-          dDisbursedAmount: 34000,
-          dDisbursedPercentage: 30,
-        },
-        {
-          dName: "HIV/AIDS",
-          dId: "234f43tsg",
-          dsignedAmount: 55068,
-          dSignedPercentage: 20,
-          dDisbursedAmount: 24000,
-          dDisbursedPercentage: 10,
-        },
-        {
-          dName: "Tuberclosis",
-          dId: "234ftsg",
-          dsignedAmount: 45778,
-          dSignedPercentage: 30,
-          dDisbursedAmount: 34000,
-          dDisbursedPercentage: 40,
-        },
-        {
-          dName: "TB/HIV",
-          dId: "234ftsg",
-          dsignedAmount: 450778,
-          dSignedPercentage: 10,
-          dDisbursedAmount: 34000,
-          dDisbursedPercentage: 60,
-        },
-        {
-          dName: "RSSH",
-          dId: "234ftsg",
-          dsignedAmount: 45078,
-          dSignedPercentage: 41,
-          dDisbursedAmount: 36000,
-          dDisbursedPercentage: 30,
-        },
-      ],
-
-      regions: [
-        {
-          rName: "High Impact Africa 2",
-          TotalSignedAmount: 12000,
-          rId: "fadsh23atht54",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "High Impact Asia",
-          TotalSignedAmount: 123000,
-          rId: "fadsh2afd43w34",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "High Impact Africa 1",
-          TotalSignedAmount: 12300,
-          rId: "fadsh2ders34",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "High Impact Africa 2",
-          TotalSignedAmount: 123000,
-          rId: "fadsh234esd3434",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 3300000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Southern and Eastern Africa",
-          TotalSignedAmount: 123000,
-          rId: "fadsh2agrdeg34",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Eastern Europe and Central Asia",
-          TotalSignedAmount: 12300,
-          rId: "fadsh2waefg34",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Latin America and Caribbean",
-          TotalSignedAmount: 12300,
-          rId: "fadsh23afgd4",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Central Africa",
-          TotalSignedAmount: 123000,
-          rId: "fadsh2asdva34",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Western Africa",
-          TotalSignedAmount: 123000,
-          rId: "fadsh23r4",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 330000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "South East Africa",
-          TotalSignedAmount: 123000,
-          rId: "fadshh234",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-        {
-          rName: "Middle East and North Africa",
-          TotalSignedAmount: 123000,
-          rId: "fasddsh234",
-          rPercentage: 34,
-          rTotalDisbursedAmount: 33000,
-          rDisPercentage: 14,
-        },
-      ],
+      diseases:[],
+      regions: [],
     };
-  },
-
-  methods: {
-    fetchComponentsData: async () => {
-      try {
-        await GlobalFundApi()
-        .get("/Components")
-        .then((response) => {
-          if (response.status === 200) {
-            const componentsData = response.data.value;
-            this.diseaseComponents = componentsData;
-          }
-        });
-      } catch (error) {
-        throw new Error(error)
-      }
-    },
-  },
-
-  mounted() {
-    this.fetchComponentsData();
-  },
-
-  created() {
-    function cleanNumber(amount) {
-      const cleaned = new Intl.NumberFormat("en-EN", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return cleaned;
-    }
-    Api()
-      .get("/components")
-      .then((response) => {
-        this.totalDisbAmount = cleanNumber(response.data.totalAgreement);
-        this.totalAgreementAmount = cleanNumber(response.data.totalDisbursed);
-      });
   },
 
   components: {
     countriesMap: GrantsCountry,
   },
+
+  methods: {
+    async fetchAllGrantsData () {
+      const results = await  GFAPI().get('/VGrantAgreements');
+      if (results.statusText === 'OK') {
+        const grants = results.data.value
+        this.allGrants = grants;
+        // eslint-disable-next-line no-undef
+        const groupedByDisease = grants.reduce((acc, value) => {
+          // Group initialization
+          if (!acc[value.componentName]) {
+            acc[value.componentName] = [];
+          }
+          // Grouping
+          acc[value.componentName].push(value);
+          return acc;
+        }, {});
+        this.diseaseComponents = Object.entries(groupedByDisease);
+        this.diseaseLoaded = true
+        // eslint-disable-next-line no-undef
+      }
+    }
+  },
+
+  mounted: function () {
+    this.fetchAllGrantsData();
+  },
+
+  mixins: [sumValues]
 };
 </script>
-
-<style scoped>
-/* chart style , now it workd */
-</style>

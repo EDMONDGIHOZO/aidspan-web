@@ -88,7 +88,7 @@ $aidspan-orange: #f46517;
   color: #f46618;
 }
 
-.menucontainer {
+.menu-container {
   width: 98%;
   position: absolute;
   background-color: #00aeef;
@@ -105,7 +105,7 @@ $aidspan-orange: #f46517;
   overflow-y: scroll;
 }
 
-.menucontainer::-webkit-scrollbar {
+.menu-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -117,7 +117,7 @@ $aidspan-orange: #f46517;
   justify-content: space-between;
 }
 
-.menucontainer::-webkit-scrollbar {
+.menu-container::-webkit-scrollbar {
   display: none;
 }
 
@@ -130,8 +130,7 @@ $aidspan-orange: #f46517;
 .current-issue-home {
   padding: 10px;
   width: 100%;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto auto;
   border-radius: 10px;
   text-align: center;
 }
@@ -195,20 +194,36 @@ $aidspan-orange: #f46517;
   text-align: right;
 }
 
-#disease-table table tbody tr:nth-child(even) {
-  vertical-align: left;
-}
 
 #disease-table table tbody tr {
   border: solid white 1px;
-  justify-content: center;
+  align-items: center;
   justify-items: center;
   text-align: center;
 }
 
 #disease-table .diseaseFooter {
   font-weight: bold;
+  font-family: "Arial Black", sans-serif;
   text-align: left;
+}
+
+.row-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-left: solid #bdbdbd 0.2em;
+  padding-left: 1em;
+  align-items: center;
+}
+
+.row-box p {
+  font-size: 1.1em;
+  margin-bottom: -1%;
+}
+
+.percentage-chip {
+  min-width: 5em;
 }
 
 #admin-navbar {
@@ -247,17 +262,12 @@ $aidspan-orange: #f46517;
   width: 97%;
   border-radius: 10px;
   margin-top: 30px;
-  box-shadow: 0px 4px 14px rgba(114, 114, 114, 0.164);
+  box-shadow: 0 4px 14px rgba(114, 114, 114, 0.164);
 }
 
 .home-slides {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-bottom: 60px;
-  margin-top: -30px;
+  border-radius: 0 0 10px 10px;
+  margin: -30px auto 60px;
   z-index: 1;
 }
 
@@ -271,10 +281,10 @@ $aidspan-orange: #f46517;
 }
 
 .home-slides .v-icon {
-  font: 12px;
+  font-size: 12px;
 }
 
-#tabstitle {
+#tabs-title {
   text-align: left;
 }
 
@@ -333,10 +343,10 @@ $aidspan-orange: #f46517;
   overflow: hidden;
 }
 
-.desktop-search .sbtn {
+.desktop-search .search-button {
   background-color: #ffffff;
 }
 
-.mobile-search .filterby {
+.mobile-search .filter-by {
   display: none;
 }
