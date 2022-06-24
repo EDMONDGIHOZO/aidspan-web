@@ -52,7 +52,7 @@
           <v-btn depressed text rounded>Methodologies</v-btn>
         </v-list-item>
         <v-list-item @click="Vcountry">
-          <v-btn depressed text rounded>Grants By Country</v-btn>
+          <v-btn depressed text rounded>Grants Portfolio</v-btn>
         </v-list-item>
       </v-list>
     </v-menu>

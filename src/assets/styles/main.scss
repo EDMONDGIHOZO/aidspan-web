@@ -183,6 +183,18 @@ $aidspan-orange: #f46517;
   font-weight: bold;
   font-size: 20px;
 }
+.intro-title {
+  font-size: 2em;
+  color: #5e5e5e;
+}
+
+.intro-box {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  position: relative;
+  padding:2em;
+
+}
 
 /** customizing the disease table **/
 
@@ -350,3 +362,6 @@ $aidspan-orange: #f46517;
 .mobile-search .filter-by {
   display: none;
 }
+
+
+
