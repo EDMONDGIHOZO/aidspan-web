@@ -11,10 +11,7 @@
     "Country or Area": "Algeria",
     "M49 Code": 12,
     "ISO-alpha2 Code": "DZ",
-    "iso_alpha3_code": "DZA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "DZA"
   },
   {
     "global_code": 1,
@@ -28,10 +25,7 @@
     "Country or Area": "Egypt",
     "M49 Code": 818,
     "ISO-alpha2 Code": "EG",
-    "iso_alpha3_code": "EGY",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "EGY"
   },
   {
     "global_code": 1,
@@ -45,10 +39,7 @@
     "Country or Area": "Libya",
     "M49 Code": 434,
     "ISO-alpha2 Code": "LY",
-    "iso_alpha3_code": "LBY",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LBY"
   },
   {
     "global_code": 1,
@@ -62,10 +53,7 @@
     "Country or Area": "Morocco",
     "M49 Code": 504,
     "ISO-alpha2 Code": "MA",
-    "iso_alpha3_code": "MAR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MAR"
   },
   {
     "global_code": 1,
@@ -96,10 +84,7 @@
     "Country or Area": "Tunisia",
     "M49 Code": 788,
     "ISO-alpha2 Code": "TN",
-    "iso_alpha3_code": "TUN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "TUN"
   },
   {
     "global_code": 1,
@@ -113,10 +98,7 @@
     "Country or Area": "Western Sahara",
     "M49 Code": 732,
     "ISO-alpha2 Code": "EH",
-    "iso_alpha3_code": "ESH",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ESH"
   },
   {
     "global_code": 1,
@@ -130,10 +112,7 @@
     "Country or Area": "British Indian Ocean Territory",
     "M49 Code": 86,
     "ISO-alpha2 Code": "IO",
-    "iso_alpha3_code": "IOT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IOT"
   },
   {
     "global_code": 1,
@@ -232,10 +211,7 @@
     "Country or Area": "French Southern Territories",
     "M49 Code": 260,
     "ISO-alpha2 Code": "TF",
-    "iso_alpha3_code": "ATF",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ATF"
   },
   {
     "global_code": 1,
@@ -249,10 +225,7 @@
     "Country or Area": "Kenya",
     "M49 Code": 404,
     "ISO-alpha2 Code": "KE",
-    "iso_alpha3_code": "KEN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "KEN"
   },
   {
     "global_code": 1,
@@ -317,10 +290,7 @@
     "Country or Area": "Mayotte",
     "M49 Code": 175,
     "ISO-alpha2 Code": "YT",
-    "iso_alpha3_code": "MYT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MYT"
   },
   {
     "global_code": 1,
@@ -351,10 +321,7 @@
     "Country or Area": "Réunion",
     "M49 Code": 638,
     "ISO-alpha2 Code": "RE",
-    "iso_alpha3_code": "REU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "REU"
   },
   {
     "global_code": 1,
@@ -521,10 +488,7 @@
     "Country or Area": "Cameroon",
     "M49 Code": 120,
     "ISO-alpha2 Code": "CM",
-    "iso_alpha3_code": "CMR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CMR"
   },
   {
     "global_code": 1,
@@ -572,10 +536,7 @@
     "Country or Area": "Congo",
     "M49 Code": 178,
     "ISO-alpha2 Code": "CG",
-    "iso_alpha3_code": "COG",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "COG"
   },
   {
     "global_code": 1,
@@ -606,10 +567,7 @@
     "Country or Area": "Equatorial Guinea",
     "M49 Code": 226,
     "ISO-alpha2 Code": "GQ",
-    "iso_alpha3_code": "GNQ",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GNQ"
   },
   {
     "global_code": 1,
@@ -623,10 +581,7 @@
     "Country or Area": "Gabon",
     "M49 Code": 266,
     "ISO-alpha2 Code": "GA",
-    "iso_alpha3_code": "GAB",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GAB"
   },
   {
     "global_code": 1,
@@ -708,10 +663,7 @@
     "Country or Area": "Namibia",
     "M49 Code": 516,
     "ISO-alpha2 Code": "NA",
-    "iso_alpha3_code": "NAM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NAM"
   },
   {
     "global_code": 1,
@@ -725,10 +677,7 @@
     "Country or Area": "South Africa",
     "M49 Code": 710,
     "ISO-alpha2 Code": "ZA",
-    "iso_alpha3_code": "ZAF",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ZAF"
   },
   {
     "global_code": 1,
@@ -793,10 +742,7 @@
     "Country or Area": "Côte d’Ivoire",
     "M49 Code": 384,
     "ISO-alpha2 Code": "CI",
-    "iso_alpha3_code": "CIV",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CIV"
   },
   {
     "global_code": 1,
@@ -827,10 +773,7 @@
     "Country or Area": "Ghana",
     "M49 Code": 288,
     "ISO-alpha2 Code": "GH",
-    "iso_alpha3_code": "GHA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GHA"
   },
   {
     "global_code": 1,
@@ -946,10 +889,7 @@
     "Country or Area": "Nigeria",
     "M49 Code": 566,
     "ISO-alpha2 Code": "NG",
-    "iso_alpha3_code": "NGA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NGA"
   },
   {
     "global_code": 1,
@@ -963,10 +903,7 @@
     "Country or Area": "Saint Helena",
     "M49 Code": 654,
     "ISO-alpha2 Code": "SH",
-    "iso_alpha3_code": "SHN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SHN"
   },
   {
     "global_code": 1,
@@ -1150,10 +1087,7 @@
     "Country or Area": "Cayman Islands",
     "M49 Code": 136,
     "ISO-alpha2 Code": "KY",
-    "iso_alpha3_code": "CYM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CYM"
   },
   {
     "global_code": 1,
@@ -1252,10 +1186,7 @@
     "Country or Area": "Guadeloupe",
     "M49 Code": 312,
     "ISO-alpha2 Code": "GP",
-    "iso_alpha3_code": "GLP",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GLP"
   },
   {
     "global_code": 1,
@@ -1303,10 +1234,7 @@
     "Country or Area": "Martinique",
     "M49 Code": 474,
     "ISO-alpha2 Code": "MQ",
-    "iso_alpha3_code": "MTQ",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MTQ"
   },
   {
     "global_code": 1,
@@ -1354,10 +1282,7 @@
     "Country or Area": "Saint Barthélemy",
     "M49 Code": 652,
     "ISO-alpha2 Code": "BL",
-    "iso_alpha3_code": "BLM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BLM"
   },
   {
     "global_code": 1,
@@ -1405,10 +1330,7 @@
     "Country or Area": "Saint Martin (French Part)",
     "M49 Code": 663,
     "ISO-alpha2 Code": "MF",
-    "iso_alpha3_code": "MAF",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MAF"
   },
   {
     "global_code": 1,
@@ -1473,10 +1395,7 @@
     "Country or Area": "Turks and Caicos Islands",
     "M49 Code": 796,
     "ISO-alpha2 Code": "TC",
-    "iso_alpha3_code": "TCA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "TCA"
   },
   {
     "global_code": 1,
@@ -1524,10 +1443,7 @@
     "Country or Area": "Costa Rica",
     "M49 Code": 188,
     "ISO-alpha2 Code": "CR",
-    "iso_alpha3_code": "CRI",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CRI"
   },
   {
     "global_code": 1,
@@ -1541,10 +1457,7 @@
     "Country or Area": "El Salvador",
     "M49 Code": 222,
     "ISO-alpha2 Code": "SV",
-    "iso_alpha3_code": "SLV",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SLV"
   },
   {
     "global_code": 1,
@@ -1558,10 +1471,7 @@
     "Country or Area": "Guatemala",
     "M49 Code": 320,
     "ISO-alpha2 Code": "GT",
-    "iso_alpha3_code": "GTM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GTM"
   },
   {
     "global_code": 1,
@@ -1575,10 +1485,7 @@
     "Country or Area": "Honduras",
     "M49 Code": 340,
     "ISO-alpha2 Code": "HN",
-    "iso_alpha3_code": "HND",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "HND"
   },
   {
     "global_code": 1,
@@ -1592,10 +1499,7 @@
     "Country or Area": "Mexico",
     "M49 Code": 484,
     "ISO-alpha2 Code": "MX",
-    "iso_alpha3_code": "MEX",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MEX"
   },
   {
     "global_code": 1,
@@ -1609,10 +1513,7 @@
     "Country or Area": "Nicaragua",
     "M49 Code": 558,
     "ISO-alpha2 Code": "NI",
-    "iso_alpha3_code": "NIC",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NIC"
   },
   {
     "global_code": 1,
@@ -1626,10 +1527,7 @@
     "Country or Area": "Panama",
     "M49 Code": 591,
     "ISO-alpha2 Code": "PA",
-    "iso_alpha3_code": "PAN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PAN"
   },
   {
     "global_code": 1,
@@ -1643,10 +1541,7 @@
     "Country or Area": "Argentina",
     "M49 Code": 32,
     "ISO-alpha2 Code": "AR",
-    "iso_alpha3_code": "ARG",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ARG"
   },
   {
     "global_code": 1,
@@ -1677,10 +1572,7 @@
     "Country or Area": "Bouvet Island",
     "M49 Code": 74,
     "ISO-alpha2 Code": "BV",
-    "iso_alpha3_code": "BVT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BVT"
   },
   {
     "global_code": 1,
@@ -1694,10 +1586,7 @@
     "Country or Area": "Brazil",
     "M49 Code": 76,
     "ISO-alpha2 Code": "BR",
-    "iso_alpha3_code": "BRA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BRA"
   },
   {
     "global_code": 1,
@@ -1711,10 +1600,7 @@
     "Country or Area": "Chile",
     "M49 Code": 152,
     "ISO-alpha2 Code": "CL",
-    "iso_alpha3_code": "CHL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CHL"
   },
   {
     "global_code": 1,
@@ -1728,10 +1614,7 @@
     "Country or Area": "Colombia",
     "M49 Code": 170,
     "ISO-alpha2 Code": "CO",
-    "iso_alpha3_code": "COL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "COL"
   },
   {
     "global_code": 1,
@@ -1745,10 +1628,7 @@
     "Country or Area": "Ecuador",
     "M49 Code": 218,
     "ISO-alpha2 Code": "EC",
-    "iso_alpha3_code": "ECU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ECU"
   },
   {
     "global_code": 1,
@@ -1762,10 +1642,7 @@
     "Country or Area": "Falkland Islands (Malvinas)",
     "M49 Code": 238,
     "ISO-alpha2 Code": "FK",
-    "iso_alpha3_code": "FLK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "FLK"
   },
   {
     "global_code": 1,
@@ -1779,10 +1656,7 @@
     "Country or Area": "French Guiana",
     "M49 Code": 254,
     "ISO-alpha2 Code": "GF",
-    "iso_alpha3_code": "GUF",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GUF"
   },
   {
     "global_code": 1,
@@ -1830,10 +1704,7 @@
     "Country or Area": "Peru",
     "M49 Code": 604,
     "ISO-alpha2 Code": "PE",
-    "iso_alpha3_code": "PER",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PER"
   },
   {
     "global_code": 1,
@@ -1847,10 +1718,7 @@
     "Country or Area": "South Georgia and the South Sandwich Islands",
     "M49 Code": 239,
     "ISO-alpha2 Code": "GS",
-    "iso_alpha3_code": "SGS",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SGS"
   },
   {
     "global_code": 1,
@@ -1881,10 +1749,7 @@
     "Country or Area": "Uruguay",
     "M49 Code": 858,
     "ISO-alpha2 Code": "UY",
-    "iso_alpha3_code": "URY",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "URY"
   },
   {
     "global_code": 1,
@@ -1898,10 +1763,7 @@
     "Country or Area": "Venezuela (Bolivarian Republic of)",
     "M49 Code": 862,
     "ISO-alpha2 Code": "VE",
-    "iso_alpha3_code": "VEN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "VEN"
   },
   {
     "global_code": 1,
@@ -1915,10 +1777,7 @@
     "Country or Area": "Bermuda",
     "M49 Code": 60,
     "ISO-alpha2 Code": "BM",
-    "iso_alpha3_code": "BMU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BMU"
   },
   {
     "global_code": 1,
@@ -1932,10 +1791,7 @@
     "Country or Area": "Canada",
     "M49 Code": 124,
     "ISO-alpha2 Code": "CA",
-    "iso_alpha3_code": "CAN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CAN"
   },
   {
     "global_code": 1,
@@ -1949,10 +1805,7 @@
     "Country or Area": "Greenland",
     "M49 Code": 304,
     "ISO-alpha2 Code": "GL",
-    "iso_alpha3_code": "GRL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GRL"
   },
   {
     "global_code": 1,
@@ -1966,10 +1819,7 @@
     "Country or Area": "Saint Pierre and Miquelon",
     "M49 Code": 666,
     "ISO-alpha2 Code": "PM",
-    "iso_alpha3_code": "SPM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SPM"
   },
   {
     "global_code": 1,
@@ -1983,10 +1833,7 @@
     "Country or Area": "United States of America",
     "M49 Code": 840,
     "ISO-alpha2 Code": "US",
-    "iso_alpha3_code": "USA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "USA"
   },
   {
     "global_code": 1,
@@ -2000,10 +1847,7 @@
     "Country or Area": "Antarctica",
     "M49 Code": 10,
     "ISO-alpha2 Code": "AQ",
-    "iso_alpha3_code": "ATA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ATA"
   },
   {
     "global_code": 1,
@@ -2102,10 +1946,7 @@
     "Country or Area": "China",
     "M49 Code": 156,
     "ISO-alpha2 Code": "CN",
-    "iso_alpha3_code": "CHN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CHN"
   },
   {
     "global_code": 1,
@@ -2119,10 +1960,7 @@
     "Country or Area": "China, Hong Kong Special Administrative Region",
     "M49 Code": 344,
     "ISO-alpha2 Code": "HK",
-    "iso_alpha3_code": "HKG",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "HKG"
   },
   {
     "global_code": 1,
@@ -2136,10 +1974,7 @@
     "Country or Area": "China, Macao Special Administrative Region",
     "M49 Code": 446,
     "ISO-alpha2 Code": "MO",
-    "iso_alpha3_code": "MAC",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MAC"
   },
   {
     "global_code": 1,
@@ -2153,10 +1988,7 @@
     "Country or Area": "Democratic People's Republic of Korea",
     "M49 Code": 408,
     "ISO-alpha2 Code": "KP",
-    "iso_alpha3_code": "PRK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PRK"
   },
   {
     "global_code": 1,
@@ -2170,10 +2002,7 @@
     "Country or Area": "Japan",
     "M49 Code": 392,
     "ISO-alpha2 Code": "JP",
-    "iso_alpha3_code": "JPN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "JPN"
   },
   {
     "global_code": 1,
@@ -2204,10 +2033,7 @@
     "Country or Area": "Republic of Korea",
     "M49 Code": 410,
     "ISO-alpha2 Code": "KR",
-    "iso_alpha3_code": "KOR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "KOR"
   },
   {
     "global_code": 1,
@@ -2221,10 +2047,7 @@
     "Country or Area": "Brunei Darussalam",
     "M49 Code": 96,
     "ISO-alpha2 Code": "BN",
-    "iso_alpha3_code": "BRN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BRN"
   },
   {
     "global_code": 1,
@@ -2252,13 +2075,27 @@
     "Sub_region_name": "South-eastern Asia",
     "Intermediate Region Code": null,
     "Intermediate Region Name": "",
+    "Country or Area": "KOSOVO",
+    "M49 Code": 1142,
+    "ISO-alpha2 Code": "XK",
+    "iso_alpha3_code": "QNA",
+    "Least Developed Countries (LDC)": "x",
+    "Land Locked Developing Countries (LLDC)": "",
+    "Small Island Developing States (SIDS)": ""
+  },
+  {
+    "global_code": 1,
+    "Global Name": "World",
+    "Region Code": 142,
+    "Region Name": "Asia",
+    "Sub-region Code": 35,
+    "Sub_region_name": "South-eastern Asia",
+    "Intermediate Region Code": null,
+    "Intermediate Region Name": "",
     "Country or Area": "Indonesia",
     "M49 Code": 360,
     "ISO-alpha2 Code": "ID",
-    "iso_alpha3_code": "IDN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IDN"
   },
   {
     "global_code": 1,
@@ -2289,10 +2126,7 @@
     "Country or Area": "Malaysia",
     "M49 Code": 458,
     "ISO-alpha2 Code": "MY",
-    "iso_alpha3_code": "MYS",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MYS"
   },
   {
     "global_code": 1,
@@ -2323,10 +2157,7 @@
     "Country or Area": "Philippines",
     "M49 Code": 608,
     "ISO-alpha2 Code": "PH",
-    "iso_alpha3_code": "PHL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PHL"
   },
   {
     "global_code": 1,
@@ -2357,10 +2188,7 @@
     "Country or Area": "Thailand",
     "M49 Code": 764,
     "ISO-alpha2 Code": "TH",
-    "iso_alpha3_code": "THA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "THA"
   },
   {
     "global_code": 1,
@@ -2391,10 +2219,7 @@
     "Country or Area": "Viet Nam",
     "M49 Code": 704,
     "ISO-alpha2 Code": "VN",
-    "iso_alpha3_code": "VNM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "VNM"
   },
   {
     "global_code": 1,
@@ -2459,10 +2284,7 @@
     "Country or Area": "India",
     "M49 Code": 356,
     "ISO-alpha2 Code": "IN",
-    "iso_alpha3_code": "IND",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IND"
   },
   {
     "global_code": 1,
@@ -2476,10 +2298,7 @@
     "Country or Area": "Iran (Islamic Republic of)",
     "M49 Code": 364,
     "ISO-alpha2 Code": "IR",
-    "iso_alpha3_code": "IRN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IRN"
   },
   {
     "global_code": 1,
@@ -2527,10 +2346,7 @@
     "Country or Area": "Pakistan",
     "M49 Code": 586,
     "ISO-alpha2 Code": "PK",
-    "iso_alpha3_code": "PAK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PAK"
   },
   {
     "global_code": 1,
@@ -2544,10 +2360,7 @@
     "Country or Area": "Sri Lanka",
     "M49 Code": 144,
     "ISO-alpha2 Code": "LK",
-    "iso_alpha3_code": "LKA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LKA"
   },
   {
     "global_code": 1,
@@ -2595,10 +2408,7 @@
     "Country or Area": "Bahrain",
     "M49 Code": 48,
     "ISO-alpha2 Code": "BH",
-    "iso_alpha3_code": "BHR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BHR"
   },
   {
     "global_code": 1,
@@ -2612,10 +2422,7 @@
     "Country or Area": "Cyprus",
     "M49 Code": 196,
     "ISO-alpha2 Code": "CY",
-    "iso_alpha3_code": "CYP",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CYP"
   },
   {
     "global_code": 1,
@@ -2629,10 +2436,7 @@
     "Country or Area": "Georgia",
     "M49 Code": 268,
     "ISO-alpha2 Code": "GE",
-    "iso_alpha3_code": "GEO",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GEO"
   },
   {
     "global_code": 1,
@@ -2646,10 +2450,7 @@
     "Country or Area": "Iraq",
     "M49 Code": 368,
     "ISO-alpha2 Code": "IQ",
-    "iso_alpha3_code": "IRQ",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IRQ"
   },
   {
     "global_code": 1,
@@ -2663,10 +2464,7 @@
     "Country or Area": "Israel",
     "M49 Code": 376,
     "ISO-alpha2 Code": "IL",
-    "iso_alpha3_code": "ISR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ISR"
   },
   {
     "global_code": 1,
@@ -2680,10 +2478,7 @@
     "Country or Area": "Jordan",
     "M49 Code": 400,
     "ISO-alpha2 Code": "JO",
-    "iso_alpha3_code": "JOR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "JOR"
   },
   {
     "global_code": 1,
@@ -2697,10 +2492,7 @@
     "Country or Area": "Kuwait",
     "M49 Code": 414,
     "ISO-alpha2 Code": "KW",
-    "iso_alpha3_code": "KWT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "KWT"
   },
   {
     "global_code": 1,
@@ -2714,10 +2506,7 @@
     "Country or Area": "Lebanon",
     "M49 Code": 422,
     "ISO-alpha2 Code": "LB",
-    "iso_alpha3_code": "LBN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LBN"
   },
   {
     "global_code": 1,
@@ -2731,10 +2520,7 @@
     "Country or Area": "Oman",
     "M49 Code": 512,
     "ISO-alpha2 Code": "OM",
-    "iso_alpha3_code": "OMN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "OMN"
   },
   {
     "global_code": 1,
@@ -2748,10 +2534,7 @@
     "Country or Area": "Qatar",
     "M49 Code": 634,
     "ISO-alpha2 Code": "QA",
-    "iso_alpha3_code": "QAT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "QAT"
   },
   {
     "global_code": 1,
@@ -2765,10 +2548,7 @@
     "Country or Area": "Saudi Arabia",
     "M49 Code": 682,
     "ISO-alpha2 Code": "SA",
-    "iso_alpha3_code": "SAU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SAU"
   },
   {
     "global_code": 1,
@@ -2782,10 +2562,7 @@
     "Country or Area": "State of Palestine",
     "M49 Code": 275,
     "ISO-alpha2 Code": "PS",
-    "iso_alpha3_code": "PSE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PSE"
   },
   {
     "global_code": 1,
@@ -2799,10 +2576,7 @@
     "Country or Area": "Syrian Arab Republic",
     "M49 Code": 760,
     "ISO-alpha2 Code": "SY",
-    "iso_alpha3_code": "SYR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SYR"
   },
   {
     "global_code": 1,
@@ -2816,10 +2590,7 @@
     "Country or Area": "Türkiye",
     "M49 Code": 792,
     "ISO-alpha2 Code": "TR",
-    "iso_alpha3_code": "TUR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "TUR"
   },
   {
     "global_code": 1,
@@ -2833,10 +2604,7 @@
     "Country or Area": "United Arab Emirates",
     "M49 Code": 784,
     "ISO-alpha2 Code": "AE",
-    "iso_alpha3_code": "ARE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ARE"
   },
   {
     "global_code": 1,
@@ -2867,10 +2635,7 @@
     "Country or Area": "Belarus",
     "M49 Code": 112,
     "ISO-alpha2 Code": "BY",
-    "iso_alpha3_code": "BLR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BLR"
   },
   {
     "global_code": 1,
@@ -2884,10 +2649,7 @@
     "Country or Area": "Bulgaria",
     "M49 Code": 100,
     "ISO-alpha2 Code": "BG",
-    "iso_alpha3_code": "BGR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BGR"
   },
   {
     "global_code": 1,
@@ -2901,10 +2663,7 @@
     "Country or Area": "Czechia",
     "M49 Code": 203,
     "ISO-alpha2 Code": "CZ",
-    "iso_alpha3_code": "CZE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CZE"
   },
   {
     "global_code": 1,
@@ -2918,10 +2677,7 @@
     "Country or Area": "Hungary",
     "M49 Code": 348,
     "ISO-alpha2 Code": "HU",
-    "iso_alpha3_code": "HUN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "HUN"
   },
   {
     "global_code": 1,
@@ -2935,10 +2691,7 @@
     "Country or Area": "Poland",
     "M49 Code": 616,
     "ISO-alpha2 Code": "PL",
-    "iso_alpha3_code": "POL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "POL"
   },
   {
     "global_code": 1,
@@ -2969,10 +2722,7 @@
     "Country or Area": "Romania",
     "M49 Code": 642,
     "ISO-alpha2 Code": "RO",
-    "iso_alpha3_code": "ROU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ROU"
   },
   {
     "global_code": 1,
@@ -2986,10 +2736,7 @@
     "Country or Area": "Russian Federation",
     "M49 Code": 643,
     "ISO-alpha2 Code": "RU",
-    "iso_alpha3_code": "RUS",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "RUS"
   },
   {
     "global_code": 1,
@@ -3003,10 +2750,7 @@
     "Country or Area": "Slovakia",
     "M49 Code": 703,
     "ISO-alpha2 Code": "SK",
-    "iso_alpha3_code": "SVK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SVK"
   },
   {
     "global_code": 1,
@@ -3020,10 +2764,7 @@
     "Country or Area": "Ukraine",
     "M49 Code": 804,
     "ISO-alpha2 Code": "UA",
-    "iso_alpha3_code": "UKR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "UKR"
   },
   {
     "global_code": 1,
@@ -3037,10 +2778,7 @@
     "Country or Area": "Åland Islands",
     "M49 Code": 248,
     "ISO-alpha2 Code": "AX",
-    "iso_alpha3_code": "ALA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ALA"
   },
   {
     "global_code": 1,
@@ -3054,10 +2792,7 @@
     "Country or Area": "Guernsey",
     "M49 Code": 831,
     "ISO-alpha2 Code": "GG",
-    "iso_alpha3_code": "GGY",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GGY"
   },
   {
     "global_code": 1,
@@ -3071,10 +2806,7 @@
     "Country or Area": "Jersey",
     "M49 Code": 832,
     "ISO-alpha2 Code": "JE",
-    "iso_alpha3_code": "JEY",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "JEY"
   },
   {
     "global_code": 1,
@@ -3088,10 +2820,7 @@
     "Country or Area": "Sark",
     "M49 Code": 680,
     "ISO-alpha2 Code": "",
-    "iso_alpha3_code": "",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": ""
   },
   {
     "global_code": 1,
@@ -3105,10 +2834,7 @@
     "Country or Area": "Denmark",
     "M49 Code": 208,
     "ISO-alpha2 Code": "DK",
-    "iso_alpha3_code": "DNK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "DNK"
   },
   {
     "global_code": 1,
@@ -3122,10 +2848,7 @@
     "Country or Area": "Estonia",
     "M49 Code": 233,
     "ISO-alpha2 Code": "EE",
-    "iso_alpha3_code": "EST",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "EST"
   },
   {
     "global_code": 1,
@@ -3139,10 +2862,7 @@
     "Country or Area": "Faroe Islands",
     "M49 Code": 234,
     "ISO-alpha2 Code": "FO",
-    "iso_alpha3_code": "FRO",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "FRO"
   },
   {
     "global_code": 1,
@@ -3156,10 +2876,7 @@
     "Country or Area": "Finland",
     "M49 Code": 246,
     "ISO-alpha2 Code": "FI",
-    "iso_alpha3_code": "FIN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "FIN"
   },
   {
     "global_code": 1,
@@ -3173,10 +2890,7 @@
     "Country or Area": "Iceland",
     "M49 Code": 352,
     "ISO-alpha2 Code": "IS",
-    "iso_alpha3_code": "ISL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ISL"
   },
   {
     "global_code": 1,
@@ -3190,10 +2904,7 @@
     "Country or Area": "Ireland",
     "M49 Code": 372,
     "ISO-alpha2 Code": "IE",
-    "iso_alpha3_code": "IRL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IRL"
   },
   {
     "global_code": 1,
@@ -3207,10 +2918,7 @@
     "Country or Area": "Isle of Man",
     "M49 Code": 833,
     "ISO-alpha2 Code": "IM",
-    "iso_alpha3_code": "IMN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "IMN"
   },
   {
     "global_code": 1,
@@ -3224,10 +2932,7 @@
     "Country or Area": "Latvia",
     "M49 Code": 428,
     "ISO-alpha2 Code": "LV",
-    "iso_alpha3_code": "LVA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LVA"
   },
   {
     "global_code": 1,
@@ -3241,10 +2946,7 @@
     "Country or Area": "Lithuania",
     "M49 Code": 440,
     "ISO-alpha2 Code": "LT",
-    "iso_alpha3_code": "LTU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LTU"
   },
   {
     "global_code": 1,
@@ -3258,10 +2960,7 @@
     "Country or Area": "Norway",
     "M49 Code": 578,
     "ISO-alpha2 Code": "NO",
-    "iso_alpha3_code": "NOR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NOR"
   },
   {
     "global_code": 1,
@@ -3275,10 +2974,7 @@
     "Country or Area": "Svalbard and Jan Mayen Islands",
     "M49 Code": 744,
     "ISO-alpha2 Code": "SJ",
-    "iso_alpha3_code": "SJM",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SJM"
   },
   {
     "global_code": 1,
@@ -3292,10 +2988,7 @@
     "Country or Area": "Sweden",
     "M49 Code": 752,
     "ISO-alpha2 Code": "SE",
-    "iso_alpha3_code": "SWE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SWE"
   },
   {
     "global_code": 1,
@@ -3309,10 +3002,7 @@
     "Country or Area": "United Kingdom of Great Britain and Northern Ireland",
     "M49 Code": 826,
     "ISO-alpha2 Code": "GB",
-    "iso_alpha3_code": "GBR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GBR"
   },
   {
     "global_code": 1,
@@ -3326,10 +3016,7 @@
     "Country or Area": "Albania",
     "M49 Code": 8,
     "ISO-alpha2 Code": "AL",
-    "iso_alpha3_code": "ALB",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ALB"
   },
   {
     "global_code": 1,
@@ -3343,10 +3030,7 @@
     "Country or Area": "Andorra",
     "M49 Code": 20,
     "ISO-alpha2 Code": "AD",
-    "iso_alpha3_code": "AND",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "AND"
   },
   {
     "global_code": 1,
@@ -3360,10 +3044,7 @@
     "Country or Area": "Bosnia and Herzegovina",
     "M49 Code": 70,
     "ISO-alpha2 Code": "BA",
-    "iso_alpha3_code": "BIH",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BIH"
   },
   {
     "global_code": 1,
@@ -3377,10 +3058,7 @@
     "Country or Area": "Croatia",
     "M49 Code": 191,
     "ISO-alpha2 Code": "HR",
-    "iso_alpha3_code": "HRV",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "HRV"
   },
   {
     "global_code": 1,
@@ -3394,10 +3072,7 @@
     "Country or Area": "Gibraltar",
     "M49 Code": 292,
     "ISO-alpha2 Code": "GI",
-    "iso_alpha3_code": "GIB",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GIB"
   },
   {
     "global_code": 1,
@@ -3411,10 +3086,7 @@
     "Country or Area": "Greece",
     "M49 Code": 300,
     "ISO-alpha2 Code": "GR",
-    "iso_alpha3_code": "GRC",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "GRC"
   },
   {
     "global_code": 1,
@@ -3428,10 +3100,7 @@
     "Country or Area": "Holy See",
     "M49 Code": 336,
     "ISO-alpha2 Code": "VA",
-    "iso_alpha3_code": "VAT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "VAT"
   },
   {
     "global_code": 1,
@@ -3445,10 +3114,7 @@
     "Country or Area": "Italy",
     "M49 Code": 380,
     "ISO-alpha2 Code": "IT",
-    "iso_alpha3_code": "ITA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ITA"
   },
   {
     "global_code": 1,
@@ -3462,10 +3128,7 @@
     "Country or Area": "Malta",
     "M49 Code": 470,
     "ISO-alpha2 Code": "MT",
-    "iso_alpha3_code": "MLT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MLT"
   },
   {
     "global_code": 1,
@@ -3479,10 +3142,7 @@
     "Country or Area": "Montenegro",
     "M49 Code": 499,
     "ISO-alpha2 Code": "ME",
-    "iso_alpha3_code": "MNE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MNE"
   },
   {
     "global_code": 1,
@@ -3513,10 +3173,7 @@
     "Country or Area": "Portugal",
     "M49 Code": 620,
     "ISO-alpha2 Code": "PT",
-    "iso_alpha3_code": "PRT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PRT"
   },
   {
     "global_code": 1,
@@ -3530,10 +3187,7 @@
     "Country or Area": "San Marino",
     "M49 Code": 674,
     "ISO-alpha2 Code": "SM",
-    "iso_alpha3_code": "SMR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SMR"
   },
   {
     "global_code": 1,
@@ -3547,10 +3201,7 @@
     "Country or Area": "Serbia",
     "M49 Code": 688,
     "ISO-alpha2 Code": "RS",
-    "iso_alpha3_code": "SRB",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SRB"
   },
   {
     "global_code": 1,
@@ -3564,10 +3215,7 @@
     "Country or Area": "Slovenia",
     "M49 Code": 705,
     "ISO-alpha2 Code": "SI",
-    "iso_alpha3_code": "SVN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "SVN"
   },
   {
     "global_code": 1,
@@ -3581,10 +3229,7 @@
     "Country or Area": "Spain",
     "M49 Code": 724,
     "ISO-alpha2 Code": "ES",
-    "iso_alpha3_code": "ESP",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "ESP"
   },
   {
     "global_code": 1,
@@ -3598,10 +3243,7 @@
     "Country or Area": "Austria",
     "M49 Code": 40,
     "ISO-alpha2 Code": "AT",
-    "iso_alpha3_code": "AUT",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "AUT"
   },
   {
     "global_code": 1,
@@ -3615,10 +3257,7 @@
     "Country or Area": "Belgium",
     "M49 Code": 56,
     "ISO-alpha2 Code": "BE",
-    "iso_alpha3_code": "BEL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "BEL"
   },
   {
     "global_code": 1,
@@ -3632,10 +3271,7 @@
     "Country or Area": "France",
     "M49 Code": 250,
     "ISO-alpha2 Code": "FR",
-    "iso_alpha3_code": "FRA",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "FRA"
   },
   {
     "global_code": 1,
@@ -3649,10 +3285,7 @@
     "Country or Area": "Germany",
     "M49 Code": 276,
     "ISO-alpha2 Code": "DE",
-    "iso_alpha3_code": "DEU",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "DEU"
   },
   {
     "global_code": 1,
@@ -3666,10 +3299,7 @@
     "Country or Area": "Liechtenstein",
     "M49 Code": 438,
     "ISO-alpha2 Code": "LI",
-    "iso_alpha3_code": "LIE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LIE"
   },
   {
     "global_code": 1,
@@ -3683,10 +3313,7 @@
     "Country or Area": "Luxembourg",
     "M49 Code": 442,
     "ISO-alpha2 Code": "LU",
-    "iso_alpha3_code": "LUX",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "LUX"
   },
   {
     "global_code": 1,
@@ -3700,10 +3327,7 @@
     "Country or Area": "Monaco",
     "M49 Code": 492,
     "ISO-alpha2 Code": "MC",
-    "iso_alpha3_code": "MCO",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "MCO"
   },
   {
     "global_code": 1,
@@ -3717,10 +3341,7 @@
     "Country or Area": "Netherlands",
     "M49 Code": 528,
     "ISO-alpha2 Code": "NL",
-    "iso_alpha3_code": "NLD",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NLD"
   },
   {
     "global_code": 1,
@@ -3734,10 +3355,7 @@
     "Country or Area": "Switzerland",
     "M49 Code": 756,
     "ISO-alpha2 Code": "CH",
-    "iso_alpha3_code": "CHE",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CHE"
   },
   {
     "global_code": 1,
@@ -3751,10 +3369,7 @@
     "Country or Area": "Australia",
     "M49 Code": 36,
     "ISO-alpha2 Code": "AU",
-    "iso_alpha3_code": "AUS",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "AUS"
   },
   {
     "global_code": 1,
@@ -3768,10 +3383,7 @@
     "Country or Area": "Christmas Island",
     "M49 Code": 162,
     "ISO-alpha2 Code": "CX",
-    "iso_alpha3_code": "CXR",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CXR"
   },
   {
     "global_code": 1,
@@ -3785,10 +3397,7 @@
     "Country or Area": "Cocos (Keeling) Islands",
     "M49 Code": 166,
     "ISO-alpha2 Code": "CC",
-    "iso_alpha3_code": "CCK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "CCK"
   },
   {
     "global_code": 1,
@@ -3802,10 +3411,7 @@
     "Country or Area": "Heard Island and McDonald Islands",
     "M49 Code": 334,
     "ISO-alpha2 Code": "HM",
-    "iso_alpha3_code": "HMD",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "HMD"
   },
   {
     "global_code": 1,
@@ -3819,10 +3425,7 @@
     "Country or Area": "New Zealand",
     "M49 Code": 554,
     "ISO-alpha2 Code": "NZ",
-    "iso_alpha3_code": "NZL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NZL"
   },
   {
     "global_code": 1,
@@ -3836,10 +3439,7 @@
     "Country or Area": "Norfolk Island",
     "M49 Code": 574,
     "ISO-alpha2 Code": "NF",
-    "iso_alpha3_code": "NFK",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "NFK"
   },
   {
     "global_code": 1,
@@ -4057,10 +3657,7 @@
     "Country or Area": "United States Minor Outlying Islands",
     "M49 Code": 581,
     "ISO-alpha2 Code": "UM",
-    "iso_alpha3_code": "UMI",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "UMI"
   },
   {
     "global_code": 1,
@@ -4142,10 +3739,7 @@
     "Country or Area": "Pitcairn",
     "M49 Code": 612,
     "ISO-alpha2 Code": "PN",
-    "iso_alpha3_code": "PCN",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "PCN"
   },
   {
     "global_code": 1,
@@ -4176,10 +3770,7 @@
     "Country or Area": "Tokelau",
     "M49 Code": 772,
     "ISO-alpha2 Code": "TK",
-    "iso_alpha3_code": "TKL",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "TKL"
   },
   {
     "global_code": 1,
@@ -4227,9 +3818,6 @@
     "Country or Area": "Wallis and Futuna Islands",
     "M49 Code": 876,
     "ISO-alpha2 Code": "WF",
-    "iso_alpha3_code": "WLF",
-    "Least Developed Countries (LDC)": "",
-    "Land Locked Developing Countries (LLDC)": "",
-    "Small Island Developing States (SIDS)": ""
+    "iso_alpha3_code": "WLF"
   }
 ]

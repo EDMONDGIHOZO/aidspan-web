@@ -206,6 +206,23 @@ $aidspan-orange: #f46517;
   text-align: right;
 }
 
+.grants-summary {
+  background-color:#f46517;
+  padding: 2em;
+  margin: 2em auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.grants-summary h1 {
+  font-family: "Arial Black";
+  color: white;
+}
+
 
 #disease-table table tbody tr {
   border: solid white 1px;
