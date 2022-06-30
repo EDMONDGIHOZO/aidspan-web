@@ -215,7 +215,7 @@ const routes = [
           },
           {
             path: "article-tags/:tid",
-            name: "articletags",
+            name: "articleTags",
             props: true,
             params: true,
             component: () =>
@@ -336,6 +336,21 @@ const routes = [
               ),
             meta: {
               title: "Subscribe to newsletter",
+            },
+          },
+          {
+            path: "country/:countryName",
+            name: "countryGrants",
+            props: true,
+            params: true,
+            component: () =>
+                import(
+                    /* webpackChunkName: "single-country" */
+                    "../views/client/pages/single-country"
+                    ),
+            meta: {
+              title: "country grants",
+              countIt: true,
             },
           },
         ],

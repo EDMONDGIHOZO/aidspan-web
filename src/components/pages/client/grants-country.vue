@@ -1,82 +1,99 @@
 <template>
-  <v-row>
-    <v-col cols="9">
-      <v-card height="180" max-width="330" class="dynamicLegend elevation-17">
-        <v-card-title>
-          Dynamic Legend
-        </v-card-title>
-      </v-card>
-    </v-col>
+  <v-container>
+    <section>
+      <v-data-iterator :items="countryData"
+                       :items-per-page="perPage"
+                       :search="search"
 
-    <v-col cols="3">
-      <v-card id="legendContainer" flat>
-        <v-card-title>
-          <p class="blue--text font-weight-black">LEGENDS</p>
-        </v-card-title>
-        <v-card-text>
-          <v-list>
-            <v-list-item v-for="legend in legends" :key="legend.rating">
-              <v-chip
-                class="ma-2"
-                :color="legend.color"
-                label
-                text-color="white"
-              >
-                <v-avatar left>
-                  <span class="white--text font-weight-black">
-                    {{ legend.rating }}
-                  </span>
-                </v-avatar>
-                {{ legend.title }}
-              </v-chip>
-            </v-list-item>
-          </v-list>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+      >
+        <template v-slot:default="{items}">
+          <v-row>
+            <v-col cols="12">
+              <v-text-field
+                  v-model="search"
+                  clearable
+                  flat
+                  solo-inverted
+                  hide-details
+                  prepend-inner-icon="mdi-magnify"
+                  label="Search"
+              ></v-text-field>
+            </v-col>
+            <v-col v-for="item in items" :key="item[0]" cols="12" md="6">
+              <v-card outlined class="clickable-card" @click="viewCountry(item[0])">
+                <v-card-title>
+                  <h4>{{ item[0] }}</h4>
+                  <v-spacer></v-spacer>
+                  <v-avatar>
+                    <v-img :src="showFlag(item[0])" :alt="item[0]"/>
+                  </v-avatar>
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-list dense>
+                  <v-list-item>
+                    <v-list-item-content>Signed:</v-list-item-content>
+                    <v-spacer></v-spacer>
+                    <v-list-item-content class="bold-number">{{
+                        sumValues(item[1], "totalSignedAmount")
+                      }}
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-spacer></v-spacer>
+                  <v-list-item>
+                    <v-list-item-content>Disbursed:</v-list-item-content>
+                    <v-spacer></v-spacer>
+                    <v-list-item-content class="bold-number">{{
+                        sumValues(item[1], "totalDisbursedAmount")
+                      }}
+                    </v-list-item-content>
+                  </v-list-item>
+                  <v-spacer></v-spacer>
+                  <v-list-item>
+                    <v-list-item-content>Committed:</v-list-item-content>
+                    <v-spacer></v-spacer>
+                    <v-list-item-content class="bold-number">{{
+                        sumValues(item[1], "totalCommittedAmount")
+                      }}
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-col>
+          </v-row>
+        </template>
+      </v-data-iterator>
+    </section>
+  </v-container>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-///end of importing ----///
+
+import sumValues from "@/mixins/grants-utils";
+import showFlag from '@/mixins/grants-utils'
 
 export default {
+  props: ['countryData'],
+  name: 'GrantsCountry',
   data() {
     return {
-      ratingGroups: [
-        { groupName: "Exceeds expectations", color: "#2F0459" },
-        { groupName: "Good performance", color: "#5C12A6" },
-        { groupName: "Meets expectations", color: "#7F25D9" },
-        { groupName: "Adequate", color: "#F2E205" },
-        { groupName: "Inadequate but potential", color: "#D98E04" },
-        { groupName: "C Unacceptable", color: "#F9DB49" },
-      ],
-      legends: [
-        { title: "Exceeds Expectations", color: "#FC5E02", rating: "A1" },
-        { title: "Good performance", color: "#FA9E03", rating: "A" },
-        { title: "Adequate", color: "#FDDB6D", rating: "B1" },
-        {
-          title: "Inadequate but potential demonstrated",
-          color: "#195ECA",
-          rating: "B2",
-        },
-        { title: "Unacceptable", color: "#1CBFD8", rating: "C" },
-        { title: "Not available", color: "#1D7ED4", rating: "N/A" },
-      ],
-      defaultColor: "#1D7ED4",
-    };
-  },
-  computed: {
-    ...mapState([
-      'Countries'
-    ])
-  },
-
-  beforeDestroy() {
-    if (this.map) {
-      this.map.dispose();
+      rows: [],
+      perPage: 12,
+      search: '',
+      keys: [
+          "geographicAreaName",
+      ]
     }
   },
-};
+
+  methods: {
+    viewCountry(country_name) {
+      return this.$router.push({
+        name: "countryGrants",
+        params: {countryName: country_name},
+      });
+    },
+  },
+  mixins: [sumValues, showFlag],
+}
+
 </script>

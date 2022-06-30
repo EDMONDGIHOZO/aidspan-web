@@ -66,7 +66,7 @@ export default {
   methods: {
     viewtag(tid) {
       this.$router.push({
-        name: "articletags",
+        name: "articleTags",
         params: { tid: tid },
       });
     },

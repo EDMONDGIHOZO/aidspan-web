@@ -16,7 +16,7 @@ $aidspan-orange: #f46517;
 .web-intro-container {
   display: flex;
   justify-content: space-between;
-  background-color: #33AEE4;
+  background-color: #33aee4;
   background-image: url("~@/assets/images/common/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +30,16 @@ $aidspan-orange: #f46517;
   flex-direction: column;
   align-items: flex-start;
 }
+.clickable-card {
+  transition: all 0.2s ease-in-out;
+}
 
+.clickable-card:hover {
+  background-color: #f46517;
+  color: white;
+  cursor: pointer;
+  transform: scale(1.04);
+}
 .title-bar-intro {
   display: flex;
   justify-content: center;
@@ -48,10 +57,10 @@ $aidspan-orange: #f46517;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  .web-intro-text-overflow{
+  .web-intro-text-overflow {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: #fdfeff92;  
+    background-color: #fdfeff92;
   }
   .warning {
     display: none;
@@ -75,8 +84,8 @@ $aidspan-orange: #f46517;
   font-size: 4rem;
   font-weight: bold;
   line-height: 6rem;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  color: #33AEE4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #33aee4;
   text-align: center;
 }
 
@@ -86,6 +95,19 @@ $aidspan-orange: #f46517;
   font-family: sans-serif;
   text-align: center;
   color: #f46618;
+}
+
+.grants-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #0e81b6;
+  padding: 1em;
+  border-radius: 10px;
+  color: white;
+  strong {
+    font-family: "Arial Black";
+    font-size: 0.8em;
+  }
 }
 
 .menu-container {
@@ -186,14 +208,31 @@ $aidspan-orange: #f46517;
 .intro-title {
   font-size: 2em;
   color: #5e5e5e;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.filter-section {
+  border-bottom: #00a5e4 solid 1px;
+}
+.grantsTable {
+  background: red;
+  .tbody {
+    background-color: green;
+  }
+}
+
+.bold-number {
+  font-weight: bold;
+  font-family: "Arial Black";
+  text-align: right;
 }
 
 .intro-box {
   border-radius: 10px;
   background-color: #f5f5f5;
   position: relative;
-  padding:2em;
-
+  padding: 2em;
 }
 
 /** customizing the disease table **/
@@ -207,7 +246,7 @@ $aidspan-orange: #f46517;
 }
 
 .grants-summary {
-  background-color:#f46517;
+  background-color: #f46517;
   padding: 2em;
   margin: 2em auto;
   border-radius: 10px;
@@ -218,11 +257,14 @@ $aidspan-orange: #f46517;
   flex-wrap: wrap;
 }
 
+.map-section {
+  margin-top: 2em;
+}
+
 .grants-summary h1 {
   font-family: "Arial Black";
   color: white;
 }
-
 
 #disease-table table tbody tr {
   border: solid white 1px;
@@ -380,5 +422,8 @@ $aidspan-orange: #f46517;
   display: none;
 }
 
-
-
+.verticalTable {
+  .rowTitle {
+    font-weight: bold;
+  }
+}

@@ -50,7 +50,7 @@
             <!-- start the social sharing icons -->
             <v-col cols="7" md="4" class="text-right">
               <social-sharing
-                :url="currentlink"
+                :url="currentLink"
                 :title="article.title"
                 :description="shareable"
                 :quote="shareable"
@@ -148,7 +148,7 @@
                     class="mr-2 ml-3"
                     small
                     color="primary"
-                    v-if="!hidebutton"
+                    v-if="!hideButton"
                   >
                     <v-icon color="primary">mdi-thumb-up-outline</v-icon>
                   </v-btn>
@@ -188,7 +188,7 @@
                         v-for="tag in article.Tags"
                         :key="tag.tid"
                         color="primary"
-                        @click="viewtag(tag.tid)"
+                        @click="viewTag(tag.tid)"
                       >
                         {{ tag.name }}
                       </v-chip>
@@ -298,7 +298,7 @@
           right
           rounded
           depressed
-          @click.stop="issueview = !issueview"
+          @click.stop="issueView = !issueView"
         >
           <v-icon left color="white">mdi-chevron-left</v-icon>
           <strong>Show Issue</strong>
@@ -317,9 +317,9 @@
               right
               bottom
               width="400"
-              v-model="issueview"
+              v-model="issueView"
               app
-              class="navyside"
+              class="navy-side"
             >
               <v-list dense nav class="py-0" flat>
                 <v-list-item>
@@ -333,7 +333,7 @@
                       class="visibility-button"
                       depressed
                       rounded
-                      @click.stop="issueview = !issueview"
+                      @click.stop="issueView = !issueView"
                     >
                       Hide Issue
                       <v-icon color="white">mdi-chevron-right</v-icon>
@@ -468,7 +468,7 @@ export default {
     return {
       //issue navigation
       issue_articles: [],
-      issueview: false,
+      issueView: false,
       hidden: false,
       loading: true,
       article: [],
@@ -492,7 +492,7 @@ export default {
       shareable: "",
       article_issue: [],
       /** end of article data */
-      hidebutton: false,
+      hideButton: false,
       likes: 0,
       dislikes: 0,
       errors: [],
@@ -504,7 +504,7 @@ export default {
       defaultForm,
       // id: this.$route.params, this will come from the url
       show: false,
-      currentlink: "",
+      currentLink: "",
       user_inf: {},
       views: 0,
     };
@@ -518,12 +518,12 @@ export default {
     formIsValid() {
       return this.commentBody;
     },
-    fontAdjust: function () {
-      return {
-        increase: this.bigger,
-        decrease: this.normal,
-      };
-    },
+    // fontAdjust: function () {
+    //   return {
+    //     increase: this.bigger,
+    //     decrease: this.normal,
+    //   };
+    // },
   },
 
   metaInfo() {
@@ -579,7 +579,7 @@ export default {
           document.title = response.data.article.title;
         }
 
-        this.currentlink = window.location.href;
+        this.currentLink = window.location.href;
         ////end of
         if (response.data.likes !== null) {
           this.likes = response.data.article.likes.likes;
@@ -593,29 +593,12 @@ export default {
   },
 
   methods: {
-    // async userInformation() {
-    //   await Axios.get(
-    //     `https://api.ipregistry.co/?key=${urls.ipregistrykey}`
-    //   ).then((res) => {
-    //     const data = {
-    //       ip: res.data.ip,
-    //       page_title: this.article.title,
-    //       country: res.data.location.country.name,
-    //       city: res.data.location.country.capital,
-    //       node_id: this.article_id,
-    //     };
-
-    //     // send info to the server
-    //     this.$store.dispatch("webvisit", data);
-    //   });
-    // },
-
     resetForm() {
       this.form = Object.assign({}, this.defaultForm);
       this.$refs.form.reset();
     },
-    viewtag(tagid) {
-      return this.$router.push({ name: "articletags", params: { tid: tagid } });
+    viewTag(tagId) {
+      return this.$router.push({ name: "articleTags", params: { tid: tagId } });
     },
     submit() {
       this.snackbar = true;
@@ -641,7 +624,7 @@ export default {
       const formdata = {
         article_nid: this.article_id,
       };
-      this.hidebutton = true;
+      this.hideButton = true;
       this.likes += 1;
       Api().post("article-like", formdata);
       localStorage.setItem("liked", true);
@@ -650,7 +633,7 @@ export default {
       const formdata = {
         article_nid: this.article_id,
       };
-      this.hidebutton = true;
+      this.hideButton = true;
       this.dislikes += 1;
       Api().post("article-dislike", formdata);
     },
@@ -663,7 +646,7 @@ export default {
     "social-sharing": socialSharing,
   },
   beforeDestroy() {
-    this.issueview = false;
+    this.issueView = false;
   },
 };
 </script>

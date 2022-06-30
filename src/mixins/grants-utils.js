@@ -1,9 +1,13 @@
 import _ from "lodash";
+import flagsData from "../assets/dummies/flags.json";
 
 export default {
   methods: {
     formatNumbers: function(number) {
-      return number.toLocaleString("en-US");
+      return number.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
     },
     sumValues: function(data, sumKey) {
       if (data && data.length) {
@@ -11,8 +15,11 @@ export default {
         return this.formatNumbers(summed);
       }
     },
+    amountParser: function(amount) {
+      return parseInt(amount.replace('$', '').replaceAll(',', ''));
+    },
     percentageFinder: function(partialValue, totalValue) {
-      const percentage = (100 * parseInt(partialValue)) / parseInt(totalValue);
+      const percentage = (100 * this.amountParser(partialValue)) / this.amountParser(totalValue);
       return percentage.toFixed(0);
     },
     mergeArrays: function(firstArray, secondArray, firstKey, secondKey) {
@@ -38,6 +45,14 @@ export default {
       }, {});
 
       return Object.entries(groupedData);
+    },
+    showFlag: function(countryName) {
+      const country = _.find(flagsData, { name: countryName });
+      if (country) {
+        return country.image;
+      } else {
+        return "";
+      }
     },
   },
 };
