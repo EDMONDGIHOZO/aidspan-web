@@ -344,10 +344,10 @@ const routes = [
             props: true,
             params: true,
             component: () =>
-                import(
-                    /* webpackChunkName: "single-country" */
-                    "../views/client/pages/single-country"
-                    ),
+              import(
+                /* webpackChunkName: "single-country" */
+                "../views/client/pages/single-country"
+              ),
             meta: {
               title: "country grants",
               countIt: true,
@@ -530,12 +530,8 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  scrollBehavior: function(to) {
-    if (to.hash) {
-      return {
-        selector: to.hash,
-      };
-    }
+  scrollBehavior() {
+    document.getElementById("app").scrollIntoView({ behavior: "smooth" });
   },
 });
 

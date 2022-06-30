@@ -288,6 +288,14 @@ $aidspan-orange: #f46517;
   align-items: center;
 }
 
+.toolbarBox {
+  background-color: rgb(253, 225, 225);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
 .row-box p {
   font-size: 1.1em;
   margin-bottom: -1%;

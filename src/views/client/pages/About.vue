@@ -29,13 +29,13 @@
       <!-- end of core values-->
       <!-- start of the mission and vision -->
       <v-col cols="12" md="4" class="mission-vision">
-        <v-card flat class="miscard" shaped>
+        <v-card flat class="miscard">
           <v-card-title class="white-text font-weight-bold">{{
             $t("mission.title")
           }}</v-card-title>
           <v-card-text>{{ $t("mission.short") }}</v-card-text>
         </v-card>
-        <v-card flat class="miscard" shaped>
+        <v-card flat class="miscard">
           <v-card-title class="white-text font-weight-bold">{{
             $t("vision.title")
           }}</v-card-title>
@@ -46,7 +46,7 @@
     <!-- end of the visino and mission -->
     <!-- start policy analysis --->
     <!-- start the history timeline  -->
-    <v-row id="history">
+    <v-row id="history" class="my-5">
       <v-col cols="12" md="12" lg="12">
         <v-card flat color="secondary">
           <v-card-title class="font-weight-black">{{

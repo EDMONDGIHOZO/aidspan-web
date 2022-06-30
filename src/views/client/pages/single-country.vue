@@ -102,13 +102,13 @@
           item-key="grantAgreementId"
           class="elevation-1 grantsTable"
           :search="searchCountryGrants"
-          items-per-page="5"
+          :items-per-page="perPage"
+          :dark="darkMode"
         >
-          <template v-slot:[`top`]>
+          <template v-slot:top>
             <v-toolbar flat>
               <v-toolbar-title>GRANTS</v-toolbar-title>
               <v-divider class="mx-4" inset vertical></v-divider>
-              <v-spacer></v-spacer>
               <v-text-field
                 v-model="searchCountryGrants"
                 clearable
@@ -117,7 +117,10 @@
                 dense
                 prepend-inner-icon="mdi-magnify"
                 label="Search for grant title , agreement number or disease"
+                class="mt-6"
               ></v-text-field>
+              <v-spacer></v-spacer>
+              <v-switch v-model="darkMode" class="mt-6" label="Dark Mode"></v-switch>
             </v-toolbar>
           </template>
           <template v-slot:[`item.performanceRatingCode`]="{ item }">
@@ -160,7 +163,7 @@
             >
           </template>
         </v-data-table>
-        <v-dialog v-model="dialog" max-width="700">
+        <v-dialog v-model="dialog" max-width="700" :dark="darkMode">
           <v-card>
             <v-card-title>
               <span class="text-h5">{{
@@ -422,7 +425,7 @@
         </v-dialog>
       </section>
       <section>
-        <v-card class="mx-auto my-12 text--white" outlined dark>
+        <v-card class="mx-auto my-12 text--white" outlined :dark="darkMode">
           <v-card-title>Ratings Description:</v-card-title>
           <v-divider class="mx-4"></v-divider>
           <v-card-text>
@@ -465,6 +468,8 @@ export default {
     viewItem: {},
     selectedCountry: "",
     searchCountryGrants: "",
+    perPage: 10,
+    darkMode: false,
     headers: [
       { text: "Agreement Number", value: "grantAgreementNumber" },
       { text: "Disease", value: "componentName" },
@@ -583,6 +588,7 @@ export default {
       this.viewItem = {};
     },
     viewAllGrants() {
+      this.perPage = 30;
       this.selectedCountry = "World";
     },
   },
