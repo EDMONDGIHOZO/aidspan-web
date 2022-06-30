@@ -62,7 +62,7 @@
                 :alt="this.countryName"
               />
             </v-avatar>
-            <h3>{{ this.countryName }}</h3>
+            <h5>{{ this.countryName }}</h5>
           </div>
         </v-col>
         <v-col cols="12" md="8">
