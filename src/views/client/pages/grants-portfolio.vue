@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 <template>
   <v-container>
     <div class="intro-title my-4">
@@ -36,118 +37,123 @@
           <v-simple-table fixed-header id="disease-table" dark>
             <template v-slot:default>
               <thead>
-              <tr>
-                <th colspan="3" class="text-center">
-                  <h4 class="text-uppercase text--white">
-                    Grants by Regions
-                  </h4>
-                </th>
-              </tr>
-              <tr>
-                <th class="text-left">Region</th>
-                <th class="text-center">Total agreement amount</th>
-                <th class="text-right">Total disbursed to date</th>
-              </tr>
+                <tr>
+                  <th colspan="3" class="text-center">
+                    <h4 class="text-uppercase text--white">
+                      Grants by Regions
+                    </h4>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="text-left">Region</th>
+                  <th class="text-center">Total agreement amount</th>
+                  <th class="text-right">Total disbursed to date</th>
+                </tr>
               </thead>
               <tbody>
-              <tr v-for="(region, index) in grantsByRegion" :key="index">
-                <td class="text-left">{{ region[0] }}</td>
-                <td>
-                  <div class="row-box">
-                    <p>
-                      {{ sumValues(region[1], "totalCommittedAmount") }}
-                    </p>
-                    <v-chip
+                <tr v-for="(region, index) in grantsByRegion" :key="index">
+                  <td class="text-left">{{ region[0] }}</td>
+                  <td>
+                    <div class="row-box">
+                      <p>
+                        {{ sumValues(region[1], "totalCommittedAmount") }}
+                      </p>
+                      <v-chip
                         class="percentage-chip align-left"
                         color="success"
                         outlined
-                    >
-                      {{
-                        percentageFinder(
+                      >
+                        {{
+                          percentageFinder(
                             sumValues(region[1], "totalCommittedAmount"),
                             sumValues(region[1], "totalSignedAmount")
-                        )
-                      }}
-                      <v-icon right small>mdi-percent</v-icon>
-                    </v-chip>
-                  </div>
-                </td>
-                <td class="text-right">
-                  <div class="row-box">
-                    <p>
-                      $ {{ sumValues(region[1], "totalDisbursedAmount") }}
-                    </p>
-                    <v-chip class="percentage-chip" color="primary" outlined>
-                      {{
-                        percentageFinder(
+                          )
+                        }}
+                        <v-icon right small>mdi-percent</v-icon>
+                      </v-chip>
+                    </div>
+                  </td>
+                  <td class="text-right">
+                    <div class="row-box">
+                      <p>
+                        $ {{ sumValues(region[1], "totalDisbursedAmount") }}
+                      </p>
+                      <v-chip class="percentage-chip" color="primary" outlined>
+                        {{
+                          percentageFinder(
                             sumValues(region[1], "totalDisbursedAmount"),
                             sumValues(region[1], "totalSignedAmount")
-                        )
-                      }}
-                      <v-icon right small>mdi-percent</v-icon>
-                    </v-chip>
-                  </div>
-                </td>
-              </tr>
+                          )
+                        }}
+                        <v-icon right small>mdi-percent</v-icon>
+                      </v-chip>
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </template>
           </v-simple-table>
-          <v-simple-table fixed-header id="disease-table" dark class="mt-6 rounded">
+          <v-simple-table
+            fixed-header
+            id="disease-table"
+            dark
+            class="mt-6 rounded"
+          >
             <template v-slot:default>
               <thead>
-              <tr>
-                <th colspan="3" class="text-center">
-                  <h4 class="text-uppercase text--white">
-                    Grants by Diseases
-                  </h4>
-                </th>
-              </tr>
-              <tr>
-                <th class="text-left">Disease</th>
-                <th class="text-center">Total agreement amount</th>
-                <th class="text-right">Total disbursed to date</th>
-              </tr>
+                <tr>
+                  <th colspan="3" class="text-center">
+                    <h4 class="text-uppercase text--white">
+                      Grants by Diseases
+                    </h4>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="text-left">Disease</th>
+                  <th class="text-center">Total agreement amount</th>
+                  <th class="text-right">Total disbursed to date</th>
+                </tr>
               </thead>
               <tbody>
-              <tr v-for="(disease, index) in diseaseComponents" :key="index">
-                <td class="text-left">{{ disease[0] }}</td>
-                <td>
-                  <div class="row-box">
-                    <p>
-                      $ {{ sumValues(disease[1], "totalCommittedAmount") }}
-                    </p>
-                    <v-chip
+                <tr v-for="(disease, index) in diseaseComponents" :key="index">
+                  <td class="text-left">{{ disease[0] }}</td>
+                  <td>
+                    <div class="row-box">
+                      <p>
+                        $ {{ sumValues(disease[1], "totalCommittedAmount") }}
+                      </p>
+                      <v-chip
                         class="percentage-chip align-left"
                         color="success"
                         outlined
-                    >
-                      {{
-                        percentageFinder(
+                      >
+                        {{
+                          percentageFinder(
                             sumValues(disease[1], "totalCommittedAmount"),
                             sumValues(disease[1], "totalSignedAmount")
-                        )
-                      }}
-                      <v-icon right small>mdi-percent</v-icon>
-                    </v-chip>
-                  </div>
-                </td>
-                <td class="text-right">
-                  <div class="row-box">
-                    <p>
-                      $ {{ sumValues(disease[1], "totalDisbursedAmount") }}
-                    </p>
-                    <v-chip class="percentage-chip" color="primary" outlined>
-                      {{
-                        percentageFinder(
+                          )
+                        }}
+                        <v-icon right small>mdi-percent</v-icon>
+                      </v-chip>
+                    </div>
+                  </td>
+                  <td class="text-right">
+                    <div class="row-box">
+                      <p>
+                        $ {{ sumValues(disease[1], "totalDisbursedAmount") }}
+                      </p>
+                      <v-chip class="percentage-chip" color="primary" outlined>
+                        {{
+                          percentageFinder(
                             sumValues(disease[1], "totalDisbursedAmount"),
                             sumValues(disease[1], "totalSignedAmount")
-                        )
-                      }}
-                      <v-icon right small>mdi-percent</v-icon>
-                    </v-chip>
-                  </div>
-                </td>
-              </tr>
+                          )
+                        }}
+                        <v-icon right small>mdi-percent</v-icon>
+                      </v-chip>
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </template>
           </v-simple-table>
@@ -156,12 +162,12 @@
               Grants by Country
             </h4>
             <div>
-              <GrantsCountry :country-data=grantsByCountry />
+              <GrantsCountry :country-data="grantsByCountry" />
             </div>
           </div>
         </div>
         <div v-else class="shadow">
-          <v-skeleton-loader class="mx-auto" type="table"/>
+          <v-skeleton-loader class="mx-auto" type="table" />
         </div>
       </v-col>
     </v-row>
@@ -201,13 +207,13 @@ export default {
       this.diseaseComponents = this.groupObjects(data, "componentName");
       // merge data
       const onlyCountries = data.filter(
-          (c) => c.geographicAreaCode_ISO2 !== null
+        (c) => c.geographicAreaCode_ISO2 !== null
       );
       const merged = this.mergeArrays(
-          onlyCountries,
-          worldData,
-          "geographicAreaCode_ISO3",
-          "iso_alpha3_code"
+        onlyCountries,
+        worldData,
+        "geographicAreaCode_ISO3",
+        "iso_alpha3_code"
       );
       // grouping
       this.grantsByRegion = this.groupObjects(merged, "Sub_region_name");
@@ -217,18 +223,24 @@ export default {
     },
     async fetchAllGrantsData() {
       try {
-        await GFAPI().get("/VGrantAgreements").then((response) => {
-          if (response.status === 200) {
-            this.manageFetchedData(response.data.value)
-          }
-        });
+        await GFAPI()
+          .get("/VGrantAgreements")
+          .then((response) => {
+            if (response.status === 200) {
+              // eslint-disable-next-line no-undef
+              const sorted = _.sortBy(response.data.value , function (item) {
+                return item.geographicAreaName
+              })
+              this.manageFetchedData(sorted);
+            }
+          });
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
     },
   },
 
-  mounted: function () {
+  mounted: function() {
     this.fetchAllGrantsData();
   },
 

@@ -16,10 +16,11 @@ export default {
       }
     },
     amountParser: function(amount) {
-      return parseInt(amount.replace('$', '').replaceAll(',', ''));
+      return parseInt(amount.replace("$", "").replaceAll(",", ""));
     },
     percentageFinder: function(partialValue, totalValue) {
-      const percentage = (100 * this.amountParser(partialValue)) / this.amountParser(totalValue);
+      const percentage =
+        (100 * this.amountParser(partialValue)) / this.amountParser(totalValue);
       return percentage.toFixed(0);
     },
     mergeArrays: function(firstArray, secondArray, firstKey, secondKey) {
@@ -43,8 +44,11 @@ export default {
         acc[value[groupingkey]].push(value);
         return acc;
       }, {});
-
-      return Object.entries(groupedData);
+      const arranged = Object.entries(groupedData);
+      const sorted = _.sortBy(arranged, (e) => {
+        return e.geographicAreaName;
+      });
+      return sorted;
     },
     showFlag: function(countryName) {
       const country = _.find(flagsData, { name: countryName });
