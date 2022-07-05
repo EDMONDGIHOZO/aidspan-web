@@ -4,52 +4,26 @@
     <div v-if="loaded">
       <section class="filter-section">
         <v-row class="pa-2">
-          <v-col cols="12" md="4">
-            <v-select
-              :items="countries"
-              item-text="geographicAreaName"
-              item-value="geographicAreaName"
-              v-model="selectedCountry"
-              label="select country"
-              hint="*Hint: Type a country name or to see all countries grants, select 'World'"
-              persistent-hint
-              outlined
-              dense
-            ></v-select>
-          </v-col>
-          <!--          <v-col cols="12" md="2">-->
-          <!--            <v-select-->
-          <!--                :items="ratings"-->
-          <!--                item-value="performanceRatingCode"-->
-          <!--                item-text="performanceRatingCode"-->
-          <!--                label="Grant Rating"-->
-          <!--                outlined-->
-          <!--                dense-->
-          <!--            ></v-select>-->
-          <!--          </v-col>-->
-
-          <!--          <v-col cols="12" md="2">-->
-          <!--            <v-select-->
-          <!--                :items="diseases"-->
-          <!--                item-text="componentName"-->
-          <!--                item-value="componentId"-->
-          <!--                label="Disease"-->
-          <!--                outlined-->
-          <!--                dense-->
-          <!--            ></v-select>-->
-          <!--          </v-col>-->
-          <!--          <v-col cols="12" md="2">-->
-          <!--            <v-select-->
-          <!--                :items="statuses"-->
-          <!--                item-text="programStatusTypeName"-->
-          <!--                item-value="programStatusTypeName"-->
-          <!--                label="Status"-->
-          <!--                outlined-->
-          <!--                dense-->
-          <!--            ></v-select>-->
-          <!--          </v-col>-->
-          <v-col cols="12" md="2">
-            <v-btn color="primary" @click="updateCountry">Update</v-btn>
+          <v-col cols="12" md="7">
+            <v-toolbar dark color="secondary" flat rounded>
+              <v-toolbar-title>Country selection</v-toolbar-title>
+              <v-autocomplete
+                v-model="selectedCountry"
+                :loading="loading"
+                :items="items"
+                item-text="geographicAreaName"
+                item-value="geographicAreaName"
+                :search-input.sync="search"
+                cache-items
+                class="mx-4"
+                flat
+                hide-no-data
+                hide-details
+                label="What country do you need to see?"
+                solo-inverted
+              ></v-autocomplete>
+              <v-btn color="primary" large @click="updateCountry">Update</v-btn>
+            </v-toolbar>
           </v-col>
         </v-row>
       </section>
@@ -120,7 +94,11 @@
                 class="mt-6"
               ></v-text-field>
               <v-spacer></v-spacer>
-              <v-switch v-model="darkMode" class="mt-6" label="Dark Mode"></v-switch>
+              <v-switch
+                v-model="darkMode"
+                class="mt-6"
+                label="Dark Mode"
+              ></v-switch>
             </v-toolbar>
           </template>
           <template v-slot:[`item.performanceRatingCode`]="{ item }">
@@ -470,6 +448,10 @@ export default {
     searchCountryGrants: "",
     perPage: 10,
     darkMode: false,
+    loading: false,
+    items: [],
+    search: null,
+    select: null,
     headers: [
       { text: "Agreement Number", value: "grantAgreementNumber" },
       { text: "Disease", value: "componentName" },
@@ -483,6 +465,14 @@ export default {
       { text: "", value: "actions", sortable: false },
     ],
   }),
+
+  watch: {
+    search(val) {
+      val &&
+        val !== this.selectedCountry &&
+        this.querySelections(val.geographicAreaName);
+    },
+  },
 
   methods: {
     getColor(rating) {
@@ -590,6 +580,20 @@ export default {
     viewAllGrants() {
       this.perPage = 30;
       this.selectedCountry = "World";
+    },
+    querySelections(v) {
+      this.loading = true;
+      // Simulated ajax query
+      setTimeout(() => {
+        this.items = this.countries.filter((e) => {
+          return (
+            (e.geographicAreaName || "")
+              .toLowerCase()
+              .indexOf((v || "").toLowerCase()) > -1
+          );
+        });
+        this.loading = false;
+      }, 500);
     },
   },
 

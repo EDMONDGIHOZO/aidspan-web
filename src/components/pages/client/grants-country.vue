@@ -19,7 +19,7 @@
                 label="Search"
               ></v-text-field>
             </v-col>
-            <v-col v-for="item in items" :key="item[0]" cols="12" md="4" lg="3">
+            <v-col v-for="item in items" :key="item[0]" cols="12" md="4">
               <v-card
                 outlined
                 class="clickable-card"
