@@ -18,7 +18,7 @@
         "hashids": "^2.2.8",
         "instantsearch.css": "^7.4.5",
         "lodash": "^4.17.21",
-        "moment": "^2.29.1",
+        "moment": "^2.29.4",
         "vue": "^2.6.14",
         "vue-analytics": "^5.22.1",
         "vue-gtag": "^1.11.0",
