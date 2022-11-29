@@ -126,11 +126,11 @@ export default {
     selections: [],
     newsletters: [
       {
-        title: "GFO",
+        title: "Global Fund Observer",
         event_type_id: 9,
       },
       {
-        title: "OFM",
+        title: "L'observateur du Fonds Mondial",
         event_type_id: 10,
       },
     ],

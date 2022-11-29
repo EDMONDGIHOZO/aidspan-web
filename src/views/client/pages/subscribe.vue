@@ -133,7 +133,7 @@ export default {
     loading: false,
     checkbox: false,
     snackOn: false,
-    snacktext: "email adress must be valid!",
+    snacktext: "email address must be valid!",
     message: "",
     subscriber: {
       email: "",

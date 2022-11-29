@@ -20,7 +20,7 @@
           cycle
           height="auto"
         >
-          <v-sheet class="fill-height">
+          <v-sheet class="fill-height slider_container_home">
             <v-carousel-item v-for="image in sliderImages" :key="image.id">
             <img :src="image.url" :alt="image.alt" class="slider-img" />
           </v-carousel-item>

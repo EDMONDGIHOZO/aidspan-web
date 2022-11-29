@@ -24,6 +24,7 @@
         </v-col>
         <v-col cols="12">
           <v-card flat class="mobmenu">
+            <subscribe />
             <v-card-text>
               <menu-list device="mobile" />
             </v-card-text>
@@ -38,12 +39,14 @@
 import localeSwitcher from "@/components/helpers/localeswitch.vue";
 import Search from "@/components/helpers/search.vue";
 import menuList from "@/components/layouts/client/Menu-list.vue";
+import subscribe from "@/components/helpers/subscriptionForm";
+
 export default {
   name: "Menubar",
   components: {
     "locale-switch": localeSwitcher,
     "menu-list": menuList,
-
+    subscribe,
     Search,
   },
   data() {

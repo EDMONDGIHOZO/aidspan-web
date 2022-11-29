@@ -304,7 +304,7 @@
           <strong>Show Issue</strong>
         </v-btn>
       </v-fab-transition>
-      <v-col cols="12" md="3">
+      <v-col cols="12" md="3" v-if="this.$route.name === 'article'">
         <v-row>
           <v-card
             flat
@@ -468,7 +468,7 @@ export default {
     return {
       //issue navigation
       issue_articles: [],
-      issueView: false,
+      issueView: true,
       hidden: false,
       loading: true,
       article: [],
@@ -581,15 +581,11 @@ export default {
 
         this.currentLink = window.location.href;
         ////end of
-        if (response.data.likes !== null) {
+        if (response.data.article.likes !== null) {
           this.likes = response.data.article.likes.likes;
         }
         ///-----
       })
-      .then(this.userInformation())
-      .catch((e) => {
-        this.errors.push(e);
-      });
   },
 
   methods: {
