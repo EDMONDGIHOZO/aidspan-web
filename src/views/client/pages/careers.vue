@@ -18,9 +18,9 @@
         <v-row wrap>
           <v-col cols="12" md="6" v-for="job in jobs" :key="job.nid">
             <v-card class="pa-4" outlined>
-              <v-card-title class="text-uppercase">{{
+              <h4 class="text-uppercase">{{
                 job.title
-              }}</v-card-title>
+              }}</h4>
               <v-card-text>
                 <p v-html="job.body.body_summary"></p>
               </v-card-text>
