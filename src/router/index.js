@@ -62,6 +62,17 @@ const routes = [
             meta: {
               title: "About aidspan",
             },
+          },{
+            path: "watchdog",
+            name: "watchdog",
+            component: () =>
+                import(
+                    /* webpackChunkName: "about-us" */
+                    "../views/client/pages/Watchdog.vue"
+                    ),
+            meta: {
+              title: "About aidspan",
+            },
           },
           {
             path: "strategy",

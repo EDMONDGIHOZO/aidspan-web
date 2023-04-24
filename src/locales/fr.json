@@ -33,9 +33,12 @@
     "action": "mdi-lightbulb-on",
     "route": "en/about-us"
   },
-
+  "watchdog": {
+    "title": "Observateur",
+    "action": "mdi-dog",
+    "route": "fr/watchdog"
+  },
   "close": "Fermer",
-
   "policyStrategy": {
     "title": "politique et stratégie",
     "action": "mdi-hexagon-multiple"
@@ -140,7 +143,6 @@
     "btn": "J'ai des commentaires!",
     "thanks": "Merci pour vos commentaires!"
   },
-
   "history": {
     "title": "HISTOIRE",
     "desc": "Aidspan se concentre actuellement exclusivement sur le Fonds mondial et ses pays de mise en œuvre. Depuis sa création en 2002, Aidspan a largement contribué à améliorer les connaissances et la compréhension de ce mécanisme multilatéral de financement de la santé. Les points saillants sélectionnés du travail d'Aidspan comprennent:",
@@ -207,5 +209,23 @@
       "title": "COLLABORATION",
       "body": "Aidspan valorise l'engagement des parties prenantes qui conduit à l'appropriation de la subvention et à l'amélioration des résultats. Aidspan embrasse la coopération dans ses travaux, valorisant une approche intégrée et interdisciplinaire de la recherche, de l'analyse et de la publication."
     }
-  }
+  },
+  "watchdogContent": {
+    "title": "Projet de mentorat des Observateurs",
+    "subTitle": "Un Observateur efficace",
+    "effectiveLista": "Est objectif et gère sa peur de représailles.",
+    "effectiveListb": "Pose des questions plus difficiles concernant les systèmes, les politiques ou les processus qu’ils surveillent. ",
+    "effectiveListc": "Met en évidence de manière efficace et précise les risques de gaspillage ou d’inefficacité en temps opportun.",
+    "effectiveListd": "Lutte pour réduire les obstacles à l’accès à l’information.",
+    "description": "Depuis fin 2010, le Mentoring Watchdogs Project a atteint 19 pays africains, promouvant le travail de surveillance et développant des partenariats avec des personnes et des organisations qui surveillent le Fonds mondial. Nous avons reconnu que le suivi et le reporting des flux d'aide internationale est un défi que peu d'organisations sont capables de relever seules. On ne peut vraiment que gagner à être abordé de manière distribuée et coordonnée. Même là où il y a des capacités, il y a rarement un sentiment de légitimité ou de crédibilité et peu d'appréciation de la valeur d'un tel travail de suivi. Nous cherchons à changer cela.",
+    "keySkillsTitle": "Key skills imparted during mentorship:",
+    "keySkills1": " Analyser les données au niveau des pays et les informations relatives aux subventions et aux programmes.",
+    "keySkills2": "Évaluer les risques qui menacent la réussite de la mise en œuvre des subventions",
+    "keySkills3": "Explorer des moyens efficaces d'encourager un dialogue critique sur les lacunes identifiées",
+    "keySkills4": "Examiner les systèmes de redevabilité au niveau des pays et leurs liens avec les initiatives de santé pertinentes.",
+    "keySkills5": "Stratégies sur la façon d'améliorer le travail de surveillance.",
+    "riseVoiceTitle": "Watchdog: Raise Your Voice For Accountability!",
+    "riseVoiceContent": "Le signalement des préoccupations (dénonciation) consiste à signaler d'éventuelles actions illégales ou suspectées d'être illégales et des violations de la mise en œuvre de la subvention. Les exemples de violations comprennent, mais sans s'y limiter, la fraude et la corruption, le harcèlement et la discrimination, et les violations des lois sur l'environnement et les droits de l'homme. Il n'est pas nécessaire que vous soyez en mesure de prouver l'événement ou l'acte. Cependant, pour nous permettre d'effectuer des actions de suivi adéquates, votre rapport doit inclure autant de détails que possible et, le cas échéant, des preuves à l'appui. Aidspan s'engage à maintenir la confidentialité de toutes les informations fournies par ce canal. Nous vous offrons la possibilité de signaler de manière anonyme, mais nous pouvons avoir besoin de votre contact pour obtenir de plus amples informations de votre part afin d'enquêter efficacement sur l'affaire."
+  },
+  "share": "Partager"
 }

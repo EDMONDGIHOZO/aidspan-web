@@ -1,7 +1,7 @@
 <template>
     <div class="all">
         <!-- bring the header -->
-        <main-slider />
+        <main-slider/>
         <!-- intro section -->
         <v-row row wrap id="web-intro" v-if="wwaFound">
             <v-col cols="12" md="5" sm="4" lg="4" class="aidspan">
@@ -124,9 +124,40 @@
                     </v-slide-group>
                 </v-sheet>
             </div>
+            <v-row align-content="stretch" class="endorsers mt-15 mb-16" md="px-10">
+                <v-col cols="12">
+                    <h3>What our endorsers have to say</h3>
+                    <v-divider></v-divider>
+                </v-col>
+                <v-col cols="12" md="4">
+                    <user-card
+                            name="Ade Fakoya"
+                            position="Senior Specialist HIV"
+                            quote="“When I joined the Global Fund, I avidly read back issues of the GFO to get me up to speed on what is an incredibly complex organisation. I have always found the GFO clear, honest, and saying the things that many of the staff in the Fund wish we had the space (or courage) to say.”"
+                            :image-url="require('@/assets/images/people/fakoya.jpeg')"
+                    />
+                </v-col>
+                <v-col cols="12" md="4">
+                    <user-card
+                            name="Stephen Lewis"
+                            position="Former Special Envoy for HIV/AIDS in Africa of the UN Secretary-General"
+                            quote="“Global Fund Observer is lucid, intelligent and definitive. It makes a huge contribution to everyone's understanding of the processes and realities of the Global Fund.”"
+                            :image-url="require('@/assets/images/people/2.jpeg')"
+                    />
+                </v-col>
+                <v-col cols="12" md="4">
+                    <user-card
+                            name="Rosemeire Munhoz"
+                            position="UNAIDS Country Coordinator, Burundi"
+                            quote="Congratulations for your work on watchdogging, it will help all of us to deliver good results in Global Fund implementation of proposals.”"
+                            :image-url="require('@/assets/images/people/unaids.jpeg')"
+                    />
+                </v-col>
+            </v-row>
         </v-layout>
         <!--- end donors -->
     </div>
+
 </template>
 
 <script>
@@ -137,12 +168,14 @@ import currentIssue from "@/components/helpers/currentIssue.vue";
 import Api from "@/services/Api";
 import IntroSlider from "@/components/sliders/introSlider.vue";
 import MainSlider from "@/components/sliders/main.vue";
+import UserCard from "@/components/helpers/userCard.vue";
 
 export default {
     computed: {
         ...mapState(["slides", "articles", "publications", "epidemics"]),
     },
     components: {
+        UserCard,
         MainSlider,
         IntroSlider,
         "current-issue": currentIssue,
@@ -453,6 +486,9 @@ $lightgrey: rgb(69, 69, 70);
 }
 
 @media screen and (max-width: 520px) {
+  .endorsers {
+    padding: 40px 150px;
+  }
   .all {
     padding: 0;
   }
@@ -485,5 +521,17 @@ $lightgrey: rgb(69, 69, 70);
   background-color: #f8f8fb;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.endorsers {
+  margin-top: 30px;
+  padding: 10px 30px;
+}
+
+.endorsers h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: #0eaae7;
+
 }
 </style>

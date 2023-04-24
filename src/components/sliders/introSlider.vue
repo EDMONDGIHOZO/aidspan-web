@@ -1,6 +1,6 @@
 <template>
     <v-sheet
-            color="orange"
+            color="primary"
             height="100%"
             tile
     >
@@ -39,7 +39,7 @@ export default {
 .aidspan-title {
   font-weight: bolder;
   color: #F46517;
-  font-size: 6rem;
+  font-size: 5rem;
 }
 
 .moto-container {

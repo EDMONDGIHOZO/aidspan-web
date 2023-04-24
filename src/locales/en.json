@@ -33,23 +33,24 @@
     "action": "mdi-lightbulb-on",
     "route": "en/about-us"
   },
-
+  "watchdog": {
+    "title": "Watchdog",
+    "action": "mdi-dog",
+    "route": "en/watchdog"
+  },
   "policyStrategy": {
     "title": "policy and strategy",
     "action": "mdi-hexagon-multiple"
   },
-
   "policy": {
     "title": "Policy Analysis",
     "action": "mdi-hexagon-multiple",
     "route": "en/about-us#policy",
     "data": "Aidspan conducts independent and critical analysis and investigation of Global Fund policies, strategies, processes and structures, funding mechanisms, transparency and data quality. We publish its analytical content through reports, case studies, peer-reviewed articles, and reviews. Aidspan also provides guidance to those applying for, implementing or overseeing Global Fund grants by publishing guides on diverse subjects. Aidspan relies on a small team of in-house researchers and external collaborators with expertise in health economics, epidemiology, governance, health systems strengthening, and Global Fund processes among others. We are developing collaborations with research institutions and other policy-focused organizations. Aidspan aims to provide independent analyses on the Global Fund policies that can be used by our stakeholders. They include the Global Fund (Secretariat, Office of the Inspector General (OIG) and Board, including the committees), Global Fund donors, implementers, civil society researchers, and media. All Aidspan publications are open access. We welcome suggestions for articles and research collaborations."
   },
-
   "strategy": {
     "title": "strategy"
   },
-
   "analytics": {
     "title": "Data analytics",
     "action": "mdi-google-analytics",
@@ -116,7 +117,6 @@
     "title": "Guides",
     "description": "Aidspan Guides are free downloadable publications of 50 to 150 pages providing detailed practical advice to those applying for, overseeing or implementing Global Fund grants. Guides exist on subjects from how to apply for a Global Fundgrant to how to set up a Country Coordinating Mechanism."
   },
-
   "close": "close",
   "readmore": "Read More",
   "visitapw": "visit APW",
@@ -191,7 +191,6 @@
       "body": "Aidspan developed its third strategic plan, covering the period 2016-2018."
     }
   },
-
   "core": {
     "title": "CORE VALUES",
     "timeliness": {
@@ -210,5 +209,23 @@
       "title": "ACCOUNTABILITY",
       "body": "Aidspan values stakeholder engagement which leads to ownership of the grant and improved results. Aidspan embraces cooperation in its work, valuing an integrated, interdisciplinary approach to research, analysis, and publication."
     }
-  }
+  },
+  "watchdogContent": {
+    "title": "Watchdogs’ Mentoring Project",
+    "subTitle": "An effective watchdog.",
+    "effectiveLista": "Is objective and manages their fear of reprisal.",
+    "effectiveListb": "Asks harder questions regarding the systems, policies or processes they monitor.",
+    "effectiveListc": "Efficiently and accurately highlights risks of waste or inefficiency in a timely manner.",
+    "effectiveListd": "Fights to reduce barriers to information access.",
+    "description": "Since end of 2010, the Mentoring Watchdogs Project has reached 19 African countries, promoting watchdog work and developing partnerships with people and organizations that monitor the Global Fund. We’ve recognized that tracking and reporting on international aid flows is a challenge that few organizations are able to do alone on its own. One can only truly gain from being tackled in a distributed and coordinated way. Even where there is capacity, there is rarely a sense of legitimacy or credibility and little appreciation of the value of such monitoring work. We seek to change that.",
+    "keySkillsTitle": "Key skills imparted during mentorship:",
+    "keySkills1": "Analyzing country-level data and related grant and programmatic information.",
+    "keySkills2": "Assessing risks that threaten successful grant implementation",
+    "keySkills3": "Exploring effective ways to encourage critical dialogue on identified gaps",
+    "keySkills4": "Examining country-level accountability systems at country level and their links to relevant health initiatives.",
+    "keySkills5": "Strategies about how to do better watchdog work.",
+    "riseVoiceTitle": "Watchdog: Raise Your Voice For Accountability!",
+    "riseVoiceContent": "Reporting of concerns (whistleblowing) is to report possible illegal, or suspected illegal, actions and violations of grant implementation. Examples of violations include, but are not limited to fraud and corruption, harassment and discrimination, and violations of environmental and human rights laws. There is no requirement that you should be able to prove the event or act. However, to allow us to perform adequate follow-up actions, your report should include as much detail as possible and, if available, supporting evidence.  Aidspan is committed to maintaining confidentiality of all information provided through this channel. We offer you the possibility of reporting anonymously, however we may need your contact to get further information from you in order to effectively investigate the case."
+  },
+  "share": "Share"
 }
