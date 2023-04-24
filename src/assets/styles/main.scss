@@ -1,5 +1,9 @@
 $aidspan-orange: #f46517;
 
+img {
+  border-radius: 10px;
+}
+
 .head-logo {
   width: 100px;
 }
@@ -111,7 +115,7 @@ $aidspan-orange: #f46517;
 }
 
 .menu-container {
-  width: 98%;
+  width: 100%;
   position: absolute;
   background-color: #00aeef;
   overflow: hidden;
@@ -158,7 +162,8 @@ $aidspan-orange: #f46517;
 }
 
 .slider_container_home {
-  max-height: 500px;
+  height: 500px;
+  margin: 20px 0 20px 0;
 }
 
 .slider-img {

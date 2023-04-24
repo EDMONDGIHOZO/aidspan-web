@@ -2,7 +2,6 @@
   <div :class="device">
     <!--- menubar list -->
     <v-btn
-      rounded
       class="menuBtn"
       depressed
       color="primary"
@@ -12,8 +11,7 @@
       {{ $t("home.title") }}
     </v-btn>
     <v-btn
-      rounded
-      class="menuBtn"
+      class="menuBtn mx-2"
       depressed
       color="primary"
       @click="gogfo"
@@ -22,8 +20,7 @@
       {{ $t("gfo.title") }}
     </v-btn>
     <v-btn
-      rounded
-      class="menuBtn"
+      class="menuBtn mr-2"
       depressed
       color="primary"
       @click="goabout"
@@ -35,7 +32,6 @@
     <v-menu open-on-hover bottom offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          rounded
           class="menuBtn"
           depressed
           color="primary"
@@ -60,8 +56,7 @@
     <v-menu open-on-hover bottom offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          rounded
-          class="menuBtn"
+          class="menuBtn mx-2"
           depressed
           color="primary"
           v-bind="attrs"
@@ -83,7 +78,6 @@
     </v-menu>
 
     <v-btn
-      rounded
       class="menuBtn"
       depressed
       color="primary"
@@ -157,5 +151,6 @@ export default {
   margin-bottom: 10px;
   min-width: 100%;
   text-align: left;
+  margin-left: 10px;
 }
 </style>

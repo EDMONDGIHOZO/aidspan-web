@@ -1,0 +1,53 @@
+<template>
+    <v-sheet
+            color="orange"
+            height="100%"
+            tile
+    >
+        <v-row
+                class="fill-height"
+                align="center"
+                justify="center"
+        >
+            <v-img
+                    src="@/assets/images/sliders/old-woman-asian.jpeg"
+                    cover
+                    height="600"
+            >
+                <div class="fill-height d-flex flex-column text-center justify-center">
+                    <h2 class="aidspan-title">AIDSPAN</h2>
+                    <div class="moto-container">
+                        <p>A world without epidemics of
+                            <span class="font-weight-bold text--red text-decoration-underline" style="color: #b71c1c">AIDS</span>,
+                            <span class="font-weight-bold text--red text-decoration-underline" style="color: #00AEEF"> Tuberculosis </span>,
+                            <span class="font-weight-bold text--red text-decoration-underline"> and Malaria. </span>
+                            </p>
+                    </div>
+                </div>
+            </v-img>
+        </v-row>
+    </v-sheet>
+</template>
+
+<script>
+export default {
+    name: "intro-slider"
+}
+</script>
+
+<style lang="scss" scoped>
+.aidspan-title {
+  font-weight: bolder;
+  color: #F46517;
+  font-size: 6rem;
+}
+
+.moto-container {
+    padding:0 3em;
+}
+
+.moto-container p {
+  font-size: 2rem;
+  color: white;
+}
+</style>

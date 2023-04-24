@@ -1,7 +1,7 @@
 <template>
-  <div class="menubar hidden-xs-only mb-10" id="menubar">
+  <div class="hidden-xs-only" id="menubar">
     <Header class="d-none d-sm-flex"></Header>
-    <div class="menu-container">
+    <div class="d-flex justify-space-between align-center primary py-4 px-2 rounded-t-lg">
       <!--- menubar list -->
       <menu-list device="computer" />
       <!---menu end -->
