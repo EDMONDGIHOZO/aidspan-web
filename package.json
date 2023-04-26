@@ -11,6 +11,7 @@
     "dependencies": {
         "@amcharts/amcharts4": "^4.10.20",
         "@amcharts/amcharts4-geodata": "^4.1.21",
+        "@skjnldsv/vue-plyr": "7.0.1-beta.0",
         "algoliasearch": "^4.10.2",
         "axios": "^0.19.2",
         "core-js": "^3.15.2",
@@ -19,6 +20,7 @@
         "instantsearch.css": "^7.4.5",
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
+        "plyr": "^3.7.8",
         "vue": "^2.6.14",
         "vue-analytics": "^5.22.1",
         "vue-gtag": "^1.11.0",
@@ -26,6 +28,7 @@
         "vue-instantsearch": "^2.7.1",
         "vue-light-gallery": "^1.0.1",
         "vue-meta": "^2.4.0",
+        "vue-plyr": "^7.0.0",
         "vue-router": "^3.5.2",
         "vue-social-sharing": "^2.4.7",
         "vue-tweet-embed": "^2.4.0",

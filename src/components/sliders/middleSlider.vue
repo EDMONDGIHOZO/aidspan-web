@@ -18,8 +18,7 @@
                 <div class="fill-height d-flex flex-column text-center justify-center">
                     <div class="moto-container">
                         <p>
-                            Responsible reporting, commentary and analysis on all aspects of the Global Fund ecology
-                            since 2002.
+                            {{$t('slider2Text')}}
                         </p>
                     </div>
                 </div>

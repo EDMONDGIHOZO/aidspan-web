@@ -169,12 +169,14 @@ import Api from "@/services/Api";
 import IntroSlider from "@/components/sliders/introSlider.vue";
 import MainSlider from "@/components/sliders/main.vue";
 import UserCard from "@/components/helpers/userCard.vue";
+import socials from "@/components/tools/sociallinks.vue";
 
 export default {
     computed: {
         ...mapState(["slides", "articles", "publications", "epidemics"]),
     },
     components: {
+        socials,
         UserCard,
         MainSlider,
         IntroSlider,

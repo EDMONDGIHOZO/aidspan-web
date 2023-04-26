@@ -16,28 +16,35 @@ import "./assets/styles/mobile.scss";
 import "./assets/styles/main.scss";
 import "./assets/styles/article.scss";
 import Vuelidate from "vuelidate";
+import VuePlyr from '@skjnldsv/vue-plyr'
+import 'vue-plyr/dist/vue-plyr.css'
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
 import VueAnalytics from "vue-analytics";
 import VueMeta from "vue-meta";
-import { apiurl } from "./services/helpers";
+import {apiurl} from "./services/helpers";
+
 Vue.use(Vuelidate);
+Vue.use(VuePlyr, {
+    plyr: {}
+})
 
 Vue.use(VueMeta, {
-  // optional pluginOptions
-  keyName: "aidspan",
-  tagId: "UA-34360518-1",
-  refreshOnceOnNavigation: true,
+    // optional pluginOptions
+    keyName: "aidspan",
+    tagId: "UA-34360518-1",
+    refreshOnceOnNavigation: true,
 });
 
 //import for animation
 import scrollAnimation from "./directives/scrollAnimation";
-Object.defineProperty(Vue.prototype, "$_", { value: _ });
+
+Object.defineProperty(Vue.prototype, "$_", {value: _});
 
 // Configuration VueAnalytics
 Vue.use(VueAnalytics, {
-  id: "UA-34360518-1",
-  router,
+    id: "UA-34360518-1",
+    router,
 });
 
 /** sharing stuffs */
@@ -46,53 +53,53 @@ Vue.use(SocialSharing);
 Vue.use(Vue2Filters);
 
 /** date formatting  */
-Vue.filter("formatDate", function(value) {
-  if (value) {
-    return moment.unix(value).format("MMM Do YYYY");
-  }
+Vue.filter("formatDate", function (value) {
+    if (value) {
+        return moment.unix(value).format("MMM Do YYYY");
+    }
 });
 
-Vue.filter("formatDateNormal", function(value) {
-  if (value) {
-    return moment(value).format("L");
-  }
+Vue.filter("formatDateNormal", function (value) {
+    if (value) {
+        return moment(value).format("L");
+    }
 });
-Vue.filter("normalizeFrench", function(value) {
-  if (value) {
-    return _.deburr(value);
-  }
+Vue.filter("normalizeFrench", function (value) {
+    if (value) {
+        return _.deburr(value);
+    }
 });
 /** dates with words */
-Vue.filter("formatDateWords", function(value) {
-  if (value) {
-    return moment(value).format("LL");
-  }
+Vue.filter("formatDateWords", function (value) {
+    if (value) {
+        return moment(value).format("LL");
+    }
 });
 
-Vue.filter("formatDataSize", function(value) {
-  if (value == 0) {
-    return "0.00 B";
-  }
-  var e = Math.floor(Math.log(value) / Math.log(1024));
-  return (
-    (value / Math.pow(1024, e)).toFixed(2) + " " + " KMGTP".charAt(e) + "B"
-  );
+Vue.filter("formatDataSize", function (value) {
+    if (value == 0) {
+        return "0.00 B";
+    }
+    var e = Math.floor(Math.log(value) / Math.log(1024));
+    return (
+        (value / Math.pow(1024, e)).toFixed(2) + " " + " KMGTP".charAt(e) + "B"
+    );
 });
 
 Vue.use(InstantSearch);
 
-Vue.filter("str_limit", function(value, size) {
-  if (!value) return "";
-  value = value.toString();
+Vue.filter("str_limit", function (value, size) {
+    if (!value) return "";
+    value = value.toString();
 
-  if (value.length <= size) {
-    return value;
-  }
-  return value.substr(0, size) + " ...";
+    if (value.length <= size) {
+        return value;
+    }
+    return value.substr(0, size) + " ...";
 });
 
-Vue.filter("onlyNumber", function(value) {
-  return value.replace(/\D/g, "");
+Vue.filter("onlyNumber", function (value) {
+    return value.replace(/\D/g, "");
 });
 
 Vue.directive("scrollAnimation", scrollAnimation);
@@ -100,10 +107,10 @@ Vue.config.productionTip = false;
 Vue.prototype.$api_url = apiurl;
 
 new Vue({
-  router,
-  template: "dark",
-  vuetify,
-  store,
-  i18n,
-  render: (h) => h(App),
+    router,
+    template: "dark",
+    vuetify,
+    store,
+    i18n,
+    render: (h) => h(App),
 }).$mount("#app");

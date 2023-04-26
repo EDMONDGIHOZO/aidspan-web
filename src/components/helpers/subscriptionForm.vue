@@ -2,9 +2,8 @@
   <div class="subs">
     <v-btn
       v-if="!subscribed"
-      class="ma-12 subscribeBtn"
       rounded
-      color="secondary"
+      color="white"
       depressed
       @click.stop="subscribeDialog = true"
     >{{$t("newsletterbtn")}}</v-btn>
@@ -91,7 +90,6 @@
               <v-btn
                 :disabled="!valid"
                 color="secondary"
-                class="mr-8"
                 rounded
                 outlined
                 block

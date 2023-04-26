@@ -17,11 +17,13 @@
                 <div class="fill-height d-flex flex-column text-center justify-center">
                     <h2 class="aidspan-title">AIDSPAN</h2>
                     <div class="moto-container">
-                        <p>A world without epidemics of
-                            <span class="font-weight-bold text--red text-decoration-underline" style="color: #b71c1c">AIDS</span>,
-                            <span class="font-weight-bold text--red text-decoration-underline" style="color: #00AEEF"> Tuberculosis </span>,
-                            <span class="font-weight-bold text--red text-decoration-underline"> and Malaria. </span>
-                            </p>
+                        <p>{{ $t('slider3Text') }}
+                            <span class="font-weight-bold text--red text-decoration-underline text-uppercase"
+                                  style="color: #b71c1c">{{ $t('sida') }}, </span>,
+                            <span class="font-weight-bold text--red text-decoration-underline text-uppercase"
+                                  style="color: #00AEEF"> {{ $t('tuberclosis') }}, </span>,
+                            <span class="font-weight-bold text--red text-decoration-underline text-uppercase"> {{ $t('malaria') }} </span>
+                        </p>
                     </div>
                 </div>
             </v-img>
@@ -43,7 +45,7 @@ export default {
 }
 
 .moto-container {
-    padding:0 3em;
+  padding: 0 3em;
 }
 
 .moto-container p {

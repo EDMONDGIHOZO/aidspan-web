@@ -8,8 +8,8 @@
       scrollable
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="secondary" class="button-text" depressed dark v-bind="attrs" v-on="on">
-          {{ $t("search") }}
+        <v-btn icon class="button-text" depressed dark v-bind="attrs" v-on="on">
+            <v-icon color="white">mdi-magnify</v-icon>
         </v-btn>
       </template>
       <!-- contents -->
