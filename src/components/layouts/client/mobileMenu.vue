@@ -10,7 +10,7 @@
                     color="#00AEEF"
             ></v-app-bar-nav-icon>
         </v-app-bar>
-        <v-navigation-drawer app v-model="mobMenu" right width="90%" color="primary" class="menu_container">
+        <v-navigation-drawer v-scroll-animation app v-model="mobMenu" right width="90%" color="primary" class="menu_container">
             <div class="py-6 px-6 d-flex justify-space-between align-center">
                 <div class="d-flex justify-space-between align-center">
                     <div class="close_container mr-4" @click.stop="mobMenu = !mobMenu">
@@ -32,7 +32,7 @@
                     <v-list-item
                             v-for="(item, i) in items"
                             :key="i"
-                            @click="navigateTo(item.path)"
+                            @click="navigateTo(item.path, i)"
                     >
                         <v-list-item-icon>
                             <v-icon color="white" v-text="item.icon"></v-icon>
@@ -98,14 +98,15 @@ export default {
         };
     },
     methods: {
-        navigate(pathName) {
+        navigateTo(pathName, i) {
+            this.selected = i
             return this.$router.push({name: pathName});
         },
         gohome() {
             return this.$router.push({name: "Homepage"});
         },
         gogfo() {
-        return this.$router.push({name: "Editorial"});
+            return this.$router.push({name: "Editorial"});
         },
         goabout() {
             return this.$router.push({name: "about"});
@@ -204,6 +205,7 @@ export default {
 ;
   border-radius: 32px 0 0 24px;
 }
+
 
 .logo_container {
   display: flex;
